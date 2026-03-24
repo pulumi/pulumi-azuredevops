@@ -83,14 +83,14 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return this.disabled;
     }
     /**
-     * The publisher ID of the extension.
+     * The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
      * 
      */
     @Export(name="extensionId", refs={String.class}, tree="[0]")
     private Output<String> extensionId;
 
     /**
-     * @return The publisher ID of the extension.
+     * @return The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
      * 
      */
     public Output<String> extensionId() {
@@ -111,14 +111,14 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return this.extensionName;
     }
     /**
-     * The extension ID of the extension.
+     * The Azure DevOps Marketplace publisher identifier, for example `ms`.
      * 
      */
     @Export(name="publisherId", refs={String.class}, tree="[0]")
     private Output<String> publisherId;
 
     /**
-     * @return The extension ID of the extension.
+     * @return The Azure DevOps Marketplace publisher identifier, for example `ms`.
      * 
      */
     public Output<String> publisherId() {

@@ -41,10 +41,11 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitem(ctx, "example", &azuredevops.WorkitemArgs{
-//				ProjectId: pulumi.Any(exampleAzuredevopsProject.Id),
-//				Title:     pulumi.String("Example Work Item"),
-//				Type:      pulumi.String("Issue"),
-//				State:     pulumi.String("Active"),
+//				ProjectId:   pulumi.Any(exampleAzuredevopsProject.Id),
+//				Title:       pulumi.String("Example Work Item"),
+//				Description: pulumi.String("Managed by Pulumi"),
+//				Type:        pulumi.String("Issue"),
+//				State:       pulumi.String("Active"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("Tag"),
 //				},
@@ -153,6 +154,61 @@ import (
 //
 // ```
 //
+// ### With Additional Fields
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Pulumi"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Microsoft.VSTS.Scheduling.StoryPoints":    5,
+//				"Microsoft.VSTS.Common.AcceptanceCriteria": "This is our definition of done",
+//				"Microsoft.VSTS.Common.Priority":           2,
+//				"Microsoft.VSTS.Common.ValueArea":          "Business",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = azuredevops.NewWorkitem(ctx, "example", &azuredevops.WorkitemArgs{
+//				ProjectId: pulumi.Any(exampleAzuredevopsProject.Id),
+//				Title:     pulumi.String("Example Work Item"),
+//				Type:      pulumi.String("User Story"),
+//				State:     pulumi.String("New"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("Tag"),
+//				},
+//				AdditionalFieldsJson: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
@@ -163,10 +219,16 @@ import (
 type Workitem struct {
 	pulumi.CustomResourceState
 
+	// A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+	AdditionalFieldsJson pulumi.StringPtrOutput `pulumi:"additionalFieldsJson"`
 	// Specifies the area where the Work Item is used.
 	AreaPath pulumi.StringOutput `pulumi:"areaPath"`
 	// Specifies a list with Custom Fields for the Work Item.
+	//
+	// Deprecated: This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
 	CustomFields pulumi.StringMapOutput `pulumi:"customFields"`
+	// A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+	Description pulumi.StringOutput `pulumi:"description"`
 	// Specifies the iteration in which the Work Item is used.
 	IterationPath pulumi.StringOutput `pulumi:"iterationPath"`
 	// The parent work item.
@@ -226,10 +288,16 @@ func GetWorkitem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workitem resources.
 type workitemState struct {
+	// A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+	AdditionalFieldsJson *string `pulumi:"additionalFieldsJson"`
 	// Specifies the area where the Work Item is used.
 	AreaPath *string `pulumi:"areaPath"`
 	// Specifies a list with Custom Fields for the Work Item.
+	//
+	// Deprecated: This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
 	CustomFields map[string]string `pulumi:"customFields"`
+	// A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+	Description *string `pulumi:"description"`
 	// Specifies the iteration in which the Work Item is used.
 	IterationPath *string `pulumi:"iterationPath"`
 	// The parent work item.
@@ -251,10 +319,16 @@ type workitemState struct {
 }
 
 type WorkitemState struct {
+	// A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+	AdditionalFieldsJson pulumi.StringPtrInput
 	// Specifies the area where the Work Item is used.
 	AreaPath pulumi.StringPtrInput
 	// Specifies a list with Custom Fields for the Work Item.
+	//
+	// Deprecated: This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
 	CustomFields pulumi.StringMapInput
+	// A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+	Description pulumi.StringPtrInput
 	// Specifies the iteration in which the Work Item is used.
 	IterationPath pulumi.StringPtrInput
 	// The parent work item.
@@ -280,10 +354,16 @@ func (WorkitemState) ElementType() reflect.Type {
 }
 
 type workitemArgs struct {
+	// A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+	AdditionalFieldsJson *string `pulumi:"additionalFieldsJson"`
 	// Specifies the area where the Work Item is used.
 	AreaPath *string `pulumi:"areaPath"`
 	// Specifies a list with Custom Fields for the Work Item.
+	//
+	// Deprecated: This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
 	CustomFields map[string]string `pulumi:"customFields"`
+	// A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+	Description *string `pulumi:"description"`
 	// Specifies the iteration in which the Work Item is used.
 	IterationPath *string `pulumi:"iterationPath"`
 	// The parent work item.
@@ -302,10 +382,16 @@ type workitemArgs struct {
 
 // The set of arguments for constructing a Workitem resource.
 type WorkitemArgs struct {
+	// A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+	AdditionalFieldsJson pulumi.StringPtrInput
 	// Specifies the area where the Work Item is used.
 	AreaPath pulumi.StringPtrInput
 	// Specifies a list with Custom Fields for the Work Item.
+	//
+	// Deprecated: This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
 	CustomFields pulumi.StringMapInput
+	// A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+	Description pulumi.StringPtrInput
 	// Specifies the iteration in which the Work Item is used.
 	IterationPath pulumi.StringPtrInput
 	// The parent work item.
@@ -409,14 +495,26 @@ func (o WorkitemOutput) ToWorkitemOutputWithContext(ctx context.Context) Workite
 	return o
 }
 
+// A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+func (o WorkitemOutput) AdditionalFieldsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workitem) pulumi.StringPtrOutput { return v.AdditionalFieldsJson }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the area where the Work Item is used.
 func (o WorkitemOutput) AreaPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workitem) pulumi.StringOutput { return v.AreaPath }).(pulumi.StringOutput)
 }
 
 // Specifies a list with Custom Fields for the Work Item.
+//
+// Deprecated: This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
 func (o WorkitemOutput) CustomFields() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workitem) pulumi.StringMapOutput { return v.CustomFields }).(pulumi.StringMapOutput)
+}
+
+// A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+func (o WorkitemOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workitem) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // Specifies the iteration in which the Work Item is used.

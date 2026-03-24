@@ -58,11 +58,11 @@ type Extension struct {
 
 	// Whether to disable the extension.
 	Disabled pulumi.BoolOutput `pulumi:"disabled"`
-	// The publisher ID of the extension.
+	// The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
 	ExtensionId pulumi.StringOutput `pulumi:"extensionId"`
 	// The name of the extension.
 	ExtensionName pulumi.StringOutput `pulumi:"extensionName"`
-	// The extension ID of the extension.
+	// The Azure DevOps Marketplace publisher identifier, for example `ms`.
 	PublisherId pulumi.StringOutput `pulumi:"publisherId"`
 	// The name of the publisher.
 	PublisherName pulumi.StringOutput `pulumi:"publisherName"`
@@ -110,11 +110,11 @@ func GetExtension(ctx *pulumi.Context,
 type extensionState struct {
 	// Whether to disable the extension.
 	Disabled *bool `pulumi:"disabled"`
-	// The publisher ID of the extension.
+	// The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
 	ExtensionId *string `pulumi:"extensionId"`
 	// The name of the extension.
 	ExtensionName *string `pulumi:"extensionName"`
-	// The extension ID of the extension.
+	// The Azure DevOps Marketplace publisher identifier, for example `ms`.
 	PublisherId *string `pulumi:"publisherId"`
 	// The name of the publisher.
 	PublisherName *string `pulumi:"publisherName"`
@@ -127,11 +127,11 @@ type extensionState struct {
 type ExtensionState struct {
 	// Whether to disable the extension.
 	Disabled pulumi.BoolPtrInput
-	// The publisher ID of the extension.
+	// The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
 	ExtensionId pulumi.StringPtrInput
 	// The name of the extension.
 	ExtensionName pulumi.StringPtrInput
-	// The extension ID of the extension.
+	// The Azure DevOps Marketplace publisher identifier, for example `ms`.
 	PublisherId pulumi.StringPtrInput
 	// The name of the publisher.
 	PublisherName pulumi.StringPtrInput
@@ -148,9 +148,9 @@ func (ExtensionState) ElementType() reflect.Type {
 type extensionArgs struct {
 	// Whether to disable the extension.
 	Disabled *bool `pulumi:"disabled"`
-	// The publisher ID of the extension.
+	// The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
 	ExtensionId string `pulumi:"extensionId"`
-	// The extension ID of the extension.
+	// The Azure DevOps Marketplace publisher identifier, for example `ms`.
 	PublisherId string `pulumi:"publisherId"`
 	// The version of the extension.
 	Version *string `pulumi:"version"`
@@ -160,9 +160,9 @@ type extensionArgs struct {
 type ExtensionArgs struct {
 	// Whether to disable the extension.
 	Disabled pulumi.BoolPtrInput
-	// The publisher ID of the extension.
+	// The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
 	ExtensionId pulumi.StringInput
-	// The extension ID of the extension.
+	// The Azure DevOps Marketplace publisher identifier, for example `ms`.
 	PublisherId pulumi.StringInput
 	// The version of the extension.
 	Version pulumi.StringPtrInput
@@ -260,7 +260,7 @@ func (o ExtensionOutput) Disabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Extension) pulumi.BoolOutput { return v.Disabled }).(pulumi.BoolOutput)
 }
 
-// The publisher ID of the extension.
+// The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
 func (o ExtensionOutput) ExtensionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.ExtensionId }).(pulumi.StringOutput)
 }
@@ -270,7 +270,7 @@ func (o ExtensionOutput) ExtensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.ExtensionName }).(pulumi.StringOutput)
 }
 
-// The extension ID of the extension.
+// The Azure DevOps Marketplace publisher identifier, for example `ms`.
 func (o ExtensionOutput) PublisherId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.PublisherId }).(pulumi.StringOutput)
 }

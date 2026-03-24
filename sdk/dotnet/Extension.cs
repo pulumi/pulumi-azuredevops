@@ -54,7 +54,7 @@ namespace Pulumi.AzureDevOps
         public Output<bool> Disabled { get; private set; } = null!;
 
         /// <summary>
-        /// The publisher ID of the extension.
+        /// The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
         /// </summary>
         [Output("extensionId")]
         public Output<string> ExtensionId { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ExtensionName { get; private set; } = null!;
 
         /// <summary>
-        /// The extension ID of the extension.
+        /// The Azure DevOps Marketplace publisher identifier, for example `Ms`.
         /// </summary>
         [Output("publisherId")]
         public Output<string> PublisherId { get; private set; } = null!;
@@ -142,13 +142,13 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// The publisher ID of the extension.
+        /// The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
         /// </summary>
         [Input("extensionId", required: true)]
         public Input<string> ExtensionId { get; set; } = null!;
 
         /// <summary>
-        /// The extension ID of the extension.
+        /// The Azure DevOps Marketplace publisher identifier, for example `Ms`.
         /// </summary>
         [Input("publisherId", required: true)]
         public Input<string> PublisherId { get; set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// The publisher ID of the extension.
+        /// The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
         /// </summary>
         [Input("extensionId")]
         public Input<string>? ExtensionId { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ExtensionName { get; set; }
 
         /// <summary>
-        /// The extension ID of the extension.
+        /// The Azure DevOps Marketplace publisher identifier, for example `Ms`.
         /// </summary>
         [Input("publisherId")]
         public Input<string>? PublisherId { get; set; }

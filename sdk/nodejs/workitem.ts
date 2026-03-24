@@ -27,6 +27,7 @@ import * as utilities from "./utilities";
  * const exampleWorkitem = new azuredevops.Workitem("example", {
  *     projectId: exampleAzuredevopsProject.id,
  *     title: "Example Work Item",
+ *     description: "Managed by Pulumi",
  *     type: "Issue",
  *     state: "Active",
  *     tags: ["Tag"],
@@ -85,6 +86,34 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### With Additional Fields
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Pulumi",
+ * });
+ * const exampleWorkitem = new azuredevops.Workitem("example", {
+ *     projectId: exampleAzuredevopsProject.id,
+ *     title: "Example Work Item",
+ *     type: "User Story",
+ *     state: "New",
+ *     tags: ["Tag"],
+ *     additionalFieldsJson: JSON.stringify({
+ *         "Microsoft.VSTS.Scheduling.StoryPoints": 5,
+ *         "Microsoft.VSTS.Common.AcceptanceCriteria": "This is our definition of done",
+ *         "Microsoft.VSTS.Common.Priority": 2,
+ *         "Microsoft.VSTS.Common.ValueArea": "Business",
+ *     }),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
@@ -122,13 +151,23 @@ export class Workitem extends pulumi.CustomResource {
     }
 
     /**
+     * A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+     */
+    declare public readonly additionalFieldsJson: pulumi.Output<string | undefined>;
+    /**
      * Specifies the area where the Work Item is used.
      */
     declare public readonly areaPath: pulumi.Output<string>;
     /**
      * Specifies a list with Custom Fields for the Work Item.
+     *
+     * @deprecated This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
      */
     declare public readonly customFields: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+     */
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Specifies the iteration in which the Work Item is used.
      */
@@ -179,8 +218,10 @@ export class Workitem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkitemState | undefined;
+            resourceInputs["additionalFieldsJson"] = state?.additionalFieldsJson;
             resourceInputs["areaPath"] = state?.areaPath;
             resourceInputs["customFields"] = state?.customFields;
+            resourceInputs["description"] = state?.description;
             resourceInputs["iterationPath"] = state?.iterationPath;
             resourceInputs["parentId"] = state?.parentId;
             resourceInputs["projectId"] = state?.projectId;
@@ -201,8 +242,10 @@ export class Workitem extends pulumi.CustomResource {
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["additionalFieldsJson"] = args?.additionalFieldsJson;
             resourceInputs["areaPath"] = args?.areaPath;
             resourceInputs["customFields"] = args?.customFields;
+            resourceInputs["description"] = args?.description;
             resourceInputs["iterationPath"] = args?.iterationPath;
             resourceInputs["parentId"] = args?.parentId;
             resourceInputs["projectId"] = args?.projectId;
@@ -223,13 +266,23 @@ export class Workitem extends pulumi.CustomResource {
  */
 export interface WorkitemState {
     /**
+     * A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+     */
+    additionalFieldsJson?: pulumi.Input<string>;
+    /**
      * Specifies the area where the Work Item is used.
      */
     areaPath?: pulumi.Input<string>;
     /**
      * Specifies a list with Custom Fields for the Work Item.
+     *
+     * @deprecated This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
      */
     customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Specifies the iteration in which the Work Item is used.
      */
@@ -273,13 +326,23 @@ export interface WorkitemState {
  */
 export interface WorkitemArgs {
     /**
+     * A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+     */
+    additionalFieldsJson?: pulumi.Input<string>;
+    /**
      * Specifies the area where the Work Item is used.
      */
     areaPath?: pulumi.Input<string>;
     /**
      * Specifies a list with Custom Fields for the Work Item.
+     *
+     * @deprecated This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
      */
     customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Specifies the iteration in which the Work Item is used.
      */

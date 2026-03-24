@@ -24,8 +24,10 @@ class WorkitemArgs:
                  project_id: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
+                 additional_fields_json: Optional[pulumi.Input[_builtins.str]] = None,
                  area_path: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
                  iteration_path: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_id: Optional[pulumi.Input[_builtins.int]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
@@ -35,8 +37,10 @@ class WorkitemArgs:
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project.
         :param pulumi.Input[_builtins.str] title: The Title of the Work Item.
         :param pulumi.Input[_builtins.str] type: The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
+        :param pulumi.Input[_builtins.str] additional_fields_json: A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
         :param pulumi.Input[_builtins.str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
+        :param pulumi.Input[_builtins.str] description: A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
         :param pulumi.Input[_builtins.str] iteration_path: Specifies the iteration in which the Work Item is used.
         :param pulumi.Input[_builtins.int] parent_id: The parent work item.
         :param pulumi.Input[_builtins.str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
@@ -45,10 +49,17 @@ class WorkitemArgs:
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "title", title)
         pulumi.set(__self__, "type", type)
+        if additional_fields_json is not None:
+            pulumi.set(__self__, "additional_fields_json", additional_fields_json)
         if area_path is not None:
             pulumi.set(__self__, "area_path", area_path)
         if custom_fields is not None:
+            warnings.warn("""This property is deprecated and will be removed in a future release. Please use \"additional_fields_json\" argument instead.""", DeprecationWarning)
+            pulumi.log.warn("""custom_fields is deprecated: This property is deprecated and will be removed in a future release. Please use \"additional_fields_json\" argument instead.""")
+        if custom_fields is not None:
             pulumi.set(__self__, "custom_fields", custom_fields)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if iteration_path is not None:
             pulumi.set(__self__, "iteration_path", iteration_path)
         if parent_id is not None:
@@ -95,6 +106,18 @@ class WorkitemArgs:
         pulumi.set(self, "type", value)
 
     @_builtins.property
+    @pulumi.getter(name="additionalFieldsJson")
+    def additional_fields_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+        """
+        return pulumi.get(self, "additional_fields_json")
+
+    @additional_fields_json.setter
+    def additional_fields_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "additional_fields_json", value)
+
+    @_builtins.property
     @pulumi.getter(name="areaPath")
     def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -108,6 +131,7 @@ class WorkitemArgs:
 
     @_builtins.property
     @pulumi.getter(name="customFields")
+    @_utilities.deprecated("""This property is deprecated and will be removed in a future release. Please use \"additional_fields_json\" argument instead.""")
     def custom_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list with Custom Fields for the Work Item.
@@ -117,6 +141,18 @@ class WorkitemArgs:
     @custom_fields.setter
     def custom_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_fields", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="iterationPath")
@@ -170,8 +206,10 @@ class WorkitemArgs:
 @pulumi.input_type
 class _WorkitemState:
     def __init__(__self__, *,
+                 additional_fields_json: Optional[pulumi.Input[_builtins.str]] = None,
                  area_path: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
                  iteration_path: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_id: Optional[pulumi.Input[_builtins.int]] = None,
                  project_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -183,8 +221,10 @@ class _WorkitemState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workitem resources.
+        :param pulumi.Input[_builtins.str] additional_fields_json: A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
         :param pulumi.Input[_builtins.str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
+        :param pulumi.Input[_builtins.str] description: A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
         :param pulumi.Input[_builtins.str] iteration_path: Specifies the iteration in which the Work Item is used.
         :param pulumi.Input[_builtins.int] parent_id: The parent work item.
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project.
@@ -195,10 +235,17 @@ class _WorkitemState:
         :param pulumi.Input[_builtins.str] type: The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
         :param pulumi.Input[_builtins.str] url: The URL of the Work Item.
         """
+        if additional_fields_json is not None:
+            pulumi.set(__self__, "additional_fields_json", additional_fields_json)
         if area_path is not None:
             pulumi.set(__self__, "area_path", area_path)
         if custom_fields is not None:
+            warnings.warn("""This property is deprecated and will be removed in a future release. Please use \"additional_fields_json\" argument instead.""", DeprecationWarning)
+            pulumi.log.warn("""custom_fields is deprecated: This property is deprecated and will be removed in a future release. Please use \"additional_fields_json\" argument instead.""")
+        if custom_fields is not None:
             pulumi.set(__self__, "custom_fields", custom_fields)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if iteration_path is not None:
             pulumi.set(__self__, "iteration_path", iteration_path)
         if parent_id is not None:
@@ -219,6 +266,18 @@ class _WorkitemState:
             pulumi.set(__self__, "url", url)
 
     @_builtins.property
+    @pulumi.getter(name="additionalFieldsJson")
+    def additional_fields_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+        """
+        return pulumi.get(self, "additional_fields_json")
+
+    @additional_fields_json.setter
+    def additional_fields_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "additional_fields_json", value)
+
+    @_builtins.property
     @pulumi.getter(name="areaPath")
     def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -232,6 +291,7 @@ class _WorkitemState:
 
     @_builtins.property
     @pulumi.getter(name="customFields")
+    @_utilities.deprecated("""This property is deprecated and will be removed in a future release. Please use \"additional_fields_json\" argument instead.""")
     def custom_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list with Custom Fields for the Work Item.
@@ -241,6 +301,18 @@ class _WorkitemState:
     @custom_fields.setter
     def custom_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_fields", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="iterationPath")
@@ -357,8 +429,10 @@ class Workitem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_fields_json: Optional[pulumi.Input[_builtins.str]] = None,
                  area_path: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
                  iteration_path: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_id: Optional[pulumi.Input[_builtins.int]] = None,
                  project_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -387,6 +461,7 @@ class Workitem(pulumi.CustomResource):
         example_workitem = azuredevops.Workitem("example",
             project_id=example_azuredevops_project["id"],
             title="Example Work Item",
+            description="Managed by Pulumi",
             type="Issue",
             state="Active",
             tags=["Tag"])
@@ -439,6 +514,33 @@ class Workitem(pulumi.CustomResource):
             parent_id=epic.id)
         ```
 
+        ### With Additional Fields
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Pulumi")
+        example_workitem = azuredevops.Workitem("example",
+            project_id=example_azuredevops_project["id"],
+            title="Example Work Item",
+            type="User Story",
+            state="New",
+            tags=["Tag"],
+            additional_fields_json=json.dumps({
+                "Microsoft.VSTS.Scheduling.StoryPoints": 5,
+                "Microsoft.VSTS.Common.AcceptanceCriteria": "This is our definition of done",
+                "Microsoft.VSTS.Common.Priority": 2,
+                "Microsoft.VSTS.Common.ValueArea": "Business",
+            }))
+        ```
+
         ## Import
 
         Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
@@ -449,8 +551,10 @@ class Workitem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] additional_fields_json: A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
         :param pulumi.Input[_builtins.str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
+        :param pulumi.Input[_builtins.str] description: A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
         :param pulumi.Input[_builtins.str] iteration_path: Specifies the iteration in which the Work Item is used.
         :param pulumi.Input[_builtins.int] parent_id: The parent work item.
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project.
@@ -485,6 +589,7 @@ class Workitem(pulumi.CustomResource):
         example_workitem = azuredevops.Workitem("example",
             project_id=example_azuredevops_project["id"],
             title="Example Work Item",
+            description="Managed by Pulumi",
             type="Issue",
             state="Active",
             tags=["Tag"])
@@ -537,6 +642,33 @@ class Workitem(pulumi.CustomResource):
             parent_id=epic.id)
         ```
 
+        ### With Additional Fields
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Pulumi")
+        example_workitem = azuredevops.Workitem("example",
+            project_id=example_azuredevops_project["id"],
+            title="Example Work Item",
+            type="User Story",
+            state="New",
+            tags=["Tag"],
+            additional_fields_json=json.dumps({
+                "Microsoft.VSTS.Scheduling.StoryPoints": 5,
+                "Microsoft.VSTS.Common.AcceptanceCriteria": "This is our definition of done",
+                "Microsoft.VSTS.Common.Priority": 2,
+                "Microsoft.VSTS.Common.ValueArea": "Business",
+            }))
+        ```
+
         ## Import
 
         Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
@@ -560,8 +692,10 @@ class Workitem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_fields_json: Optional[pulumi.Input[_builtins.str]] = None,
                  area_path: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
                  iteration_path: Optional[pulumi.Input[_builtins.str]] = None,
                  parent_id: Optional[pulumi.Input[_builtins.int]] = None,
                  project_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -578,8 +712,10 @@ class Workitem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkitemArgs.__new__(WorkitemArgs)
 
+            __props__.__dict__["additional_fields_json"] = additional_fields_json
             __props__.__dict__["area_path"] = area_path
             __props__.__dict__["custom_fields"] = custom_fields
+            __props__.__dict__["description"] = description
             __props__.__dict__["iteration_path"] = iteration_path
             __props__.__dict__["parent_id"] = parent_id
             if project_id is None and not opts.urn:
@@ -605,8 +741,10 @@ class Workitem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            additional_fields_json: Optional[pulumi.Input[_builtins.str]] = None,
             area_path: Optional[pulumi.Input[_builtins.str]] = None,
             custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: Optional[pulumi.Input[_builtins.str]] = None,
             iteration_path: Optional[pulumi.Input[_builtins.str]] = None,
             parent_id: Optional[pulumi.Input[_builtins.int]] = None,
             project_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -623,8 +761,10 @@ class Workitem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] additional_fields_json: A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
         :param pulumi.Input[_builtins.str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
+        :param pulumi.Input[_builtins.str] description: A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
         :param pulumi.Input[_builtins.str] iteration_path: Specifies the iteration in which the Work Item is used.
         :param pulumi.Input[_builtins.int] parent_id: The parent work item.
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project.
@@ -639,8 +779,10 @@ class Workitem(pulumi.CustomResource):
 
         __props__ = _WorkitemState.__new__(_WorkitemState)
 
+        __props__.__dict__["additional_fields_json"] = additional_fields_json
         __props__.__dict__["area_path"] = area_path
         __props__.__dict__["custom_fields"] = custom_fields
+        __props__.__dict__["description"] = description
         __props__.__dict__["iteration_path"] = iteration_path
         __props__.__dict__["parent_id"] = parent_id
         __props__.__dict__["project_id"] = project_id
@@ -653,6 +795,14 @@ class Workitem(pulumi.CustomResource):
         return Workitem(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
+    @pulumi.getter(name="additionalFieldsJson")
+    def additional_fields_json(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+        """
+        return pulumi.get(self, "additional_fields_json")
+
+    @_builtins.property
     @pulumi.getter(name="areaPath")
     def area_path(self) -> pulumi.Output[_builtins.str]:
         """
@@ -662,11 +812,20 @@ class Workitem(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="customFields")
+    @_utilities.deprecated("""This property is deprecated and will be removed in a future release. Please use \"additional_fields_json\" argument instead.""")
     def custom_fields(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         Specifies a list with Custom Fields for the Work Item.
         """
         return pulumi.get(self, "custom_fields")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[_builtins.str]:
+        """
+        A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+        """
+        return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="iterationPath")

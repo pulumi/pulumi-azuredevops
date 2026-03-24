@@ -37,6 +37,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Title = "Example Work Item",
+    ///         Description = "Managed by Pulumi",
     ///         Type = "Issue",
     ///         State = "Active",
     ///         Tags = new[]
@@ -127,6 +128,48 @@ namespace Pulumi.AzureDevOps
     /// });
     /// ```
     /// 
+    /// ### With Additional Fields
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Pulumi",
+    ///     });
+    /// 
+    ///     var exampleWorkitem = new AzureDevOps.Workitem("example", new()
+    ///     {
+    ///         ProjectId = exampleAzuredevopsProject.Id,
+    ///         Title = "Example Work Item",
+    ///         Type = "User Story",
+    ///         State = "New",
+    ///         Tags = new[]
+    ///         {
+    ///             "Tag",
+    ///         },
+    ///         AdditionalFieldsJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Microsoft.VSTS.Scheduling.StoryPoints"] = 5,
+    ///             ["Microsoft.VSTS.Common.AcceptanceCriteria"] = "This is our definition of done",
+    ///             ["Microsoft.VSTS.Common.Priority"] = 2,
+    ///             ["Microsoft.VSTS.Common.ValueArea"] = "Business",
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
@@ -139,6 +182,12 @@ namespace Pulumi.AzureDevOps
     public partial class Workitem : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+        /// </summary>
+        [Output("additionalFieldsJson")]
+        public Output<string?> AdditionalFieldsJson { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the area where the Work Item is used.
         /// </summary>
         [Output("areaPath")]
@@ -149,6 +198,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("customFields")]
         public Output<ImmutableDictionary<string, string>?> CustomFields { get; private set; } = null!;
+
+        /// <summary>
+        /// A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+        /// </summary>
+        [Output("description")]
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the iteration in which the Work Item is used.
@@ -251,6 +306,12 @@ namespace Pulumi.AzureDevOps
     public sealed class WorkitemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+        /// </summary>
+        [Input("additionalFieldsJson")]
+        public Input<string>? AdditionalFieldsJson { get; set; }
+
+        /// <summary>
         /// Specifies the area where the Work Item is used.
         /// </summary>
         [Input("areaPath")]
@@ -262,11 +323,18 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Specifies a list with Custom Fields for the Work Item.
         /// </summary>
+        [Obsolete(@"This property is deprecated and will be removed in a future release. Please use ""AdditionalFieldsJson"" argument instead.")]
         public InputMap<string> CustomFields
         {
             get => _customFields ?? (_customFields = new InputMap<string>());
             set => _customFields = value;
         }
+
+        /// <summary>
+        /// A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// Specifies the iteration in which the Work Item is used.
@@ -325,6 +393,12 @@ namespace Pulumi.AzureDevOps
     public sealed class WorkitemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
+        /// </summary>
+        [Input("additionalFieldsJson")]
+        public Input<string>? AdditionalFieldsJson { get; set; }
+
+        /// <summary>
         /// Specifies the area where the Work Item is used.
         /// </summary>
         [Input("areaPath")]
@@ -336,11 +410,18 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Specifies a list with Custom Fields for the Work Item.
         /// </summary>
+        [Obsolete(@"This property is deprecated and will be removed in a future release. Please use ""AdditionalFieldsJson"" argument instead.")]
         public InputMap<string> CustomFields
         {
             get => _customFields ?? (_customFields = new InputMap<string>());
             set => _customFields = value;
         }
+
+        /// <summary>
+        /// A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// Specifies the iteration in which the Work Item is used.
