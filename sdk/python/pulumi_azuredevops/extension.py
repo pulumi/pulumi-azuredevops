@@ -25,8 +25,8 @@ class ExtensionArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
-        :param pulumi.Input[_builtins.str] extension_id: The publisher ID of the extension.
-        :param pulumi.Input[_builtins.str] publisher_id: The extension ID of the extension.
+        :param pulumi.Input[_builtins.str] extension_id: The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
+        :param pulumi.Input[_builtins.str] publisher_id: The Azure DevOps Marketplace publisher identifier, for example `ms`.
         :param pulumi.Input[_builtins.bool] disabled: Whether to disable the extension.
         :param pulumi.Input[_builtins.str] version: The version of the extension.
         """
@@ -41,7 +41,7 @@ class ExtensionArgs:
     @pulumi.getter(name="extensionId")
     def extension_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The publisher ID of the extension.
+        The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
         """
         return pulumi.get(self, "extension_id")
 
@@ -53,7 +53,7 @@ class ExtensionArgs:
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The extension ID of the extension.
+        The Azure DevOps Marketplace publisher identifier, for example `ms`.
         """
         return pulumi.get(self, "publisher_id")
 
@@ -99,9 +99,9 @@ class _ExtensionState:
         """
         Input properties used for looking up and filtering Extension resources.
         :param pulumi.Input[_builtins.bool] disabled: Whether to disable the extension.
-        :param pulumi.Input[_builtins.str] extension_id: The publisher ID of the extension.
+        :param pulumi.Input[_builtins.str] extension_id: The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
         :param pulumi.Input[_builtins.str] extension_name: The name of the extension.
-        :param pulumi.Input[_builtins.str] publisher_id: The extension ID of the extension.
+        :param pulumi.Input[_builtins.str] publisher_id: The Azure DevOps Marketplace publisher identifier, for example `ms`.
         :param pulumi.Input[_builtins.str] publisher_name: The name of the publisher.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: List of all oauth scopes required by this extension.
         :param pulumi.Input[_builtins.str] version: The version of the extension.
@@ -137,7 +137,7 @@ class _ExtensionState:
     @pulumi.getter(name="extensionId")
     def extension_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The publisher ID of the extension.
+        The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
         """
         return pulumi.get(self, "extension_id")
 
@@ -161,7 +161,7 @@ class _ExtensionState:
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The extension ID of the extension.
+        The Azure DevOps Marketplace publisher identifier, for example `ms`.
         """
         return pulumi.get(self, "publisher_id")
 
@@ -247,8 +247,8 @@ class Extension(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] disabled: Whether to disable the extension.
-        :param pulumi.Input[_builtins.str] extension_id: The publisher ID of the extension.
-        :param pulumi.Input[_builtins.str] publisher_id: The extension ID of the extension.
+        :param pulumi.Input[_builtins.str] extension_id: The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
+        :param pulumi.Input[_builtins.str] publisher_id: The Azure DevOps Marketplace publisher identifier, for example `ms`.
         :param pulumi.Input[_builtins.str] version: The version of the extension.
         """
         ...
@@ -348,9 +348,9 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] disabled: Whether to disable the extension.
-        :param pulumi.Input[_builtins.str] extension_id: The publisher ID of the extension.
+        :param pulumi.Input[_builtins.str] extension_id: The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
         :param pulumi.Input[_builtins.str] extension_name: The name of the extension.
-        :param pulumi.Input[_builtins.str] publisher_id: The extension ID of the extension.
+        :param pulumi.Input[_builtins.str] publisher_id: The Azure DevOps Marketplace publisher identifier, for example `ms`.
         :param pulumi.Input[_builtins.str] publisher_name: The name of the publisher.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: List of all oauth scopes required by this extension.
         :param pulumi.Input[_builtins.str] version: The version of the extension.
@@ -380,7 +380,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter(name="extensionId")
     def extension_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The publisher ID of the extension.
+        The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
         """
         return pulumi.get(self, "extension_id")
 
@@ -396,7 +396,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The extension ID of the extension.
+        The Azure DevOps Marketplace publisher identifier, for example `ms`.
         """
         return pulumi.get(self, "publisher_id")
 

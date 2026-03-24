@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()
  *             .projectId(exampleAzuredevopsProject.id())
  *             .title("Example Work Item")
+ *             .description("Managed by Pulumi")
  *             .type("Issue")
  *             .state("Active")
  *             .tags("Tag")
@@ -171,6 +172,61 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With Additional Fields
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Workitem;
+ * import com.pulumi.azuredevops.WorkitemArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .description("Managed by Pulumi")
+ *             .build());
+ * 
+ *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()
+ *             .projectId(exampleAzuredevopsProject.id())
+ *             .title("Example Work Item")
+ *             .type("User Story")
+ *             .state("New")
+ *             .tags("Tag")
+ *             .additionalFieldsJson(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Microsoft.VSTS.Scheduling.StoryPoints", 5),
+ *                     jsonProperty("Microsoft.VSTS.Common.AcceptanceCriteria", "This is our definition of done"),
+ *                     jsonProperty("Microsoft.VSTS.Common.Priority", 2),
+ *                     jsonProperty("Microsoft.VSTS.Common.ValueArea", "Business")
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Azure DevOps Work Item can be imported using the Project ID and Work Item ID, e.g.
@@ -182,6 +238,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/workitem:Workitem")
 public class Workitem extends com.pulumi.resources.CustomResource {
+    /**
+     * A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`&#34;{}&#34;`).
+     * 
+     */
+    @Export(name="additionalFieldsJson", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> additionalFieldsJson;
+
+    /**
+     * @return A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`&#34;{}&#34;`).
+     * 
+     */
+    public Output<Optional<String>> additionalFieldsJson() {
+        return Codegen.optional(this.additionalFieldsJson);
+    }
     /**
      * Specifies the area where the Work Item is used.
      * 
@@ -199,7 +269,11 @@ public class Workitem extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list with Custom Fields for the Work Item.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in a future release. Please use ""additionalFieldsJson"" argument instead. */
     @Export(name="customFields", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> customFields;
 
@@ -209,6 +283,20 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> customFields() {
         return Codegen.optional(this.customFields);
+    }
+    /**
+     * A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+     * 
+     */
+    @Export(name="description", refs={String.class}, tree="[0]")
+    private Output<String> description;
+
+    /**
+     * @return A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+     * 
+     */
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * Specifies the iteration in which the Work Item is used.

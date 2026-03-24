@@ -65,7 +65,7 @@ export class Extension extends pulumi.CustomResource {
      */
     declare public readonly disabled: pulumi.Output<boolean>;
     /**
-     * The publisher ID of the extension.
+     * The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
      */
     declare public readonly extensionId: pulumi.Output<string>;
     /**
@@ -73,7 +73,7 @@ export class Extension extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly extensionName: pulumi.Output<string>;
     /**
-     * The extension ID of the extension.
+     * The Azure DevOps Marketplace publisher identifier, for example `ms`.
      */
     declare public readonly publisherId: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export interface ExtensionState {
      */
     disabled?: pulumi.Input<boolean>;
     /**
-     * The publisher ID of the extension.
+     * The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
      */
     extensionId?: pulumi.Input<string>;
     /**
@@ -147,7 +147,7 @@ export interface ExtensionState {
      */
     extensionName?: pulumi.Input<string>;
     /**
-     * The extension ID of the extension.
+     * The Azure DevOps Marketplace publisher identifier, for example `ms`.
      */
     publisherId?: pulumi.Input<string>;
     /**
@@ -173,11 +173,11 @@ export interface ExtensionArgs {
      */
     disabled?: pulumi.Input<boolean>;
     /**
-     * The publisher ID of the extension.
+     * The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
      */
     extensionId: pulumi.Input<string>;
     /**
-     * The extension ID of the extension.
+     * The Azure DevOps Marketplace publisher identifier, for example `ms`.
      */
     publisherId: pulumi.Input<string>;
     /**

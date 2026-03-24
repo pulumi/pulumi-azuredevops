@@ -33,14 +33,14 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The publisher ID of the extension.
+     * The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
      * 
      */
     @Import(name="extensionId", required=true)
     private Output<String> extensionId;
 
     /**
-     * @return The publisher ID of the extension.
+     * @return The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
      * 
      */
     public Output<String> extensionId() {
@@ -48,14 +48,14 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The extension ID of the extension.
+     * The Azure DevOps Marketplace publisher identifier, for example `ms`.
      * 
      */
     @Import(name="publisherId", required=true)
     private Output<String> publisherId;
 
     /**
-     * @return The extension ID of the extension.
+     * @return The Azure DevOps Marketplace publisher identifier, for example `ms`.
      * 
      */
     public Output<String> publisherId() {
@@ -126,7 +126,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extensionId The publisher ID of the extension.
+         * @param extensionId The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param extensionId The publisher ID of the extension.
+         * @param extensionId The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publisherId The extension ID of the extension.
+         * @param publisherId The Azure DevOps Marketplace publisher identifier, for example `ms`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publisherId The extension ID of the extension.
+         * @param publisherId The Azure DevOps Marketplace publisher identifier, for example `ms`.
          * 
          * @return builder
          * 

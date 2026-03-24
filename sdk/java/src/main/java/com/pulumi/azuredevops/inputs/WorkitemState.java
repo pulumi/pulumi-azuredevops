@@ -20,6 +20,21 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
     public static final WorkitemState Empty = new WorkitemState();
 
     /**
+     * A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`&#34;{}&#34;`).
+     * 
+     */
+    @Import(name="additionalFieldsJson")
+    private @Nullable Output<String> additionalFieldsJson;
+
+    /**
+     * @return A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`&#34;{}&#34;`).
+     * 
+     */
+    public Optional<Output<String>> additionalFieldsJson() {
+        return Optional.ofNullable(this.additionalFieldsJson);
+    }
+
+    /**
      * Specifies the area where the Work Item is used.
      * 
      */
@@ -37,16 +52,39 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies a list with Custom Fields for the Work Item.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in a future release. Please use ""additionalFieldsJson"" argument instead. */
     @Import(name="customFields")
     private @Nullable Output<Map<String,String>> customFields;
 
     /**
      * @return Specifies a list with Custom Fields for the Work Item.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in a future release. Please use ""additionalFieldsJson"" argument instead. */
     public Optional<Output<Map<String,String>>> customFields() {
         return Optional.ofNullable(this.customFields);
+    }
+
+    /**
+     * A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
     }
 
     /**
@@ -187,8 +225,10 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
     private WorkitemState() {}
 
     private WorkitemState(WorkitemState $) {
+        this.additionalFieldsJson = $.additionalFieldsJson;
         this.areaPath = $.areaPath;
         this.customFields = $.customFields;
+        this.description = $.description;
         this.iterationPath = $.iterationPath;
         this.parentId = $.parentId;
         this.projectId = $.projectId;
@@ -219,6 +259,27 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param additionalFieldsJson A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`&#34;{}&#34;`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalFieldsJson(@Nullable Output<String> additionalFieldsJson) {
+            $.additionalFieldsJson = additionalFieldsJson;
+            return this;
+        }
+
+        /**
+         * @param additionalFieldsJson A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`&#34;{}&#34;`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalFieldsJson(String additionalFieldsJson) {
+            return additionalFieldsJson(Output.of(additionalFieldsJson));
+        }
+
+        /**
          * @param areaPath Specifies the area where the Work Item is used.
          * 
          * @return builder
@@ -244,7 +305,11 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
+         * 
          */
+        @Deprecated /* This property is deprecated and will be removed in a future release. Please use ""additionalFieldsJson"" argument instead. */
         public Builder customFields(@Nullable Output<Map<String,String>> customFields) {
             $.customFields = customFields;
             return this;
@@ -255,9 +320,34 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
+         * 
          */
+        @Deprecated /* This property is deprecated and will be removed in a future release. Please use ""additionalFieldsJson"" argument instead. */
         public Builder customFields(Map<String,String> customFields) {
             return customFields(Output.of(customFields));
+        }
+
+        /**
+         * @param description A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**
