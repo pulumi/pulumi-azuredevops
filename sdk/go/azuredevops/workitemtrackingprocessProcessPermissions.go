@@ -45,7 +45,7 @@ import (
 //			}
 //			_, err = azuredevops.NewWorkitemtrackingprocessProcessPermissions(ctx, "example", &azuredevops.WorkitemtrackingprocessProcessPermissionsArgs{
 //				ProcessId: example.ID(),
-//				Principal: pulumi.String(example_group.Id),
+//				Principal: pulumi.String(pulumi.String(example_group.Id)),
 //				Permissions: pulumi.StringMap{
 //					"Edit":                         pulumi.String("Allow"),
 //					"Delete":                       pulumi.String("Deny"),
@@ -83,7 +83,7 @@ import (
 //			}
 //			_, err = azuredevops.NewWorkitemtrackingprocessProcessPermissions(ctx, "example", &azuredevops.WorkitemtrackingprocessProcessPermissionsArgs{
 //				ProcessId: pulumi.String("adcc42ab-9882-485e-a3ed-7678f01f66bc"),
-//				Principal: pulumi.String(example_group.Id),
+//				Principal: pulumi.String(pulumi.String(example_group.Id)),
 //				Permissions: pulumi.StringMap{
 //					"Create": pulumi.String("Deny"),
 //				},

@@ -201,7 +201,7 @@ import (
 //			}
 //			exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
 //				ProjectId:                           example.ID(),
-//				ServiceEndpointName:                 pulumi.String(serviceConnectionName),
+//				ServiceEndpointName:                 pulumi.String(pulumi.String(serviceConnectionName)),
 //				Description:                         pulumi.String("Managed by Pulumi"),
 //				ServiceEndpointAuthenticationScheme: pulumi.String("WorkloadIdentityFederation"),
 //				Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{

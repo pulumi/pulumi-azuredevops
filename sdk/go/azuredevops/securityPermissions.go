@@ -51,9 +51,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewSecurityPermissions(ctx, "collection_perms", &azuredevops.SecurityPermissionsArgs{
-//				NamespaceId: pulumi.String(collection.Id),
-//				Token:       pulumi.String(collectionGetSecurityNamespaceToken.Token),
-//				Principal:   pulumi.String(example.Descriptor),
+//				NamespaceId: pulumi.String(pulumi.String(collection.Id)),
+//				Token:       pulumi.String(pulumi.String(collectionGetSecurityNamespaceToken.Token)),
+//				Principal:   pulumi.String(pulumi.String(example.Descriptor)),
 //				Permissions: pulumi.StringMap{
 //					"GENERIC_READ":  pulumi.String("allow"),
 //					"GENERIC_WRITE": pulumi.String("allow"),
@@ -119,9 +119,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewSecurityPermissions(ctx, "git_perms", &azuredevops.SecurityPermissionsArgs{
-//				NamespaceId: pulumi.String(gitRepos.Id),
-//				Token:       pulumi.String(gitRepo.Token),
-//				Principal:   pulumi.String(exampleContributors.Descriptor),
+//				NamespaceId: pulumi.String(pulumi.String(gitRepos.Id)),
+//				Token:       pulumi.String(pulumi.String(gitRepo.Token)),
+//				Principal:   pulumi.String(pulumi.String(exampleContributors.Descriptor)),
 //				Permissions: pulumi.StringMap{
 //					"GenericRead":       pulumi.String("allow"),
 //					"GenericContribute": pulumi.String("allow"),
@@ -192,8 +192,8 @@ import (
 //			}
 //			_, err = azuredevops.NewSecurityPermissions(ctx, "main_branch_perms", &azuredevops.SecurityPermissionsArgs{
 //				NamespaceId: pulumi.String("2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87"),
-//				Token:       pulumi.String(mainBranch.Token),
-//				Principal:   pulumi.String(exampleContributors.Descriptor),
+//				Token:       pulumi.String(pulumi.String(mainBranch.Token)),
+//				Principal:   pulumi.String(pulumi.String(exampleContributors.Descriptor)),
 //				Permissions: pulumi.StringMap{
 //					"ForcePush":         pulumi.String("Deny"),
 //					"RemoveOthersLocks": pulumi.String("Deny"),

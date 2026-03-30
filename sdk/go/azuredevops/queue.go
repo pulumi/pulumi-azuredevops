@@ -48,7 +48,7 @@ import (
 //			}
 //			exampleQueue, err := azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
 //				ProjectId:   exampleProject.ID(),
-//				AgentPoolId: pulumi.String(example.Id),
+//				AgentPoolId: pulumi.Int(pulumi.String(example.Id)),
 //			})
 //			if err != nil {
 //				return err
@@ -91,7 +91,7 @@ import (
 //			}
 //			_, err = azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
 //				Name:      pulumi.String("example-queue"),
-//				ProjectId: pulumi.String(example.Id),
+//				ProjectId: pulumi.String(pulumi.String(example.Id)),
 //			})
 //			if err != nil {
 //				return err
