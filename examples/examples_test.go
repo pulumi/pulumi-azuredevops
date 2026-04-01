@@ -73,7 +73,7 @@ func TestServiceConnectionIdDefaultDoesNotConflict(t *testing.T) {
 						"serviceConnectionId": "",
 						"initType": "Clean"
 					},
-					"name": "repo-779583a",
+					"name": "repo-e742621",
 					"projectId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
 				}
 			},
