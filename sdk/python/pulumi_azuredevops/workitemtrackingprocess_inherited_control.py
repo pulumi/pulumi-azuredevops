@@ -27,6 +27,7 @@ class WorkitemtrackingprocessInheritedControlArgs:
                  visible: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessInheritedControl resource.
+
         :param pulumi.Input[_builtins.str] control_id: The ID of the inherited control to customize. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] group_id: The ID of the group containing the control. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new resource to be created.
@@ -127,6 +128,7 @@ class _WorkitemtrackingprocessInheritedControlState:
                  work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessInheritedControl resources.
+
         :param pulumi.Input[_builtins.str] control_id: The ID of the inherited control to customize. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] group_id: The ID of the group containing the control. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] label: Label for the control.
@@ -273,6 +275,7 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingprocessInheritedControl:WorkitemtrackingprocessInheritedControl example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/group-id/System.Title
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] control_id: The ID of the inherited control to customize. Changing this forces a new resource to be created.
@@ -327,6 +330,7 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingprocessInheritedControl:WorkitemtrackingprocessInheritedControl example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/group-id/System.Title
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessInheritedControlArgs args: The arguments to use to populate this resource's properties.

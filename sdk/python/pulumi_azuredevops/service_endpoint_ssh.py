@@ -29,6 +29,7 @@ class ServiceEndpointSshArgs:
                  private_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointSsh resource.
+
         :param pulumi.Input[_builtins.str] host: The Host name or IP address of the remote machine.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -162,6 +163,7 @@ class _ServiceEndpointSshState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointSsh resources.
+
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] host: The Host name or IP address of the remote machine.
         :param pulumi.Input[_builtins.str] password: Password for connecting to the endpoint.
@@ -346,6 +348,7 @@ class ServiceEndpointSsh(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
@@ -397,6 +400,7 @@ class ServiceEndpointSsh(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointSshArgs args: The arguments to use to populate this resource's properties.

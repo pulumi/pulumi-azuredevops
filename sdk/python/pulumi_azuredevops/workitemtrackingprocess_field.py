@@ -28,6 +28,7 @@ class WorkitemtrackingprocessFieldArgs:
                  required: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessField resource.
+
         :param pulumi.Input[_builtins.str] field_id: The ID (reference name) of the field. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.str] work_item_type_id: The ID (reference name) of the work item type. Changing this forces a new field to be created.
@@ -152,6 +153,7 @@ class _WorkitemtrackingprocessFieldState:
                  work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessField resources.
+
         :param pulumi.Input[_builtins.bool] allow_groups: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Allow setting field value to a group identity. Only applies to identity fields.  
                **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
@@ -363,6 +365,7 @@ class WorkitemtrackingprocessField(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingprocessField:WorkitemtrackingprocessField example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/Custom.MyField
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_groups: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -420,6 +423,7 @@ class WorkitemtrackingprocessField(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingprocessField:WorkitemtrackingprocessField example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/Custom.MyField
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessFieldArgs args: The arguments to use to populate this resource's properties.

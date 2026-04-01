@@ -30,6 +30,7 @@ class ServiceEndpointServiceFabricArgs:
                  none: Optional[pulumi.Input['ServiceEndpointServiceFabricNoneArgs']] = None):
         """
         The set of arguments for constructing a ServiceEndpointServiceFabric resource.
+
         :param pulumi.Input[_builtins.str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -148,6 +149,7 @@ class _ServiceEndpointServiceFabricState:
                  service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointServiceFabric resources.
+
         :param pulumi.Input['ServiceEndpointServiceFabricAzureActiveDirectoryArgs'] azure_active_directory: An `azure_active_directory` block as documented below.
         :param pulumi.Input['ServiceEndpointServiceFabricCertificateArgs'] certificate: A `certificate` block as documented below.
         :param pulumi.Input[_builtins.str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
@@ -370,6 +372,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']] azure_active_directory: An `azure_active_directory` block as documented below.
@@ -474,6 +477,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointServiceFabricArgs args: The arguments to use to populate this resource's properties.

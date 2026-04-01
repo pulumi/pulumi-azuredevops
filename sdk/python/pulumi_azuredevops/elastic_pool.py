@@ -33,6 +33,7 @@ class ElasticPoolArgs:
                  time_to_live_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ElasticPool resource.
+
         :param pulumi.Input[_builtins.str] azure_resource_id: The ID of the Azure resource.
         :param pulumi.Input[_builtins.int] desired_idle: Number of agents to keep on standby.
         :param pulumi.Input[_builtins.int] max_capacity: Maximum number of virtual machines in the scale set.
@@ -228,6 +229,7 @@ class _ElasticPoolState:
                  time_to_live_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ElasticPool resources.
+
         :param pulumi.Input[_builtins.bool] agent_interactive_ui: Set whether agents should be configured to run with interactive UI. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] auto_update: Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
@@ -478,6 +480,7 @@ class ElasticPool(pulumi.CustomResource):
         $ pulumi import azuredevops:index/elasticPool:ElasticPool example 0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] agent_interactive_ui: Set whether agents should be configured to run with interactive UI. Defaults to `false`.
@@ -546,6 +549,7 @@ class ElasticPool(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/elasticPool:ElasticPool example 0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ElasticPoolArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class ServiceEndpointSonarCloudArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointSonarCloud resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] token: The Authentication Token generated through SonarCloud (go to `My Account > Security > Generate Tokens`).
@@ -95,6 +96,7 @@ class _ServiceEndpointSonarCloudState:
                  token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointSonarCloud resources.
+
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -216,6 +218,7 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
@@ -264,6 +267,7 @@ class ServiceEndpointSonarCloud(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointSonarCloudArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ResourceAuthorizationArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceAuthorization resource.
+
         :param pulumi.Input[_builtins.bool] authorized: Set to true to allow public access in the project.
         :param pulumi.Input[_builtins.str] project_id: The project ID or project name.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the resource to authorize.
@@ -111,6 +112,7 @@ class _ResourceAuthorizationState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceAuthorization resources.
+
         :param pulumi.Input[_builtins.bool] authorized: Set to true to allow public access in the project.
         :param pulumi.Input[_builtins.int] definition_id: The ID of the build definition to authorize.
         :param pulumi.Input[_builtins.str] project_id: The project ID or project name.
@@ -234,6 +236,7 @@ class ResourceAuthorization(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] authorized: Set to true to allow public access in the project.
@@ -280,6 +283,7 @@ class ResourceAuthorization(pulumi.CustomResource):
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
+
 
         :param str resource_name: The name of the resource.
         :param ResourceAuthorizationArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class WorkitemtrackingprocessStateArgs:
                  order: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessState resource.
+
         :param pulumi.Input[_builtins.str] color: Color hexadecimal code to represent the state, e.g. `#b2b2b2`.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new state to be created.
         :param pulumi.Input[_builtins.str] state_category: Category of the state. Valid values: `Proposed`, `InProgress`, `Resolved`, `Completed`, `Removed`.
@@ -128,6 +129,7 @@ class _WorkitemtrackingprocessStateState:
                  work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessState resources.
+
         :param pulumi.Input[_builtins.str] color: Color hexadecimal code to represent the state, e.g. `#b2b2b2`.
         :param pulumi.Input[_builtins.str] name: Name of the state. Changing this forces a new state to be created.
         :param pulumi.Input[_builtins.int] order: Order within the category where the state should appear.
@@ -284,6 +286,7 @@ class WorkitemtrackingprocessState(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingprocessState:WorkitemtrackingprocessState example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] color: Color hexadecimal code to represent the state, e.g. `#b2b2b2`.
@@ -333,6 +336,7 @@ class WorkitemtrackingprocessState(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingprocessState:WorkitemtrackingprocessState example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessStateArgs args: The arguments to use to populate this resource's properties.

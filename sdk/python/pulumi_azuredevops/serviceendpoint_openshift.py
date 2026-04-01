@@ -32,6 +32,7 @@ class ServiceendpointOpenshiftArgs:
                  server_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointOpenshift resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
@@ -183,6 +184,7 @@ class _ServiceendpointOpenshiftState:
                  service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointOpenshift resources.
+
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
         :param pulumi.Input['ServiceendpointOpenshiftAuthBasicArgs'] auth_basic: An `auth_basic` block as documented below.
         :param pulumi.Input['ServiceendpointOpenshiftAuthNoneArgs'] auth_none: An `auth_none` block as documented below.
@@ -426,6 +428,7 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointOpenshift:ServiceendpointOpenshift example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
@@ -521,6 +524,7 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointOpenshift:ServiceendpointOpenshift example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointOpenshiftArgs args: The arguments to use to populate this resource's properties.

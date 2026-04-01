@@ -25,6 +25,7 @@ class WorkitemqueryFolderArgs:
                  parent_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemqueryFolder resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project containing the folder.
         :param pulumi.Input[_builtins.str] area: Root folder. Must be one of `Shared Queries` or `My Queries`.
         :param pulumi.Input[_builtins.str] name: The display name of the folder.
@@ -96,6 +97,7 @@ class _WorkitemqueryFolderState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemqueryFolder resources.
+
         :param pulumi.Input[_builtins.str] area: Root folder. Must be one of `Shared Queries` or `My Queries`.
         :param pulumi.Input[_builtins.str] name: The display name of the folder.
         :param pulumi.Input[_builtins.str] parent_id: The ID of the parent query folder.
@@ -224,6 +226,7 @@ class WorkitemqueryFolder(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] area: Root folder. Must be one of `Shared Queries` or `My Queries`.
@@ -290,6 +293,7 @@ class WorkitemqueryFolder(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemqueryFolderArgs args: The arguments to use to populate this resource's properties.

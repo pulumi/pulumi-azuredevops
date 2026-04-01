@@ -25,6 +25,7 @@ class ServicePrincipalEntitlementArgs:
                  origin: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServicePrincipalEntitlement resource.
+
         :param pulumi.Input[_builtins.str] origin_id: The Object ID of the service principal in Entra ID. Changing this forces a new Service Principal Entitlement to be created.
         :param pulumi.Input[_builtins.str] account_license_type: Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         :param pulumi.Input[_builtins.str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Possible values are: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
@@ -98,6 +99,7 @@ class _ServicePrincipalEntitlementState:
                  origin_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServicePrincipalEntitlement resources.
+
         :param pulumi.Input[_builtins.str] account_license_type: Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         :param pulumi.Input[_builtins.str] descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
         :param pulumi.Input[_builtins.str] display_name: The display name of service principal.
@@ -223,6 +225,7 @@ class ServicePrincipalEntitlement(pulumi.CustomResource):
         $ pulumi import azuredevops:index/servicePrincipalEntitlement:ServicePrincipalEntitlement example 8480c6eb-ce60-47e9-88df-eca3c801638b
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_license_type: Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
@@ -256,6 +259,7 @@ class ServicePrincipalEntitlement(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/servicePrincipalEntitlement:ServicePrincipalEntitlement example 8480c6eb-ce60-47e9-88df-eca3c801638b
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServicePrincipalEntitlementArgs args: The arguments to use to populate this resource's properties.

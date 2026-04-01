@@ -26,6 +26,7 @@ class SecurityPermissionsArgs:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SecurityPermissions resource.
+
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the security namespace. Use the `get_security_namespaces` data source to discover available namespaces. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: A map of permission names to permission values. All permission names specified must be valid for the given namespace, or an error will be returned. Permission values must be one of:
                - `Allow` (or `allow`, `ALLOW`) - Grant the permission
@@ -116,6 +117,7 @@ class _SecurityPermissionsState:
                  token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityPermissions resources.
+
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the security namespace. Use the `get_security_namespaces` data source to discover available namespaces. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: A map of permission names to permission values. All permission names specified must be valid for the given namespace, or an error will be returned. Permission values must be one of:
                - `Allow` (or `allow`, `ALLOW`) - Grant the permission
@@ -322,6 +324,7 @@ class SecurityPermissions(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the security namespace. Use the `get_security_namespaces` data source to discover available namespaces. Changing this forces a new resource to be created.
@@ -448,6 +451,7 @@ class SecurityPermissions(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param SecurityPermissionsArgs args: The arguments to use to populate this resource's properties.

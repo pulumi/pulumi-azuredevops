@@ -31,6 +31,7 @@ class ServiceendpointCheckmarxScaArgs:
                  team: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointCheckmarxSca resource.
+
         :param pulumi.Input[_builtins.str] access_control_url: The Access Control URL of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] account: The account of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] password: The password of the Checkmarx SCA.
@@ -192,6 +193,7 @@ class _ServiceendpointCheckmarxScaState:
                  web_app_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointCheckmarxSca resources.
+
         :param pulumi.Input[_builtins.str] access_control_url: The Access Control URL of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] account: The account of the Checkmarx SCA.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
@@ -411,6 +413,7 @@ class ServiceendpointCheckmarxSca(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointCheckmarxSca:ServiceendpointCheckmarxSca example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_control_url: The Access Control URL of the Checkmarx SCA.
@@ -467,6 +470,7 @@ class ServiceendpointCheckmarxSca(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointCheckmarxSca:ServiceendpointCheckmarxSca example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointCheckmarxScaArgs args: The arguments to use to populate this resource's properties.

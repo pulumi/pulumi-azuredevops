@@ -29,6 +29,7 @@ class WorkitemtrackingprocessRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessRuleActionArgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessRuleConditionArgs']]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new rule to be created.
@@ -130,6 +131,7 @@ class _WorkitemtrackingprocessRuleState:
                  work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessRuleActionArgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessRuleConditionArgs']]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[_builtins.bool] is_enabled: Indicates if the rule is enabled. Default: `true`
@@ -373,6 +375,7 @@ class WorkitemtrackingprocessRule(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingprocessRule:WorkitemtrackingprocessRule example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/11111111-1111-1111-1111-111111111111
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict']]]] actions: One or more `action` blocks as defined below.
@@ -509,6 +512,7 @@ class WorkitemtrackingprocessRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingprocessRule:WorkitemtrackingprocessRule example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/11111111-1111-1111-1111-111111111111
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessRuleArgs args: The arguments to use to populate this resource's properties.

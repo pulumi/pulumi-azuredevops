@@ -25,6 +25,7 @@ class WorkitemtrackingprocessListArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessList resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] items: A list of items.
         :param pulumi.Input[_builtins.bool] is_suggested: Indicates whether items outside of the suggested list are allowed. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: Name of the list.
@@ -97,6 +98,7 @@ class _WorkitemtrackingprocessListState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessList resources.
+
         :param pulumi.Input[_builtins.bool] is_suggested: Indicates whether items outside of the suggested list are allowed. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] items: A list of items.
         :param pulumi.Input[_builtins.str] name: Name of the list.
@@ -241,6 +243,7 @@ class WorkitemtrackingprocessList(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingprocessList:WorkitemtrackingprocessList example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_suggested: Indicates whether items outside of the suggested list are allowed. Defaults to `false`.
@@ -308,6 +311,7 @@ class WorkitemtrackingprocessList(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingprocessList:WorkitemtrackingprocessList example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessListArgs args: The arguments to use to populate this resource's properties.

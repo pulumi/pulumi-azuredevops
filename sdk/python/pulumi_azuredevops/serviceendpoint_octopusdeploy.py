@@ -27,6 +27,7 @@ class ServiceendpointOctopusdeployArgs:
                  ignore_ssl_error: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ServiceendpointOctopusdeploy resource.
+
         :param pulumi.Input[_builtins.str] api_key: API key to connect to Octopus Deploy.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -128,6 +129,7 @@ class _ServiceendpointOctopusdeployState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointOctopusdeploy resources.
+
         :param pulumi.Input[_builtins.str] api_key: API key to connect to Octopus Deploy.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.bool] ignore_ssl_error: Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
@@ -280,6 +282,7 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: API key to connect to Octopus Deploy.
@@ -329,6 +332,7 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointOctopusdeployArgs args: The arguments to use to populate this resource's properties.

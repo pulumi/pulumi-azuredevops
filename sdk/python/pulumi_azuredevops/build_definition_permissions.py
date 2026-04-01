@@ -26,6 +26,7 @@ class BuildDefinitionPermissionsArgs:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BuildDefinitionPermissions resource.
+
         :param pulumi.Input[_builtins.str] build_definition_id: The id of the build definition to assign the permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available.
                
@@ -150,6 +151,7 @@ class _BuildDefinitionPermissionsState:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering BuildDefinitionPermissions resources.
+
         :param pulumi.Input[_builtins.str] build_definition_id: The id of the build definition to assign the permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available.
                
@@ -342,6 +344,7 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] build_definition_id: The id of the build definition to assign the permissions.
@@ -437,6 +440,7 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param BuildDefinitionPermissionsArgs args: The arguments to use to populate this resource's properties.

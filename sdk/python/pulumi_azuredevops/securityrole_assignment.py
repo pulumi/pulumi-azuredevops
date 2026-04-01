@@ -25,6 +25,7 @@ class SecurityroleAssignmentArgs:
                  scope: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SecurityroleAssignment resource.
+
         :param pulumi.Input[_builtins.str] identity_id: The ID of the identity to authorize.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_name: Name of the role to assign.
@@ -93,6 +94,7 @@ class _SecurityroleAssignmentState:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityroleAssignment resources.
+
         :param pulumi.Input[_builtins.str] identity_id: The ID of the identity to authorize.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_name: Name of the role to assign.
@@ -206,6 +208,7 @@ class SecurityroleAssignment(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0&tabs=HTTP)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_id: The ID of the identity to authorize.
@@ -257,6 +260,7 @@ class SecurityroleAssignment(pulumi.CustomResource):
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0&tabs=HTTP)
+
 
         :param str resource_name: The name of the resource.
         :param SecurityroleAssignmentArgs args: The arguments to use to populate this resource's properties.

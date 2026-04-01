@@ -25,6 +25,7 @@ class DeploymentGroupArgs:
                  pool_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a DeploymentGroup resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Deployment Group to be created.
         :param pulumi.Input[_builtins.str] description: A description for the Deployment Group. Defaults to `""`.
         :param pulumi.Input[_builtins.str] name: The name of the Deployment Group.
@@ -97,6 +98,7 @@ class _DeploymentGroupState:
                  project_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DeploymentGroup resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the Deployment Group. Defaults to `""`.
         :param pulumi.Input[_builtins.int] machine_count: The number of deployment targets in the Deployment Group.
         :param pulumi.Input[_builtins.str] name: The name of the Deployment Group.
@@ -219,6 +221,7 @@ class DeploymentGroup(pulumi.CustomResource):
         $ pulumi import azuredevops:index/deploymentGroup:DeploymentGroup example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the Deployment Group. Defaults to `""`.
@@ -264,6 +267,7 @@ class DeploymentGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/deploymentGroup:DeploymentGroup example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentGroupArgs args: The arguments to use to populate this resource's properties.

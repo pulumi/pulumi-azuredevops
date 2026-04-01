@@ -28,6 +28,7 @@ class ProjectPipelineSettingsArgs:
                  status_badges_are_private: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ProjectPipelineSettings resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project for which the project pipeline settings will be managed.
         :param pulumi.Input[_builtins.bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
         :param pulumi.Input[_builtins.bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
@@ -155,6 +156,7 @@ class _ProjectPipelineSettingsState:
                  status_badges_are_private: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ProjectPipelineSettings resources.
+
         :param pulumi.Input[_builtins.bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
         :param pulumi.Input[_builtins.bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
                
@@ -325,6 +327,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         $ pulumi import azuredevops:index/projectPipelineSettings:ProjectPipelineSettings example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
@@ -384,6 +387,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/projectPipelineSettings:ProjectPipelineSettings example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectPipelineSettingsArgs args: The arguments to use to populate this resource's properties.

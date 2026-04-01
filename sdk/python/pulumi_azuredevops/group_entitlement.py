@@ -26,6 +26,7 @@ class GroupEntitlementArgs:
                  origin_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupEntitlement resource.
+
         :param pulumi.Input[_builtins.str] account_license_type: Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         :param pulumi.Input[_builtins.str] display_name: The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
         :param pulumi.Input[_builtins.str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
@@ -120,6 +121,7 @@ class _GroupEntitlementState:
                  principal_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupEntitlement resources.
+
         :param pulumi.Input[_builtins.str] account_license_type: Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         :param pulumi.Input[_builtins.str] descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the group graph subject.
         :param pulumi.Input[_builtins.str] display_name: The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
@@ -284,6 +286,7 @@ class GroupEntitlement(pulumi.CustomResource):
         $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_license_type: Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
@@ -339,6 +342,7 @@ class GroupEntitlement(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/groupEntitlement:GroupEntitlement example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupEntitlementArgs args: The arguments to use to populate this resource's properties.

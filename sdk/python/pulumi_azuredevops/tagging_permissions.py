@@ -25,6 +25,7 @@ class TaggingPermissionsArgs:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TaggingPermissions resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available.
                
                | Name      | Permission Description    |
@@ -109,6 +110,7 @@ class _TaggingPermissionsState:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering TaggingPermissions resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available.
                
                | Name      | Permission Description    |
@@ -242,6 +244,7 @@ class TaggingPermissions(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available.
@@ -306,6 +309,7 @@ class TaggingPermissions(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param TaggingPermissionsArgs args: The arguments to use to populate this resource's properties.

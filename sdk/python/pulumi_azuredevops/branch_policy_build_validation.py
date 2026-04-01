@@ -27,6 +27,7 @@ class BranchPolicyBuildValidationArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BranchPolicyBuildValidation resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input['BranchPolicyBuildValidationSettingsArgs'] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -97,6 +98,7 @@ class _BranchPolicyBuildValidationState:
                  settings: Optional[pulumi.Input['BranchPolicyBuildValidationSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering BranchPolicyBuildValidation resources.
+
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
@@ -239,6 +241,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         $ pulumi import azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -319,6 +322,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BranchPolicyBuildValidationArgs args: The arguments to use to populate this resource's properties.

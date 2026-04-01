@@ -25,6 +25,7 @@ class WorkitemtrackingprocessInheritedStateArgs:
                  visible: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessInheritedState resource.
+
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] work_item_type_id: The ID (reference name) of the work item type. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Name of the inherited state to manage. This is used to look up the state and must match an existing inherited state name. Changing this forces a new resource to be created.
@@ -95,6 +96,7 @@ class _WorkitemtrackingprocessInheritedStateState:
                  work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessInheritedState resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the inherited state to manage. This is used to look up the state and must match an existing inherited state name. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] visible: Whether the state is visible.
@@ -209,6 +211,7 @@ class WorkitemtrackingprocessInheritedState(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingprocessInheritedState:WorkitemtrackingprocessInheritedState example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/New
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the inherited state to manage. This is used to look up the state and must match an existing inherited state name. Changing this forces a new resource to be created.
@@ -261,6 +264,7 @@ class WorkitemtrackingprocessInheritedState(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingprocessInheritedState:WorkitemtrackingprocessInheritedState example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/New
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessInheritedStateArgs args: The arguments to use to populate this resource's properties.

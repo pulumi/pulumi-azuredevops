@@ -26,6 +26,7 @@ class DashboardArgs:
                  team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the dashboard.
         :param pulumi.Input[_builtins.str] name: The name of the Dashboard.
@@ -114,6 +115,7 @@ class _DashboardState:
                  team_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Dashboard resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the dashboard.
         :param pulumi.Input[_builtins.str] name: The name of the Dashboard.
         :param pulumi.Input[_builtins.str] owner_id: The owner of the Dashboard, could be the project or a team.
@@ -276,6 +278,7 @@ class Dashboard(pulumi.CustomResource):
         $ pulumi import azuredevops:index/dashboard:Dashboard dashboard 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the dashboard.
@@ -346,6 +349,7 @@ class Dashboard(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/dashboard:Dashboard dashboard 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.

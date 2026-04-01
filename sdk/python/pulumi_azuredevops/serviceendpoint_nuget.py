@@ -29,6 +29,7 @@ class ServiceendpointNugetArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointNuget resource.
+
         :param pulumi.Input[_builtins.str] feed_url: The URL for the feed. This will generally end with `index.json`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -167,6 +168,7 @@ class _ServiceendpointNugetState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointNuget resources.
+
         :param pulumi.Input[_builtins.str] api_key: The API Key used to connect to the endpoint.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] feed_url: The URL for the feed. This will generally end with `index.json`.
@@ -354,6 +356,7 @@ class ServiceendpointNuget(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointNuget:ServiceendpointNuget example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The API Key used to connect to the endpoint.
@@ -406,6 +409,7 @@ class ServiceendpointNuget(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointNuget:ServiceendpointNuget example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointNugetArgs args: The arguments to use to populate this resource's properties.
