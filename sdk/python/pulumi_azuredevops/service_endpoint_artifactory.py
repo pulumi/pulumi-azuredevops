@@ -29,6 +29,7 @@ class ServiceEndpointArtifactoryArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointArtifactory resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: URL of the Artifactory server to connect with.
@@ -131,6 +132,7 @@ class _ServiceEndpointArtifactoryState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointArtifactory resources.
+
         :param pulumi.Input['ServiceEndpointArtifactoryAuthenticationTokenArgs'] authentication_token: A `authentication_basic` block as defined below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -308,6 +310,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']] authentication_token: A `authentication_basic` block as defined below.
@@ -383,6 +386,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointArtifactoryArgs args: The arguments to use to populate this resource's properties.

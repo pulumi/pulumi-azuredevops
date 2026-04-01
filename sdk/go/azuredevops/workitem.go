@@ -198,7 +198,7 @@ import (
 //				Tags: pulumi.StringArray{
 //					pulumi.String("Tag"),
 //				},
-//				AdditionalFieldsJson: pulumi.String(json0),
+//				AdditionalFieldsJson: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

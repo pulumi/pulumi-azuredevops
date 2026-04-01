@@ -28,6 +28,7 @@ class ServiceEndpointGenericGitArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointGenericGit resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The name of the service endpoint.
@@ -150,6 +151,7 @@ class _ServiceEndpointGenericGitState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointGenericGit resources.
+
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
         :param pulumi.Input[_builtins.str] password: The PAT or password used to authenticate to the git repository.
@@ -324,6 +326,7 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
@@ -378,6 +381,7 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointGenericGitArgs args: The arguments to use to populate this resource's properties.

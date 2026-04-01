@@ -27,6 +27,7 @@ class ServiceEndpointGenericArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointGeneric resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The URL of the server associated with the service endpoint.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The service endpoint name.
@@ -129,6 +130,7 @@ class _ServiceEndpointGenericState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointGeneric resources.
+
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] password: The password or token key used to authenticate to the server url using basic authentication.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -283,6 +285,7 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
@@ -334,6 +337,7 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointGenericArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class CheckApprovalArgs:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a CheckApproval resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approvers: Specifies a list of approver IDs.
         :param pulumi.Input[_builtins.str] project_id: The project ID. Changing this forces a new Approval Check to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Approval Check to be created.
@@ -162,6 +163,7 @@ class _CheckApprovalState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CheckApproval resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approvers: Specifies a list of approver IDs.
         :param pulumi.Input[_builtins.str] instructions: The instructions for the approvers.
         :param pulumi.Input[_builtins.int] minimum_required_approvers: The minimum number of approvers. This property is applicable when there is more than 1 approver.
@@ -343,6 +345,7 @@ class CheckApproval(pulumi.CustomResource):
 
         Importing this resource is not supported.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approvers: Specifies a list of approver IDs.
@@ -387,6 +390,7 @@ class CheckApproval(pulumi.CustomResource):
         ## Import
 
         Importing this resource is not supported.
+
 
         :param str resource_name: The name of the resource.
         :param CheckApprovalArgs args: The arguments to use to populate this resource's properties.

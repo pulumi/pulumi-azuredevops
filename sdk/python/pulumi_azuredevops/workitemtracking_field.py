@@ -33,6 +33,7 @@ class WorkitemtrackingFieldArgs:
                  usage: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingField resource.
+
         :param pulumi.Input[_builtins.str] reference_name: The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.str] type: The type of the field. Possible values: `string`, `integer`, `dateTime`, `plainText`, `html`, `treePath`, `history`, `double`, `guid`, `boolean`, `identity`. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.str] description: The description of the field. Changing this forces a new field to be created.
@@ -211,6 +212,7 @@ class _WorkitemtrackingFieldState:
                  usage: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingField resources.
+
         :param pulumi.Input[_builtins.bool] can_sort_by: Indicates whether the field can be sorted in server queries.
         :param pulumi.Input[_builtins.str] description: The description of the field. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.bool] is_identity: Indicates whether this field is an identity field.
@@ -521,6 +523,7 @@ class WorkitemtrackingField(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingField:WorkitemtrackingField example Custom.MyCustomField
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the field. Changing this forces a new field to be created.
@@ -586,6 +589,7 @@ class WorkitemtrackingField(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingField:WorkitemtrackingField example Custom.MyCustomField
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingFieldArgs args: The arguments to use to populate this resource's properties.

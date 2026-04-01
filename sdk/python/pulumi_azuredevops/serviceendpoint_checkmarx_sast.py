@@ -29,6 +29,7 @@ class ServiceendpointCheckmarxSastArgs:
                  team: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointCheckmarxSast resource.
+
         :param pulumi.Input[_builtins.str] password: The password of the Checkmarx SAST.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The Server URL of the Checkmarx SAST.
@@ -161,6 +162,7 @@ class _ServiceendpointCheckmarxSastState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointCheckmarxSast resources.
+
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] password: The password of the Checkmarx SAST.
         :param pulumi.Input[_builtins.str] preset: Predefined sets of queries that you can select when Creating, Configuring and Branching Projects. Predefined presets are provided by Checkmarx and you can configure your own. You can also import and export presets (on the server).In Service Connection if preset(optional) value is added, then it will igonres Preset available in pipeline and uses preset available in service connection only.If Preset is blank in service connection then it will use pipelines preset.
@@ -347,6 +349,7 @@ class ServiceendpointCheckmarxSast(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
@@ -400,6 +403,7 @@ class ServiceendpointCheckmarxSast(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointCheckmarxSast:ServiceendpointCheckmarxSast example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointCheckmarxSastArgs args: The arguments to use to populate this resource's properties.

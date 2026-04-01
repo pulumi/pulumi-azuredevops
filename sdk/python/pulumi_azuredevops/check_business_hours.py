@@ -36,6 +36,7 @@ class CheckBusinessHoursArgs:
                  wednesday: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CheckBusinessHours resource.
+
         :param pulumi.Input[_builtins.str] end_time: The end of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
         :param pulumi.Input[_builtins.str] project_id: The project ID.
         :param pulumi.Input[_builtins.str] start_time: The beginning of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
@@ -279,6 +280,7 @@ class _CheckBusinessHoursState:
                  wednesday: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering CheckBusinessHours resources.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the business hours check displayed in the web UI.
         :param pulumi.Input[_builtins.str] end_time: The end of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
         :param pulumi.Input[_builtins.bool] friday: This check will pass on Fridays. Defaults to `false`.
@@ -837,6 +839,7 @@ class CheckBusinessHours(pulumi.CustomResource):
 
         Importing this resource is not supported.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the business hours check displayed in the web UI.
@@ -1153,6 +1156,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         ## Import
 
         Importing this resource is not supported.
+
 
         :param str resource_name: The name of the resource.
         :param CheckBusinessHoursArgs args: The arguments to use to populate this resource's properties.

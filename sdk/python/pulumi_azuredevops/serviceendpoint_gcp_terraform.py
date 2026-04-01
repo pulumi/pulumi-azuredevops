@@ -29,6 +29,7 @@ class ServiceendpointGcpTerraformArgs:
                  token_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointGcpTerraform resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
@@ -164,6 +165,7 @@ class _ServiceendpointGcpTerraformState:
                  token_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointGcpTerraform resources.
+
         :param pulumi.Input[_builtins.str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] gcp_project_id: GCP project associated with the Service Connection.
@@ -350,6 +352,7 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
          $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
@@ -403,6 +406,7 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         ```sh
          $ pulumi import azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointGcpTerraformArgs args: The arguments to use to populate this resource's properties.

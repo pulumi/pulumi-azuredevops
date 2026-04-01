@@ -27,6 +27,7 @@ class BranchPolicyMergeTypesArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BranchPolicyMergeTypes resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input['BranchPolicyMergeTypesSettingsArgs'] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -97,6 +98,7 @@ class _BranchPolicyMergeTypesState:
                  settings: Optional[pulumi.Input['BranchPolicyMergeTypesSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering BranchPolicyMergeTypes resources.
+
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
@@ -226,6 +228,7 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
         $ pulumi import azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -293,6 +296,7 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BranchPolicyMergeTypesArgs args: The arguments to use to populate this resource's properties.

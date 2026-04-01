@@ -31,6 +31,7 @@ class ServicehookStorageQueuePipelinesArgs:
                  visi_timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ServicehookStorageQueuePipelines resource.
+
         :param pulumi.Input[_builtins.str] account_key: A valid account key from the queue's storage account.
         :param pulumi.Input[_builtins.str] account_name: The queue's storage account name.
         :param pulumi.Input[_builtins.str] project_id: The ID of the associated project. Changing this forces a new Service Hook Storage Queue Pipelines to be created.
@@ -167,6 +168,7 @@ class _ServicehookStorageQueuePipelinesState:
                  visi_timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ServicehookStorageQueuePipelines resources.
+
         :param pulumi.Input[_builtins.str] account_key: A valid account key from the queue's storage account.
         :param pulumi.Input[_builtins.str] account_name: The queue's storage account name.
         :param pulumi.Input[_builtins.str] project_id: The ID of the associated project. Changing this forces a new Service Hook Storage Queue Pipelines to be created.
@@ -316,27 +318,27 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import pulumi_azure as azure
         import pulumi_azuredevops as azuredevops
-        import pulumi_azurerm as azurerm
 
         example = azuredevops.Project("example", name="example-project")
-        example_resource_group = azurerm.index.ResourceGroup("example",
-            name=example-resources,
-            location=West Europe)
-        example_storage_account = azurerm.index.StorageAccount("example",
-            name=servicehookexamplestacc,
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="servicehookexamplestacc",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            account_tier=Standard,
-            account_replication_type=LRS)
-        example_storage_queue = azurerm.index.StorageQueue("example",
-            name=examplequeue,
-            storage_account_name=example_storage_account.name)
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_queue = azure.storage.Queue("example",
+            name="examplequeue",
+            storage_account_name=example_account.name)
         example_servicehook_storage_queue_pipelines = azuredevops.ServicehookStorageQueuePipelines("example",
             project_id=example.id,
-            account_name=example_storage_account["name"],
-            account_key=example_storage_account["primaryAccessKey"],
-            queue_name=example_storage_queue["name"],
+            account_name=example_account.name,
+            account_key=example_account.primary_access_key,
+            queue_name=example_queue.name,
             visi_timeout=30,
             run_state_changed_event={
                 "run_state_filter": "Completed",
@@ -366,6 +368,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -393,27 +396,27 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import pulumi_azure as azure
         import pulumi_azuredevops as azuredevops
-        import pulumi_azurerm as azurerm
 
         example = azuredevops.Project("example", name="example-project")
-        example_resource_group = azurerm.index.ResourceGroup("example",
-            name=example-resources,
-            location=West Europe)
-        example_storage_account = azurerm.index.StorageAccount("example",
-            name=servicehookexamplestacc,
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="servicehookexamplestacc",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            account_tier=Standard,
-            account_replication_type=LRS)
-        example_storage_queue = azurerm.index.StorageQueue("example",
-            name=examplequeue,
-            storage_account_name=example_storage_account.name)
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_queue = azure.storage.Queue("example",
+            name="examplequeue",
+            storage_account_name=example_account.name)
         example_servicehook_storage_queue_pipelines = azuredevops.ServicehookStorageQueuePipelines("example",
             project_id=example.id,
-            account_name=example_storage_account["name"],
-            account_key=example_storage_account["primaryAccessKey"],
-            queue_name=example_storage_queue["name"],
+            account_name=example_account.name,
+            account_key=example_account.primary_access_key,
+            queue_name=example_queue.name,
             visi_timeout=30,
             run_state_changed_event={
                 "run_state_filter": "Completed",
@@ -443,6 +446,7 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines example 00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServicehookStorageQueuePipelinesArgs args: The arguments to use to populate this resource's properties.

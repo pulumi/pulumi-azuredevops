@@ -33,7 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.Definitions)
+//			ctx.Export("securityroleDefinitions", pulumi.Any(exampleAazuredevopsSecurityroleDefinitions.Definitions))
 //			return nil
 //		})
 //	}

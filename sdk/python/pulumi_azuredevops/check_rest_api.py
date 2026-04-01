@@ -36,6 +36,7 @@ class CheckRestApiArgs:
                  variable_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CheckRestApi resource.
+
         :param pulumi.Input[_builtins.str] connected_service_name: The name of the Service Connection.
         :param pulumi.Input[_builtins.str] connected_service_name_selector: The type of the Service Connection used to invoke the REST API. Possible values: `connectedServiceName`(**Generic** type service connection) and `connectedServiceNameARM`(**Azure Resource Manager** type service connection).
         :param pulumi.Input[_builtins.str] display_name: The Name of the Rest API check.
@@ -288,6 +289,7 @@ class _CheckRestApiState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CheckRestApi resources.
+
         :param pulumi.Input[_builtins.str] body: The Rest API request body.
         :param pulumi.Input[_builtins.str] completion_event: The completion event of the Rest API call. Possible values: `Callback`, `ApiResponse`. Defaults to `Callback`.
         :param pulumi.Input[_builtins.str] connected_service_name: The name of the Service Connection.
@@ -620,6 +622,7 @@ class CheckRestApi(pulumi.CustomResource):
 
         Importing this resource is not supported.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: The Rest API request body.
@@ -705,6 +708,7 @@ class CheckRestApi(pulumi.CustomResource):
         ## Import
 
         Importing this resource is not supported.
+
 
         :param str resource_name: The name of the resource.
         :param CheckRestApiArgs args: The arguments to use to populate this resource's properties.

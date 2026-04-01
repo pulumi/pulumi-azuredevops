@@ -29,6 +29,7 @@ class ServiceendpointJfrogDistributionV2Args:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointJfrogDistributionV2 resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[_builtins.str] url: URL of the Artifactory server to connect with.
@@ -135,6 +136,7 @@ class _ServiceendpointJfrogDistributionV2State:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointJfrogDistributionV2 resources.
+
         :param pulumi.Input['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs'] authentication_basic: An `authentication_basic` block as documented below.
         :param pulumi.Input['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs'] authentication_token: An `authentication_token` block as documented below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
@@ -318,6 +320,7 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2 example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict']] authentication_basic: An `authentication_basic` block as documented below.
@@ -396,6 +399,7 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2 example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointJfrogDistributionV2Args args: The arguments to use to populate this resource's properties.

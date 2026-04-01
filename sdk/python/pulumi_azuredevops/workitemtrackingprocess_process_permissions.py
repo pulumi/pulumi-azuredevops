@@ -25,6 +25,7 @@ class WorkitemtrackingprocessProcessPermissionsArgs:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessProcessPermissions resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available
                
                **Inherited process permissions:**
@@ -122,6 +123,7 @@ class _WorkitemtrackingprocessProcessPermissionsState:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessProcessPermissions resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available
                
                **Inherited process permissions:**
@@ -277,6 +279,7 @@ class WorkitemtrackingprocessProcessPermissions(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available
@@ -356,6 +359,7 @@ class WorkitemtrackingprocessProcessPermissions(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessProcessPermissionsArgs args: The arguments to use to populate this resource's properties.

@@ -13,30 +13,30 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
  * import * as azuredevops from "@pulumi/azuredevops";
- * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azuredevops.Project("example", {name: "example-project"});
- * const exampleResourceGroup = new azurerm.index.ResourceGroup("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleStorageAccount = new azurerm.index.StorageAccount("example", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     name: "servicehookexamplestacc",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleStorageQueue = new azurerm.index.StorageQueue("example", {
+ * const exampleQueue = new azure.storage.Queue("example", {
  *     name: "examplequeue",
- *     storageAccountName: exampleStorageAccount.name,
+ *     storageAccountName: exampleAccount.name,
  * });
  * const exampleServicehookStorageQueuePipelines = new azuredevops.ServicehookStorageQueuePipelines("example", {
  *     projectId: example.id,
- *     accountName: exampleStorageAccount.name,
- *     accountKey: exampleStorageAccount.primaryAccessKey,
- *     queueName: exampleStorageQueue.name,
+ *     accountName: exampleAccount.name,
+ *     accountKey: exampleAccount.primaryAccessKey,
+ *     queueName: exampleQueue.name,
  *     visiTimeout: 30,
  *     runStateChangedEvent: {
  *         runStateFilter: "Completed",

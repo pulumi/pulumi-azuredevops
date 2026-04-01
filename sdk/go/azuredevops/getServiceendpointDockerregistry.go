@@ -76,7 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("serviceEndpointId", serviceendpoint.Id)
+//			ctx.Export("serviceEndpointId", pulumi.Any(serviceendpoint.Id))
 //			return nil
 //		})
 //	}

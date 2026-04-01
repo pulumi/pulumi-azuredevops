@@ -29,6 +29,7 @@ class VariableGroupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VariableGroup resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]] variables: One or more `variable` blocks as documented below.
         :param pulumi.Input[_builtins.bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
@@ -131,6 +132,7 @@ class _VariableGroupState:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering VariableGroup resources.
+
         :param pulumi.Input[_builtins.bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
         :param pulumi.Input[_builtins.str] description: The description of the Variable Group.
         :param pulumi.Input['VariableGroupKeyVaultArgs'] key_vault: A list of `key_vault` blocks as documented below.
@@ -349,6 +351,7 @@ class VariableGroup(pulumi.CustomResource):
 
         _Note that for secret variables, the import command retrieve blank value in the tfstate._
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
@@ -475,6 +478,7 @@ class VariableGroup(pulumi.CustomResource):
         ```
 
         _Note that for secret variables, the import command retrieve blank value in the tfstate._
+
 
         :param str resource_name: The name of the resource.
         :param VariableGroupArgs args: The arguments to use to populate this resource's properties.

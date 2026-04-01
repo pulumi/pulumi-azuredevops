@@ -28,6 +28,7 @@ class WorkitemtrackingprocessPageArgs:
                  visible: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessPage resource.
+
         :param pulumi.Input[_builtins.str] label: The label for the page.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new page to be created.
         :param pulumi.Input[_builtins.str] work_item_type_id: The ID (reference name) of the work item type. Changing this forces a new page to be created.
@@ -114,6 +115,7 @@ class _WorkitemtrackingprocessPageState:
                  work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessPage resources.
+
         :param pulumi.Input[_builtins.str] label: The label for the page.
         :param pulumi.Input[_builtins.int] order: Order in which the page should appear in the layout.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new page to be created.
@@ -252,6 +254,7 @@ class WorkitemtrackingprocessPage(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitemtrackingprocessPage:WorkitemtrackingprocessPage example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/page-id
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] label: The label for the page.
@@ -298,6 +301,7 @@ class WorkitemtrackingprocessPage(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitemtrackingprocessPage:WorkitemtrackingprocessPage example 00000000-0000-0000-0000-000000000000/MyProcess.CustomWorkItemType/page-id
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemtrackingprocessPageArgs args: The arguments to use to populate this resource's properties.

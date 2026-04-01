@@ -26,6 +26,7 @@ class RepositoryPolicyCaseEnforcementArgs:
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryPolicyCaseEnforcement resource.
+
         :param pulumi.Input[_builtins.bool] enforce_consistent_case: Avoid case-sensitivity conflicts by blocking pushes that change name casing on files, folders, branches, and tags.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -112,6 +113,7 @@ class _RepositoryPolicyCaseEnforcementState:
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicyCaseEnforcement resources.
+
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enforce_consistent_case: Avoid case-sensitivity conflicts by blocking pushes that change name casing on files, folders, branches, and tags.
@@ -263,6 +265,7 @@ class RepositoryPolicyCaseEnforcement(pulumi.CustomResource):
         $ pulumi import azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -337,6 +340,7 @@ class RepositoryPolicyCaseEnforcement(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryPolicyCaseEnforcementArgs args: The arguments to use to populate this resource's properties.

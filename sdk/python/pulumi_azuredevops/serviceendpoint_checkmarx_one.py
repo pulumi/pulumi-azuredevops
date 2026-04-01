@@ -29,6 +29,7 @@ class ServiceendpointCheckmarxOneArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointCheckmarxOne resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] server_url: The Server URL of the Checkmarx One Service.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -167,6 +168,7 @@ class _ServiceendpointCheckmarxOneState:
                  service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointCheckmarxOne resources.
+
         :param pulumi.Input[_builtins.str] api_key: The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
         :param pulumi.Input[_builtins.str] authorization_url: The URL of Checkmarx Authorization. Used when using `client_id` and `client_secret` authorization.
         :param pulumi.Input[_builtins.str] client_id: The Client ID of the Checkmarx One. Conflict with `api_key`
@@ -377,6 +379,7 @@ class ServiceendpointCheckmarxOne(pulumi.CustomResource):
         $ pulumi import azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The account of the Checkmarx One. Conflict with `client_id` and `client_secret`.
@@ -452,6 +455,7 @@ class ServiceendpointCheckmarxOne(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceendpointCheckmarxOneArgs args: The arguments to use to populate this resource's properties.

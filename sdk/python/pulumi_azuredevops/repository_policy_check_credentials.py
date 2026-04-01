@@ -25,6 +25,7 @@ class RepositoryPolicyCheckCredentialsArgs:
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryPolicyCheckCredentials resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
@@ -96,6 +97,7 @@ class _RepositoryPolicyCheckCredentialsState:
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicyCheckCredentials resources.
+
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
@@ -229,6 +231,7 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
         $ pulumi import azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -300,6 +303,7 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryPolicyCheckCredentialsArgs args: The arguments to use to populate this resource's properties.

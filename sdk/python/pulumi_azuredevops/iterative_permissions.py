@@ -26,6 +26,7 @@ class IterativePermissionsArgs:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IterativePermissions resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available.
                
                | Permission      | Description                    |
@@ -125,6 +126,7 @@ class _IterativePermissionsState:
                  replace: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IterativePermissions resources.
+
         :param pulumi.Input[_builtins.str] path: The name of the branch to assign the permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] permissions: the permissions to assign. The following permissions are available.
                
@@ -284,6 +286,7 @@ class IterativePermissions(pulumi.CustomResource):
 
         The resource does not support import.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] path: The name of the branch to assign the permissions.
@@ -359,6 +362,7 @@ class IterativePermissions(pulumi.CustomResource):
         ## Import
 
         The resource does not support import.
+
 
         :param str resource_name: The name of the resource.
         :param IterativePermissionsArgs args: The arguments to use to populate this resource's properties.

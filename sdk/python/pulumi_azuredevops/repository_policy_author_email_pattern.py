@@ -26,6 +26,7 @@ class RepositoryPolicyAuthorEmailPatternArgs:
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryPolicyAuthorEmailPattern resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
                
                ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
@@ -116,6 +117,7 @@ class _RepositoryPolicyAuthorEmailPatternState:
                  repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicyAuthorEmailPattern resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
                
                ~>**NOTE:** Email patterns prefixed with `!` are excluded. Order is important.
@@ -276,6 +278,7 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
         $ pulumi import azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
@@ -357,6 +360,7 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RepositoryPolicyAuthorEmailPatternArgs args: The arguments to use to populate this resource's properties.

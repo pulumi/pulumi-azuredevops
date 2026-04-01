@@ -34,6 +34,7 @@ class WorkitemArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workitem resource.
+
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project.
         :param pulumi.Input[_builtins.str] title: The Title of the Work Item.
         :param pulumi.Input[_builtins.str] type: The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
@@ -221,6 +222,7 @@ class _WorkitemState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workitem resources.
+
         :param pulumi.Input[_builtins.str] additional_fields_json: A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
         :param pulumi.Input[_builtins.str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
@@ -549,6 +551,7 @@ class Workitem(pulumi.CustomResource):
         $ pulumi import azuredevops:index/workitem:Workitem example 00000000-0000-0000-0000-000000000000/0
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] additional_fields_json: A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
@@ -676,6 +679,7 @@ class Workitem(pulumi.CustomResource):
         ```sh
         $ pulumi import azuredevops:index/workitem:Workitem example 00000000-0000-0000-0000-000000000000/0
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkitemArgs args: The arguments to use to populate this resource's properties.
