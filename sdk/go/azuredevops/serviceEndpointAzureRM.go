@@ -165,8 +165,10 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/armmsi"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
-//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -184,17 +186,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			identity, err := azurerm.NewResourceGroup(ctx, "identity", &azurerm.ResourceGroupArgs{
-//				Name:     "identity",
-//				Location: "UK South",
+//			identity, err := core.NewResourceGroup(ctx, "identity", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("identity"),
+//				Location: pulumi.String("UK South"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := azurerm.NewUserAssignedIdentity(ctx, "example", &azurerm.UserAssignedIdentityArgs{
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
 //				Location:          identity.Location,
-//				Name:              "example-identity",
-//				ResourceGroupName: "azurerm_resource_group.identity.name",
+//				Name:              pulumi.String("example-identity"),
+//				ResourceGroupName: pulumi.String("azurerm_resource_group.identity.name"),
 //			})
 //			if err != nil {
 //				return err
@@ -214,15 +216,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azurerm.NewFederatedIdentityCredential(ctx, "example", &azurerm.FederatedIdentityCredentialArgs{
-//				Name:              "example-federated-credential",
+//			_, err = armmsi.NewFederatedIdentityCredential(ctx, "example", &armmsi.FederatedIdentityCredentialArgs{
+//				Name:              pulumi.String("example-federated-credential"),
 //				ResourceGroupName: identity.Name,
-//				ParentId:          exampleUserAssignedIdentity.Id,
-//				Audience: []string{
-//					"api://AzureADTokenExchange",
-//				},
-//				Issuer:  exampleServiceEndpointAzureRM.WorkloadIdentityFederationIssuer,
-//				Subject: exampleServiceEndpointAzureRM.WorkloadIdentityFederationSubject,
+//				ParentId:          exampleUserAssignedIdentity.ID(),
+//				Audience:          pulumi.String("api://AzureADTokenExchange"),
+//				Issuer:            exampleServiceEndpointAzureRM.WorkloadIdentityFederationIssuer,
+//				Subject:           exampleServiceEndpointAzureRM.WorkloadIdentityFederationSubject,
 //			})
 //			if err != nil {
 //				return err

@@ -18,8 +18,8 @@ namespace Pulumi.AzureDevOps
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
     /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -28,13 +28,13 @@ namespace Pulumi.AzureDevOps
     ///         Name = "example-project",
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azurerm.Index.ResourceGroup("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleStorageAccount = new Azurerm.Index.StorageAccount("example", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
     ///         Name = "servicehookexamplestacc",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -43,18 +43,18 @@ namespace Pulumi.AzureDevOps
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleStorageQueue = new Azurerm.Index.StorageQueue("example", new()
+    ///     var exampleQueue = new Azure.Storage.Queue("example", new()
     ///     {
     ///         Name = "examplequeue",
-    ///         StorageAccountName = exampleStorageAccount.Name,
+    ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
     ///     var exampleServicehookStorageQueuePipelines = new AzureDevOps.ServicehookStorageQueuePipelines("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         AccountName = exampleStorageAccount.Name,
-    ///         AccountKey = exampleStorageAccount.PrimaryAccessKey,
-    ///         QueueName = exampleStorageQueue.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         AccountKey = exampleAccount.PrimaryAccessKey,
+    ///         QueueName = exampleQueue.Name,
     ///         VisiTimeout = 30,
     ///         RunStateChangedEvent = new AzureDevOps.Inputs.ServicehookStorageQueuePipelinesRunStateChangedEventArgs
     ///         {

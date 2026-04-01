@@ -21,8 +21,9 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
-//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -35,35 +36,35 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := azurerm.NewResourceGroup(ctx, "example", &azurerm.ResourceGroupArgs{
-//				Name:     "example-resources",
-//				Location: "West Europe",
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleStorageAccount, err := azurerm.NewStorageAccount(ctx, "example", &azurerm.StorageAccountArgs{
-//				Name:                   "servicehookexamplestacc",
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("servicehookexamplestacc"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
-//				AccountTier:            "Standard",
-//				AccountReplicationType: "LRS",
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleStorageQueue, err := azurerm.NewStorageQueue(ctx, "example", &azurerm.StorageQueueArgs{
-//				Name:               "examplequeue",
-//				StorageAccountName: exampleStorageAccount.Name,
+//			exampleQueue, err := storage.NewQueue(ctx, "example", &storage.QueueArgs{
+//				Name:               pulumi.String("examplequeue"),
+//				StorageAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewServicehookStorageQueuePipelines(ctx, "example", &azuredevops.ServicehookStorageQueuePipelinesArgs{
 //				ProjectId:   example.ID(),
-//				AccountName: exampleStorageAccount.Name,
-//				AccountKey:  exampleStorageAccount.PrimaryAccessKey,
-//				QueueName:   exampleStorageQueue.Name,
+//				AccountName: exampleAccount.Name,
+//				AccountKey:  exampleAccount.PrimaryAccessKey,
+//				QueueName:   exampleQueue.Name,
 //				VisiTimeout: pulumi.Int(30),
 //				RunStateChangedEvent: &azuredevops.ServicehookStorageQueuePipelinesRunStateChangedEventArgs{
 //					RunStateFilter:  pulumi.String("Completed"),

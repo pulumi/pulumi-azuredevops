@@ -508,8 +508,8 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import pulumi_azure as azure
         import pulumi_azuredevops as azuredevops
-        import pulumi_azurerm as azurerm
 
         example = azuredevops.Project("example",
             name="Example Project",
@@ -517,12 +517,12 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Pulumi")
-        identity = azurerm.index.ResourceGroup("identity",
-            name=identity,
-            location=UK South)
-        example_user_assigned_identity = azurerm.index.UserAssignedIdentity("example",
+        identity = azure.core.ResourceGroup("identity",
+            name="identity",
+            location="UK South")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             location=identity.location,
-            name=example-identity,
+            name="example-identity",
             resource_group_name=identity.name)
         # azure container registry service connection
         example_service_endpoint_azure_ecr = azuredevops.ServiceEndpointAzureEcr("example",
@@ -535,13 +535,13 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             azurecr_subscription_id="00000000-0000-0000-0000-000000000000",
             azurecr_subscription_name="subscription name",
             credentials={
-                "serviceprincipalid": example_user_assigned_identity["clientId"],
+                "serviceprincipalid": example_user_assigned_identity.client_id,
             })
-        example_federated_identity_credential = azurerm.index.FederatedIdentityCredential("example",
-            name=example-federated-credential,
+        example_federated_identity_credential = azure.armmsi.FederatedIdentityCredential("example",
+            name="example-federated-credential",
             resource_group_name=identity.name,
             parent_id=example_user_assigned_identity.id,
-            audience=[api://AzureADTokenExchange],
+            audience="api://AzureADTokenExchange",
             issuer=example_service_endpoint_azure_ecr.workload_identity_federation_issuer,
             subject=example_service_endpoint_azure_ecr.workload_identity_federation_subject)
         ```
@@ -609,8 +609,8 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import pulumi_azure as azure
         import pulumi_azuredevops as azuredevops
-        import pulumi_azurerm as azurerm
 
         example = azuredevops.Project("example",
             name="Example Project",
@@ -618,12 +618,12 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             version_control="Git",
             work_item_template="Agile",
             description="Managed by Pulumi")
-        identity = azurerm.index.ResourceGroup("identity",
-            name=identity,
-            location=UK South)
-        example_user_assigned_identity = azurerm.index.UserAssignedIdentity("example",
+        identity = azure.core.ResourceGroup("identity",
+            name="identity",
+            location="UK South")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             location=identity.location,
-            name=example-identity,
+            name="example-identity",
             resource_group_name=identity.name)
         # azure container registry service connection
         example_service_endpoint_azure_ecr = azuredevops.ServiceEndpointAzureEcr("example",
@@ -636,13 +636,13 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             azurecr_subscription_id="00000000-0000-0000-0000-000000000000",
             azurecr_subscription_name="subscription name",
             credentials={
-                "serviceprincipalid": example_user_assigned_identity["clientId"],
+                "serviceprincipalid": example_user_assigned_identity.client_id,
             })
-        example_federated_identity_credential = azurerm.index.FederatedIdentityCredential("example",
-            name=example-federated-credential,
+        example_federated_identity_credential = azure.armmsi.FederatedIdentityCredential("example",
+            name="example-federated-credential",
             resource_group_name=identity.name,
             parent_id=example_user_assigned_identity.id,
-            audience=[api://AzureADTokenExchange],
+            audience="api://AzureADTokenExchange",
             issuer=example_service_endpoint_azure_ecr.workload_identity_federation_issuer,
             subject=example_service_endpoint_azure_ecr.workload_identity_federation_subject)
         ```
