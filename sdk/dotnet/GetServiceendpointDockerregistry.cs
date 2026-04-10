@@ -26,12 +26,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.GetServiceendpointDockerregistry.Invoke(new()
+        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.Index.GetServiceendpointDockerregistry.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
@@ -54,12 +54,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.GetServiceendpointDockerregistry.Invoke(new()
+        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.Index.GetServiceendpointDockerregistry.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointName = "Example-Service-Endpoint",
@@ -90,12 +90,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.GetServiceendpointDockerregistry.Invoke(new()
+        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.Index.GetServiceendpointDockerregistry.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
@@ -118,12 +118,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.GetServiceendpointDockerregistry.Invoke(new()
+        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.Index.GetServiceendpointDockerregistry.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointName = "Example-Service-Endpoint",
@@ -154,12 +154,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.GetServiceendpointDockerregistry.Invoke(new()
+        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.Index.GetServiceendpointDockerregistry.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
@@ -182,12 +182,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.GetServiceendpointDockerregistry.Invoke(new()
+        ///     var exampleGetServiceendpointDockerregistry = AzureDevOps.Index.GetServiceendpointDockerregistry.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointName = "Example-Service-Endpoint",

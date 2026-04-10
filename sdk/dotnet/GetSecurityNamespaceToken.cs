@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var gitInfo = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var gitInfo = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Git Repositories",
         ///         ReturnIdentifierInfo = true,
@@ -50,7 +50,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var collection = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var collection = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Collection",
         ///     });
@@ -72,12 +72,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var project = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var project = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Project",
         ///         Identifiers = 
@@ -103,18 +103,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var exampleGetGitRepository = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
         ///     });
         /// 
-        ///     var gitRepo = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var gitRepo = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Git Repositories",
         ///         Identifiers = 
@@ -141,18 +141,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var exampleGetGitRepository = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
         ///     });
         /// 
-        ///     var gitBranch = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var gitBranch = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Git Repositories",
         ///         Identifiers = 
@@ -180,18 +180,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetBuildDefinition = AzureDevOps.GetBuildDefinition.Invoke(new()
+        ///     var exampleGetBuildDefinition = AzureDevOps.Index.GetBuildDefinition.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Build Pipeline",
         ///     });
         /// 
-        ///     var buildDef = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var buildDef = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Build",
         ///         Identifiers = 
@@ -218,7 +218,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var analytics = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var analytics = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceId = "58450c49-b02d-465a-ab12-59ae512d6531",
         ///         Identifiers = 
@@ -261,7 +261,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var gitInfo = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var gitInfo = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Git Repositories",
         ///         ReturnIdentifierInfo = true,
@@ -285,7 +285,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var collection = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var collection = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Collection",
         ///     });
@@ -307,12 +307,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var project = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var project = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Project",
         ///         Identifiers = 
@@ -338,18 +338,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var exampleGetGitRepository = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
         ///     });
         /// 
-        ///     var gitRepo = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var gitRepo = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Git Repositories",
         ///         Identifiers = 
@@ -376,18 +376,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var exampleGetGitRepository = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
         ///     });
         /// 
-        ///     var gitBranch = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var gitBranch = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Git Repositories",
         ///         Identifiers = 
@@ -415,18 +415,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetBuildDefinition = AzureDevOps.GetBuildDefinition.Invoke(new()
+        ///     var exampleGetBuildDefinition = AzureDevOps.Index.GetBuildDefinition.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Build Pipeline",
         ///     });
         /// 
-        ///     var buildDef = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var buildDef = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Build",
         ///         Identifiers = 
@@ -453,7 +453,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var analytics = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var analytics = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceId = "58450c49-b02d-465a-ab12-59ae512d6531",
         ///         Identifiers = 
@@ -496,7 +496,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var gitInfo = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var gitInfo = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Git Repositories",
         ///         ReturnIdentifierInfo = true,
@@ -520,7 +520,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var collection = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var collection = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Collection",
         ///     });
@@ -542,12 +542,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var project = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var project = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Project",
         ///         Identifiers = 
@@ -573,18 +573,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var exampleGetGitRepository = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
         ///     });
         /// 
-        ///     var gitRepo = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var gitRepo = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Git Repositories",
         ///         Identifiers = 
@@ -611,18 +611,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var exampleGetGitRepository = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
         ///     });
         /// 
-        ///     var gitBranch = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var gitBranch = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Git Repositories",
         ///         Identifiers = 
@@ -650,18 +650,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetBuildDefinition = AzureDevOps.GetBuildDefinition.Invoke(new()
+        ///     var exampleGetBuildDefinition = AzureDevOps.Index.GetBuildDefinition.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Build Pipeline",
         ///     });
         /// 
-        ///     var buildDef = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var buildDef = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceName = "Build",
         ///         Identifiers = 
@@ -688,7 +688,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var analytics = AzureDevOps.GetSecurityNamespaceToken.Invoke(new()
+        ///     var analytics = AzureDevOps.Index.GetSecurityNamespaceToken.Invoke(new()
         ///     {
         ///         NamespaceId = "58450c49-b02d-465a-ab12-59ae512d6531",
         ///         Identifiers = 

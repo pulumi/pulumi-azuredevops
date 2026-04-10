@@ -26,12 +26,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
+        ///     var exampleGetVariableGroup = AzureDevOps.Index.GetVariableGroup.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Variable Group",
@@ -66,12 +66,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
+        ///     var exampleGetVariableGroup = AzureDevOps.Index.GetVariableGroup.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Variable Group",
@@ -106,12 +106,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
+        ///     var exampleGetVariableGroup = AzureDevOps.Index.GetVariableGroup.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Variable Group",

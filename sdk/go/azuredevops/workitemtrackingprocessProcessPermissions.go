@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_group, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+//			example_group, err := azuredevops.GetGroup(ctx, &azuredevops.LookupGroupArgs{
 //				Name: "Example Group",
 //			}, nil)
 //			if err != nil {
@@ -75,7 +75,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example_group, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+//			example_group, err := azuredevops.GetGroup(ctx, &azuredevops.LookupGroupArgs{
 //				Name: "Example Group",
 //			}, nil)
 //			if err != nil {

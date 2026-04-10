@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetWorkitemtrackingprocessWorkitemtype.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetWorkitemtrackingprocessWorkitemtype.Invoke(new()
         ///     {
         ///         ProcessId = "f22ab9cc-acad-47ab-b31d-e43ef8d72b89",
         ///         ReferenceName = "MyProcess.Example",
@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetWorkitemtrackingprocessWorkitemtype.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetWorkitemtrackingprocessWorkitemtype.Invoke(new()
         ///     {
         ///         ProcessId = "f22ab9cc-acad-47ab-b31d-e43ef8d72b89",
         ///         ReferenceName = "MyProcess.Example",
@@ -90,7 +90,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetWorkitemtrackingprocessWorkitemtype.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetWorkitemtrackingprocessWorkitemtype.Invoke(new()
         ///     {
         ///         ProcessId = "f22ab9cc-acad-47ab-b31d-e43ef8d72b89",
         ///         ReferenceName = "MyProcess.Example",

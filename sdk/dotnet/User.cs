@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.User("example", new()
+    ///     var example = new AzureDevOps.Index.User("example", new()
     ///     {
     ///         PrincipalName = "foo@contoso.com",
     ///     });

@@ -195,7 +195,7 @@ class SecurityroleAssignment(pulumi.CustomResource):
             description="Description of example group")
         example_securityrole_assignment = azuredevops.SecurityroleAssignment("example",
             scope="distributedtask.environmentreferencerole",
-            resource_id=std.index.format(input="%s_%s",
+            resource_id=std.format(input="%s_%s",
                 args=[
                     example.id,
                     example_environment.id,
@@ -248,7 +248,7 @@ class SecurityroleAssignment(pulumi.CustomResource):
             description="Description of example group")
         example_securityrole_assignment = azuredevops.SecurityroleAssignment("example",
             scope="distributedtask.environmentreferencerole",
-            resource_id=std.index.format(input="%s_%s",
+            resource_id=std.format(input="%s_%s",
                 args=[
                     example.id,
                     example_environment.id,

@@ -23,7 +23,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // azure container registry service connection
-    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("example", new()
+    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.Index.ServiceEndpointAzureEcr("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureCR",
@@ -53,12 +53,12 @@ namespace Pulumi.AzureDevOps
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
     /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -67,13 +67,13 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var identity = new Azure.Core.ResourceGroup("identity", new()
+    ///     var identity = new Azurerm.Index.ResourceGroup("identity", new()
     ///     {
     ///         Name = "identity",
     ///         Location = "UK South",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azurerm.Index.UserAssignedIdentity("example", new()
     ///     {
     ///         Location = identity.Location,
     ///         Name = "example-identity",
@@ -81,7 +81,7 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // azure container registry service connection
-    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("example", new()
+    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.Index.ServiceEndpointAzureEcr("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ResourceGroup = "Example AzureCR ResourceGroup",
@@ -97,12 +97,15 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleFederatedIdentityCredential = new Azure.ArmMsi.FederatedIdentityCredential("example", new()
+    ///     var exampleFederatedIdentityCredential = new Azurerm.Index.FederatedIdentityCredential("example", new()
     ///     {
     ///         Name = "example-federated-credential",
     ///         ResourceGroupName = identity.Name,
     ///         ParentId = exampleUserAssignedIdentity.Id,
-    ///         Audience = "api://AzureADTokenExchange",
+    ///         Audience = new[]
+    ///         {
+    ///             "api://AzureADTokenExchange",
+    ///         },
     ///         Issuer = exampleServiceEndpointAzureEcr.WorkloadIdentityFederationIssuer,
     ///         Subject = exampleServiceEndpointAzureEcr.WorkloadIdentityFederationSubject,
     ///     });

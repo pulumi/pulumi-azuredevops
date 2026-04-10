@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -32,7 +32,7 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // dockerhub registry service connection
-    ///     var exampleServiceEndpointDockerRegistry = new AzureDevOps.ServiceEndpointDockerRegistry("example", new()
+    ///     var exampleServiceEndpointDockerRegistry = new AzureDevOps.Index.ServiceEndpointDockerRegistry("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Docker Hub",
@@ -43,7 +43,7 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // other docker registry service connection
-    ///     var example_other = new AzureDevOps.ServiceEndpointDockerRegistry("example-other", new()
+    ///     var example_other = new AzureDevOps.Index.ServiceEndpointDockerRegistry("example-other", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Docker Registry",

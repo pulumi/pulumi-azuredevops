@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -30,7 +30,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleBuildFolder = new AzureDevOps.BuildFolder("example", new()
+    ///     var exampleBuildFolder = new AzureDevOps.Index.BuildFolder("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Path = "\\ExampleFolder",

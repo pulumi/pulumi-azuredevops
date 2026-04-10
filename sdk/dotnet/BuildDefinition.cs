@@ -23,7 +23,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Repository",
@@ -41,7 +41,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("example", new()
+    ///     var exampleVariableGroup = new AzureDevOps.Index.VariableGroup("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Pipeline Variables",
@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("example", new()
+    ///     var exampleBuildDefinition = new AzureDevOps.Index.BuildDefinition("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Build Definition",
@@ -135,7 +135,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -143,7 +143,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.ServiceEndpointGitHubEnterprise("example", new()
+    ///     var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.Index.ServiceEndpointGitHubEnterprise("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example GitHub Enterprise",
@@ -155,7 +155,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("example", new()
+    ///     var exampleBuildDefinition = new AzureDevOps.Index.BuildDefinition("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Build Definition",
@@ -217,7 +217,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.BuildDefinition("example", new()
+    ///     var example = new AzureDevOps.Index.BuildDefinition("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Name = "Example Build Definition",
@@ -270,13 +270,13 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = AzureDevOps.GetServiceEndpointGithub.Invoke(new()
+    ///     var example = AzureDevOps.Index.GetServiceEndpointGithub.Invoke(new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
-    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("example", new()
+    ///     var exampleBuildDefinition = new AzureDevOps.Index.BuildDefinition("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject2.Id,
     ///         Name = "Example Build Definition",
@@ -328,7 +328,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.ServiceEndpointGenericGit("example", new()
+    ///     var example = new AzureDevOps.Index.ServiceEndpointGenericGit("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         RepositoryUrl = "https://gitlab.com/example/example.git",
@@ -336,7 +336,7 @@ namespace Pulumi.AzureDevOps
     ///         ServiceEndpointName = "Example Generic Git",
     ///     });
     /// 
-    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("example", new()
+    ///     var exampleBuildDefinition = new AzureDevOps.Index.BuildDefinition("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject2.Id,
     ///         Name = "Example Build Definition",

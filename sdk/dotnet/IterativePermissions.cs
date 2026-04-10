@@ -29,7 +29,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -38,13 +38,13 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_readers = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var example_root_permissions = new AzureDevOps.IterativePermissions("example-root-permissions", new()
+    ///     var example_root_permissions = new AzureDevOps.Index.IterativePermissions("example-root-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
@@ -56,7 +56,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_iteration_permissions = new AzureDevOps.IterativePermissions("example-iteration-permissions", new()
+    ///     var example_iteration_permissions = new AzureDevOps.Index.IterativePermissions("example-iteration-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),

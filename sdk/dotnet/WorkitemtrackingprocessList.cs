@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.WorkitemtrackingprocessList("example", new()
+    ///     var example = new AzureDevOps.Index.WorkitemtrackingprocessList("example", new()
     ///     {
     ///         Name = "Priority Levels",
     ///         Items = new[]
@@ -51,7 +51,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.WorkitemtrackingprocessList("example", new()
+    ///     var example = new AzureDevOps.Index.WorkitemtrackingprocessList("example", new()
     ///     {
     ///         Name = "Story Points",
     ///         Type = "integer",

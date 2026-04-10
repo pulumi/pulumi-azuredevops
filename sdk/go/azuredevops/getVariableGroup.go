@@ -29,13 +29,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			example, err := azuredevops.GetProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleGetVariableGroup, err := azuredevops.LookupVariableGroup(ctx, &azuredevops.LookupVariableGroupArgs{
+//			exampleGetVariableGroup, err := azuredevops.GetVariableGroup(ctx, &azuredevops.LookupVariableGroupArgs{
 //				ProjectId: example.Id,
 //				Name:      "Example Variable Group",
 //			}, nil)

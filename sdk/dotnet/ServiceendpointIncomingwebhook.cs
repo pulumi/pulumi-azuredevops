@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleServiceendpointIncomingwebhook = new AzureDevOps.ServiceendpointIncomingwebhook("example", new()
+    ///     var exampleServiceendpointIncomingwebhook = new AzureDevOps.Index.ServiceendpointIncomingwebhook("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         WebhookName = "example_webhook",

@@ -22,27 +22,27 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.WorkitemtrackingprocessProcess("example", new()
+    ///     var example = new AzureDevOps.Index.WorkitemtrackingprocessProcess("example", new()
     ///     {
     ///         Name = "example-process",
     ///         ParentProcessTypeId = "adcc42ab-9882-485e-a3ed-7678f01f66bc",
     ///     });
     /// 
-    ///     var exampleWorkitemtrackingprocessWorkitemtype = new AzureDevOps.WorkitemtrackingprocessWorkitemtype("example", new()
+    ///     var exampleWorkitemtrackingprocessWorkitemtype = new AzureDevOps.Index.WorkitemtrackingprocessWorkitemtype("example", new()
     ///     {
     ///         ProcessId = example.Id,
     ///         Name = "example",
     ///         Description = "Example work item type",
     ///     });
     /// 
-    ///     var exampleWorkitemtrackingField = new AzureDevOps.WorkitemtrackingField("example", new()
+    ///     var exampleWorkitemtrackingField = new AzureDevOps.Index.WorkitemtrackingField("example", new()
     ///     {
     ///         Name = "Priority Level",
     ///         ReferenceName = "Custom.PriorityLevel",
     ///         Type = "string",
     ///     });
     /// 
-    ///     var exampleWorkitemtrackingprocessField = new AzureDevOps.WorkitemtrackingprocessField("example", new()
+    ///     var exampleWorkitemtrackingprocessField = new AzureDevOps.Index.WorkitemtrackingprocessField("example", new()
     ///     {
     ///         ProcessId = example.Id,
     ///         WorkItemTypeId = exampleWorkitemtrackingprocessWorkitemtype.Id,

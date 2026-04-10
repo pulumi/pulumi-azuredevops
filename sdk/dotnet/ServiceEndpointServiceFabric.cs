@@ -25,7 +25,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -34,7 +34,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleServiceEndpointServiceFabric = new AzureDevOps.ServiceEndpointServiceFabric("example", new()
+    ///     var exampleServiceEndpointServiceFabric = new AzureDevOps.Index.ServiceEndpointServiceFabric("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Service Fabric",
@@ -65,7 +65,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var project = new AzureDevOps.Project("project", new()
+    ///     var project = new AzureDevOps.Index.Project("project", new()
     ///     {
     ///         Name = "Sample Project",
     ///         Visibility = "private",
@@ -73,7 +73,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var test = new AzureDevOps.ServiceEndpointServiceFabric("test", new()
+    ///     var test = new AzureDevOps.Index.ServiceEndpointServiceFabric("test", new()
     ///     {
     ///         ProjectId = project.Id,
     ///         ServiceEndpointName = "Sample Service Fabric",
@@ -101,7 +101,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var project = new AzureDevOps.Project("project", new()
+    ///     var project = new AzureDevOps.Index.Project("project", new()
     ///     {
     ///         Name = "Sample Project",
     ///         Visibility = "private",
@@ -109,7 +109,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var test = new AzureDevOps.ServiceEndpointServiceFabric("test", new()
+    ///     var test = new AzureDevOps.Index.ServiceEndpointServiceFabric("test", new()
     ///     {
     ///         ProjectId = project.Id,
     ///         ServiceEndpointName = "Sample Service Fabric",

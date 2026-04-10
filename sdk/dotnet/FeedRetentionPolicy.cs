@@ -23,7 +23,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -32,13 +32,13 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleFeed = new AzureDevOps.Feed("example", new()
+    ///     var exampleFeed = new AzureDevOps.Index.Feed("example", new()
     ///     {
     ///         Name = "ExampleFeed",
     ///         ProjectId = example.Id,
     ///     });
     /// 
-    ///     var exampleFeedRetentionPolicy = new AzureDevOps.FeedRetentionPolicy("example", new()
+    ///     var exampleFeedRetentionPolicy = new AzureDevOps.Index.FeedRetentionPolicy("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         FeedId = exampleFeed.Id,
@@ -58,12 +58,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Feed("example", new()
+    ///     var example = new AzureDevOps.Index.Feed("example", new()
     ///     {
     ///         Name = "examplefeed",
     ///     });
     /// 
-    ///     var exampleFeedRetentionPolicy = new AzureDevOps.FeedRetentionPolicy("example", new()
+    ///     var exampleFeedRetentionPolicy = new AzureDevOps.Index.FeedRetentionPolicy("example", new()
     ///     {
     ///         FeedId = example.Id,
     ///         CountLimit = 20,

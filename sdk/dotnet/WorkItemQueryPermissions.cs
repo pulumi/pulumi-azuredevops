@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -42,13 +42,13 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_readers = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var project_wiq_root_permissions = new AzureDevOps.WorkItemQueryPermissions("project-wiq-root-permissions", new()
+    ///     var project_wiq_root_permissions = new AzureDevOps.Index.WorkItemQueryPermissions("project-wiq-root-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
@@ -79,7 +79,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -88,13 +88,13 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_readers = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var example_permissions = new AzureDevOps.WorkItemQueryPermissions("example-permissions", new()
+    ///     var example_permissions = new AzureDevOps.Index.WorkItemQueryPermissions("example-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Path = "/Team",
@@ -120,7 +120,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -129,19 +129,19 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_readers = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var example_contributors = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_contributors = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Contributors",
     ///     });
     /// 
-    ///     var example_project_permissions = new AzureDevOps.WorkItemQueryPermissions("example-project-permissions", new()
+    ///     var example_project_permissions = new AzureDevOps.Index.WorkItemQueryPermissions("example-project-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
@@ -154,7 +154,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_sharedqueries_permissions = new AzureDevOps.WorkItemQueryPermissions("example-sharedqueries-permissions", new()
+    ///     var example_sharedqueries_permissions = new AzureDevOps.Index.WorkItemQueryPermissions("example-sharedqueries-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Path = "/",

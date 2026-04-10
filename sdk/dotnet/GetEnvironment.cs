@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -33,14 +33,14 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
+        ///     var exampleEnvironment = new AzureDevOps.Index.Environment("example", new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Environment",
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example = AzureDevOps.GetEnvironment.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetEnvironment.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         EnvironmentId = exampleEnvironment.Id,
@@ -69,7 +69,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -78,14 +78,14 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
+        ///     var exampleEnvironment = new AzureDevOps.Index.Environment("example", new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Environment",
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example = AzureDevOps.GetEnvironment.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetEnvironment.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         EnvironmentId = exampleEnvironment.Id,
@@ -114,7 +114,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -123,14 +123,14 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
+        ///     var exampleEnvironment = new AzureDevOps.Index.Environment("example", new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Environment",
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example = AzureDevOps.GetEnvironment.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetEnvironment.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         EnvironmentId = exampleEnvironment.Id,

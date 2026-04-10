@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -34,7 +34,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Git Repository",
@@ -60,7 +60,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -68,7 +68,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Empty Git Repository",
@@ -91,7 +91,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -99,7 +99,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Git Repository",
@@ -123,7 +123,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -131,7 +131,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Git Repository",
@@ -142,7 +142,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_fork = new AzureDevOps.Git("example-fork", new()
+    ///     var example_fork = new AzureDevOps.Index.Git("example-fork", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Fork Repository",
@@ -166,7 +166,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -174,7 +174,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Git Repository",
@@ -185,7 +185,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_import = new AzureDevOps.Git("example-import", new()
+    ///     var example_import = new AzureDevOps.Index.Git("example-import", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Import Repository",
@@ -210,7 +210,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -218,7 +218,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Git Repository",
@@ -229,7 +229,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_serviceendpoint = new AzureDevOps.ServiceEndpointGenericGit("example-serviceendpoint", new()
+    ///     var example_serviceendpoint = new AzureDevOps.Index.ServiceEndpointGenericGit("example-serviceendpoint", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         RepositoryUrl = "https://dev.azure.com/org/project/_git/repository",
@@ -240,7 +240,7 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // with service connection
-    ///     var example_import = new AzureDevOps.Git("example-import", new()
+    ///     var example_import = new AzureDevOps.Index.Git("example-import", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Import Existing Repository",
@@ -254,7 +254,7 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // with username/password
-    ///     var example_import2 = new AzureDevOps.Git("example-import2", new()
+    ///     var example_import2 = new AzureDevOps.Index.Git("example-import2", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Import Existing Repository",
@@ -281,7 +281,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -289,7 +289,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Empty Git Repository",

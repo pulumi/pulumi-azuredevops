@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.ServicePrincipalEntitlement("example", new()
+    ///     var example = new AzureDevOps.Index.ServicePrincipalEntitlement("example", new()
     ///     {
     ///         OriginId = "00000000-0000-0000-0000-000000000000",
     ///     });

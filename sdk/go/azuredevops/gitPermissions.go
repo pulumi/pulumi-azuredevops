@@ -49,7 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
@@ -101,7 +101,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_group, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+//			example_group, err := azuredevops.GetGroup(ctx, &azuredevops.LookupGroupArgs{
 //				Name: "Project Collection Administrators",
 //			}, nil)
 //			if err != nil {
@@ -175,7 +175,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_group, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+//			example_group, err := azuredevops.GetGroup(ctx, &azuredevops.LookupGroupArgs{
 //				Name: "Project Collection Administrators",
 //			}, nil)
 //			if err != nil {
@@ -224,15 +224,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_project_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//			example_project_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
-//			example_project_contributors := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//			example_project_contributors := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)
-//			example_project_administrators := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//			example_project_administrators := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Project administrators"),
 //			}, nil)

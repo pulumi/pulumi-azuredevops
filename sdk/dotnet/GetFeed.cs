@@ -25,7 +25,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetFeed.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetFeed.Invoke(new()
         ///     {
         ///         Name = "releases",
         ///     });
@@ -42,12 +42,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetFeed = AzureDevOps.GetFeed.Invoke(new()
+        ///     var exampleGetFeed = AzureDevOps.Index.GetFeed.Invoke(new()
         ///     {
         ///         Name = "releases",
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
@@ -78,7 +78,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetFeed.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetFeed.Invoke(new()
         ///     {
         ///         Name = "releases",
         ///     });
@@ -95,12 +95,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetFeed = AzureDevOps.GetFeed.Invoke(new()
+        ///     var exampleGetFeed = AzureDevOps.Index.GetFeed.Invoke(new()
         ///     {
         ///         Name = "releases",
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
@@ -131,7 +131,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetFeed.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetFeed.Invoke(new()
         ///     {
         ///         Name = "releases",
         ///     });
@@ -148,12 +148,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetFeed = AzureDevOps.GetFeed.Invoke(new()
+        ///     var exampleGetFeed = AzureDevOps.Index.GetFeed.Invoke(new()
         ///     {
         ///         Name = "releases",
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),

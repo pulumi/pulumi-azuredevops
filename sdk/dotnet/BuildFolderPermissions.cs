@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -35,20 +35,20 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_readers = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var exampleBuildFolder = new AzureDevOps.BuildFolder("example", new()
+    ///     var exampleBuildFolder = new AzureDevOps.Index.BuildFolder("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Path = "\\ExampleFolder",
     ///         Description = "ExampleFolder description",
     ///     });
     /// 
-    ///     var exampleBuildFolderPermissions = new AzureDevOps.BuildFolderPermissions("example", new()
+    ///     var exampleBuildFolderPermissions = new AzureDevOps.Index.BuildFolderPermissions("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Path = "\\ExampleFolder",
@@ -83,7 +83,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -92,13 +92,13 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_readers = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var exampleBuildFolderPermissions = new AzureDevOps.BuildFolderPermissions("example", new()
+    ///     var exampleBuildFolderPermissions = new AzureDevOps.Index.BuildFolderPermissions("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Path = "\\",

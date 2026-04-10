@@ -33,11 +33,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
-//			example_contributors := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//			example_contributors := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)

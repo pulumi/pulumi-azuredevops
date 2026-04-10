@@ -103,7 +103,7 @@ import * as utilities from "./utilities";
  * });
  * const queryPermissions = new azuredevops.WorkItemQueryPermissions("query_permissions", {
  *     projectId: example.id,
- *     path: std.index.format({
+ *     path: std.format({
  *         input: "%s/%s",
  *         args: [
  *             teamFolder.name,

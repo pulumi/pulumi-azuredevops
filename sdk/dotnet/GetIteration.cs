@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new AzureDevOps.Project("example", new()
+        ///     var example = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -33,14 +33,14 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example_root_iteration = AzureDevOps.GetIteration.Invoke(new()
+        ///     var example_root_iteration = AzureDevOps.Index.GetIteration.Invoke(new()
         ///     {
         ///         ProjectId = example.Id,
         ///         Path = "/",
         ///         FetchChildren = true,
         ///     });
         /// 
-        ///     var example_child_iteration = AzureDevOps.GetIteration.Invoke(new()
+        ///     var example_child_iteration = AzureDevOps.Index.GetIteration.Invoke(new()
         ///     {
         ///         ProjectId = example.Id,
         ///         Path = "/Iteration 1",
@@ -74,7 +74,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new AzureDevOps.Project("example", new()
+        ///     var example = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -83,14 +83,14 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example_root_iteration = AzureDevOps.GetIteration.Invoke(new()
+        ///     var example_root_iteration = AzureDevOps.Index.GetIteration.Invoke(new()
         ///     {
         ///         ProjectId = example.Id,
         ///         Path = "/",
         ///         FetchChildren = true,
         ///     });
         /// 
-        ///     var example_child_iteration = AzureDevOps.GetIteration.Invoke(new()
+        ///     var example_child_iteration = AzureDevOps.Index.GetIteration.Invoke(new()
         ///     {
         ///         ProjectId = example.Id,
         ///         Path = "/Iteration 1",
@@ -124,7 +124,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new AzureDevOps.Project("example", new()
+        ///     var example = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -133,14 +133,14 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example_root_iteration = AzureDevOps.GetIteration.Invoke(new()
+        ///     var example_root_iteration = AzureDevOps.Index.GetIteration.Invoke(new()
         ///     {
         ///         ProjectId = example.Id,
         ///         Path = "/",
         ///         FetchChildren = true,
         ///     });
         /// 
-        ///     var example_child_iteration = AzureDevOps.GetIteration.Invoke(new()
+        ///     var example_child_iteration = AzureDevOps.Index.GetIteration.Invoke(new()
         ///     {
         ///         ProjectId = example.Id,
         ///         Path = "/Iteration 1",

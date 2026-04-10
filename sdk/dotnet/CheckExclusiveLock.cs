@@ -26,12 +26,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("example", new()
+    ///     var exampleServiceEndpointGeneric = new AzureDevOps.Index.ServiceEndpointGeneric("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServerUrl = "https://some-server.example.com",
@@ -41,7 +41,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleCheckExclusiveLock = new AzureDevOps.CheckExclusiveLock("example", new()
+    ///     var exampleCheckExclusiveLock = new AzureDevOps.Index.CheckExclusiveLock("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         TargetResourceId = exampleServiceEndpointGeneric.Id,
@@ -62,18 +62,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
+    ///     var exampleEnvironment = new AzureDevOps.Index.Environment("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Environment",
     ///     });
     /// 
-    ///     var exampleCheckExclusiveLock = new AzureDevOps.CheckExclusiveLock("example", new()
+    ///     var exampleCheckExclusiveLock = new AzureDevOps.Index.CheckExclusiveLock("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         TargetResourceId = exampleEnvironment.Id,
@@ -94,12 +94,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Repository",
@@ -109,7 +109,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleCheckExclusiveLock = new AzureDevOps.CheckExclusiveLock("example", new()
+    ///     var exampleCheckExclusiveLock = new AzureDevOps.Index.CheckExclusiveLock("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         TargetResourceId = Output.Tuple(example.Id, exampleGit.Id).Apply(values =&gt;

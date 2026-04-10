@@ -24,12 +24,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("example", new()
+    ///     var exampleServiceEndpointGeneric = new AzureDevOps.Index.ServiceEndpointGeneric("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServerUrl = "https://some-server.example.com",
@@ -39,7 +39,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleCheckRequiredTemplate = new AzureDevOps.CheckRequiredTemplate("example", new()
+    ///     var exampleCheckRequiredTemplate = new AzureDevOps.Index.CheckRequiredTemplate("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         TargetResourceId = exampleServiceEndpointGeneric.Id,
@@ -69,18 +69,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
+    ///     var exampleEnvironment = new AzureDevOps.Index.Environment("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Environment",
     ///     });
     /// 
-    ///     var exampleCheckRequiredTemplate = new AzureDevOps.CheckRequiredTemplate("example", new()
+    ///     var exampleCheckRequiredTemplate = new AzureDevOps.Index.CheckRequiredTemplate("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         TargetResourceId = exampleEnvironment.Id,

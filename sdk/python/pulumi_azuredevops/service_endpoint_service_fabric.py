@@ -309,7 +309,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             certificate={
                 "server_certificate_lookup": "Thumbprint",
                 "server_certificate_thumbprint": "0000000000000000000000000000000000000000",
-                "client_certificate": std.index.filebase64(input="certificate.pfx")["result"],
+                "client_certificate": std.filebase64(input="certificate.pfx")["result"],
                 "client_certificate_password": "password",
             })
         ```
@@ -415,7 +415,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             certificate={
                 "server_certificate_lookup": "Thumbprint",
                 "server_certificate_thumbprint": "0000000000000000000000000000000000000000",
-                "client_certificate": std.index.filebase64(input="certificate.pfx")["result"],
+                "client_certificate": std.filebase64(input="certificate.pfx")["result"],
                 "client_certificate_password": "password",
             })
         ```

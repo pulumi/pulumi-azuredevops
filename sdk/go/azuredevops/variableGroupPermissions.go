@@ -53,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tf_project_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//			tf_project_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: project.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)

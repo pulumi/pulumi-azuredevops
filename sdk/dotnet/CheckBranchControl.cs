@@ -24,12 +24,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("example", new()
+    ///     var exampleServiceEndpointGeneric = new AzureDevOps.Index.ServiceEndpointGeneric("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServerUrl = "https://some-server.example.com",
@@ -39,7 +39,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
+    ///     var exampleCheckBranchControl = new AzureDevOps.Index.CheckBranchControl("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         DisplayName = "Managed by Pulumi",
@@ -62,18 +62,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
+    ///     var exampleEnvironment = new AzureDevOps.Index.Environment("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Environment",
     ///     });
     /// 
-    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
+    ///     var exampleCheckBranchControl = new AzureDevOps.Index.CheckBranchControl("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         DisplayName = "Managed by Pulumi",
@@ -95,23 +95,23 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var examplePool = new AzureDevOps.Pool("example", new()
+    ///     var examplePool = new AzureDevOps.Index.Pool("example", new()
     ///     {
     ///         Name = "example-pool",
     ///     });
     /// 
-    ///     var exampleQueue = new AzureDevOps.Queue("example", new()
+    ///     var exampleQueue = new AzureDevOps.Index.Queue("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         AgentPoolId = examplePool.Id,
     ///     });
     /// 
-    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
+    ///     var exampleCheckBranchControl = new AzureDevOps.Index.CheckBranchControl("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         DisplayName = "Managed by Pulumi",
@@ -133,12 +133,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Empty Git Repository",
@@ -148,7 +148,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
+    ///     var exampleCheckBranchControl = new AzureDevOps.Index.CheckBranchControl("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         DisplayName = "Managed by Pulumi",
@@ -175,12 +175,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("example", new()
+    ///     var exampleVariableGroup = new AzureDevOps.Index.VariableGroup("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Variable Group",
@@ -202,7 +202,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleCheckBranchControl = new AzureDevOps.CheckBranchControl("example", new()
+    ///     var exampleCheckBranchControl = new AzureDevOps.Index.CheckBranchControl("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         DisplayName = "Managed by Pulumi",

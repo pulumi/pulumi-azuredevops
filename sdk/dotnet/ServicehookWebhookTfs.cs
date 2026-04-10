@@ -24,12 +24,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "example-project",
     ///     });
     /// 
-    ///     var exampleServicehookWebhookTfs = new AzureDevOps.ServicehookWebhookTfs("example", new()
+    ///     var exampleServicehookWebhookTfs = new AzureDevOps.Index.ServicehookWebhookTfs("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Url = "https://example.com/webhook",
@@ -53,7 +53,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.ServicehookWebhookTfs("example", new()
+    ///     var example = new AzureDevOps.Index.ServicehookWebhookTfs("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Url = "https://example.com/webhook",
@@ -80,7 +80,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.ServicehookWebhookTfs("example", new()
+    ///     var example = new AzureDevOps.Index.ServicehookWebhookTfs("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Url = "https://example.com/webhook",
@@ -109,7 +109,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.ServicehookWebhookTfs("example", new()
+    ///     var example = new AzureDevOps.Index.ServicehookWebhookTfs("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Url = "https://example.com/webhook",
@@ -137,7 +137,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.ServicehookWebhookTfs("example", new()
+    ///     var example = new AzureDevOps.Index.ServicehookWebhookTfs("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Url = "https://example.com/webhook",

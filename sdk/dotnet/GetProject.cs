@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
@@ -61,7 +61,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
@@ -98,7 +98,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });

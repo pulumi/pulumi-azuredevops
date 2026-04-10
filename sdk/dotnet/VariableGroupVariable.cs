@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -35,7 +35,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("example", new()
+    ///     var exampleVariableGroup = new AzureDevOps.Index.VariableGroup("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Variable Group",
@@ -51,7 +51,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleVariableGroupVariable = new AzureDevOps.VariableGroupVariable("example", new()
+    ///     var exampleVariableGroupVariable = new AzureDevOps.Index.VariableGroupVariable("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         VariableGroupId = exampleVariableGroup.Id,

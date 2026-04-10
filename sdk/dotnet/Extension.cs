@@ -23,7 +23,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Extension("example", new()
+    ///     var example = new AzureDevOps.Index.Extension("example", new()
     ///     {
     ///         ExtensionId = "extension ID",
     ///         PublisherId = "publisher ID",

@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServicePrincipal.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServicePrincipal.Invoke(new()
         ///     {
         ///         DisplayName = "existing",
         ///     });
@@ -52,7 +52,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServicePrincipal.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServicePrincipal.Invoke(new()
         ///     {
         ///         DisplayName = "existing",
         ///     });
@@ -80,7 +80,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServicePrincipal.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServicePrincipal.Invoke(new()
         ///     {
         ///         DisplayName = "existing",
         ///     });

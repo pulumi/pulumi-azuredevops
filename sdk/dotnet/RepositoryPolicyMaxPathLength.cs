@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Sample Repo",
@@ -43,7 +43,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleRepositoryPolicyMaxPathLength = new AzureDevOps.RepositoryPolicyMaxPathLength("example", new()
+    ///     var exampleRepositoryPolicyMaxPathLength = new AzureDevOps.Index.RepositoryPolicyMaxPathLength("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Enabled = true,
@@ -67,7 +67,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -76,7 +76,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleRepositoryPolicyMaxPathLength = new AzureDevOps.RepositoryPolicyMaxPathLength("example", new()
+    ///     var exampleRepositoryPolicyMaxPathLength = new AzureDevOps.Index.RepositoryPolicyMaxPathLength("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Enabled = true,

@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -37,20 +37,20 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var examplePool = new AzureDevOps.Pool("example", new()
+    ///     var examplePool = new AzureDevOps.Index.Pool("example", new()
     ///     {
     ///         Name = "Example Pool",
     ///         AutoProvision = false,
     ///         AutoUpdate = false,
     ///     });
     /// 
-    ///     var exampleQueue = new AzureDevOps.Queue("example", new()
+    ///     var exampleQueue = new AzureDevOps.Index.Queue("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         AgentPoolId = examplePool.Id,
     ///     });
     /// 
-    ///     var examplePipelineAuthorization = new AzureDevOps.PipelineAuthorization("example", new()
+    ///     var examplePipelineAuthorization = new AzureDevOps.Index.PipelineAuthorization("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ResourceId = exampleQueue.Id,
@@ -70,7 +70,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("example", new()
+    ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -79,26 +79,26 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var examplePool = new AzureDevOps.Pool("example", new()
+    ///     var examplePool = new AzureDevOps.Index.Pool("example", new()
     ///     {
     ///         Name = "Example Pool",
     ///         AutoProvision = false,
     ///         AutoUpdate = false,
     ///     });
     /// 
-    ///     var exampleQueue = new AzureDevOps.Queue("example", new()
+    ///     var exampleQueue = new AzureDevOps.Index.Queue("example", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
     ///         AgentPoolId = examplePool.Id,
     ///     });
     /// 
-    ///     var example = AzureDevOps.GetGitRepository.Invoke(new()
+    ///     var example = AzureDevOps.Index.GetGitRepository.Invoke(new()
     ///     {
     ///         ProjectId = exampleProject.Id,
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("example", new()
+    ///     var exampleBuildDefinition = new AzureDevOps.Index.BuildDefinition("example", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
     ///         Name = "Example Pipeline",
@@ -110,7 +110,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var examplePipelineAuthorization = new AzureDevOps.PipelineAuthorization("example", new()
+    ///     var examplePipelineAuthorization = new AzureDevOps.Index.PipelineAuthorization("example", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
     ///         ResourceId = exampleQueue.Id,

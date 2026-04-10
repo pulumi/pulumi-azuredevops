@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetGroupMembership.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetGroupMembership.Invoke(new()
         ///     {
         ///         GroupDescriptor = "groupdescroptpr",
         ///     });
@@ -52,7 +52,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetGroupMembership.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetGroupMembership.Invoke(new()
         ///     {
         ///         GroupDescriptor = "groupdescroptpr",
         ///     });
@@ -80,7 +80,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetGroupMembership.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetGroupMembership.Invoke(new()
         ///     {
         ///         GroupDescriptor = "groupdescroptpr",
         ///     });

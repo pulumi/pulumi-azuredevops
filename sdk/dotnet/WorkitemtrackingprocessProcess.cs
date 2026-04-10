@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var customAgile = new AzureDevOps.WorkitemtrackingprocessProcess("custom_agile", new()
+    ///     var customAgile = new AzureDevOps.Index.WorkitemtrackingprocessProcess("custom_agile", new()
     ///     {
     ///         Name = "custom_agile",
     ///         ParentProcessTypeId = "adcc42ab-9882-485e-a3ed-7678f01f66bc",

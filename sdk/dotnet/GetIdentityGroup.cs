@@ -25,7 +25,7 @@ namespace Pulumi.AzureDevOps
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // load existing group with specific name
-        ///     var example_project_group = AzureDevOps.GetIdentityGroup.Invoke(new()
+        ///     var example_project_group = AzureDevOps.Index.GetIdentityGroup.Invoke(new()
         ///     {
         ///         ProjectId = example.Id,
         ///         Name = "[Project-Name]\\Group-Name",
@@ -55,7 +55,7 @@ namespace Pulumi.AzureDevOps
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // load existing group with specific name
-        ///     var example_project_group = AzureDevOps.GetIdentityGroup.Invoke(new()
+        ///     var example_project_group = AzureDevOps.Index.GetIdentityGroup.Invoke(new()
         ///     {
         ///         ProjectId = example.Id,
         ///         Name = "[Project-Name]\\Group-Name",
@@ -85,7 +85,7 @@ namespace Pulumi.AzureDevOps
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // load existing group with specific name
-        ///     var example_project_group = AzureDevOps.GetIdentityGroup.Invoke(new()
+        ///     var example_project_group = AzureDevOps.Index.GetIdentityGroup.Invoke(new()
         ///     {
         ///         ProjectId = example.Id,
         ///         Name = "[Project-Name]\\Group-Name",

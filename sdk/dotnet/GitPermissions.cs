@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -42,13 +42,13 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_readers = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
+    ///     var example_permissions = new AzureDevOps.Index.GitPermissions("example-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
@@ -77,7 +77,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -86,12 +86,12 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var example_group = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_group = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         Name = "Project Collection Administrators",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Empty Git Repository",
@@ -101,7 +101,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
+    ///     var example_permissions = new AzureDevOps.Index.GitPermissions("example-permissions", new()
     ///     {
     ///         ProjectId = exampleGit.ProjectId,
     ///         RepositoryId = exampleGit.Id,
@@ -132,7 +132,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -141,7 +141,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Empty Git Repository",
@@ -151,12 +151,12 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_group = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_group = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         Name = "Project Collection Administrators",
     ///     });
     /// 
-    ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
+    ///     var example_permissions = new AzureDevOps.Index.GitPermissions("example-permissions", new()
     ///     {
     ///         ProjectId = exampleGit.ProjectId,
     ///         RepositoryId = exampleGit.Id,
@@ -182,7 +182,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -191,25 +191,25 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var example_project_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_project_readers = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var example_project_contributors = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_project_contributors = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Contributors",
     ///     });
     /// 
-    ///     var example_project_administrators = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_project_administrators = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Project administrators",
     ///     });
     /// 
-    ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
+    ///     var example_permissions = new AzureDevOps.Index.GitPermissions("example-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Principal = example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
@@ -221,7 +221,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "TestRepo",
@@ -232,7 +232,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_repo_permissions = new AzureDevOps.GitPermissions("example-repo-permissions", new()
+    ///     var example_repo_permissions = new AzureDevOps.Index.GitPermissions("example-repo-permissions", new()
     ///     {
     ///         ProjectId = exampleGit.ProjectId,
     ///         RepositoryId = exampleGit.Id,
@@ -246,7 +246,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_branch_permissions = new AzureDevOps.GitPermissions("example-branch-permissions", new()
+    ///     var example_branch_permissions = new AzureDevOps.Index.GitPermissions("example-branch-permissions", new()
     ///     {
     ///         ProjectId = exampleGit.ProjectId,
     ///         RepositoryId = exampleGit.Id,

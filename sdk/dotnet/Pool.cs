@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Pool("example", new()
+    ///     var example = new AzureDevOps.Index.Pool("example", new()
     ///     {
     ///         Name = "Example-pool",
     ///         AutoProvision = false,

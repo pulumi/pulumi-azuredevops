@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleServiceendpointMaven = new AzureDevOps.ServiceendpointMaven("example", new()
+    ///     var exampleServiceendpointMaven = new AzureDevOps.Index.ServiceendpointMaven("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "maven-example",
@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -66,7 +66,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleServiceendpointMaven = new AzureDevOps.ServiceendpointMaven("example", new()
+    ///     var exampleServiceendpointMaven = new AzureDevOps.Index.ServiceendpointMaven("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "maven-example",

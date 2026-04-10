@@ -25,20 +25,20 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // Load all Git repositories of a project, which are accessible for the current user
-        ///     var example_all_repos = AzureDevOps.GetRepositories.Invoke(new()
+        ///     var example_all_repos = AzureDevOps.Index.GetRepositories.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         IncludeHidden = true,
         ///     });
         /// 
         ///     // Load a specific Git repository by name
-        ///     var example_single_repo = AzureDevOps.GetRepositories.Invoke(new()
+        ///     var example_single_repo = AzureDevOps.Index.GetRepositories.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
@@ -68,20 +68,20 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // Load all Git repositories of a project, which are accessible for the current user
-        ///     var example_all_repos = AzureDevOps.GetRepositories.Invoke(new()
+        ///     var example_all_repos = AzureDevOps.Index.GetRepositories.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         IncludeHidden = true,
         ///     });
         /// 
         ///     // Load a specific Git repository by name
-        ///     var example_single_repo = AzureDevOps.GetRepositories.Invoke(new()
+        ///     var example_single_repo = AzureDevOps.Index.GetRepositories.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
@@ -111,20 +111,20 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // Load all Git repositories of a project, which are accessible for the current user
-        ///     var example_all_repos = AzureDevOps.GetRepositories.Invoke(new()
+        ///     var example_all_repos = AzureDevOps.Index.GetRepositories.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         IncludeHidden = true,
         ///     });
         /// 
         ///     // Load a specific Git repository by name
-        ///     var example_single_repo = AzureDevOps.GetRepositories.Invoke(new()
+        ///     var example_single_repo = AzureDevOps.Index.GetRepositories.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",

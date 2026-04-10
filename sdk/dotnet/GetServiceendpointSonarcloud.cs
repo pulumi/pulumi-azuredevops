@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServiceendpointSonarcloud.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServiceendpointSonarcloud.Invoke(new()
         ///     {
         ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example Sonar Cloud",
@@ -53,7 +53,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServiceendpointSonarcloud.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServiceendpointSonarcloud.Invoke(new()
         ///     {
         ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example Sonar Cloud",
@@ -82,7 +82,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServiceendpointSonarcloud.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServiceendpointSonarcloud.Invoke(new()
         ///     {
         ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example Sonar Cloud",

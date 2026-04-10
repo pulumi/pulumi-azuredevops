@@ -44,7 +44,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+//			example, err := azuredevops.GetGroup(ctx, &azuredevops.LookupGroupArgs{
 //				Name: "Project Collection Administrators",
 //			}, nil)
 //			if err != nil {
@@ -82,7 +82,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			example, err := azuredevops.GetProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
@@ -111,7 +111,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContributors, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+//			exampleContributors, err := azuredevops.GetGroup(ctx, &azuredevops.LookupGroupArgs{
 //				ProjectId: pulumi.StringRef(example.Id),
 //				Name:      "Contributors",
 //			}, nil)
@@ -153,7 +153,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			example, err := azuredevops.GetProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
@@ -183,7 +183,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContributors, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+//			exampleContributors, err := azuredevops.GetGroup(ctx, &azuredevops.LookupGroupArgs{
 //				ProjectId: pulumi.StringRef(example.Id),
 //				Name:      "Contributors",
 //			}, nil)

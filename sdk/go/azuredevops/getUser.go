@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := azuredevops.LookupUser(ctx, &azuredevops.LookupUserArgs{
+//			_, err := azuredevops.GetUser(ctx, &azuredevops.LookupUserArgs{
 //				Descriptor: "descriptor",
 //			}, nil)
 //			if err != nil {

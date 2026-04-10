@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			example, err := azuredevops.GetProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
@@ -41,7 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.LookupGitRepositoryFile(ctx, &azuredevops.LookupGitRepositoryFileArgs{
+//			_, err = azuredevops.GetGitRepositoryFile(ctx, &azuredevops.LookupGitRepositoryFileArgs{
 //				RepositoryId: exampleGetGitRepository.Id,
 //				Branch:       pulumi.StringRef("refs/heads/main"),
 //				File:         "MyFile.txt",

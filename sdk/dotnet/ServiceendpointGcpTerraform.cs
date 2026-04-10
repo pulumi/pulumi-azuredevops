@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleServiceendpointGcpTerraform = new AzureDevOps.ServiceendpointGcpTerraform("example", new()
+    ///     var exampleServiceendpointGcpTerraform = new AzureDevOps.Index.ServiceendpointGcpTerraform("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         TokenUri = "https://oauth2.example.com/token",

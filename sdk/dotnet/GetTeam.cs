@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example = AzureDevOps.GetTeam.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetTeam.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Project Team",
@@ -66,7 +66,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -75,7 +75,7 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example = AzureDevOps.GetTeam.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetTeam.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Project Team",
@@ -108,7 +108,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -117,7 +117,7 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example = AzureDevOps.GetTeam.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetTeam.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Project Team",

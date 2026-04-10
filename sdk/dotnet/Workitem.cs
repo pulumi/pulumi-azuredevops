@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleWorkitem = new AzureDevOps.Workitem("example", new()
+    ///     var exampleWorkitem = new AzureDevOps.Index.Workitem("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Title = "Example Work Item",
@@ -59,7 +59,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -68,7 +68,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleWorkitem = new AzureDevOps.Workitem("example", new()
+    ///     var exampleWorkitem = new AzureDevOps.Index.Workitem("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Title = "Example Work Item",
@@ -96,7 +96,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -104,7 +104,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///     });
     /// 
-    ///     var epic = new AzureDevOps.Workitem("epic", new()
+    ///     var epic = new AzureDevOps.Index.Workitem("epic", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Title = "Example EPIC Title",
@@ -112,7 +112,7 @@ namespace Pulumi.AzureDevOps
     ///         State = "New",
     ///     });
     /// 
-    ///     var exampleWorkitem = new AzureDevOps.Workitem("example", new()
+    ///     var exampleWorkitem = new AzureDevOps.Index.Workitem("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Title = "Example Work Item",
@@ -139,7 +139,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -148,7 +148,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleWorkitem = new AzureDevOps.Workitem("example", new()
+    ///     var exampleWorkitem = new AzureDevOps.Index.Workitem("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Title = "Example Work Item",

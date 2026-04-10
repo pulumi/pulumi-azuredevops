@@ -24,16 +24,16 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // load all existing groups inside an organization
-        ///     var example_all_groups = AzureDevOps.GetIdentityGroups.Invoke();
+        ///     var example_all_groups = AzureDevOps.Index.GetIdentityGroups.Invoke();
         /// 
         ///     // load all existing groups inside a specific project
-        ///     var example_project_groups = AzureDevOps.GetIdentityGroups.Invoke(new()
+        ///     var example_project_groups = AzureDevOps.Index.GetIdentityGroups.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///     });
@@ -61,16 +61,16 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // load all existing groups inside an organization
-        ///     var example_all_groups = AzureDevOps.GetIdentityGroups.Invoke();
+        ///     var example_all_groups = AzureDevOps.Index.GetIdentityGroups.Invoke();
         /// 
         ///     // load all existing groups inside a specific project
-        ///     var example_project_groups = AzureDevOps.GetIdentityGroups.Invoke(new()
+        ///     var example_project_groups = AzureDevOps.Index.GetIdentityGroups.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///     });
@@ -98,16 +98,16 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // load all existing groups inside an organization
-        ///     var example_all_groups = AzureDevOps.GetIdentityGroups.Invoke();
+        ///     var example_all_groups = AzureDevOps.Index.GetIdentityGroups.Invoke();
         /// 
         ///     // load all existing groups inside a specific project
-        ///     var example_project_groups = AzureDevOps.GetIdentityGroups.Invoke(new()
+        ///     var example_project_groups = AzureDevOps.Index.GetIdentityGroups.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///     });

@@ -26,12 +26,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.GetServiceendpointBitbucket.Invoke(new()
+        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.Index.GetServiceendpointBitbucket.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
@@ -54,12 +54,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.GetServiceendpointBitbucket.Invoke(new()
+        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.Index.GetServiceendpointBitbucket.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointName = "Example",
@@ -94,12 +94,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.GetServiceendpointBitbucket.Invoke(new()
+        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.Index.GetServiceendpointBitbucket.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
@@ -122,12 +122,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.GetServiceendpointBitbucket.Invoke(new()
+        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.Index.GetServiceendpointBitbucket.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointName = "Example",
@@ -162,12 +162,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.GetServiceendpointBitbucket.Invoke(new()
+        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.Index.GetServiceendpointBitbucket.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
@@ -190,12 +190,12 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.GetServiceendpointBitbucket.Invoke(new()
+        ///     var exampleGetServiceendpointBitbucket = AzureDevOps.Index.GetServiceendpointBitbucket.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         ServiceEndpointName = "Example",

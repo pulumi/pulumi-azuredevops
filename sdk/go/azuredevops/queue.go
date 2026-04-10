@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example, err := azuredevops.LookupPool(ctx, &azuredevops.LookupPoolArgs{
+//			example, err := azuredevops.GetPool(ctx, &azuredevops.LookupPoolArgs{
 //				Name: "example-pool",
 //			}, nil)
 //			if err != nil {
@@ -83,7 +83,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			example, err := azuredevops.GetProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
