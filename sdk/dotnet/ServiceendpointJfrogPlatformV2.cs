@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleServiceendpointJfrogPlatformV2 = new AzureDevOps.ServiceendpointJfrogPlatformV2("example", new()
+    ///     var exampleServiceendpointJfrogPlatformV2 = new AzureDevOps.Index.ServiceendpointJfrogPlatformV2("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Artifactory",
@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -66,7 +66,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleServiceendpointJfrogPlatformV2 = new AzureDevOps.ServiceendpointJfrogPlatformV2("example", new()
+    ///     var exampleServiceendpointJfrogPlatformV2 = new AzureDevOps.Index.ServiceendpointJfrogPlatformV2("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Artifactory",

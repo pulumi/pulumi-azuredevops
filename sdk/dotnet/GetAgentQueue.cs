@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example = AzureDevOps.GetAgentQueue.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetAgentQueue.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Agent Queue",
@@ -67,7 +67,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -76,7 +76,7 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example = AzureDevOps.GetAgentQueue.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetAgentQueue.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Agent Queue",
@@ -110,7 +110,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleProject = new AzureDevOps.Project("example", new()
+        ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
         ///     {
         ///         Name = "Example Project",
         ///         WorkItemTemplate = "Agile",
@@ -119,7 +119,7 @@ namespace Pulumi.AzureDevOps
         ///         Description = "Managed by Pulumi",
         ///     });
         /// 
-        ///     var example = AzureDevOps.GetAgentQueue.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetAgentQueue.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
         ///         Name = "Example Agent Queue",

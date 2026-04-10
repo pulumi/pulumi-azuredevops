@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var git = AzureDevOps.GetSecurityNamespace.Invoke(new()
+        ///     var git = AzureDevOps.Index.GetSecurityNamespace.Invoke(new()
         ///     {
         ///         Name = "Git Repositories",
         ///     });
@@ -49,7 +49,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var project = AzureDevOps.GetSecurityNamespace.Invoke(new()
+        ///     var project = AzureDevOps.Index.GetSecurityNamespace.Invoke(new()
         ///     {
         ///         Id = "52d39943-cb85-4d7f-8fa8-c6baac873819",
         ///     });
@@ -84,7 +84,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var git = AzureDevOps.GetSecurityNamespace.Invoke(new()
+        ///     var git = AzureDevOps.Index.GetSecurityNamespace.Invoke(new()
         ///     {
         ///         Name = "Git Repositories",
         ///     });
@@ -107,7 +107,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var project = AzureDevOps.GetSecurityNamespace.Invoke(new()
+        ///     var project = AzureDevOps.Index.GetSecurityNamespace.Invoke(new()
         ///     {
         ///         Id = "52d39943-cb85-4d7f-8fa8-c6baac873819",
         ///     });
@@ -142,7 +142,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var git = AzureDevOps.GetSecurityNamespace.Invoke(new()
+        ///     var git = AzureDevOps.Index.GetSecurityNamespace.Invoke(new()
         ///     {
         ///         Name = "Git Repositories",
         ///     });
@@ -165,7 +165,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var project = AzureDevOps.GetSecurityNamespace.Invoke(new()
+        ///     var project = AzureDevOps.Index.GetSecurityNamespace.Invoke(new()
         ///     {
         ///         Id = "52d39943-cb85-4d7f-8fa8-c6baac873819",
         ///     });

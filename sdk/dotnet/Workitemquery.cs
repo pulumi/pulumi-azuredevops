@@ -28,7 +28,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -36,7 +36,7 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///     });
     /// 
-    ///     var allIssues = new AzureDevOps.Workitemquery("all_issues", new()
+    ///     var allIssues = new AzureDevOps.Index.Workitemquery("all_issues", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "All Active Issues",
@@ -62,7 +62,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -70,14 +70,14 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///     });
     /// 
-    ///     var teamFolder = new AzureDevOps.WorkitemqueryFolder("team_folder", new()
+    ///     var teamFolder = new AzureDevOps.Index.WorkitemqueryFolder("team_folder", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Team",
     ///         Area = "Shared Queries",
     ///     });
     /// 
-    ///     var myTeamBugs = new AzureDevOps.Workitemquery("my_team_bugs", new()
+    ///     var myTeamBugs = new AzureDevOps.Index.Workitemquery("my_team_bugs", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Team Bugs",
@@ -104,7 +104,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -112,14 +112,14 @@ namespace Pulumi.AzureDevOps
     ///         Visibility = "private",
     ///     });
     /// 
-    ///     var teamFolder = new AzureDevOps.WorkitemqueryFolder("team_folder", new()
+    ///     var teamFolder = new AzureDevOps.Index.WorkitemqueryFolder("team_folder", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Team",
     ///         Area = "Shared Queries",
     ///     });
     /// 
-    ///     var myTeamBugs = new AzureDevOps.Workitemquery("my_team_bugs", new()
+    ///     var myTeamBugs = new AzureDevOps.Index.Workitemquery("my_team_bugs", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Team Bugs",
@@ -132,13 +132,13 @@ namespace Pulumi.AzureDevOps
     /// ",
     ///     });
     /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_readers = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var queryPermissions = new AzureDevOps.WorkItemQueryPermissions("query_permissions", new()
+    ///     var queryPermissions = new AzureDevOps.Index.WorkItemQueryPermissions("query_permissions", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Path = Std.Index.Format.Invoke(new()

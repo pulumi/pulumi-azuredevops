@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var example_azure = new AzureDevOps.ServiceEndpointKubernetes("example-azure", new()
+    ///     var example_azure = new AzureDevOps.Index.ServiceEndpointKubernetes("example-azure", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Kubernetes",
@@ -51,7 +51,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_kubeconfig = new AzureDevOps.ServiceEndpointKubernetes("example-kubeconfig", new()
+    ///     var example_kubeconfig = new AzureDevOps.Index.ServiceEndpointKubernetes("example-kubeconfig", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Kubernetes",
@@ -85,7 +85,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var example_service_account = new AzureDevOps.ServiceEndpointKubernetes("example-service-account", new()
+    ///     var example_service_account = new AzureDevOps.Index.ServiceEndpointKubernetes("example-service-account", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Kubernetes",

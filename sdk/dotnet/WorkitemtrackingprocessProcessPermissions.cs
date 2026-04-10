@@ -24,18 +24,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.WorkitemtrackingprocessProcess("example", new()
+    ///     var example = new AzureDevOps.Index.WorkitemtrackingprocessProcess("example", new()
     ///     {
     ///         Name = "Example Process",
     ///         ParentProcessTypeId = "adcc42ab-9882-485e-a3ed-7678f01f66bc",
     ///     });
     /// 
-    ///     var example_group = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_group = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         Name = "Example Group",
     ///     });
     /// 
-    ///     var exampleWorkitemtrackingprocessProcessPermissions = new AzureDevOps.WorkitemtrackingprocessProcessPermissions("example", new()
+    ///     var exampleWorkitemtrackingprocessProcessPermissions = new AzureDevOps.Index.WorkitemtrackingprocessProcessPermissions("example", new()
     ///     {
     ///         ProcessId = example.Id,
     ///         Principal = example_group.Apply(example_group =&gt; example_group.Apply(getGroupResult =&gt; getGroupResult.Id)),
@@ -60,12 +60,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example_group = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example_group = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         Name = "Example Group",
     ///     });
     /// 
-    ///     var example = new AzureDevOps.WorkitemtrackingprocessProcessPermissions("example", new()
+    ///     var example = new AzureDevOps.Index.WorkitemtrackingprocessProcessPermissions("example", new()
     ///     {
     ///         ProcessId = "adcc42ab-9882-485e-a3ed-7678f01f66bc",
     ///         Principal = example_group.Apply(example_group =&gt; example_group.Apply(getGroupResult =&gt; getGroupResult.Id)),

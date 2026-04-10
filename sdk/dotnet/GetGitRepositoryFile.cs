@@ -24,19 +24,19 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // Load a specific Git repository by name
-        ///     var exampleGetGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var exampleGetGitRepository = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
         ///     });
         /// 
-        ///     var exampleGetGitRepositoryFile = AzureDevOps.GetGitRepositoryFile.Invoke(new()
+        ///     var exampleGetGitRepositoryFile = AzureDevOps.Index.GetGitRepositoryFile.Invoke(new()
         ///     {
         ///         RepositoryId = exampleGetGitRepository.Apply(getGitRepositoryResult =&gt; getGitRepositoryResult.Id),
         ///         Branch = "refs/heads/main",
@@ -62,19 +62,19 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // Load a specific Git repository by name
-        ///     var exampleGetGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var exampleGetGitRepository = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
         ///     });
         /// 
-        ///     var exampleGetGitRepositoryFile = AzureDevOps.GetGitRepositoryFile.Invoke(new()
+        ///     var exampleGetGitRepositoryFile = AzureDevOps.Index.GetGitRepositoryFile.Invoke(new()
         ///     {
         ///         RepositoryId = exampleGetGitRepository.Apply(getGitRepositoryResult =&gt; getGitRepositoryResult.Id),
         ///         Branch = "refs/heads/main",
@@ -100,19 +100,19 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // Load a specific Git repository by name
-        ///     var exampleGetGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var exampleGetGitRepository = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
         ///     });
         /// 
-        ///     var exampleGetGitRepositoryFile = AzureDevOps.GetGitRepositoryFile.Invoke(new()
+        ///     var exampleGetGitRepositoryFile = AzureDevOps.Index.GetGitRepositoryFile.Invoke(new()
         ///     {
         ///         RepositoryId = exampleGetGitRepository.Apply(getGitRepositoryResult =&gt; getGitRepositoryResult.Id),
         ///         Branch = "refs/heads/main",

@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  *     certificate: {
  *         serverCertificateLookup: "Thumbprint",
  *         serverCertificateThumbprint: "0000000000000000000000000000000000000000",
- *         clientCertificate: std.index.filebase64({
+ *         clientCertificate: std.filebase64({
  *             input: "certificate.pfx",
  *         }).result,
  *         clientCertificatePassword: "password",

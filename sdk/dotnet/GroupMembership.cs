@@ -22,23 +22,23 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new AzureDevOps.Project("example", new()
+    ///     var exampleProject = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleUser = new AzureDevOps.User("example", new()
+    ///     var exampleUser = new AzureDevOps.Index.User("example", new()
     ///     {
     ///         PrincipalName = "foo@contoso.com",
     ///     });
     /// 
-    ///     var example = AzureDevOps.GetGroup.Invoke(new()
+    ///     var example = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = exampleProject.Id,
     ///         Name = "Build Administrators",
     ///     });
     /// 
-    ///     var exampleGroupMembership = new AzureDevOps.GroupMembership("example", new()
+    ///     var exampleGroupMembership = new AzureDevOps.Index.GroupMembership("example", new()
     ///     {
     ///         Group = example.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
     ///         Members = new[]

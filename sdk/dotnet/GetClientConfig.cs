@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetClientConfig.Invoke();
+        ///     var example = AzureDevOps.Index.GetClientConfig.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -49,7 +49,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetClientConfig.Invoke();
+        ///     var example = AzureDevOps.Index.GetClientConfig.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -74,7 +74,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetClientConfig.Invoke();
+        ///     var example = AzureDevOps.Index.GetClientConfig.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {

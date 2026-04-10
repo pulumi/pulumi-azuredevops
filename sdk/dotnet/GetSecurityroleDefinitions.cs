@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetSecurityroleDefinitions.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetSecurityroleDefinitions.Invoke(new()
         ///     {
         ///         Scope = "distributedtask.environmentreferencerole",
         ///     });
@@ -56,7 +56,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetSecurityroleDefinitions.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetSecurityroleDefinitions.Invoke(new()
         ///     {
         ///         Scope = "distributedtask.environmentreferencerole",
         ///     });
@@ -88,7 +88,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetSecurityroleDefinitions.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetSecurityroleDefinitions.Invoke(new()
         ///     {
         ///         Scope = "distributedtask.environmentreferencerole",
         ///     });

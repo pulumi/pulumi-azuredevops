@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//			example := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Build Administrators"),
 //			}, nil)

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupPool(ctx, &azuredevops.LookupPoolArgs{
+//			example, err := azuredevops.GetPool(ctx, &azuredevops.LookupPoolArgs{
 //				Name: "Example Agent Pool",
 //			}, nil)
 //			if err != nil {

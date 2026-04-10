@@ -27,7 +27,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -36,7 +36,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var teamFolder = new AzureDevOps.WorkitemqueryFolder("team_folder", new()
+    ///     var teamFolder = new AzureDevOps.Index.WorkitemqueryFolder("team_folder", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Team",
@@ -56,14 +56,14 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var parent = new AzureDevOps.WorkitemqueryFolder("parent", new()
+    ///     var parent = new AzureDevOps.Index.WorkitemqueryFolder("parent", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Parent",
     ///         Area = "Shared Queries",
     ///     });
     /// 
-    ///     var child = new AzureDevOps.WorkitemqueryFolder("child", new()
+    ///     var child = new AzureDevOps.Index.WorkitemqueryFolder("child", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Child",

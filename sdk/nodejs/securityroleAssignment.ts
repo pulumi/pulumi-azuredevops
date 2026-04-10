@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleSecurityroleAssignment = new azuredevops.SecurityroleAssignment("example", {
  *     scope: "distributedtask.environmentreferencerole",
- *     resourceId: std.index.format({
+ *     resourceId: std.format({
  *         input: "%s_%s",
  *         args: [
  *             example.id,

@@ -23,7 +23,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Feed("example", new()
+    ///     var example = new AzureDevOps.Index.Feed("example", new()
     ///     {
     ///         Name = "examplefeed",
     ///     });
@@ -40,7 +40,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -49,7 +49,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleFeed = new AzureDevOps.Feed("example", new()
+    ///     var exampleFeed = new AzureDevOps.Index.Feed("example", new()
     ///     {
     ///         Name = "examplefeed",
     ///         ProjectId = example.Id,
@@ -67,7 +67,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Feed("example", new()
+    ///     var example = new AzureDevOps.Index.Feed("example", new()
     ///     {
     ///         Name = "examplefeed",
     ///         Features = new[]

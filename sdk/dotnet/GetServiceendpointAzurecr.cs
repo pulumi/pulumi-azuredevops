@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServiceendpointAzurecr.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServiceendpointAzurecr.Invoke(new()
         ///     {
         ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example Azure Container Registry",
@@ -53,7 +53,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServiceendpointAzurecr.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServiceendpointAzurecr.Invoke(new()
         ///     {
         ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example Azure Container Registry",
@@ -82,7 +82,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServiceendpointAzurecr.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServiceendpointAzurecr.Invoke(new()
         ///     {
         ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example Azure Container Registry",

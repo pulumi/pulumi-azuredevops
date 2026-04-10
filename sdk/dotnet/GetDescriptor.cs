@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetDescriptor.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetDescriptor.Invoke(new()
         ///     {
         ///         StorageKey = "00000000-0000-0000-0000-000000000000",
         ///     });
@@ -56,7 +56,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetDescriptor.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetDescriptor.Invoke(new()
         ///     {
         ///         StorageKey = "00000000-0000-0000-0000-000000000000",
         ///     });
@@ -88,7 +88,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetDescriptor.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetDescriptor.Invoke(new()
         ///     {
         ///         StorageKey = "00000000-0000-0000-0000-000000000000",
         ///     });

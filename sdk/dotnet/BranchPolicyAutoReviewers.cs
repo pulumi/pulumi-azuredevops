@@ -22,12 +22,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Repository",
@@ -37,13 +37,13 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleUser = new AzureDevOps.User("example", new()
+    ///     var exampleUser = new AzureDevOps.Index.User("example", new()
     ///     {
     ///         PrincipalName = "mail@email.com",
     ///         AccountLicenseType = "basic",
     ///     });
     /// 
-    ///     var exampleBranchPolicyAutoReviewers = new AzureDevOps.BranchPolicyAutoReviewers("example", new()
+    ///     var exampleBranchPolicyAutoReviewers = new AzureDevOps.Index.BranchPolicyAutoReviewers("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Enabled = true,

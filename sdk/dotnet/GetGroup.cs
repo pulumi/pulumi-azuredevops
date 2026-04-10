@@ -24,18 +24,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetGroup = AzureDevOps.GetGroup.Invoke(new()
+        ///     var exampleGetGroup = AzureDevOps.Index.GetGroup.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Group",
         ///     });
         /// 
-        ///     var example_collection_group = AzureDevOps.GetGroup.Invoke(new()
+        ///     var example_collection_group = AzureDevOps.Index.GetGroup.Invoke(new()
         ///     {
         ///         Name = "Project Collection Administrators",
         ///     });
@@ -75,18 +75,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetGroup = AzureDevOps.GetGroup.Invoke(new()
+        ///     var exampleGetGroup = AzureDevOps.Index.GetGroup.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Group",
         ///     });
         /// 
-        ///     var example_collection_group = AzureDevOps.GetGroup.Invoke(new()
+        ///     var example_collection_group = AzureDevOps.Index.GetGroup.Invoke(new()
         ///     {
         ///         Name = "Project Collection Administrators",
         ///     });
@@ -126,18 +126,18 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     var exampleGetGroup = AzureDevOps.GetGroup.Invoke(new()
+        ///     var exampleGetGroup = AzureDevOps.Index.GetGroup.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Group",
         ///     });
         /// 
-        ///     var example_collection_group = AzureDevOps.GetGroup.Invoke(new()
+        ///     var example_collection_group = AzureDevOps.Index.GetGroup.Invoke(new()
         ///     {
         ///         Name = "Project Collection Administrators",
         ///     });

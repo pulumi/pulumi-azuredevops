@@ -34,7 +34,7 @@ import * as utilities from "./utilities";
  * export const projectPermissions = .reduce((__obj, action) => ({ ...__obj, [action.name]: {
  *     displayName: action.displayName,
  *     bit: action.bit,
- * } }));
+ * } }), {});
  * ```
  *
  * ## Common Security Namespaces
@@ -118,7 +118,7 @@ export interface GetSecurityNamespacesResult {
  * export const projectPermissions = .reduce((__obj, action) => ({ ...__obj, [action.name]: {
  *     displayName: action.displayName,
  *     bit: action.bit,
- * } }));
+ * } }), {});
  * ```
  *
  * ## Common Security Namespaces

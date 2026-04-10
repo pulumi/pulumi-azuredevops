@@ -293,7 +293,7 @@ class Workitemquery(pulumi.CustomResource):
             name="Readers")
         query_permissions = azuredevops.WorkItemQueryPermissions("query_permissions",
             project_id=example.id,
-            path=std.index.format(input="%s/%s",
+            path=std.format(input="%s/%s",
                 args=[
                     team_folder.name,
                     my_team_bugs.name,
@@ -424,7 +424,7 @@ class Workitemquery(pulumi.CustomResource):
             name="Readers")
         query_permissions = azuredevops.WorkItemQueryPermissions("query_permissions",
             project_id=example.id,
-            path=std.index.format(input="%s/%s",
+            path=std.format(input="%s/%s",
                 args=[
                     team_folder.name,
                     my_team_bugs.name,

@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServiceendpointNpm.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServiceendpointNpm.Invoke(new()
         ///     {
         ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example npm",
@@ -53,7 +53,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServiceendpointNpm.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServiceendpointNpm.Invoke(new()
         ///     {
         ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example npm",
@@ -82,7 +82,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetServiceendpointNpm.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetServiceendpointNpm.Invoke(new()
         ///     {
         ///         ProjectId = exampleAzuredevopsProject.Id,
         ///         ServiceEndpointName = "Example npm",

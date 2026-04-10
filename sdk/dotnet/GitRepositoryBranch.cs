@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -30,7 +30,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Git Repository",
@@ -40,14 +40,14 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleGitRepositoryBranch = new AzureDevOps.GitRepositoryBranch("example", new()
+    ///     var exampleGitRepositoryBranch = new AzureDevOps.Index.GitRepositoryBranch("example", new()
     ///     {
     ///         RepositoryId = exampleGit.Id,
     ///         Name = "example-branch-name",
     ///         RefBranch = exampleGit.DefaultBranch,
     ///     });
     /// 
-    ///     var exampleFromCommitId = new AzureDevOps.GitRepositoryBranch("example_from_commit_id", new()
+    ///     var exampleFromCommitId = new AzureDevOps.Index.GitRepositoryBranch("example_from_commit_id", new()
     ///     {
     ///         RepositoryId = exampleGit.Id,
     ///         Name = "example-from-commit-id",

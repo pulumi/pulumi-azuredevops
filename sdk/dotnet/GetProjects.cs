@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProjects.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProjects.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///         State = "wellFormed",
@@ -60,7 +60,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProjects.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProjects.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///         State = "wellFormed",
@@ -96,7 +96,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProjects.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProjects.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///         State = "wellFormed",

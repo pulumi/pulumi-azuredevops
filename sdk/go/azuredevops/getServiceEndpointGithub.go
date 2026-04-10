@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			sample, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			sample, err := azuredevops.GetProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Sample Project"),
 //			}, nil)
 //			if err != nil {
@@ -63,7 +63,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			sample, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			sample, err := azuredevops.GetProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Sample Project"),
 //			}, nil)
 //			if err != nil {

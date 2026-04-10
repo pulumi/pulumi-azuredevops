@@ -24,13 +24,13 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.WorkitemtrackingprocessProcess("example", new()
+    ///     var example = new AzureDevOps.Index.WorkitemtrackingprocessProcess("example", new()
     ///     {
     ///         Name = "example-process",
     ///         ParentProcessTypeId = "adcc42ab-9882-485e-a3ed-7678f01f66bc",
     ///     });
     /// 
-    ///     var exampleWorkitemtrackingprocessWorkitemtype = new AzureDevOps.WorkitemtrackingprocessWorkitemtype("example", new()
+    ///     var exampleWorkitemtrackingprocessWorkitemtype = new AzureDevOps.Index.WorkitemtrackingprocessWorkitemtype("example", new()
     ///     {
     ///         ProcessId = example.Id,
     ///         Name = "example",
@@ -39,7 +39,7 @@ namespace Pulumi.AzureDevOps
     ///         Icon = "icon_clipboard",
     ///     });
     /// 
-    ///     var exampleWorkitemtrackingprocessGroup = new AzureDevOps.WorkitemtrackingprocessGroup("example", new()
+    ///     var exampleWorkitemtrackingprocessGroup = new AzureDevOps.Index.WorkitemtrackingprocessGroup("example", new()
     ///     {
     ///         ProcessId = example.Id,
     ///         WorkItemTypeReferenceName = exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
@@ -63,7 +63,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.WorkitemtrackingprocessGroup("example", new()
+    ///     var example = new AzureDevOps.Index.WorkitemtrackingprocessGroup("example", new()
     ///     {
     ///         ProcessId = exampleAzuredevopsWorkitemtrackingprocessProcess.Id,
     ///         WorkItemTypeReferenceName = exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.ReferenceName,
@@ -98,13 +98,13 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var multivalue = new AzureDevOps.Extension("multivalue", new()
+    ///     var multivalue = new AzureDevOps.Index.Extension("multivalue", new()
     ///     {
     ///         PublisherId = "ms-devlabs",
     ///         ExtensionId = "vsts-extensions-multivalue-control",
     ///     });
     /// 
-    ///     var example = new AzureDevOps.WorkitemtrackingprocessGroup("example", new()
+    ///     var example = new AzureDevOps.Index.WorkitemtrackingprocessGroup("example", new()
     ///     {
     ///         ProcessId = exampleAzuredevopsWorkitemtrackingprocessProcess.Id,
     ///         WorkItemTypeReferenceName = exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.ReferenceName,

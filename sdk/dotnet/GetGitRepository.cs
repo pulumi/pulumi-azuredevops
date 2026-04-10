@@ -25,13 +25,13 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // Load a specific Git repository by name
-        ///     var example_single_repo = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var example_single_repo = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
@@ -61,13 +61,13 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // Load a specific Git repository by name
-        ///     var example_single_repo = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var example_single_repo = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",
@@ -97,13 +97,13 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     var example = AzureDevOps.Index.GetProject.Invoke(new()
         ///     {
         ///         Name = "Example Project",
         ///     });
         /// 
         ///     // Load a specific Git repository by name
-        ///     var example_single_repo = AzureDevOps.GetGitRepository.Invoke(new()
+        ///     var example_single_repo = AzureDevOps.Index.GetGitRepository.Invoke(new()
         ///     {
         ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
         ///         Name = "Example Repository",

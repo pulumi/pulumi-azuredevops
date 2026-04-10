@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // Basic username/password authentication
-    ///     var exampleServiceendpointGenericV2 = new AzureDevOps.ServiceendpointGenericV2("example", new()
+    ///     var exampleServiceendpointGenericV2 = new AzureDevOps.Index.ServiceendpointGenericV2("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Generic Service Endpoint",
@@ -47,7 +47,7 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // Token-based authentication
-    ///     var tokenExample = new AzureDevOps.ServiceendpointGenericV2("token_example", new()
+    ///     var tokenExample = new AzureDevOps.Index.ServiceendpointGenericV2("token_example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Token-based Service Endpoint",

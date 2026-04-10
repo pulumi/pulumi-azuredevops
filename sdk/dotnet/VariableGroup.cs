@@ -27,7 +27,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -36,7 +36,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("example", new()
+    ///     var exampleVariableGroup = new AzureDevOps.Index.VariableGroup("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Variable Group",
@@ -71,7 +71,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -80,7 +80,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.Index.ServiceEndpointAzureRM("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
@@ -95,7 +95,7 @@ namespace Pulumi.AzureDevOps
     ///         AzurermSubscriptionName = "Example Subscription Name",
     ///     });
     /// 
-    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("example", new()
+    ///     var exampleVariableGroup = new AzureDevOps.Index.VariableGroup("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Variable Group",

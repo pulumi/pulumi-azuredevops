@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var project = new AzureDevOps.Project("project", new()
+    ///     var project = new AzureDevOps.Index.Project("project", new()
     ///     {
     ///         Name = "Testing",
     ///         Description = "Testing-description",
@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var example = new AzureDevOps.VariableGroup("example", new()
+    ///     var example = new AzureDevOps.Index.VariableGroup("example", new()
     ///     {
     ///         ProjectId = project.Id,
     ///         Name = "test",
@@ -47,13 +47,13 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var tf_project_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     var tf_project_readers = AzureDevOps.Index.GetGroup.Invoke(new()
     ///     {
     ///         ProjectId = project.Id,
     ///         Name = "Readers",
     ///     });
     /// 
-    ///     var permissions = new AzureDevOps.VariableGroupPermissions("permissions", new()
+    ///     var permissions = new AzureDevOps.Index.VariableGroupPermissions("permissions", new()
     ///     {
     ///         ProjectId = project.Id,
     ///         VariableGroupId = example.Id,

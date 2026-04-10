@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.WorkitemtrackingField("example", new()
+    ///     var example = new AzureDevOps.Index.WorkitemtrackingField("example", new()
     ///     {
     ///         Name = "My Custom Field",
     ///         ReferenceName = "Custom.MyCustomField",
@@ -46,7 +46,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var restored = new AzureDevOps.WorkitemtrackingField("restored", new()
+    ///     var restored = new AzureDevOps.Index.WorkitemtrackingField("restored", new()
     ///     {
     ///         Name = "Restored Field",
     ///         ReferenceName = "Custom.RestoredField",

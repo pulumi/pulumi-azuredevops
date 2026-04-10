@@ -22,12 +22,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("example", new()
+    ///     var exampleServiceEndpointGeneric = new AzureDevOps.Index.ServiceEndpointGeneric("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServerUrl = "https://some-server.example.com",
@@ -37,7 +37,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleAzure = new AzureDevOps.ServiceEndpointGeneric("example_azure", new()
+    ///     var exampleAzure = new AzureDevOps.Index.ServiceEndpointGeneric("example_azure", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServerUrl = "https://dev.azure.com/",
@@ -46,7 +46,7 @@ namespace Pulumi.AzureDevOps
     ///         Password = "dummy",
     ///     });
     /// 
-    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("example", new()
+    ///     var exampleVariableGroup = new AzureDevOps.Index.VariableGroup("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Variable Group",
@@ -61,7 +61,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleCheckRestApi = new AzureDevOps.CheckRestApi("example", new()
+    ///     var exampleCheckRestApi = new AzureDevOps.Index.CheckRestApi("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         TargetResourceId = exampleServiceEndpointGeneric.Id,

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupWorkitemtrackingprocessWorkitemtype(ctx, &azuredevops.LookupWorkitemtrackingprocessWorkitemtypeArgs{
+//			example, err := azuredevops.GetWorkitemtrackingprocessWorkitemtype(ctx, &azuredevops.LookupWorkitemtrackingprocessWorkitemtypeArgs{
 //				ProcessId:     "f22ab9cc-acad-47ab-b31d-e43ef8d72b89",
 //				ReferenceName: "MyProcess.Example",
 //			}, nil)

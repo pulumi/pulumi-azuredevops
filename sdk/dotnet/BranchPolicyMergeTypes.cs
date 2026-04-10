@@ -22,12 +22,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleGit = new AzureDevOps.Git("example", new()
+    ///     var exampleGit = new AzureDevOps.Index.Git("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Repository",
@@ -37,7 +37,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleBranchPolicyMergeTypes = new AzureDevOps.BranchPolicyMergeTypes("example", new()
+    ///     var exampleBranchPolicyMergeTypes = new AzureDevOps.Index.BranchPolicyMergeTypes("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Enabled = true,

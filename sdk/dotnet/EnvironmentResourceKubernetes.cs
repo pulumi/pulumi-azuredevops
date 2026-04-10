@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -31,13 +31,13 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleEnvironment = new AzureDevOps.Environment("example", new()
+    ///     var exampleEnvironment = new AzureDevOps.Index.Environment("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Environment",
     ///     });
     /// 
-    ///     var exampleServiceEndpointKubernetes = new AzureDevOps.ServiceEndpointKubernetes("example", new()
+    ///     var exampleServiceEndpointKubernetes = new AzureDevOps.Index.ServiceEndpointKubernetes("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example Kubernetes",
@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleEnvironmentResourceKubernetes = new AzureDevOps.EnvironmentResourceKubernetes("example", new()
+    ///     var exampleEnvironmentResourceKubernetes = new AzureDevOps.Index.EnvironmentResourceKubernetes("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         EnvironmentId = exampleEnvironment.Id,

@@ -23,24 +23,24 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///     });
     /// 
-    ///     var exampleGroup = new AzureDevOps.Group("example", new()
+    ///     var exampleGroup = new AzureDevOps.Index.Group("example", new()
     ///     {
     ///         Scope = example.Id,
     ///         DisplayName = "Example group",
     ///         Description = "Example description",
     ///     });
     /// 
-    ///     var exampleFeed = new AzureDevOps.Feed("example", new()
+    ///     var exampleFeed = new AzureDevOps.Index.Feed("example", new()
     ///     {
     ///         Name = "examplefeed",
     ///     });
     /// 
-    ///     var permission = new AzureDevOps.FeedPermission("permission", new()
+    ///     var permission = new AzureDevOps.Index.FeedPermission("permission", new()
     ///     {
     ///         FeedId = exampleFeed.Id,
     ///         Role = "reader",

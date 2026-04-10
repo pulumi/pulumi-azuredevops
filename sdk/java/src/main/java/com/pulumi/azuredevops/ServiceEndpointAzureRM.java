@@ -198,15 +198,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
  * import com.pulumi.azuredevops.ProjectArgs;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.authorization.UserAssignedIdentity;
- * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azurerm.ResourceGroup;
+ * import com.pulumi.azurerm.ResourceGroupArgs;
+ * import com.pulumi.azurerm.UserAssignedIdentity;
+ * import com.pulumi.azurerm.UserAssignedIdentityArgs;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
  * import com.pulumi.azuredevops.inputs.ServiceEndpointAzureRMCredentialsArgs;
- * import com.pulumi.azure.armmsi.FederatedIdentityCredential;
- * import com.pulumi.azure.armmsi.FederatedIdentityCredentialArgs;
+ * import com.pulumi.azurerm.FederatedIdentityCredential;
+ * import com.pulumi.azurerm.FederatedIdentityCredentialArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -258,7 +258,7 @@ import javax.annotation.Nullable;
  *             .name("example-federated-credential")
  *             .resourceGroupName(identity.name())
  *             .parentId(exampleUserAssignedIdentity.id())
- *             .audience("api://AzureADTokenExchange")
+ *             .audience(List.of("api://AzureADTokenExchange"))
  *             .issuer(exampleServiceEndpointAzureRM.workloadIdentityFederationIssuer())
  *             .subject(exampleServiceEndpointAzureRM.workloadIdentityFederationSubject())
  *             .build());

@@ -57,7 +57,7 @@ using AzureDevOps = Pulumi.AzureDevOps;
 
 return await Deployment.RunAsync(() =>
 {
-    var project = new AzureDevOps.Project("project", new()
+    var project = new AzureDevOps.Index.Project("project", new()
     {
         Name = "Project Name",
         Description = "Project Description",

@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := azuredevops.LookupFeed(ctx, &azuredevops.LookupFeedArgs{
+//			_, err := azuredevops.GetFeed(ctx, &azuredevops.LookupFeedArgs{
 //				Name: pulumi.StringRef("releases"),
 //			}, nil)
 //			if err != nil {
@@ -53,13 +53,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//			example, err := azuredevops.GetProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.LookupFeed(ctx, &azuredevops.LookupFeedArgs{
+//			_, err = azuredevops.GetFeed(ctx, &azuredevops.LookupFeedArgs{
 //				Name:      pulumi.StringRef("releases"),
 //				ProjectId: pulumi.StringRef(example.Id),
 //			}, nil)

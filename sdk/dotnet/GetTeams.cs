@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetTeams.Invoke();
+        ///     var example = AzureDevOps.Index.GetTeams.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -60,7 +60,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetTeams.Invoke();
+        ///     var example = AzureDevOps.Index.GetTeams.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -96,7 +96,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.GetTeams.Invoke();
+        ///     var example = AzureDevOps.Index.GetTeams.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {

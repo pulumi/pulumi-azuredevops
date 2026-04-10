@@ -24,19 +24,19 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.WorkitemtrackingprocessProcess("example", new()
+    ///     var example = new AzureDevOps.Index.WorkitemtrackingprocessProcess("example", new()
     ///     {
     ///         Name = "example-process",
     ///         ParentProcessTypeId = "adcc42ab-9882-485e-a3ed-7678f01f66bc",
     ///     });
     /// 
-    ///     var exampleWorkitemtrackingprocessWorkitemtype = new AzureDevOps.WorkitemtrackingprocessWorkitemtype("example", new()
+    ///     var exampleWorkitemtrackingprocessWorkitemtype = new AzureDevOps.Index.WorkitemtrackingprocessWorkitemtype("example", new()
     ///     {
     ///         ProcessId = example.Id,
     ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleWorkitemtrackingprocessRule = new AzureDevOps.WorkitemtrackingprocessRule("example", new()
+    ///     var exampleWorkitemtrackingprocessRule = new AzureDevOps.Index.WorkitemtrackingprocessRule("example", new()
     ///     {
     ///         ProcessId = example.Id,
     ///         WorkItemTypeId = exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
@@ -75,12 +75,12 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.GroupEntitlement("example", new()
+    ///     var example = new AzureDevOps.Index.GroupEntitlement("example", new()
     ///     {
     ///         DisplayName = "example-group",
     ///     });
     /// 
-    ///     var groupMembership = new AzureDevOps.WorkitemtrackingprocessRule("group_membership", new()
+    ///     var groupMembership = new AzureDevOps.Index.WorkitemtrackingprocessRule("group_membership", new()
     ///     {
     ///         ProcessId = exampleAzuredevopsWorkitemtrackingprocessProcess.Id,
     ///         WorkItemTypeId = exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.ReferenceName,
@@ -118,7 +118,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var disallowValue = new AzureDevOps.WorkitemtrackingprocessRule("disallow_value", new()
+    ///     var disallowValue = new AzureDevOps.Index.WorkitemtrackingprocessRule("disallow_value", new()
     ///     {
     ///         ProcessId = example.Id,
     ///         WorkItemTypeId = exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.ReferenceName,
@@ -158,26 +158,26 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.GroupEntitlement("example", new()
+    ///     var example = new AzureDevOps.Index.GroupEntitlement("example", new()
     ///     {
     ///         DisplayName = "example-group",
     ///     });
     /// 
-    ///     var custom = new AzureDevOps.WorkitemtrackingField("custom", new()
+    ///     var custom = new AzureDevOps.Index.WorkitemtrackingField("custom", new()
     ///     {
     ///         Name = "Custom Field",
     ///         ReferenceName = "Custom.Field",
     ///         Type = "string",
     ///     });
     /// 
-    ///     var customWorkitemtrackingprocessField = new AzureDevOps.WorkitemtrackingprocessField("custom", new()
+    ///     var customWorkitemtrackingprocessField = new AzureDevOps.Index.WorkitemtrackingprocessField("custom", new()
     ///     {
     ///         ProcessId = exampleAzuredevopsWorkitemtrackingprocessProcess.Id,
     ///         WorkItemTypeId = exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.Id,
     ///         FieldId = custom.Id,
     ///     });
     /// 
-    ///     var hideField = new AzureDevOps.WorkitemtrackingprocessRule("hide_field", new()
+    ///     var hideField = new AzureDevOps.Index.WorkitemtrackingprocessRule("hide_field", new()
     ///     {
     ///         ProcessId = exampleAzuredevopsWorkitemtrackingprocessProcess.Id,
     ///         WorkItemTypeId = exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.ReferenceName,

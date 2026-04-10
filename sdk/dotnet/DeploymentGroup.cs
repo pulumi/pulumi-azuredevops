@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Project("example", new()
+    ///     var example = new AzureDevOps.Index.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         WorkItemTemplate = "Agile",
@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleDeploymentGroup = new AzureDevOps.DeploymentGroup("example", new()
+    ///     var exampleDeploymentGroup = new AzureDevOps.Index.DeploymentGroup("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Example Deployment Group",
