@@ -62,15 +62,10 @@ func TestServiceConnectionIdDefaultDoesNotConflict(t *testing.T) {
 			"response": {
 				"inputs": {
 					"__defaults": [
-						"disabled",
 						"name"
 					],
-					"disabled": false,
 					"initialization": {
-						"__defaults": [
-							"serviceConnectionId"
-						],
-						"serviceConnectionId": "",
+						"__defaults": [],
 						"initType": "Clean"
 					},
 					"name": "repo-e742621",
@@ -125,18 +120,8 @@ func TestMinReviewersDefaultDoesNotConflict(t *testing.T) {
 					"enabled": true,
 					"projectId": "75e12870-434c-455b-b8ac-c0e17cc51c46",
 					"settings": {
-						"__defaults": [
-							"allowCompletionWithRejectsOrWaits",
-							"lastPusherCannotApprove",
-							"onLastIterationRequireVote",
-							"onPushResetApprovedVotes",
-							"submitterCanVote"
-						],
-						"allowCompletionWithRejectsOrWaits": false,
-						"lastPusherCannotApprove": false,
-						"onLastIterationRequireVote": false,
+						"__defaults": [],
 						"onPushResetAllVotes": true,
-						"onPushResetApprovedVotes": false,
 						"reviewerCount": 7,
 						"scopes": [
 							{
@@ -145,8 +130,7 @@ func TestMinReviewersDefaultDoesNotConflict(t *testing.T) {
 								"repositoryId": "54745441-9448-43f9-a5cb-2c3644bbac54",
 								"repositoryRef": "refs/heads/master"
 							}
-						],
-						"submitterCanVote": false
+						]
 					}
 				}
 			},
