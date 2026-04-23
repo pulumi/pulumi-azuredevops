@@ -23,7 +23,7 @@ func TestVariableGroupValidation(t *testing.T) {
 	pt := pulumitest.NewPulumiTest(t, path.Join("test-programs", "variable-group"),
 		opttest.AttachProviderServer("azuredevops", newTestProvider))
 
-	// This fails if running the upstream validation via the bridge
+	// This fails if omitted secret fields are materialized into RawConfig.
 	pt.Up(t)
 }
 
