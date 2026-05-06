@@ -82,7 +82,7 @@ import * as utilities from "./utilities";
  *     type: "Issue",
  *     state: "Active",
  *     tags: ["Tag"],
- *     parentId: epic.id,
+ *     parentId: epic.id.apply(x =>Number(x)),
  * });
  * ```
  *

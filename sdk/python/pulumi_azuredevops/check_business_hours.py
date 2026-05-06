@@ -610,7 +610,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         example_pool = azuredevops.Pool("example", name="example-pool")
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
             display_name="Managed by Pulumi",
@@ -928,7 +928,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         example_pool = azuredevops.Pool("example", name="example-pool")
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
             display_name="Managed by Pulumi",

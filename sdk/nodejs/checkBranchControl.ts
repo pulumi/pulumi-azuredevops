@@ -64,7 +64,7 @@ import * as utilities from "./utilities";
  * const examplePool = new azuredevops.Pool("example", {name: "example-pool"});
  * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: example.id,
- *     agentPoolId: examplePool.id,
+ *     agentPoolId: examplePool.id.apply(x =>Number(x)),
  * });
  * const exampleCheckBranchControl = new azuredevops.CheckBranchControl("example", {
  *     projectId: example.id,

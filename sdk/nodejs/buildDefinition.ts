@@ -69,7 +69,7 @@ import * as utilities from "./utilities";
  *         branchName: exampleGit.defaultBranch,
  *         ymlPath: "azure-pipelines.yml",
  *     },
- *     variableGroups: [exampleVariableGroup.id],
+ *     variableGroups: [exampleVariableGroup.id.apply(x =>Number(x))],
  *     variables: [
  *         {
  *             name: "PipelineVariable",

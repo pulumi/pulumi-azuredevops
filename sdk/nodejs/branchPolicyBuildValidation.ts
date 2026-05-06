@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  *     blocking: true,
  *     settings: {
  *         displayName: "Example build validation policy",
- *         buildDefinitionId: exampleBuildDefinition.id,
+ *         buildDefinitionId: exampleBuildDefinition.id.apply(x =>Number(x)),
  *         queueOnSourceUpdateOnly: true,
  *         validDuration: 720,
  *         filenamePatterns: [

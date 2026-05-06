@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * });
  * const example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) => azuredevops.getEnvironmentOutput({
  *     projectId: exampleProjectId,
- *     environmentId: exampleEnvironmentId,
+ *     environmentId: Number(exampleEnvironmentId),
  * }));
  * ```
  *
@@ -106,7 +106,7 @@ export interface GetEnvironmentResult {
  * });
  * const example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) => azuredevops.getEnvironmentOutput({
  *     projectId: exampleProjectId,
- *     environmentId: exampleEnvironmentId,
+ *     environmentId: Number(exampleEnvironmentId),
  * }));
  * ```
  *

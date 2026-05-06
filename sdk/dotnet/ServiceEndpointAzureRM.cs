@@ -34,7 +34,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Index.Project("example", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -43,7 +43,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.Index.ServiceEndpointAzureRM("example", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
@@ -72,7 +72,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Index.Project("example", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -81,7 +81,7 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.Index.ServiceEndpointAzureRM("example", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
@@ -110,7 +110,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Index.Project("example", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -118,7 +118,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.Index.ServiceEndpointAzureRM("example", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
@@ -144,7 +144,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     var serviceConnectionName = "example-federated-sc";
     /// 
-    ///     var example = new AzureDevOps.Index.Project("example", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -153,20 +153,20 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var identity = new Azurerm.Index.ResourceGroup("identity", new()
+    ///     var identity = new Azurerm.ResourceGroup("identity", new()
     ///     {
     ///         Name = "identity",
     ///         Location = "UK South",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azurerm.Index.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azurerm.UserAssignedIdentity("example", new()
     ///     {
     ///         Location = identity.Location,
     ///         Name = "example-identity",
     ///         ResourceGroupName = "azurerm_resource_group.identity.name",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.Index.ServiceEndpointAzureRM("example", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = serviceConnectionName,
@@ -181,7 +181,7 @@ namespace Pulumi.AzureDevOps
     ///         AzurermSubscriptionName = "Example Subscription Name",
     ///     });
     /// 
-    ///     var exampleFederatedIdentityCredential = new Azurerm.Index.FederatedIdentityCredential("example", new()
+    ///     var exampleFederatedIdentityCredential = new Azurerm.FederatedIdentityCredential("example", new()
     ///     {
     ///         Name = "example-federated-credential",
     ///         ResourceGroupName = identity.Name,
@@ -207,7 +207,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Index.Project("example", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -215,7 +215,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.Index.ServiceEndpointAzureRM("example", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",
@@ -238,7 +238,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Index.Project("example", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -246,7 +246,7 @@ namespace Pulumi.AzureDevOps
     ///         WorkItemTemplate = "Agile",
     ///     });
     /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.Index.ServiceEndpointAzureRM("example", new()
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureRM",

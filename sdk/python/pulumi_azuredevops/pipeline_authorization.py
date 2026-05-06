@@ -250,7 +250,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             auto_update=False)
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
             project_id=example.id,
             resource_id=example_queue.id,
@@ -275,7 +275,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             auto_update=False)
         example_queue = azuredevops.Queue("example",
             project_id=example_project.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example = azuredevops.get_git_repository_output(project_id=example_project.id,
             name="Example Project")
         example_build_definition = azuredevops.BuildDefinition("example",
@@ -290,7 +290,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             project_id=example_project.id,
             resource_id=example_queue.id,
             type="queue",
-            pipeline_id=example_build_definition.id)
+            pipeline_id=example_build_definition.id.apply(lambda x: int(x)))
         ```
 
         ## Relevant Links
@@ -344,7 +344,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             auto_update=False)
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
             project_id=example.id,
             resource_id=example_queue.id,
@@ -369,7 +369,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             auto_update=False)
         example_queue = azuredevops.Queue("example",
             project_id=example_project.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example = azuredevops.get_git_repository_output(project_id=example_project.id,
             name="Example Project")
         example_build_definition = azuredevops.BuildDefinition("example",
@@ -384,7 +384,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             project_id=example_project.id,
             resource_id=example_queue.id,
             type="queue",
-            pipeline_id=example_build_definition.id)
+            pipeline_id=example_build_definition.id.apply(lambda x: int(x)))
         ```
 
         ## Relevant Links

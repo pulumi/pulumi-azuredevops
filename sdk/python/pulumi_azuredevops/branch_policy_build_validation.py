@@ -203,7 +203,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
             blocking=True,
             settings={
                 "display_name": "Example build validation policy",
-                "build_definition_id": example_build_definition.id,
+                "build_definition_id": example_build_definition.id.apply(lambda x: int(x)),
                 "queue_on_source_update_only": True,
                 "valid_duration": 720,
                 "filename_patterns": [
@@ -285,7 +285,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
             blocking=True,
             settings={
                 "display_name": "Example build validation policy",
-                "build_definition_id": example_build_definition.id,
+                "build_definition_id": example_build_definition.id.apply(lambda x: int(x)),
                 "queue_on_source_update_only": True,
                 "valid_duration": 720,
                 "filename_patterns": [

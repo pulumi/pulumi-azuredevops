@@ -645,7 +645,7 @@ class BuildDefinition(pulumi.CustomResource):
                 "branch_name": example_git.default_branch,
                 "yml_path": "azure-pipelines.yml",
             },
-            variable_groups=[example_variable_group.id],
+            variable_groups=[example_variable_group.id.apply(lambda x: int(x))],
             variables=[
                 {
                     "name": "PipelineVariable",
@@ -980,7 +980,7 @@ class BuildDefinition(pulumi.CustomResource):
                 "branch_name": example_git.default_branch,
                 "yml_path": "azure-pipelines.yml",
             },
-            variable_groups=[example_variable_group.id],
+            variable_groups=[example_variable_group.id.apply(lambda x: int(x))],
             variables=[
                 {
                     "name": "PipelineVariable",

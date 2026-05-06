@@ -40,7 +40,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleEnvironmentResourceKubernetes = new azuredevops.EnvironmentResourceKubernetes("example", {
  *     projectId: example.id,
- *     environmentId: exampleEnvironment.id,
+ *     environmentId: exampleEnvironment.id.apply(x =>Number(x)),
  *     serviceEndpointId: exampleServiceEndpointKubernetes.id,
  *     name: "Example",
  *     namespace: "default",

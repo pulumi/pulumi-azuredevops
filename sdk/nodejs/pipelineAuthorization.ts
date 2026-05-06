@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: example.id,
- *     agentPoolId: examplePool.id,
+ *     agentPoolId: examplePool.id.apply(x =>Number(x)),
  * });
  * const examplePipelineAuthorization = new azuredevops.PipelineAuthorization("example", {
  *     projectId: example.id,
@@ -62,7 +62,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: exampleProject.id,
- *     agentPoolId: examplePool.id,
+ *     agentPoolId: examplePool.id.apply(x =>Number(x)),
  * });
  * const example = azuredevops.getGitRepositoryOutput({
  *     projectId: exampleProject.id,
@@ -81,7 +81,7 @@ import * as utilities from "./utilities";
  *     projectId: exampleProject.id,
  *     resourceId: exampleQueue.id,
  *     type: "queue",
- *     pipelineId: exampleBuildDefinition.id,
+ *     pipelineId: exampleBuildDefinition.id.apply(x =>Number(x)),
  * });
  * ```
  *

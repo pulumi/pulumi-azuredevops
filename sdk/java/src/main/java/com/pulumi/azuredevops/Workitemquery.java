@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.Workitemquery;
  * import com.pulumi.azuredevops.WorkitemqueryArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -89,8 +89,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.WorkitemqueryFolderArgs;
  * import com.pulumi.azuredevops.Workitemquery;
  * import com.pulumi.azuredevops.WorkitemqueryArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -153,8 +153,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.WorkItemQueryPermissions;
  * import com.pulumi.azuredevops.WorkItemQueryPermissionsArgs;
  * import com.pulumi.std.StdFunctions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -201,9 +201,9 @@ import javax.annotation.Nullable;
  *             .projectId(example.id())
  *             .path(StdFunctions.format(Map.ofEntries(
  *                 Map.entry("input", "%s/%s"),
- *                 Map.entry("args",                 
+ *                 Map.entry("args", Arrays.asList(                
  *                     teamFolder.name(),
- *                     myTeamBugs.name())
+ *                     myTeamBugs.name()))
  *             )).result())
  *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(

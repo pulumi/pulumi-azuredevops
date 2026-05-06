@@ -23,18 +23,18 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Index.Project("example", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
     ///         Name = "example-project",
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azurerm.Index.ResourceGroup("example", new()
+    ///     var exampleResourceGroup = new Azurerm.ResourceGroup("example", new()
     ///     {
     ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleStorageAccount = new Azurerm.Index.StorageAccount("example", new()
+    ///     var exampleStorageAccount = new Azurerm.StorageAccount("example", new()
     ///     {
     ///         Name = "servicehookexamplestacc",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -43,13 +43,13 @@ namespace Pulumi.AzureDevOps
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleStorageQueue = new Azurerm.Index.StorageQueue("example", new()
+    ///     var exampleStorageQueue = new Azurerm.StorageQueue("example", new()
     ///     {
     ///         Name = "examplequeue",
     ///         StorageAccountName = exampleStorageAccount.Name,
     ///     });
     /// 
-    ///     var exampleServicehookStorageQueuePipelines = new AzureDevOps.Index.ServicehookStorageQueuePipelines("example", new()
+    ///     var exampleServicehookStorageQueuePipelines = new AzureDevOps.ServicehookStorageQueuePipelines("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         AccountName = exampleStorageAccount.Name,
@@ -76,7 +76,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Index.ServicehookStorageQueuePipelines("example", new()
+    ///     var example = new AzureDevOps.ServicehookStorageQueuePipelines("example", new()
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         AccountName = exampleAzurermStorageAccount.Name,

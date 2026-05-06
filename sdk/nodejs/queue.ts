@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: exampleProject.id,
- *     agentPoolId: example.then(example => example.id),
+ *     agentPoolId: output(example.then(example => example.id)).apply(x =>Number(x)),
  * });
  * // Grant access to queue to all pipelines in the project
  * const exampleResourceAuthorization = new azuredevops.ResourceAuthorization("example", {

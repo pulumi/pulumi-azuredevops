@@ -374,7 +374,7 @@ class CheckBranchControl(pulumi.CustomResource):
         example_pool = azuredevops.Pool("example", name="example-pool")
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
             display_name="Managed by Pulumi",
@@ -521,7 +521,7 @@ class CheckBranchControl(pulumi.CustomResource):
         example_pool = azuredevops.Pool("example", name="example-pool")
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
             display_name="Managed by Pulumi",

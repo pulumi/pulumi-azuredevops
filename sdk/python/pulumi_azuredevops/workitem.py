@@ -513,7 +513,7 @@ class Workitem(pulumi.CustomResource):
             type="Issue",
             state="Active",
             tags=["Tag"],
-            parent_id=epic.id)
+            parent_id=epic.id.apply(lambda x: int(x)))
         ```
 
         ### With Additional Fields
@@ -642,7 +642,7 @@ class Workitem(pulumi.CustomResource):
             type="Issue",
             state="Active",
             tags=["Tag"],
-            parent_id=epic.id)
+            parent_id=epic.id.apply(lambda x: int(x)))
         ```
 
         ### With Additional Fields

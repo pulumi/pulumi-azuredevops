@@ -301,7 +301,7 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
             }])
         example_environment_resource_kubernetes = azuredevops.EnvironmentResourceKubernetes("example",
             project_id=example.id,
-            environment_id=example_environment.id,
+            environment_id=example_environment.id.apply(lambda x: int(x)),
             service_endpoint_id=example_service_endpoint_kubernetes.id,
             name="Example",
             namespace="default",
@@ -370,7 +370,7 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
             }])
         example_environment_resource_kubernetes = azuredevops.EnvironmentResourceKubernetes("example",
             project_id=example.id,
-            environment_id=example_environment.id,
+            environment_id=example_environment.id.apply(lambda x: int(x)),
             service_endpoint_id=example_service_endpoint_kubernetes.id,
             name="Example",
             namespace="default",
