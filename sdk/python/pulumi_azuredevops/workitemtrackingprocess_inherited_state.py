@@ -21,8 +21,8 @@ class WorkitemtrackingprocessInheritedStateArgs:
     def __init__(__self__, *,
                  process_id: pulumi.Input[_builtins.str],
                  work_item_type_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessInheritedState resource.
 
@@ -64,36 +64,36 @@ class WorkitemtrackingprocessInheritedStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the inherited state to manage. This is used to look up the state and must match an existing inherited state name. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the state is visible.
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingprocessInheritedStateState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessInheritedState resources.
 
@@ -113,50 +113,50 @@ class _WorkitemtrackingprocessInheritedStateState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the inherited state to manage. This is used to look up the state and must match an existing inherited state name. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="processId")
-    def process_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the process. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "process_id")
 
     @process_id.setter
-    def process_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the state is visible.
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemTypeId")
-    def work_item_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID (reference name) of the work item type. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "work_item_type_id")
 
     @work_item_type_id.setter
-    def work_item_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type_id", value)
 
 
@@ -166,10 +166,10 @@ class WorkitemtrackingprocessInheritedState(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manage a state inherited from an inherited work item type.
@@ -281,10 +281,10 @@ class WorkitemtrackingprocessInheritedState(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,10 +312,10 @@ class WorkitemtrackingprocessInheritedState(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            process_id: Optional[pulumi.Input[_builtins.str]] = None,
-            visible: Optional[pulumi.Input[_builtins.bool]] = None,
-            work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessInheritedState':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            visible: pulumi.Input[Optional[_builtins.bool]] = None,
+            work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessInheritedState':
         """
         Get an existing WorkitemtrackingprocessInheritedState resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

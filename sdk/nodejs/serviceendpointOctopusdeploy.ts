@@ -149,28 +149,28 @@ export interface ServiceendpointOctopusdeployState {
     /**
      * API key to connect to Octopus Deploy.
      */
-    apiKey?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    apiKey?: pulumi.Input<string | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
      */
-    ignoreSslError?: pulumi.Input<boolean>;
+    ignoreSslError?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * Octopus Server url.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,11 +184,11 @@ export interface ServiceendpointOctopusdeployArgs {
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
      */
-    ignoreSslError?: pulumi.Input<boolean>;
+    ignoreSslError?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project.
      */

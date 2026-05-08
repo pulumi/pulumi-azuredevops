@@ -57,7 +57,7 @@ using AzureDevOps = Pulumi.AzureDevOps;
 
 return await Deployment.RunAsync(() =>
 {
-    var project = new AzureDevOps.Index.Project("project", new()
+    var project = new AzureDevOps.Project("project", new()
     {
         Name = "Project Name",
         Description = "Project Description",
@@ -112,8 +112,8 @@ import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.azuredevops.Project;
 import com.pulumi.azuredevops.ProjectArgs;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;

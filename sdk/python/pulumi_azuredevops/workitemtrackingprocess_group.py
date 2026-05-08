@@ -26,9 +26,9 @@ class WorkitemtrackingprocessGroupArgs:
                  process_id: pulumi.Input[_builtins.str],
                  section_id: pulumi.Input[_builtins.str],
                  work_item_type_reference_name: pulumi.Input[_builtins.str],
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None):
+                 controls: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessGroup resource.
 
@@ -115,52 +115,52 @@ class WorkitemtrackingprocessGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]]:
+    def controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]]:
         """
         Controls to be created with the group. Required for HTML controls which cannot be added to existing groups. This is mutally exclusive with 'azuredevops_workitemtrackingprocess_control' resources. A `control` block as defined below.
         """
         return pulumi.get(self, "controls")
 
     @controls.setter
-    def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]]):
+    def controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]]):
         pulumi.set(self, "controls", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order in which the group should appear in the section.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the group should be visible or not. Default: `true`
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingprocessGroupState:
     def __init__(__self__, *,
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 page_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 section_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_reference_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 controls: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 page_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 section_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_reference_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessGroup resources.
 
@@ -192,98 +192,98 @@ class _WorkitemtrackingprocessGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]]:
+    def controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]]:
         """
         Controls to be created with the group. Required for HTML controls which cannot be added to existing groups. This is mutally exclusive with 'azuredevops_workitemtrackingprocess_control' resources. A `control` block as defined below.
         """
         return pulumi.get(self, "controls")
 
     @controls.setter
-    def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]]):
+    def controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessGroupControlArgs']]]]):
         pulumi.set(self, "controls", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for the group.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order in which the group should appear in the section.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="pageId")
-    def page_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def page_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the page to add the group to. Changing this moves the group to the new page.
         """
         return pulumi.get(self, "page_id")
 
     @page_id.setter
-    def page_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def page_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "page_id", value)
 
     @_builtins.property
     @pulumi.getter(name="processId")
-    def process_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the process. Changing this forces a new group to be created.
         """
         return pulumi.get(self, "process_id")
 
     @process_id.setter
-    def process_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sectionId")
-    def section_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def section_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the section to add the group to. Changing this moves the group to the new section.
         """
         return pulumi.get(self, "section_id")
 
     @section_id.setter
-    def section_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def section_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "section_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the group should be visible or not. Default: `true`
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemTypeReferenceName")
-    def work_item_type_reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type_reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference name of the work item type. Changing this forces a new group to be created.
         """
         return pulumi.get(self, "work_item_type_reference_name")
 
     @work_item_type_reference_name.setter
-    def work_item_type_reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type_reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type_reference_name", value)
 
 
@@ -293,14 +293,14 @@ class WorkitemtrackingprocessGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 page_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 section_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 page_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 section_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a group within a page and section for a work item type.
@@ -528,14 +528,14 @@ class WorkitemtrackingprocessGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 page_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 section_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 page_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 section_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -573,14 +573,14 @@ class WorkitemtrackingprocessGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            page_id: Optional[pulumi.Input[_builtins.str]] = None,
-            process_id: Optional[pulumi.Input[_builtins.str]] = None,
-            section_id: Optional[pulumi.Input[_builtins.str]] = None,
-            visible: Optional[pulumi.Input[_builtins.bool]] = None,
-            work_item_type_reference_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessGroup':
+            controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            page_id: pulumi.Input[Optional[_builtins.str]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            section_id: pulumi.Input[Optional[_builtins.str]] = None,
+            visible: pulumi.Input[Optional[_builtins.bool]] = None,
+            work_item_type_reference_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessGroup':
         """
         Get an existing WorkitemtrackingprocessGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

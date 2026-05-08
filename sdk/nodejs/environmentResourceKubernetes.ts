@@ -40,7 +40,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleEnvironmentResourceKubernetes = new azuredevops.EnvironmentResourceKubernetes("example", {
  *     projectId: example.id,
- *     environmentId: exampleEnvironment.id,
+ *     environmentId: exampleEnvironment.id.apply(x =>Number(x)),
  *     serviceEndpointId: exampleServiceEndpointKubernetes.id,
  *     name: "Example",
  *     namespace: "default",
@@ -171,31 +171,31 @@ export interface EnvironmentResourceKubernetesState {
     /**
      * A cluster name for the Kubernetes Resource.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the environment under which to create the Kubernetes Resource.
      */
-    environmentId?: pulumi.Input<number>;
+    environmentId?: pulumi.Input<number | undefined>;
     /**
      * The name for the Kubernetes Resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The namespace for the Kubernetes Resource.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the service endpoint to associate with the Kubernetes Resource.
      */
-    serviceEndpointId?: pulumi.Input<string>;
+    serviceEndpointId?: pulumi.Input<string | undefined>;
     /**
      * A set of tags for the Kubernetes Resource.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -205,7 +205,7 @@ export interface EnvironmentResourceKubernetesArgs {
     /**
      * A cluster name for the Kubernetes Resource.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the environment under which to create the Kubernetes Resource.
      */
@@ -213,7 +213,7 @@ export interface EnvironmentResourceKubernetesArgs {
     /**
      * The name for the Kubernetes Resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The namespace for the Kubernetes Resource.
      */
@@ -229,5 +229,5 @@ export interface EnvironmentResourceKubernetesArgs {
     /**
      * A set of tags for the Kubernetes Resource.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

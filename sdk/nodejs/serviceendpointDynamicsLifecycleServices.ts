@@ -172,39 +172,39 @@ export class ServiceendpointDynamicsLifecycleServices extends pulumi.CustomResou
  * Input properties used for looking up and filtering ServiceendpointDynamicsLifecycleServices resources.
  */
 export interface ServiceendpointDynamicsLifecycleServicesState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The URL of the Authentication Endpoint.
      */
-    authorizationEndpoint?: pulumi.Input<string>;
+    authorizationEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The client ID for a native application registration in Azure Active Directory with API permissions for Dynamics Lifecycle Services.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The URL of the Lifecycle Services API Endpoint.
      */
-    lifecycleServicesApiEndpoint?: pulumi.Input<string>;
+    lifecycleServicesApiEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Password for the Azure Active Directory account.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The E-mail address of user with sufficient permissions to interact with LCS asset library and environments.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -222,7 +222,7 @@ export interface ServiceendpointDynamicsLifecycleServicesArgs {
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The URL of the Lifecycle Services API Endpoint.
      */

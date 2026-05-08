@@ -240,21 +240,21 @@ class BranchPolicyAutoReviewersSettingsArgsDict(TypedDict):
     """
     A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
     """
-    minimum_number_of_reviewers: NotRequired[pulumi.Input[_builtins.int]]
+    minimum_number_of_reviewers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Minimum number of required reviewers. Defaults to `1`.
 
     > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
     """
-    path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    path_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
     """
-    submitter_can_vote: NotRequired[pulumi.Input[_builtins.bool]]
+    submitter_can_vote: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Controls whether or not the submitter's vote counts. Defaults to `false`.
     """
@@ -264,10 +264,10 @@ class BranchPolicyAutoReviewersSettingsArgs:
     def __init__(__self__, *,
                  auto_reviewer_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]],
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_number_of_reviewers: Optional[pulumi.Input[_builtins.int]] = None,
-                 path_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 submitter_can_vote: Optional[pulumi.Input[_builtins.bool]] = None):
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_number_of_reviewers: pulumi.Input[Optional[_builtins.int]] = None,
+                 path_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 submitter_can_vote: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_reviewer_ids: Required reviewers ids. Supports multiples user Ids.
         :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
@@ -315,19 +315,19 @@ class BranchPolicyAutoReviewersSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumNumberOfReviewers")
-    def minimum_number_of_reviewers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_number_of_reviewers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum number of required reviewers. Defaults to `1`.
 
@@ -336,44 +336,44 @@ class BranchPolicyAutoReviewersSettingsArgs:
         return pulumi.get(self, "minimum_number_of_reviewers")
 
     @minimum_number_of_reviewers.setter
-    def minimum_number_of_reviewers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_number_of_reviewers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_number_of_reviewers", value)
 
     @_builtins.property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def path_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
         """
         return pulumi.get(self, "path_filters")
 
     @path_filters.setter
-    def path_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def path_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "path_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="submitterCanVote")
-    def submitter_can_vote(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def submitter_can_vote(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Controls whether or not the submitter's vote counts. Defaults to `false`.
         """
         return pulumi.get(self, "submitter_can_vote")
 
     @submitter_can_vote.setter
-    def submitter_can_vote(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def submitter_can_vote(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "submitter_can_vote", value)
 
 
 class BranchPolicyAutoReviewersSettingsScopeArgsDict(TypedDict):
-    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    match_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
     """
-    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    repository_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
     """
@@ -381,9 +381,9 @@ class BranchPolicyAutoReviewersSettingsScopeArgsDict(TypedDict):
 @pulumi.input_type
 class BranchPolicyAutoReviewersSettingsScopeArgs:
     def __init__(__self__, *,
-                 match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         :param pulumi.Input[_builtins.str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
@@ -398,38 +398,38 @@ class BranchPolicyAutoReviewersSettingsScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchType")
-    def match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         """
         return pulumi.get(self, "match_type")
 
     @match_type.setter
-    def match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryRef")
-    def repository_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
 
     @repository_ref.setter
-    def repository_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_ref", value)
 
 
@@ -446,19 +446,19 @@ class BranchPolicyBuildValidationSettingsArgsDict(TypedDict):
     """
     A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
     """
-    filename_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    filename_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
     """
-    manual_queue_only: NotRequired[pulumi.Input[_builtins.bool]]
+    manual_queue_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If set to true, the build will need to be manually queued. Defaults to `false`
     """
-    queue_on_source_update_only: NotRequired[pulumi.Input[_builtins.bool]]
+    queue_on_source_update_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if the build should queue on source updates only. Defaults to `true`.
     """
-    valid_duration: NotRequired[pulumi.Input[_builtins.int]]
+    valid_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
 
@@ -474,10 +474,10 @@ class BranchPolicyBuildValidationSettingsArgs:
                  build_definition_id: pulumi.Input[_builtins.int],
                  display_name: pulumi.Input[_builtins.str],
                  scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]],
-                 filename_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 manual_queue_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 queue_on_source_update_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 valid_duration: Optional[pulumi.Input[_builtins.int]] = None):
+                 filename_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 manual_queue_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 queue_on_source_update_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 valid_duration: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] build_definition_id: The ID of the build to monitor for the policy.
         :param pulumi.Input[_builtins.str] display_name: The display name for the policy.
@@ -542,43 +542,43 @@ class BranchPolicyBuildValidationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="filenamePatterns")
-    def filename_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def filename_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         """
         return pulumi.get(self, "filename_patterns")
 
     @filename_patterns.setter
-    def filename_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def filename_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "filename_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="manualQueueOnly")
-    def manual_queue_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def manual_queue_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, the build will need to be manually queued. Defaults to `false`
         """
         return pulumi.get(self, "manual_queue_only")
 
     @manual_queue_only.setter
-    def manual_queue_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def manual_queue_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "manual_queue_only", value)
 
     @_builtins.property
     @pulumi.getter(name="queueOnSourceUpdateOnly")
-    def queue_on_source_update_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def queue_on_source_update_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if the build should queue on source updates only. Defaults to `true`.
         """
         return pulumi.get(self, "queue_on_source_update_only")
 
     @queue_on_source_update_only.setter
-    def queue_on_source_update_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def queue_on_source_update_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "queue_on_source_update_only", value)
 
     @_builtins.property
     @pulumi.getter(name="validDuration")
-    def valid_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def valid_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
 
@@ -590,20 +590,20 @@ class BranchPolicyBuildValidationSettingsArgs:
         return pulumi.get(self, "valid_duration")
 
     @valid_duration.setter
-    def valid_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def valid_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "valid_duration", value)
 
 
 class BranchPolicyBuildValidationSettingsScopeArgsDict(TypedDict):
-    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    match_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
     """
-    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    repository_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
     """
@@ -611,9 +611,9 @@ class BranchPolicyBuildValidationSettingsScopeArgsDict(TypedDict):
 @pulumi.input_type
 class BranchPolicyBuildValidationSettingsScopeArgs:
     def __init__(__self__, *,
-                 match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         :param pulumi.Input[_builtins.str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
@@ -628,38 +628,38 @@ class BranchPolicyBuildValidationSettingsScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchType")
-    def match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         """
         return pulumi.get(self, "match_type")
 
     @match_type.setter
-    def match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryRef")
-    def repository_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
 
     @repository_ref.setter
-    def repository_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_ref", value)
 
 
@@ -692,15 +692,15 @@ class BranchPolicyCommentResolutionSettingsArgs:
 
 
 class BranchPolicyCommentResolutionSettingsScopeArgsDict(TypedDict):
-    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    match_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
     """
-    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    repository_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
     """
@@ -708,9 +708,9 @@ class BranchPolicyCommentResolutionSettingsScopeArgsDict(TypedDict):
 @pulumi.input_type
 class BranchPolicyCommentResolutionSettingsScopeArgs:
     def __init__(__self__, *,
-                 match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         :param pulumi.Input[_builtins.str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
@@ -725,38 +725,38 @@ class BranchPolicyCommentResolutionSettingsScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchType")
-    def match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         """
         return pulumi.get(self, "match_type")
 
     @match_type.setter
-    def match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryRef")
-    def repository_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
 
     @repository_ref.setter
-    def repository_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_ref", value)
 
 
@@ -765,19 +765,19 @@ class BranchPolicyMergeTypesSettingsArgsDict(TypedDict):
     """
     A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
     """
-    allow_basic_no_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_basic_no_fast_forward: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allow basic merge with no fast forward. Defaults to `false`.
     """
-    allow_rebase_and_fast_forward: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_rebase_and_fast_forward: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allow rebase with fast forward. Defaults to `false`.
     """
-    allow_rebase_with_merge: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_rebase_with_merge: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allow rebase with merge commit. Defaults to `false`.
     """
-    allow_squash: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_squash: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allow squash merge. Defaults to `false`
     """
@@ -786,10 +786,10 @@ class BranchPolicyMergeTypesSettingsArgsDict(TypedDict):
 class BranchPolicyMergeTypesSettingsArgs:
     def __init__(__self__, *,
                  scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgs']]],
-                 allow_basic_no_fast_forward: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_rebase_and_fast_forward: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_rebase_with_merge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_squash: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_basic_no_fast_forward: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_rebase_and_fast_forward: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_rebase_with_merge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_squash: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgs']]] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param pulumi.Input[_builtins.bool] allow_basic_no_fast_forward: Allow basic merge with no fast forward. Defaults to `false`.
@@ -821,63 +821,63 @@ class BranchPolicyMergeTypesSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowBasicNoFastForward")
-    def allow_basic_no_fast_forward(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_basic_no_fast_forward(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow basic merge with no fast forward. Defaults to `false`.
         """
         return pulumi.get(self, "allow_basic_no_fast_forward")
 
     @allow_basic_no_fast_forward.setter
-    def allow_basic_no_fast_forward(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_basic_no_fast_forward(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_basic_no_fast_forward", value)
 
     @_builtins.property
     @pulumi.getter(name="allowRebaseAndFastForward")
-    def allow_rebase_and_fast_forward(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_rebase_and_fast_forward(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow rebase with fast forward. Defaults to `false`.
         """
         return pulumi.get(self, "allow_rebase_and_fast_forward")
 
     @allow_rebase_and_fast_forward.setter
-    def allow_rebase_and_fast_forward(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_rebase_and_fast_forward(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_rebase_and_fast_forward", value)
 
     @_builtins.property
     @pulumi.getter(name="allowRebaseWithMerge")
-    def allow_rebase_with_merge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_rebase_with_merge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow rebase with merge commit. Defaults to `false`.
         """
         return pulumi.get(self, "allow_rebase_with_merge")
 
     @allow_rebase_with_merge.setter
-    def allow_rebase_with_merge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_rebase_with_merge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_rebase_with_merge", value)
 
     @_builtins.property
     @pulumi.getter(name="allowSquash")
-    def allow_squash(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_squash(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow squash merge. Defaults to `false`
         """
         return pulumi.get(self, "allow_squash")
 
     @allow_squash.setter
-    def allow_squash(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_squash(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_squash", value)
 
 
 class BranchPolicyMergeTypesSettingsScopeArgsDict(TypedDict):
-    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    match_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
     """
-    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    repository_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
     """
@@ -885,9 +885,9 @@ class BranchPolicyMergeTypesSettingsScopeArgsDict(TypedDict):
 @pulumi.input_type
 class BranchPolicyMergeTypesSettingsScopeArgs:
     def __init__(__self__, *,
-                 match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         :param pulumi.Input[_builtins.str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
@@ -902,38 +902,38 @@ class BranchPolicyMergeTypesSettingsScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchType")
-    def match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         """
         return pulumi.get(self, "match_type")
 
     @match_type.setter
-    def match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryRef")
-    def repository_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
 
     @repository_ref.setter
-    def repository_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_ref", value)
 
 
@@ -942,37 +942,37 @@ class BranchPolicyMinReviewersSettingsArgsDict(TypedDict):
     """
     A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
     """
-    allow_completion_with_rejects_or_waits: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_completion_with_rejects_or_waits: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
     """
-    last_pusher_cannot_approve: NotRequired[pulumi.Input[_builtins.bool]]
+    last_pusher_cannot_approve: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
     """
-    on_each_iteration_require_vote: NotRequired[pulumi.Input[_builtins.bool]]
+    on_each_iteration_require_vote: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require at least one approval on every iteration. Defaults to `false`.
 
     > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
     """
-    on_last_iteration_require_vote: NotRequired[pulumi.Input[_builtins.bool]]
+    on_last_iteration_require_vote: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     On last iteration require vote. Defaults to `false`.
     """
-    on_push_reset_all_votes: NotRequired[pulumi.Input[_builtins.bool]]
+    on_push_reset_all_votes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When new changes are pushed reset all code reviewer votes. Defaults to `false`.
     """
-    on_push_reset_approved_votes: NotRequired[pulumi.Input[_builtins.bool]]
+    on_push_reset_approved_votes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
     """
-    reviewer_count: NotRequired[pulumi.Input[_builtins.int]]
+    reviewer_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of reviewers needed to approve.
     """
-    submitter_can_vote: NotRequired[pulumi.Input[_builtins.bool]]
+    submitter_can_vote: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allow requesters to approve their own changes. Defaults to `false`.
     """
@@ -981,14 +981,14 @@ class BranchPolicyMinReviewersSettingsArgsDict(TypedDict):
 class BranchPolicyMinReviewersSettingsArgs:
     def __init__(__self__, *,
                  scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]],
-                 allow_completion_with_rejects_or_waits: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_pusher_cannot_approve: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_each_iteration_require_vote: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_last_iteration_require_vote: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_push_reset_all_votes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_push_reset_approved_votes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reviewer_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 submitter_can_vote: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_completion_with_rejects_or_waits: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_pusher_cannot_approve: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_each_iteration_require_vote: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_last_iteration_require_vote: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_push_reset_all_votes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_push_reset_approved_votes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reviewer_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 submitter_can_vote: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param pulumi.Input[_builtins.bool] allow_completion_with_rejects_or_waits: Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
@@ -1034,31 +1034,31 @@ class BranchPolicyMinReviewersSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCompletionWithRejectsOrWaits")
-    def allow_completion_with_rejects_or_waits(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_completion_with_rejects_or_waits(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
         """
         return pulumi.get(self, "allow_completion_with_rejects_or_waits")
 
     @allow_completion_with_rejects_or_waits.setter
-    def allow_completion_with_rejects_or_waits(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_completion_with_rejects_or_waits(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_completion_with_rejects_or_waits", value)
 
     @_builtins.property
     @pulumi.getter(name="lastPusherCannotApprove")
-    def last_pusher_cannot_approve(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def last_pusher_cannot_approve(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
         """
         return pulumi.get(self, "last_pusher_cannot_approve")
 
     @last_pusher_cannot_approve.setter
-    def last_pusher_cannot_approve(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def last_pusher_cannot_approve(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "last_pusher_cannot_approve", value)
 
     @_builtins.property
     @pulumi.getter(name="onEachIterationRequireVote")
-    def on_each_iteration_require_vote(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def on_each_iteration_require_vote(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require at least one approval on every iteration. Defaults to `false`.
 
@@ -1067,80 +1067,80 @@ class BranchPolicyMinReviewersSettingsArgs:
         return pulumi.get(self, "on_each_iteration_require_vote")
 
     @on_each_iteration_require_vote.setter
-    def on_each_iteration_require_vote(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def on_each_iteration_require_vote(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "on_each_iteration_require_vote", value)
 
     @_builtins.property
     @pulumi.getter(name="onLastIterationRequireVote")
-    def on_last_iteration_require_vote(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def on_last_iteration_require_vote(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         On last iteration require vote. Defaults to `false`.
         """
         return pulumi.get(self, "on_last_iteration_require_vote")
 
     @on_last_iteration_require_vote.setter
-    def on_last_iteration_require_vote(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def on_last_iteration_require_vote(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "on_last_iteration_require_vote", value)
 
     @_builtins.property
     @pulumi.getter(name="onPushResetAllVotes")
-    def on_push_reset_all_votes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def on_push_reset_all_votes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When new changes are pushed reset all code reviewer votes. Defaults to `false`.
         """
         return pulumi.get(self, "on_push_reset_all_votes")
 
     @on_push_reset_all_votes.setter
-    def on_push_reset_all_votes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def on_push_reset_all_votes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "on_push_reset_all_votes", value)
 
     @_builtins.property
     @pulumi.getter(name="onPushResetApprovedVotes")
-    def on_push_reset_approved_votes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def on_push_reset_approved_votes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
         """
         return pulumi.get(self, "on_push_reset_approved_votes")
 
     @on_push_reset_approved_votes.setter
-    def on_push_reset_approved_votes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def on_push_reset_approved_votes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "on_push_reset_approved_votes", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewerCount")
-    def reviewer_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def reviewer_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of reviewers needed to approve.
         """
         return pulumi.get(self, "reviewer_count")
 
     @reviewer_count.setter
-    def reviewer_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def reviewer_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "reviewer_count", value)
 
     @_builtins.property
     @pulumi.getter(name="submitterCanVote")
-    def submitter_can_vote(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def submitter_can_vote(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow requesters to approve their own changes. Defaults to `false`.
         """
         return pulumi.get(self, "submitter_can_vote")
 
     @submitter_can_vote.setter
-    def submitter_can_vote(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def submitter_can_vote(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "submitter_can_vote", value)
 
 
 class BranchPolicyMinReviewersSettingsScopeArgsDict(TypedDict):
-    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    match_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
     """
-    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    repository_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
     """
@@ -1148,9 +1148,9 @@ class BranchPolicyMinReviewersSettingsScopeArgsDict(TypedDict):
 @pulumi.input_type
 class BranchPolicyMinReviewersSettingsScopeArgs:
     def __init__(__self__, *,
-                 match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         :param pulumi.Input[_builtins.str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
@@ -1165,38 +1165,38 @@ class BranchPolicyMinReviewersSettingsScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchType")
-    def match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         """
         return pulumi.get(self, "match_type")
 
     @match_type.setter
-    def match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryRef")
-    def repository_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
 
     @repository_ref.setter
-    def repository_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_ref", value)
 
 
@@ -1209,32 +1209,32 @@ class BranchPolicyStatusCheckSettingsArgsDict(TypedDict):
     """
     A `scope` block as defined below.
     """
-    applicability: NotRequired[pulumi.Input[_builtins.str]]
+    applicability: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
     status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
     is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
     """
-    author_id: NotRequired[pulumi.Input[_builtins.str]]
+    author_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authorized user can post the status.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display name.
     """
-    filename_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    filename_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
 
     ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
     <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
     """
-    genre: NotRequired[pulumi.Input[_builtins.str]]
+    genre: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
     """
-    invalidate_on_update: NotRequired[pulumi.Input[_builtins.bool]]
+    invalidate_on_update: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Reset status whenever there are new changes.
     """
@@ -1244,12 +1244,12 @@ class BranchPolicyStatusCheckSettingsArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyStatusCheckSettingsScopeArgs']]],
-                 applicability: Optional[pulumi.Input[_builtins.str]] = None,
-                 author_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 filename_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 genre: Optional[pulumi.Input[_builtins.str]] = None,
-                 invalidate_on_update: Optional[pulumi.Input[_builtins.bool]] = None):
+                 applicability: pulumi.Input[Optional[_builtins.str]] = None,
+                 author_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 filename_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 genre: pulumi.Input[Optional[_builtins.str]] = None,
+                 invalidate_on_update: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The status name to check.
         :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyStatusCheckSettingsScopeArgs']]] scopes: A `scope` block as defined below.
@@ -1306,7 +1306,7 @@ class BranchPolicyStatusCheckSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def applicability(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def applicability(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy applicability. If policy `applicability=default`, apply unless "Not Applicable"
         status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
@@ -1315,36 +1315,36 @@ class BranchPolicyStatusCheckSettingsArgs:
         return pulumi.get(self, "applicability")
 
     @applicability.setter
-    def applicability(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def applicability(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "applicability", value)
 
     @_builtins.property
     @pulumi.getter(name="authorId")
-    def author_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def author_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorized user can post the status.
         """
         return pulumi.get(self, "author_id")
 
     @author_id.setter
-    def author_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def author_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "author_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="filenamePatterns")
-    def filename_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def filename_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
 
@@ -1354,44 +1354,44 @@ class BranchPolicyStatusCheckSettingsArgs:
         return pulumi.get(self, "filename_patterns")
 
     @filename_patterns.setter
-    def filename_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def filename_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "filename_patterns", value)
 
     @_builtins.property
     @pulumi.getter
-    def genre(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def genre(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
         """
         return pulumi.get(self, "genre")
 
     @genre.setter
-    def genre(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def genre(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "genre", value)
 
     @_builtins.property
     @pulumi.getter(name="invalidateOnUpdate")
-    def invalidate_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invalidate_on_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Reset status whenever there are new changes.
         """
         return pulumi.get(self, "invalidate_on_update")
 
     @invalidate_on_update.setter
-    def invalidate_on_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invalidate_on_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invalidate_on_update", value)
 
 
 class BranchPolicyStatusCheckSettingsScopeArgsDict(TypedDict):
-    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    match_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
     """
-    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    repository_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
     """
@@ -1399,9 +1399,9 @@ class BranchPolicyStatusCheckSettingsScopeArgsDict(TypedDict):
 @pulumi.input_type
 class BranchPolicyStatusCheckSettingsScopeArgs:
     def __init__(__self__, *,
-                 match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         :param pulumi.Input[_builtins.str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
@@ -1416,38 +1416,38 @@ class BranchPolicyStatusCheckSettingsScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchType")
-    def match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         """
         return pulumi.get(self, "match_type")
 
     @match_type.setter
-    def match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryRef")
-    def repository_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
 
     @repository_ref.setter
-    def repository_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_ref", value)
 
 
@@ -1480,15 +1480,15 @@ class BranchPolicyWorkItemLinkingSettingsArgs:
 
 
 class BranchPolicyWorkItemLinkingSettingsScopeArgsDict(TypedDict):
-    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    match_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
     """
-    repository_ref: NotRequired[pulumi.Input[_builtins.str]]
+    repository_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
     """
@@ -1496,9 +1496,9 @@ class BranchPolicyWorkItemLinkingSettingsScopeArgsDict(TypedDict):
 @pulumi.input_type
 class BranchPolicyWorkItemLinkingSettingsScopeArgs:
     def __init__(__self__, *,
-                 match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         :param pulumi.Input[_builtins.str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
@@ -1513,38 +1513,38 @@ class BranchPolicyWorkItemLinkingSettingsScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchType")
-    def match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
         """
         return pulumi.get(self, "match_type")
 
     @match_type.setter
-    def match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryRef")
-    def repository_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
 
     @repository_ref.setter
-    def repository_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_ref", value)
 
 
@@ -1596,11 +1596,11 @@ class BuildDefinitionBuildCompletionTriggerArgs:
 
 
 class BuildDefinitionBuildCompletionTriggerBranchFilterArgsDict(TypedDict):
-    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of branch patterns to exclude.
     """
-    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of branch patterns to include.
     """
@@ -1608,8 +1608,8 @@ class BuildDefinitionBuildCompletionTriggerBranchFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BuildDefinitionBuildCompletionTriggerBranchFilterArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excludes: List of branch patterns to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: List of branch patterns to include.
@@ -1621,35 +1621,35 @@ class BuildDefinitionBuildCompletionTriggerBranchFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excludes", value)
 
     @_builtins.property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "includes", value)
 
 
 class BuildDefinitionCiTriggerArgsDict(TypedDict):
-    override: NotRequired[pulumi.Input['BuildDefinitionCiTriggerOverrideArgsDict']]
+    override: NotRequired[pulumi.Input[Optional['BuildDefinitionCiTriggerOverrideArgs']]]
     """
     Override the azure-pipeline file and use a this configuration for all builds.
     """
-    use_yaml: NotRequired[pulumi.Input[_builtins.bool]]
+    use_yaml: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Use the azure-pipeline file for the build configuration. Defaults to `false`.
     """
@@ -1657,8 +1657,8 @@ class BuildDefinitionCiTriggerArgsDict(TypedDict):
 @pulumi.input_type
 class BuildDefinitionCiTriggerArgs:
     def __init__(__self__, *,
-                 override: Optional[pulumi.Input['BuildDefinitionCiTriggerOverrideArgs']] = None,
-                 use_yaml: Optional[pulumi.Input[_builtins.bool]] = None):
+                 override: pulumi.Input[Optional['BuildDefinitionCiTriggerOverrideArgs']] = None,
+                 use_yaml: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input['BuildDefinitionCiTriggerOverrideArgs'] override: Override the azure-pipeline file and use a this configuration for all builds.
         :param pulumi.Input[_builtins.bool] use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
@@ -1670,26 +1670,26 @@ class BuildDefinitionCiTriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def override(self) -> Optional[pulumi.Input['BuildDefinitionCiTriggerOverrideArgs']]:
+    def override(self) -> pulumi.Input[Optional['BuildDefinitionCiTriggerOverrideArgs']]:
         """
         Override the azure-pipeline file and use a this configuration for all builds.
         """
         return pulumi.get(self, "override")
 
     @override.setter
-    def override(self, value: Optional[pulumi.Input['BuildDefinitionCiTriggerOverrideArgs']]):
+    def override(self, value: pulumi.Input[Optional['BuildDefinitionCiTriggerOverrideArgs']]):
         pulumi.set(self, "override", value)
 
     @_builtins.property
     @pulumi.getter(name="useYaml")
-    def use_yaml(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_yaml(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Use the azure-pipeline file for the build configuration. Defaults to `false`.
         """
         return pulumi.get(self, "use_yaml")
 
     @use_yaml.setter
-    def use_yaml(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_yaml(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_yaml", value)
 
 
@@ -1698,23 +1698,23 @@ class BuildDefinitionCiTriggerOverrideArgsDict(TypedDict):
     """
     The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
     """
-    batch: NotRequired[pulumi.Input[_builtins.bool]]
+    batch: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
     """
-    max_concurrent_builds_per_branch: NotRequired[pulumi.Input[_builtins.int]]
+    max_concurrent_builds_per_branch: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of max builds per branch. Defaults to `1`.
     """
-    path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgsDict']]]]
+    path_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]]]
     """
     Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
     """
-    polling_interval: NotRequired[pulumi.Input[_builtins.int]]
+    polling_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     How often the external repository is polled. Defaults to `0`.
     """
-    polling_job_id: NotRequired[pulumi.Input[_builtins.str]]
+    polling_job_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
     """
@@ -1723,11 +1723,11 @@ class BuildDefinitionCiTriggerOverrideArgsDict(TypedDict):
 class BuildDefinitionCiTriggerOverrideArgs:
     def __init__(__self__, *,
                  branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgs']]],
-                 batch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_concurrent_builds_per_branch: Optional[pulumi.Input[_builtins.int]] = None,
-                 path_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]] = None,
-                 polling_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 polling_job_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 batch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_concurrent_builds_per_branch: pulumi.Input[Optional[_builtins.int]] = None,
+                 path_filters: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]] = None,
+                 polling_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 polling_job_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgs']]] branch_filters: The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
         :param pulumi.Input[_builtins.bool] batch: If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
@@ -1762,71 +1762,71 @@ class BuildDefinitionCiTriggerOverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def batch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
         """
         return pulumi.get(self, "batch")
 
     @batch.setter
-    def batch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrentBuildsPerBranch")
-    def max_concurrent_builds_per_branch(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrent_builds_per_branch(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of max builds per branch. Defaults to `1`.
         """
         return pulumi.get(self, "max_concurrent_builds_per_branch")
 
     @max_concurrent_builds_per_branch.setter
-    def max_concurrent_builds_per_branch(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrent_builds_per_branch(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrent_builds_per_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]]:
+    def path_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]]:
         """
         Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
         return pulumi.get(self, "path_filters")
 
     @path_filters.setter
-    def path_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]]):
+    def path_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]]):
         pulumi.set(self, "path_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="pollingInterval")
-    def polling_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def polling_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How often the external repository is polled. Defaults to `0`.
         """
         return pulumi.get(self, "polling_interval")
 
     @polling_interval.setter
-    def polling_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def polling_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "polling_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="pollingJobId")
-    def polling_job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def polling_job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
         """
         return pulumi.get(self, "polling_job_id")
 
     @polling_job_id.setter
-    def polling_job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def polling_job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "polling_job_id", value)
 
 
 class BuildDefinitionCiTriggerOverrideBranchFilterArgsDict(TypedDict):
-    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of branch patterns to exclude.
     """
-    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of branch patterns to include.
     """
@@ -1834,8 +1834,8 @@ class BuildDefinitionCiTriggerOverrideBranchFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BuildDefinitionCiTriggerOverrideBranchFilterArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excludes: List of branch patterns to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: List of branch patterns to include.
@@ -1847,35 +1847,35 @@ class BuildDefinitionCiTriggerOverrideBranchFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excludes", value)
 
     @_builtins.property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "includes", value)
 
 
 class BuildDefinitionCiTriggerOverridePathFilterArgsDict(TypedDict):
-    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of path patterns to exclude.
     """
-    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of path patterns to include.
     """
@@ -1883,8 +1883,8 @@ class BuildDefinitionCiTriggerOverridePathFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BuildDefinitionCiTriggerOverridePathFilterArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excludes: List of path patterns to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: List of path patterns to include.
@@ -1896,31 +1896,31 @@ class BuildDefinitionCiTriggerOverridePathFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of path patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excludes", value)
 
     @_builtins.property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of path patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "includes", value)
 
 
 class BuildDefinitionFeatureArgsDict(TypedDict):
-    skip_first_run: NotRequired[pulumi.Input[_builtins.bool]]
+    skip_first_run: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Trigger the pipeline to run after the creation. Defaults to `true`.
 
@@ -1930,7 +1930,7 @@ class BuildDefinitionFeatureArgsDict(TypedDict):
 @pulumi.input_type
 class BuildDefinitionFeatureArgs:
     def __init__(__self__, *,
-                 skip_first_run: Optional[pulumi.Input[_builtins.bool]] = None):
+                 skip_first_run: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] skip_first_run: Trigger the pipeline to run after the creation. Defaults to `true`.
                
@@ -1941,7 +1941,7 @@ class BuildDefinitionFeatureArgs:
 
     @_builtins.property
     @pulumi.getter(name="skipFirstRun")
-    def skip_first_run(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_first_run(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Trigger the pipeline to run after the creation. Defaults to `true`.
 
@@ -1950,7 +1950,7 @@ class BuildDefinitionFeatureArgs:
         return pulumi.get(self, "skip_first_run")
 
     @skip_first_run.setter
-    def skip_first_run(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_first_run(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_first_run", value)
 
 
@@ -1971,23 +1971,23 @@ class BuildDefinitionJobArgsDict(TypedDict):
     """
     A `target` blocks as documented below.
     """
-    allow_scripts_auth_access_option: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_scripts_auth_access_option: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
     """
-    dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgsDict']]]]
+    dependencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]]]
     """
     A `dependencies` blocks as documented below. Define the job dependencies.
     """
-    job_authorization_scope: NotRequired[pulumi.Input[_builtins.str]]
+    job_authorization_scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
     """
-    job_cancel_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    job_cancel_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
     """
-    job_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    job_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
     """
@@ -1999,11 +1999,11 @@ class BuildDefinitionJobArgs:
                  name: pulumi.Input[_builtins.str],
                  ref_name: pulumi.Input[_builtins.str],
                  target: pulumi.Input['BuildDefinitionJobTargetArgs'],
-                 allow_scripts_auth_access_option: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]] = None,
-                 job_authorization_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_cancel_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 job_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 allow_scripts_auth_access_option: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dependencies: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]] = None,
+                 job_authorization_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_cancel_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 job_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] condition: Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
         :param pulumi.Input[_builtins.str] name: The name of the job.
@@ -2080,62 +2080,62 @@ class BuildDefinitionJobArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowScriptsAuthAccessOption")
-    def allow_scripts_auth_access_option(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_scripts_auth_access_option(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
         """
         return pulumi.get(self, "allow_scripts_auth_access_option")
 
     @allow_scripts_auth_access_option.setter
-    def allow_scripts_auth_access_option(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_scripts_auth_access_option(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_scripts_auth_access_option", value)
 
     @_builtins.property
     @pulumi.getter
-    def dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]]:
+    def dependencies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]]:
         """
         A `dependencies` blocks as documented below. Define the job dependencies.
         """
         return pulumi.get(self, "dependencies")
 
     @dependencies.setter
-    def dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]]):
+    def dependencies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]]):
         pulumi.set(self, "dependencies", value)
 
     @_builtins.property
     @pulumi.getter(name="jobAuthorizationScope")
-    def job_authorization_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_authorization_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
         """
         return pulumi.get(self, "job_authorization_scope")
 
     @job_authorization_scope.setter
-    def job_authorization_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_authorization_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_authorization_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="jobCancelTimeoutInMinutes")
-    def job_cancel_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def job_cancel_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
         """
         return pulumi.get(self, "job_cancel_timeout_in_minutes")
 
     @job_cancel_timeout_in_minutes.setter
-    def job_cancel_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def job_cancel_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "job_cancel_timeout_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="jobTimeoutInMinutes")
-    def job_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def job_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
         """
         return pulumi.get(self, "job_timeout_in_minutes")
 
     @job_timeout_in_minutes.setter
-    def job_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def job_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "job_timeout_in_minutes", value)
 
 
@@ -2176,7 +2176,7 @@ class BuildDefinitionJobTargetArgsDict(TypedDict):
     """
     The job type. Possible values: `AgentJob`, `AgentlessJob`
     """
-    demands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    demands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of demands that represents the agent capabilities required by this build. Example: `git`
     """
@@ -2186,7 +2186,7 @@ class BuildDefinitionJobTargetArgs:
     def __init__(__self__, *,
                  execution_options: pulumi.Input['BuildDefinitionJobTargetExecutionOptionsArgs'],
                  type: pulumi.Input[_builtins.str],
-                 demands: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 demands: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input['BuildDefinitionJobTargetExecutionOptionsArgs'] execution_options: A `execution_options` blocks as documented below.
         :param pulumi.Input[_builtins.str] type: The job type. Possible values: `AgentJob`, `AgentlessJob`
@@ -2223,14 +2223,14 @@ class BuildDefinitionJobTargetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def demands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def demands(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of demands that represents the agent capabilities required by this build. Example: `git`
         """
         return pulumi.get(self, "demands")
 
     @demands.setter
-    def demands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def demands(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "demands", value)
 
 
@@ -2239,15 +2239,15 @@ class BuildDefinitionJobTargetExecutionOptionsArgsDict(TypedDict):
     """
     The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
     """
-    continue_on_error: NotRequired[pulumi.Input[_builtins.bool]]
+    continue_on_error: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
     """
-    max_concurrency: NotRequired[pulumi.Input[_builtins.int]]
+    max_concurrency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
     """
-    multipliers: NotRequired[pulumi.Input[_builtins.str]]
+    multipliers: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
     """
@@ -2256,9 +2256,9 @@ class BuildDefinitionJobTargetExecutionOptionsArgsDict(TypedDict):
 class BuildDefinitionJobTargetExecutionOptionsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 continue_on_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
-                 multipliers: Optional[pulumi.Input[_builtins.str]] = None):
+                 continue_on_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
+                 multipliers: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
         :param pulumi.Input[_builtins.bool] continue_on_error: Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
@@ -2287,38 +2287,38 @@ class BuildDefinitionJobTargetExecutionOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="continueOnError")
-    def continue_on_error(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def continue_on_error(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
         """
         return pulumi.get(self, "continue_on_error")
 
     @continue_on_error.setter
-    def continue_on_error(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def continue_on_error(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "continue_on_error", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
         """
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
-    def max_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrency", value)
 
     @_builtins.property
     @pulumi.getter
-    def multipliers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multipliers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
         """
         return pulumi.get(self, "multipliers")
 
     @multipliers.setter
-    def multipliers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multipliers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multipliers", value)
 
 
@@ -2327,16 +2327,16 @@ class BuildDefinitionPullRequestTriggerArgsDict(TypedDict):
     """
     Set permissions for Forked repositories.
     """
-    comment_required: NotRequired[pulumi.Input[_builtins.str]]
-    initial_branch: NotRequired[pulumi.Input[_builtins.str]]
+    comment_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    initial_branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
     """
-    override: NotRequired[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgsDict']]
+    override: NotRequired[pulumi.Input[Optional['BuildDefinitionPullRequestTriggerOverrideArgs']]]
     """
     Override the azure-pipeline file and use this configuration for all builds.
     """
-    use_yaml: NotRequired[pulumi.Input[_builtins.bool]]
+    use_yaml: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Use the azure-pipeline file for the build configuration. Defaults to `false`.
     """
@@ -2345,10 +2345,10 @@ class BuildDefinitionPullRequestTriggerArgsDict(TypedDict):
 class BuildDefinitionPullRequestTriggerArgs:
     def __init__(__self__, *,
                  forks: pulumi.Input['BuildDefinitionPullRequestTriggerForksArgs'],
-                 comment_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 override: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgs']] = None,
-                 use_yaml: Optional[pulumi.Input[_builtins.bool]] = None):
+                 comment_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 override: pulumi.Input[Optional['BuildDefinitionPullRequestTriggerOverrideArgs']] = None,
+                 use_yaml: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input['BuildDefinitionPullRequestTriggerForksArgs'] forks: Set permissions for Forked repositories.
         :param pulumi.Input[_builtins.str] initial_branch: When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
@@ -2379,47 +2379,47 @@ class BuildDefinitionPullRequestTriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="commentRequired")
-    def comment_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "comment_required")
 
     @comment_required.setter
-    def comment_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment_required", value)
 
     @_builtins.property
     @pulumi.getter(name="initialBranch")
-    def initial_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initial_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "initial_branch")
 
     @initial_branch.setter
-    def initial_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initial_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initial_branch", value)
 
     @_builtins.property
     @pulumi.getter
-    def override(self) -> Optional[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgs']]:
+    def override(self) -> pulumi.Input[Optional['BuildDefinitionPullRequestTriggerOverrideArgs']]:
         """
         Override the azure-pipeline file and use this configuration for all builds.
         """
         return pulumi.get(self, "override")
 
     @override.setter
-    def override(self, value: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgs']]):
+    def override(self, value: pulumi.Input[Optional['BuildDefinitionPullRequestTriggerOverrideArgs']]):
         pulumi.set(self, "override", value)
 
     @_builtins.property
     @pulumi.getter(name="useYaml")
-    def use_yaml(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_yaml(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Use the azure-pipeline file for the build configuration. Defaults to `false`.
         """
         return pulumi.get(self, "use_yaml")
 
     @use_yaml.setter
-    def use_yaml(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_yaml(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_yaml", value)
 
 
@@ -2475,11 +2475,11 @@ class BuildDefinitionPullRequestTriggerOverrideArgsDict(TypedDict):
     """
     The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
     """
-    auto_cancel: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_cancel: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     . Defaults to `true`.
     """
-    path_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict']]]]
+    path_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]]]
     """
     Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
     """
@@ -2488,8 +2488,8 @@ class BuildDefinitionPullRequestTriggerOverrideArgsDict(TypedDict):
 class BuildDefinitionPullRequestTriggerOverrideArgs:
     def __init__(__self__, *,
                  branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs']]],
-                 auto_cancel: Optional[pulumi.Input[_builtins.bool]] = None,
-                 path_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]] = None):
+                 auto_cancel: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path_filters: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs']]] branch_filters: The branches to include and exclude from the trigger. A `branch_filter` block as documented below.
         :param pulumi.Input[_builtins.bool] auto_cancel: . Defaults to `true`.
@@ -2515,35 +2515,35 @@ class BuildDefinitionPullRequestTriggerOverrideArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoCancel")
-    def auto_cancel(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_cancel(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         . Defaults to `true`.
         """
         return pulumi.get(self, "auto_cancel")
 
     @auto_cancel.setter
-    def auto_cancel(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_cancel(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_cancel", value)
 
     @_builtins.property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]]:
+    def path_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]]:
         """
         Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
         return pulumi.get(self, "path_filters")
 
     @path_filters.setter
-    def path_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]]):
+    def path_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]]):
         pulumi.set(self, "path_filters", value)
 
 
 class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict(TypedDict):
-    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of branch patterns to exclude.
     """
-    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of branch patterns to include.
     """
@@ -2551,8 +2551,8 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excludes: List of branch patterns to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: List of branch patterns to include.
@@ -2564,35 +2564,35 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excludes", value)
 
     @_builtins.property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "includes", value)
 
 
 class BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict(TypedDict):
-    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of path patterns to exclude.
     """
-    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of path patterns to include.
     """
@@ -2600,8 +2600,8 @@ class BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excludes: List of path patterns to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: List of path patterns to include.
@@ -2613,26 +2613,26 @@ class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of path patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excludes", value)
 
     @_builtins.property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of path patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "includes", value)
 
 
@@ -2645,27 +2645,27 @@ class BuildDefinitionRepositoryArgsDict(TypedDict):
     """
     The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
     """
-    branch_name: NotRequired[pulumi.Input[_builtins.str]]
+    branch_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The branch name for which builds are triggered. Defaults to `master`.
     """
-    github_enterprise_url: NotRequired[pulumi.Input[_builtins.str]]
+    github_enterprise_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
     """
-    report_build_status: NotRequired[pulumi.Input[_builtins.bool]]
+    report_build_status: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Report build status. Default is true.
     """
-    service_connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    service_connection_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
     """
-    yml_path: NotRequired[pulumi.Input[_builtins.str]]
+    yml_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path of the Yaml file describing the build definition.
     """
@@ -2675,12 +2675,12 @@ class BuildDefinitionRepositoryArgs:
     def __init__(__self__, *,
                  repo_id: pulumi.Input[_builtins.str],
                  repo_type: pulumi.Input[_builtins.str],
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 github_enterprise_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 report_build_status: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 yml_path: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 github_enterprise_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_build_status: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 yml_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] repo_id: The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
         :param pulumi.Input[_builtins.str] repo_type: The repository type. Possible values are: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise` or `Git`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
@@ -2732,74 +2732,74 @@ class BuildDefinitionRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="branchName")
-    def branch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The branch name for which builds are triggered. Defaults to `master`.
         """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
-    def branch_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_name", value)
 
     @_builtins.property
     @pulumi.getter(name="githubEnterpriseUrl")
-    def github_enterprise_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def github_enterprise_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`. Conflict with `url`
         """
         return pulumi.get(self, "github_enterprise_url")
 
     @github_enterprise_url.setter
-    def github_enterprise_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def github_enterprise_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "github_enterprise_url", value)
 
     @_builtins.property
     @pulumi.getter(name="reportBuildStatus")
-    def report_build_status(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def report_build_status(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Report build status. Default is true.
         """
         return pulumi.get(self, "report_build_status")
 
     @report_build_status.setter
-    def report_build_status(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def report_build_status(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "report_build_status", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceConnectionId")
-    def service_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         """
         return pulumi.get(self, "service_connection_id")
 
     @service_connection_id.setter
-    def service_connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_connection_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Git repository. Used if `repo_type` is `Git`. Conflict with `github_enterprise_url`
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="ymlPath")
-    def yml_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def yml_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the Yaml file describing the build definition.
         """
         return pulumi.get(self, "yml_path")
 
     @yml_path.setter
-    def yml_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def yml_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "yml_path", value)
 
 
@@ -2812,23 +2812,23 @@ class BuildDefinitionScheduleArgsDict(TypedDict):
     """
     When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
     """
-    schedule_job_id: NotRequired[pulumi.Input[_builtins.str]]
+    schedule_job_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the schedule job
     """
-    schedule_only_with_changes: NotRequired[pulumi.Input[_builtins.bool]]
+    schedule_only_with_changes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Schedule builds if the source or pipeline has changed. Defaults to `true`.
     """
-    start_hours: NotRequired[pulumi.Input[_builtins.int]]
+    start_hours: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
     """
-    start_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    start_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
     """
-    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
     `(UTC-12:00) International Date Line West`,
@@ -2979,11 +2979,11 @@ class BuildDefinitionScheduleArgs:
     def __init__(__self__, *,
                  branch_filters: pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgs']]],
                  days_to_builds: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 schedule_job_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_only_with_changes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 start_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 start_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 schedule_job_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_only_with_changes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 start_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgs']]] branch_filters: A `branch_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_to_builds: When to build. Possible values are: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
@@ -3173,55 +3173,55 @@ class BuildDefinitionScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="scheduleJobId")
-    def schedule_job_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the schedule job
         """
         return pulumi.get(self, "schedule_job_id")
 
     @schedule_job_id.setter
-    def schedule_job_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_job_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_job_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleOnlyWithChanges")
-    def schedule_only_with_changes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def schedule_only_with_changes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Schedule builds if the source or pipeline has changed. Defaults to `true`.
         """
         return pulumi.get(self, "schedule_only_with_changes")
 
     @schedule_only_with_changes.setter
-    def schedule_only_with_changes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def schedule_only_with_changes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "schedule_only_with_changes", value)
 
     @_builtins.property
     @pulumi.getter(name="startHours")
-    def start_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
         """
         return pulumi.get(self, "start_hours")
 
     @start_hours.setter
-    def start_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="startMinutes")
-    def start_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
         """
         return pulumi.get(self, "start_minutes")
 
     @start_minutes.setter
-    def start_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
         `(UTC-12:00) International Date Line West`,
@@ -3369,16 +3369,16 @@ class BuildDefinitionScheduleArgs:
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
 class BuildDefinitionScheduleBranchFilterArgsDict(TypedDict):
-    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of branch patterns to exclude.
     """
-    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of branch patterns to include.
     """
@@ -3386,8 +3386,8 @@ class BuildDefinitionScheduleBranchFilterArgsDict(TypedDict):
 @pulumi.input_type
 class BuildDefinitionScheduleBranchFilterArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excludes: List of branch patterns to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: List of branch patterns to include.
@@ -3399,26 +3399,26 @@ class BuildDefinitionScheduleBranchFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excludes", value)
 
     @_builtins.property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "includes", value)
 
 
@@ -3427,19 +3427,19 @@ class BuildDefinitionVariableArgsDict(TypedDict):
     """
     The name of the variable.
     """
-    allow_override: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_override: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if the variable can be overridden. Defaults to `true`.
     """
-    is_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    is_secret: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     True if the variable is a secret. Defaults to `false`.
     """
-    secret_value: NotRequired[pulumi.Input[_builtins.str]]
+    secret_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The secret value of the variable. Used when `is_secret` set to `true`.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the variable.
     """
@@ -3448,10 +3448,10 @@ class BuildDefinitionVariableArgsDict(TypedDict):
 class BuildDefinitionVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 allow_override: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_override: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the variable.
         :param pulumi.Input[_builtins.bool] allow_override: True if the variable can be overridden. Defaults to `true`.
@@ -3483,50 +3483,50 @@ class BuildDefinitionVariableArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowOverride")
-    def allow_override(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_override(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if the variable can be overridden. Defaults to `true`.
         """
         return pulumi.get(self, "allow_override")
 
     @allow_override.setter
-    def allow_override(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_override(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_override", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecret")
-    def is_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if the variable is a secret. Defaults to `false`.
         """
         return pulumi.get(self, "is_secret")
 
     @is_secret.setter
-    def is_secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="secretValue")
-    def secret_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret value of the variable. Used when `is_secret` set to `true`.
         """
         return pulumi.get(self, "secret_value")
 
     @secret_value.setter
-    def secret_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the variable.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -3543,7 +3543,7 @@ class CheckRequiredTemplateRequiredTemplateArgsDict(TypedDict):
     """
     The path to the template yaml.
     """
-    repository_type: NotRequired[pulumi.Input[_builtins.str]]
+    repository_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
     """
@@ -3554,7 +3554,7 @@ class CheckRequiredTemplateRequiredTemplateArgs:
                  repository_name: pulumi.Input[_builtins.str],
                  repository_ref: pulumi.Input[_builtins.str],
                  template_path: pulumi.Input[_builtins.str],
-                 repository_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 repository_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] repository_name: The name of the repository storing the template.
         :param pulumi.Input[_builtins.str] repository_ref: The branch in which the template will be referenced.
@@ -3605,23 +3605,23 @@ class CheckRequiredTemplateRequiredTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="repositoryType")
-    def repository_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
         """
         return pulumi.get(self, "repository_type")
 
     @repository_type.setter
-    def repository_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_type", value)
 
 
 class FeedFeatureArgsDict(TypedDict):
-    permanent_delete: NotRequired[pulumi.Input[_builtins.bool]]
+    permanent_delete: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines if Feed should be Permanently removed, Defaults to `false`
     """
-    restore: NotRequired[pulumi.Input[_builtins.bool]]
+    restore: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines if Feed should be Restored during creation (if possible), Defaults to `false`
     """
@@ -3629,8 +3629,8 @@ class FeedFeatureArgsDict(TypedDict):
 @pulumi.input_type
 class FeedFeatureArgs:
     def __init__(__self__, *,
-                 permanent_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restore: Optional[pulumi.Input[_builtins.bool]] = None):
+                 permanent_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restore: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] permanent_delete: Determines if Feed should be Permanently removed, Defaults to `false`
         :param pulumi.Input[_builtins.bool] restore: Determines if Feed should be Restored during creation (if possible), Defaults to `false`
@@ -3642,26 +3642,26 @@ class FeedFeatureArgs:
 
     @_builtins.property
     @pulumi.getter(name="permanentDelete")
-    def permanent_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def permanent_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if Feed should be Permanently removed, Defaults to `false`
         """
         return pulumi.get(self, "permanent_delete")
 
     @permanent_delete.setter
-    def permanent_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def permanent_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "permanent_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def restore(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restore(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if Feed should be Restored during creation (if possible), Defaults to `false`
         """
         return pulumi.get(self, "restore")
 
     @restore.setter
-    def restore(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restore(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restore", value)
 
 
@@ -3670,26 +3670,26 @@ class GitInitializationArgsDict(TypedDict):
     """
     The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
     The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
 
     ~>**Note** At least `service_connection_id` or `username/password` needs to be set to import private repository.
     """
-    service_connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    service_connection_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
     """
-    source_type: NotRequired[pulumi.Input[_builtins.str]]
+    source_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
     """
-    source_url: NotRequired[pulumi.Input[_builtins.str]]
+    source_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL of the source repository. Used if the `init_type` is `Import`.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
     """
@@ -3698,11 +3698,11 @@ class GitInitializationArgsDict(TypedDict):
 class GitInitializationArgs:
     def __init__(__self__, *,
                  init_type: pulumi.Input[_builtins.str],
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
         :param pulumi.Input[_builtins.str] password: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -3740,7 +3740,7 @@ class GitInitializationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         The password used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`. Note: This is a write-only attribute, which allows ephemeral resources to be used.
@@ -3750,55 +3750,55 @@ class GitInitializationArgs:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceConnectionId")
-    def service_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
         """
         return pulumi.get(self, "service_connection_id")
 
     @service_connection_id.setter
-    def service_connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_connection_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_type", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceUrl")
-    def source_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the source repository. Used if the `init_type` is `Import`.
         """
         return pulumi.get(self, "source_url")
 
     @source_url.setter
-    def source_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username used to authenticate to a private repository for import initialization. Conflicts with `service_connection_id`.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -3910,11 +3910,11 @@ class ServiceEndpointAzureRMCredentialsArgsDict(TypedDict):
     """
     The service principal application ID
     """
-    serviceprincipalcertificate: NotRequired[pulumi.Input[_builtins.str]]
+    serviceprincipalcertificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
     """
-    serviceprincipalkey: NotRequired[pulumi.Input[_builtins.str]]
+    serviceprincipalkey: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
     """
@@ -3923,8 +3923,8 @@ class ServiceEndpointAzureRMCredentialsArgsDict(TypedDict):
 class ServiceEndpointAzureRMCredentialsArgs:
     def __init__(__self__, *,
                  serviceprincipalid: pulumi.Input[_builtins.str],
-                 serviceprincipalcertificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 serviceprincipalkey: Optional[pulumi.Input[_builtins.str]] = None):
+                 serviceprincipalcertificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 serviceprincipalkey: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] serviceprincipalid: The service principal application ID
         :param pulumi.Input[_builtins.str] serviceprincipalcertificate: The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
@@ -3950,31 +3950,31 @@ class ServiceEndpointAzureRMCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def serviceprincipalcertificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serviceprincipalcertificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal certificate. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
         return pulumi.get(self, "serviceprincipalcertificate")
 
     @serviceprincipalcertificate.setter
-    def serviceprincipalcertificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serviceprincipalcertificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serviceprincipalcertificate", value)
 
     @_builtins.property
     @pulumi.getter
-    def serviceprincipalkey(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serviceprincipalkey(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
         return pulumi.get(self, "serviceprincipalkey")
 
     @serviceprincipalkey.setter
-    def serviceprincipalkey(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serviceprincipalkey(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serviceprincipalkey", value)
 
 
 class ServiceEndpointAzureRMFeaturesArgsDict(TypedDict):
-    validate: NotRequired[pulumi.Input[_builtins.bool]]
+    validate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
     """
@@ -3982,7 +3982,7 @@ class ServiceEndpointAzureRMFeaturesArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceEndpointAzureRMFeaturesArgs:
     def __init__(__self__, *,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] validate: Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
         """
@@ -3991,14 +3991,14 @@ class ServiceEndpointAzureRMFeaturesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
 
@@ -4141,15 +4141,15 @@ class ServiceEndpointKubernetesAzureSubscriptionArgsDict(TypedDict):
     """
     The id of the tenant used by the subscription.
     """
-    azure_environment: NotRequired[pulumi.Input[_builtins.str]]
+    azure_environment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
     """
-    cluster_admin: NotRequired[pulumi.Input[_builtins.bool]]
+    cluster_admin: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this option to allow use cluster admin credentials.
     """
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Kubernetes namespace. Default value is "default".
     """
@@ -4162,9 +4162,9 @@ class ServiceEndpointKubernetesAzureSubscriptionArgs:
                  subscription_id: pulumi.Input[_builtins.str],
                  subscription_name: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 azure_environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_admin: Optional[pulumi.Input[_builtins.bool]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 azure_environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_admin: pulumi.Input[Optional[_builtins.bool]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kubernetes cluster.
         :param pulumi.Input[_builtins.str] resourcegroup_id: The resource group name, to which the Kubernetes cluster is deployed.
@@ -4249,38 +4249,38 @@ class ServiceEndpointKubernetesAzureSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureEnvironment")
-    def azure_environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
         """
         return pulumi.get(self, "azure_environment")
 
     @azure_environment.setter
-    def azure_environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_environment", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterAdmin")
-    def cluster_admin(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cluster_admin(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this option to allow use cluster admin credentials.
         """
         return pulumi.get(self, "cluster_admin")
 
     @cluster_admin.setter
-    def cluster_admin(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cluster_admin(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cluster_admin", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kubernetes namespace. Default value is "default".
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
 
@@ -4289,11 +4289,11 @@ class ServiceEndpointKubernetesKubeconfigArgsDict(TypedDict):
     """
     The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
     """
-    accept_untrusted_certs: NotRequired[pulumi.Input[_builtins.bool]]
+    accept_untrusted_certs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this option to allow clients to accept a self-signed certificate.
     """
-    cluster_context: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_context: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
     """
@@ -4302,8 +4302,8 @@ class ServiceEndpointKubernetesKubeconfigArgsDict(TypedDict):
 class ServiceEndpointKubernetesKubeconfigArgs:
     def __init__(__self__, *,
                  kube_config: pulumi.Input[_builtins.str],
-                 accept_untrusted_certs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_context: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_context: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kube_config: The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate.
@@ -4329,26 +4329,26 @@ class ServiceEndpointKubernetesKubeconfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptUntrustedCerts")
-    def accept_untrusted_certs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accept_untrusted_certs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this option to allow clients to accept a self-signed certificate.
         """
         return pulumi.get(self, "accept_untrusted_certs")
 
     @accept_untrusted_certs.setter
-    def accept_untrusted_certs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accept_untrusted_certs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accept_untrusted_certs", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterContext")
-    def cluster_context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
         """
         return pulumi.get(self, "cluster_context")
 
     @cluster_context.setter
-    def cluster_context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_context", value)
 
 
@@ -4361,7 +4361,7 @@ class ServiceEndpointKubernetesServiceAccountArgsDict(TypedDict):
     """
     The token from a Kubernetes secret object.
     """
-    accept_untrusted_certs: NotRequired[pulumi.Input[_builtins.bool]]
+    accept_untrusted_certs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
     """
@@ -4371,7 +4371,7 @@ class ServiceEndpointKubernetesServiceAccountArgs:
     def __init__(__self__, *,
                  ca_cert: pulumi.Input[_builtins.str],
                  token: pulumi.Input[_builtins.str],
-                 accept_untrusted_certs: Optional[pulumi.Input[_builtins.bool]] = None):
+                 accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] ca_cert: The certificate from a Kubernetes secret object.
         :param pulumi.Input[_builtins.str] token: The token from a Kubernetes secret object.
@@ -4408,14 +4408,14 @@ class ServiceEndpointKubernetesServiceAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptUntrustedCerts")
-    def accept_untrusted_certs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accept_untrusted_certs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
         """
         return pulumi.get(self, "accept_untrusted_certs")
 
     @accept_untrusted_certs.setter
-    def accept_untrusted_certs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accept_untrusted_certs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accept_untrusted_certs", value)
 
 
@@ -4460,11 +4460,11 @@ class ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict(TypedDict):
     """
     Specify an Azure Active Directory account.
     """
-    server_certificate_common_name: NotRequired[pulumi.Input[_builtins.str]]
+    server_certificate_common_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
     """
-    server_certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    server_certificate_thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
     """
@@ -4475,8 +4475,8 @@ class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
                  password: pulumi.Input[_builtins.str],
                  server_certificate_lookup: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 server_certificate_common_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 server_certificate_common_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] password: Password for the Azure Active Directory account.
         :param pulumi.Input[_builtins.str] server_certificate_lookup: Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
@@ -4530,26 +4530,26 @@ class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="serverCertificateCommonName")
-    def server_certificate_common_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_certificate_common_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         """
         return pulumi.get(self, "server_certificate_common_name")
 
     @server_certificate_common_name.setter
-    def server_certificate_common_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_certificate_common_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_certificate_common_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverCertificateThumbprint")
-    def server_certificate_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_certificate_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
         """
         return pulumi.get(self, "server_certificate_thumbprint")
 
     @server_certificate_thumbprint.setter
-    def server_certificate_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_certificate_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_certificate_thumbprint", value)
 
 
@@ -4562,15 +4562,15 @@ class ServiceEndpointServiceFabricCertificateArgsDict(TypedDict):
     """
     Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
     """
-    client_certificate_password: NotRequired[pulumi.Input[_builtins.str]]
+    client_certificate_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password for the certificate.
     """
-    server_certificate_common_name: NotRequired[pulumi.Input[_builtins.str]]
+    server_certificate_common_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
     """
-    server_certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    server_certificate_thumbprint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
     """
@@ -4580,9 +4580,9 @@ class ServiceEndpointServiceFabricCertificateArgs:
     def __init__(__self__, *,
                  client_certificate: pulumi.Input[_builtins.str],
                  server_certificate_lookup: pulumi.Input[_builtins.str],
-                 client_certificate_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_certificate_common_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_certificate_thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_certificate_common_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_certificate_thumbprint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] client_certificate: Base64 encoding of the cluster's client certificate file.
         :param pulumi.Input[_builtins.str] server_certificate_lookup: Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
@@ -4625,47 +4625,47 @@ class ServiceEndpointServiceFabricCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientCertificatePassword")
-    def client_certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the certificate.
         """
         return pulumi.get(self, "client_certificate_password")
 
     @client_certificate_password.setter
-    def client_certificate_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_password", value)
 
     @_builtins.property
     @pulumi.getter(name="serverCertificateCommonName")
-    def server_certificate_common_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_certificate_common_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         """
         return pulumi.get(self, "server_certificate_common_name")
 
     @server_certificate_common_name.setter
-    def server_certificate_common_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_certificate_common_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_certificate_common_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverCertificateThumbprint")
-    def server_certificate_thumbprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_certificate_thumbprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
         """
         return pulumi.get(self, "server_certificate_thumbprint")
 
     @server_certificate_thumbprint.setter
-    def server_certificate_thumbprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_certificate_thumbprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_certificate_thumbprint", value)
 
 
 class ServiceEndpointServiceFabricNoneArgsDict(TypedDict):
-    cluster_spn: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_spn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
     """
-    unsecured: NotRequired[pulumi.Input[_builtins.bool]]
+    unsecured: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Skip using windows security for authentication.
     """
@@ -4673,8 +4673,8 @@ class ServiceEndpointServiceFabricNoneArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceEndpointServiceFabricNoneArgs:
     def __init__(__self__, *,
-                 cluster_spn: Optional[pulumi.Input[_builtins.str]] = None,
-                 unsecured: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cluster_spn: pulumi.Input[Optional[_builtins.str]] = None,
+                 unsecured: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] cluster_spn: Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
         :param pulumi.Input[_builtins.bool] unsecured: Skip using windows security for authentication.
@@ -4686,26 +4686,26 @@ class ServiceEndpointServiceFabricNoneArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterSpn")
-    def cluster_spn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_spn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
         """
         return pulumi.get(self, "cluster_spn")
 
     @cluster_spn.setter
-    def cluster_spn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_spn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_spn", value)
 
     @_builtins.property
     @pulumi.getter
-    def unsecured(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unsecured(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip using windows security for authentication.
         """
         return pulumi.get(self, "unsecured")
 
     @unsecured.setter
-    def unsecured(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unsecured(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unsecured", value)
 
 
@@ -5235,7 +5235,7 @@ class ServiceendpointOpenshiftAuthBasicArgs:
 
 
 class ServiceendpointOpenshiftAuthNoneArgsDict(TypedDict):
-    kube_config: NotRequired[pulumi.Input[_builtins.str]]
+    kube_config: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The kubectl config
     """
@@ -5243,7 +5243,7 @@ class ServiceendpointOpenshiftAuthNoneArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceendpointOpenshiftAuthNoneArgs:
     def __init__(__self__, *,
-                 kube_config: Optional[pulumi.Input[_builtins.str]] = None):
+                 kube_config: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kube_config: The kubectl config
         """
@@ -5252,14 +5252,14 @@ class ServiceendpointOpenshiftAuthNoneArgs:
 
     @_builtins.property
     @pulumi.getter(name="kubeConfig")
-    def kube_config(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kube_config(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kubectl config
         """
         return pulumi.get(self, "kube_config")
 
     @kube_config.setter
-    def kube_config(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kube_config(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kube_config", value)
 
 
@@ -5367,15 +5367,15 @@ class ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs:
 
 
 class ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict(TypedDict):
-    pipeline_id: NotRequired[pulumi.Input[_builtins.str]]
+    pipeline_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
     """
-    run_result_filter: NotRequired[pulumi.Input[_builtins.str]]
+    run_result_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
     """
-    run_state_filter: NotRequired[pulumi.Input[_builtins.str]]
+    run_state_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
     """
@@ -5383,9 +5383,9 @@ class ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookStorageQueuePipelinesRunStateChangedEventArgs:
     def __init__(__self__, *,
-                 pipeline_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_result_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_state_filter: Optional[pulumi.Input[_builtins.str]] = None):
+                 pipeline_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_result_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_state_filter: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] pipeline_id: The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
         :param pulumi.Input[_builtins.str] run_result_filter: Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
@@ -5400,55 +5400,55 @@ class ServicehookStorageQueuePipelinesRunStateChangedEventArgs:
 
     @_builtins.property
     @pulumi.getter(name="pipelineId")
-    def pipeline_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
         """
         return pulumi.get(self, "pipeline_id")
 
     @pipeline_id.setter
-    def pipeline_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_id", value)
 
     @_builtins.property
     @pulumi.getter(name="runResultFilter")
-    def run_result_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_result_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which run result should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all results will trigger the event.
         """
         return pulumi.get(self, "run_result_filter")
 
     @run_result_filter.setter
-    def run_result_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_result_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_result_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="runStateFilter")
-    def run_state_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_state_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which run state should generate an event. Only valid if published_event is `RunStateChanged`. If not specified, all states will trigger the event.
         """
         return pulumi.get(self, "run_state_filter")
 
     @run_state_filter.setter
-    def run_state_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_state_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_state_filter", value)
 
 
 class ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict(TypedDict):
-    pipeline_id: NotRequired[pulumi.Input[_builtins.str]]
+    pipeline_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The pipeline ID that will generate an event.
     """
-    stage_name: NotRequired[pulumi.Input[_builtins.str]]
+    stage_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
     """
-    stage_result_filter: NotRequired[pulumi.Input[_builtins.str]]
+    stage_result_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
     """
-    stage_state_filter: NotRequired[pulumi.Input[_builtins.str]]
+    stage_state_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
     """
@@ -5456,10 +5456,10 @@ class ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookStorageQueuePipelinesStageStateChangedEventArgs:
     def __init__(__self__, *,
-                 pipeline_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage_result_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage_state_filter: Optional[pulumi.Input[_builtins.str]] = None):
+                 pipeline_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage_result_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage_state_filter: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] pipeline_id: The pipeline ID that will generate an event.
         :param pulumi.Input[_builtins.str] stage_name: Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
@@ -5477,59 +5477,59 @@ class ServicehookStorageQueuePipelinesStageStateChangedEventArgs:
 
     @_builtins.property
     @pulumi.getter(name="pipelineId")
-    def pipeline_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pipeline ID that will generate an event.
         """
         return pulumi.get(self, "pipeline_id")
 
     @pipeline_id.setter
-    def pipeline_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_id", value)
 
     @_builtins.property
     @pulumi.getter(name="stageName")
-    def stage_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which stage should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all stages will trigger the event.
         """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
-    def stage_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage_name", value)
 
     @_builtins.property
     @pulumi.getter(name="stageResultFilter")
-    def stage_result_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage_result_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which stage result should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all results will trigger the event.
         """
         return pulumi.get(self, "stage_result_filter")
 
     @stage_result_filter.setter
-    def stage_result_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage_result_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage_result_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="stageStateFilter")
-    def stage_state_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage_state_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which stage state should generate an event. Only valid if published_event is `StageStateChanged`. If not specified, all states will trigger the event.
         """
         return pulumi.get(self, "stage_state_filter")
 
     @stage_state_filter.setter
-    def stage_state_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage_state_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage_state_filter", value)
 
 
 class ServicehookWebhookTfsBuildCompletedArgsDict(TypedDict):
-    build_status: NotRequired[pulumi.Input[_builtins.str]]
+    build_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
     """
-    definition_name: NotRequired[pulumi.Input[_builtins.str]]
+    definition_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for completed builds for a specific pipeline.
     """
@@ -5537,8 +5537,8 @@ class ServicehookWebhookTfsBuildCompletedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsBuildCompletedArgs:
     def __init__(__self__, *,
-                 build_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 build_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] build_status: Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
         :param pulumi.Input[_builtins.str] definition_name: Include only events for completed builds for a specific pipeline.
@@ -5550,35 +5550,35 @@ class ServicehookWebhookTfsBuildCompletedArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildStatus")
-    def build_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
         """
         return pulumi.get(self, "build_status")
 
     @build_status.setter
-    def build_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_status", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionName")
-    def definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for completed builds for a specific pipeline.
         """
         return pulumi.get(self, "definition_name")
 
     @definition_name.setter
-    def definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definition_name", value)
 
 
 class ServicehookWebhookTfsGitPullRequestCommentedArgsDict(TypedDict):
-    branch: NotRequired[pulumi.Input[_builtins.str]]
+    branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests in a specific branch.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
     """
@@ -5586,8 +5586,8 @@ class ServicehookWebhookTfsGitPullRequestCommentedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsGitPullRequestCommentedArgs:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] branch: Include only events for pull requests in a specific branch.
         :param pulumi.Input[_builtins.str] repository_id: Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
@@ -5599,43 +5599,43 @@ class ServicehookWebhookTfsGitPullRequestCommentedArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests in a specific branch.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
 class ServicehookWebhookTfsGitPullRequestCreatedArgsDict(TypedDict):
-    branch: NotRequired[pulumi.Input[_builtins.str]]
+    branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests in a specific branch.
     """
-    pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
+    pull_request_created_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests created by users in a specific group.
     """
-    pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
+    pull_request_reviewers_contains: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests with reviewers in a specific group.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
     """
@@ -5643,10 +5643,10 @@ class ServicehookWebhookTfsGitPullRequestCreatedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsGitPullRequestCreatedArgs:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_reviewers_contains: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_reviewers_contains: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] branch: Include only events for pull requests in a specific branch.
         :param pulumi.Input[_builtins.str] pull_request_created_by: Include only events for pull requests created by users in a specific group.
@@ -5664,71 +5664,71 @@ class ServicehookWebhookTfsGitPullRequestCreatedArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests in a specific branch.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestCreatedBy")
-    def pull_request_created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request_created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests created by users in a specific group.
         """
         return pulumi.get(self, "pull_request_created_by")
 
     @pull_request_created_by.setter
-    def pull_request_created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request_created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request_created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestReviewersContains")
-    def pull_request_reviewers_contains(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request_reviewers_contains(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests with reviewers in a specific group.
         """
         return pulumi.get(self, "pull_request_reviewers_contains")
 
     @pull_request_reviewers_contains.setter
-    def pull_request_reviewers_contains(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request_reviewers_contains(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request_reviewers_contains", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
 class ServicehookWebhookTfsGitPullRequestMergeAttemptedArgsDict(TypedDict):
-    branch: NotRequired[pulumi.Input[_builtins.str]]
+    branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests in a specific branch.
     """
-    merge_result: NotRequired[pulumi.Input[_builtins.str]]
+    merge_result: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
     """
-    pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
+    pull_request_created_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests created by users in a specific group.
     """
-    pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
+    pull_request_reviewers_contains: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests with reviewers in a specific group.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
     """
@@ -5736,11 +5736,11 @@ class ServicehookWebhookTfsGitPullRequestMergeAttemptedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 merge_result: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_reviewers_contains: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 merge_result: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_reviewers_contains: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] branch: Include only events for pull requests in a specific branch.
         :param pulumi.Input[_builtins.str] merge_result: Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
@@ -5761,83 +5761,83 @@ class ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests in a specific branch.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="mergeResult")
-    def merge_result(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def merge_result(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
         """
         return pulumi.get(self, "merge_result")
 
     @merge_result.setter
-    def merge_result(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def merge_result(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "merge_result", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestCreatedBy")
-    def pull_request_created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request_created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests created by users in a specific group.
         """
         return pulumi.get(self, "pull_request_created_by")
 
     @pull_request_created_by.setter
-    def pull_request_created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request_created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request_created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestReviewersContains")
-    def pull_request_reviewers_contains(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request_reviewers_contains(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests with reviewers in a specific group.
         """
         return pulumi.get(self, "pull_request_reviewers_contains")
 
     @pull_request_reviewers_contains.setter
-    def pull_request_reviewers_contains(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request_reviewers_contains(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request_reviewers_contains", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
 class ServicehookWebhookTfsGitPullRequestUpdatedArgsDict(TypedDict):
-    branch: NotRequired[pulumi.Input[_builtins.str]]
+    branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests in a specific branch.
     """
-    notification_type: NotRequired[pulumi.Input[_builtins.str]]
+    notification_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
     """
-    pull_request_created_by: NotRequired[pulumi.Input[_builtins.str]]
+    pull_request_created_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests created by users in a specific group.
     """
-    pull_request_reviewers_contains: NotRequired[pulumi.Input[_builtins.str]]
+    pull_request_reviewers_contains: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests with reviewers in a specific group.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
     """
@@ -5845,11 +5845,11 @@ class ServicehookWebhookTfsGitPullRequestUpdatedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsGitPullRequestUpdatedArgs:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_reviewers_contains: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_reviewers_contains: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] branch: Include only events for pull requests in a specific branch.
         :param pulumi.Input[_builtins.str] notification_type: Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
@@ -5870,75 +5870,75 @@ class ServicehookWebhookTfsGitPullRequestUpdatedArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests in a specific branch.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
         """
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
-    def notification_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_type", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestCreatedBy")
-    def pull_request_created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request_created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests created by users in a specific group.
         """
         return pulumi.get(self, "pull_request_created_by")
 
     @pull_request_created_by.setter
-    def pull_request_created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request_created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request_created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestReviewersContains")
-    def pull_request_reviewers_contains(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request_reviewers_contains(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests with reviewers in a specific group.
         """
         return pulumi.get(self, "pull_request_reviewers_contains")
 
     @pull_request_reviewers_contains.setter
-    def pull_request_reviewers_contains(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request_reviewers_contains(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request_reviewers_contains", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
 class ServicehookWebhookTfsGitPushArgsDict(TypedDict):
-    branch: NotRequired[pulumi.Input[_builtins.str]]
+    branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for code pushes to a specific branch.
     """
-    pushed_by: NotRequired[pulumi.Input[_builtins.str]]
+    pushed_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for code pushes by users in a specific group.
     """
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
     """
@@ -5946,9 +5946,9 @@ class ServicehookWebhookTfsGitPushArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsGitPushArgs:
     def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 pushed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 pushed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] branch: Include only events for code pushes to a specific branch.
         :param pulumi.Input[_builtins.str] pushed_by: Include only events for code pushes by users in a specific group.
@@ -5963,43 +5963,43 @@ class ServicehookWebhookTfsGitPushArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for code pushes to a specific branch.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="pushedBy")
-    def pushed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pushed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for code pushes by users in a specific group.
         """
         return pulumi.get(self, "pushed_by")
 
     @pushed_by.setter
-    def pushed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pushed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pushed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
 class ServicehookWebhookTfsRepositoryCreatedArgsDict(TypedDict):
-    project_id: NotRequired[pulumi.Input[_builtins.str]]
+    project_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for repositories created in a specific project.
     """
@@ -6007,7 +6007,7 @@ class ServicehookWebhookTfsRepositoryCreatedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsRepositoryCreatedArgs:
     def __init__(__self__, *,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] project_id: Include only events for repositories created in a specific project.
         """
@@ -6016,19 +6016,19 @@ class ServicehookWebhookTfsRepositoryCreatedArgs:
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for repositories created in a specific project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
 
 class ServicehookWebhookTfsRepositoryDeletedArgsDict(TypedDict):
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for repositories with a specific repository ID.
     """
@@ -6036,7 +6036,7 @@ class ServicehookWebhookTfsRepositoryDeletedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsRepositoryDeletedArgs:
     def __init__(__self__, *,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] repository_id: Include only events for repositories with a specific repository ID.
         """
@@ -6045,19 +6045,19 @@ class ServicehookWebhookTfsRepositoryDeletedArgs:
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for repositories with a specific repository ID.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
 class ServicehookWebhookTfsRepositoryForkedArgsDict(TypedDict):
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for repositories with a specific repository ID.
     """
@@ -6065,7 +6065,7 @@ class ServicehookWebhookTfsRepositoryForkedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsRepositoryForkedArgs:
     def __init__(__self__, *,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] repository_id: Include only events for repositories with a specific repository ID.
         """
@@ -6074,19 +6074,19 @@ class ServicehookWebhookTfsRepositoryForkedArgs:
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for repositories with a specific repository ID.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
 class ServicehookWebhookTfsRepositoryRenamedArgsDict(TypedDict):
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for repositories with a specific repository ID.
     """
@@ -6094,7 +6094,7 @@ class ServicehookWebhookTfsRepositoryRenamedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsRepositoryRenamedArgs:
     def __init__(__self__, *,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] repository_id: Include only events for repositories with a specific repository ID.
         """
@@ -6103,19 +6103,19 @@ class ServicehookWebhookTfsRepositoryRenamedArgs:
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for repositories with a specific repository ID.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
 class ServicehookWebhookTfsRepositoryStatusChangedArgsDict(TypedDict):
-    repository_id: NotRequired[pulumi.Input[_builtins.str]]
+    repository_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for repositories with a specific repository ID.
     """
@@ -6123,7 +6123,7 @@ class ServicehookWebhookTfsRepositoryStatusChangedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsRepositoryStatusChangedArgs:
     def __init__(__self__, *,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] repository_id: Include only events for repositories with a specific repository ID.
         """
@@ -6132,19 +6132,19 @@ class ServicehookWebhookTfsRepositoryStatusChangedArgs:
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for repositories with a specific repository ID.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
 class ServicehookWebhookTfsServiceConnectionCreatedArgsDict(TypedDict):
-    project_id: NotRequired[pulumi.Input[_builtins.str]]
+    project_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for service connections created in a specific project.
     """
@@ -6152,7 +6152,7 @@ class ServicehookWebhookTfsServiceConnectionCreatedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsServiceConnectionCreatedArgs:
     def __init__(__self__, *,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] project_id: Include only events for service connections created in a specific project.
         """
@@ -6161,19 +6161,19 @@ class ServicehookWebhookTfsServiceConnectionCreatedArgs:
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for service connections created in a specific project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
 
 class ServicehookWebhookTfsServiceConnectionUpdatedArgsDict(TypedDict):
-    project_id: NotRequired[pulumi.Input[_builtins.str]]
+    project_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for service connections updated in a specific project.
     """
@@ -6181,7 +6181,7 @@ class ServicehookWebhookTfsServiceConnectionUpdatedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsServiceConnectionUpdatedArgs:
     def __init__(__self__, *,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] project_id: Include only events for service connections updated in a specific project.
         """
@@ -6190,14 +6190,14 @@ class ServicehookWebhookTfsServiceConnectionUpdatedArgs:
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for service connections updated in a specific project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
 
@@ -6230,19 +6230,19 @@ class ServicehookWebhookTfsTfvcCheckinArgs:
 
 
 class ServicehookWebhookTfsWorkItemCommentedArgsDict(TypedDict):
-    area_path: NotRequired[pulumi.Input[_builtins.str]]
+    area_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items under a specific area path.
     """
-    comment_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    comment_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items with a comment that contains a specific string.
     """
-    tag: NotRequired[pulumi.Input[_builtins.str]]
+    tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items that contain a specific tag.
     """
-    work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+    work_item_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items of a specific type.
     """
@@ -6250,10 +6250,10 @@ class ServicehookWebhookTfsWorkItemCommentedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsWorkItemCommentedArgs:
     def __init__(__self__, *,
-                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 area_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] area_path: Include only events for work items under a specific area path.
         :param pulumi.Input[_builtins.str] comment_pattern: Include only events for work items with a comment that contains a specific string.
@@ -6271,67 +6271,67 @@ class ServicehookWebhookTfsWorkItemCommentedArgs:
 
     @_builtins.property
     @pulumi.getter(name="areaPath")
-    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def area_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items under a specific area path.
         """
         return pulumi.get(self, "area_path")
 
     @area_path.setter
-    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def area_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "area_path", value)
 
     @_builtins.property
     @pulumi.getter(name="commentPattern")
-    def comment_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items with a comment that contains a specific string.
         """
         return pulumi.get(self, "comment_pattern")
 
     @comment_pattern.setter
-    def comment_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment_pattern", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items that contain a specific tag.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemType")
-    def work_item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items of a specific type.
         """
         return pulumi.get(self, "work_item_type")
 
     @work_item_type.setter
-    def work_item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type", value)
 
 
 class ServicehookWebhookTfsWorkItemCreatedArgsDict(TypedDict):
-    area_path: NotRequired[pulumi.Input[_builtins.str]]
+    area_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items under a specific area path.
     """
-    links_changed: NotRequired[pulumi.Input[_builtins.bool]]
+    links_changed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Include only events for work items with one or more links added or removed.
     """
-    tag: NotRequired[pulumi.Input[_builtins.str]]
+    tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items that contain a specific tag.
     """
-    work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+    work_item_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items of a specific type.
     """
@@ -6339,10 +6339,10 @@ class ServicehookWebhookTfsWorkItemCreatedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsWorkItemCreatedArgs:
     def __init__(__self__, *,
-                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 links_changed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 area_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 links_changed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] area_path: Include only events for work items under a specific area path.
         :param pulumi.Input[_builtins.bool] links_changed: Include only events for work items with one or more links added or removed.
@@ -6360,63 +6360,63 @@ class ServicehookWebhookTfsWorkItemCreatedArgs:
 
     @_builtins.property
     @pulumi.getter(name="areaPath")
-    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def area_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items under a specific area path.
         """
         return pulumi.get(self, "area_path")
 
     @area_path.setter
-    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def area_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "area_path", value)
 
     @_builtins.property
     @pulumi.getter(name="linksChanged")
-    def links_changed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def links_changed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Include only events for work items with one or more links added or removed.
         """
         return pulumi.get(self, "links_changed")
 
     @links_changed.setter
-    def links_changed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def links_changed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "links_changed", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items that contain a specific tag.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemType")
-    def work_item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items of a specific type.
         """
         return pulumi.get(self, "work_item_type")
 
     @work_item_type.setter
-    def work_item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type", value)
 
 
 class ServicehookWebhookTfsWorkItemDeletedArgsDict(TypedDict):
-    area_path: NotRequired[pulumi.Input[_builtins.str]]
+    area_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items under a specific area path.
     """
-    tag: NotRequired[pulumi.Input[_builtins.str]]
+    tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items that contain a specific tag.
     """
-    work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+    work_item_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items of a specific type.
     """
@@ -6424,9 +6424,9 @@ class ServicehookWebhookTfsWorkItemDeletedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsWorkItemDeletedArgs:
     def __init__(__self__, *,
-                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 area_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] area_path: Include only events for work items under a specific area path.
         :param pulumi.Input[_builtins.str] tag: Include only events for work items that contain a specific tag.
@@ -6441,51 +6441,51 @@ class ServicehookWebhookTfsWorkItemDeletedArgs:
 
     @_builtins.property
     @pulumi.getter(name="areaPath")
-    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def area_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items under a specific area path.
         """
         return pulumi.get(self, "area_path")
 
     @area_path.setter
-    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def area_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "area_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items that contain a specific tag.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemType")
-    def work_item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items of a specific type.
         """
         return pulumi.get(self, "work_item_type")
 
     @work_item_type.setter
-    def work_item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type", value)
 
 
 class ServicehookWebhookTfsWorkItemRestoredArgsDict(TypedDict):
-    area_path: NotRequired[pulumi.Input[_builtins.str]]
+    area_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items under a specific area path.
     """
-    tag: NotRequired[pulumi.Input[_builtins.str]]
+    tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items that contain a specific tag.
     """
-    work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+    work_item_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items of a specific type.
     """
@@ -6493,9 +6493,9 @@ class ServicehookWebhookTfsWorkItemRestoredArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsWorkItemRestoredArgs:
     def __init__(__self__, *,
-                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 area_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] area_path: Include only events for work items under a specific area path.
         :param pulumi.Input[_builtins.str] tag: Include only events for work items that contain a specific tag.
@@ -6510,59 +6510,59 @@ class ServicehookWebhookTfsWorkItemRestoredArgs:
 
     @_builtins.property
     @pulumi.getter(name="areaPath")
-    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def area_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items under a specific area path.
         """
         return pulumi.get(self, "area_path")
 
     @area_path.setter
-    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def area_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "area_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items that contain a specific tag.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemType")
-    def work_item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items of a specific type.
         """
         return pulumi.get(self, "work_item_type")
 
     @work_item_type.setter
-    def work_item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type", value)
 
 
 class ServicehookWebhookTfsWorkItemUpdatedArgsDict(TypedDict):
-    area_path: NotRequired[pulumi.Input[_builtins.str]]
+    area_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items under a specific area path.
     """
-    changed_fields: NotRequired[pulumi.Input[_builtins.str]]
+    changed_fields: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items with a change in a specific field.
     """
-    links_changed: NotRequired[pulumi.Input[_builtins.bool]]
+    links_changed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Include only events for work items with one or more links added or removed.
     """
-    tag: NotRequired[pulumi.Input[_builtins.str]]
+    tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items that contain a specific tag.
     """
-    work_item_type: NotRequired[pulumi.Input[_builtins.str]]
+    work_item_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Include only events for work items of a specific type.
     """
@@ -6570,11 +6570,11 @@ class ServicehookWebhookTfsWorkItemUpdatedArgsDict(TypedDict):
 @pulumi.input_type
 class ServicehookWebhookTfsWorkItemUpdatedArgs:
     def __init__(__self__, *,
-                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 changed_fields: Optional[pulumi.Input[_builtins.str]] = None,
-                 links_changed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 area_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 changed_fields: pulumi.Input[Optional[_builtins.str]] = None,
+                 links_changed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] area_path: Include only events for work items under a specific area path.
         :param pulumi.Input[_builtins.str] changed_fields: Include only events for work items with a change in a specific field.
@@ -6595,62 +6595,62 @@ class ServicehookWebhookTfsWorkItemUpdatedArgs:
 
     @_builtins.property
     @pulumi.getter(name="areaPath")
-    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def area_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items under a specific area path.
         """
         return pulumi.get(self, "area_path")
 
     @area_path.setter
-    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def area_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "area_path", value)
 
     @_builtins.property
     @pulumi.getter(name="changedFields")
-    def changed_fields(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def changed_fields(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items with a change in a specific field.
         """
         return pulumi.get(self, "changed_fields")
 
     @changed_fields.setter
-    def changed_fields(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def changed_fields(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "changed_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="linksChanged")
-    def links_changed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def links_changed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Include only events for work items with one or more links added or removed.
         """
         return pulumi.get(self, "links_changed")
 
     @links_changed.setter
-    def links_changed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def links_changed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "links_changed", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items that contain a specific tag.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemType")
-    def work_item_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Include only events for work items of a specific type.
         """
         return pulumi.get(self, "work_item_type")
 
     @work_item_type.setter
-    def work_item_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type", value)
 
 
@@ -6663,7 +6663,7 @@ class VariableGroupKeyVaultArgsDict(TypedDict):
     """
     The id of the Azure subscription endpoint to access the key vault.
     """
-    search_depth: NotRequired[pulumi.Input[_builtins.int]]
+    search_depth: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Set the Azure Key Vault Secret search depth. Defaults to `20`.
     """
@@ -6673,7 +6673,7 @@ class VariableGroupKeyVaultArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  service_endpoint_id: pulumi.Input[_builtins.str],
-                 search_depth: Optional[pulumi.Input[_builtins.int]] = None):
+                 search_depth: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Azure key vault to link secrets from as variables.
         :param pulumi.Input[_builtins.str] service_endpoint_id: The id of the Azure subscription endpoint to access the key vault.
@@ -6710,14 +6710,14 @@ class VariableGroupKeyVaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="searchDepth")
-    def search_depth(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def search_depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Set the Azure Key Vault Secret search depth. Defaults to `20`.
         """
         return pulumi.get(self, "search_depth")
 
     @search_depth.setter
-    def search_depth(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def search_depth(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "search_depth", value)
 
 
@@ -6726,18 +6726,18 @@ class VariableGroupVariableArgsDict(TypedDict):
     """
     The key value used for the variable. Must be unique within the Variable Group.
     """
-    content_type: NotRequired[pulumi.Input[_builtins.str]]
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
-    expires: NotRequired[pulumi.Input[_builtins.str]]
-    is_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    content_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    expires: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    is_secret: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean flag describing if the variable value is sensitive. Defaults to `false`.
     """
-    secret_value: NotRequired[pulumi.Input[_builtins.str]]
+    secret_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the variable. If omitted, it will default to empty string.
     """
@@ -6746,12 +6746,12 @@ class VariableGroupVariableArgsDict(TypedDict):
 class VariableGroupVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expires: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expires: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The key value used for the variable. Must be unique within the Variable Group.
         :param pulumi.Input[_builtins.bool] is_secret: A boolean flag describing if the variable value is sensitive. Defaults to `false`.
@@ -6786,74 +6786,74 @@ class VariableGroupVariableArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def expires(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expires")
 
     @expires.setter
-    def expires(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecret")
-    def is_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag describing if the variable value is sensitive. Defaults to `false`.
         """
         return pulumi.get(self, "is_secret")
 
     @is_secret.setter
-    def is_secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="secretValue")
-    def secret_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
         """
         return pulumi.get(self, "secret_value")
 
     @secret_value.setter
-    def secret_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the variable. If omitted, it will default to empty string.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class WorkitemRelationArgsDict(TypedDict):
-    rel: NotRequired[pulumi.Input[_builtins.str]]
+    rel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL of the Work Item.
     """
@@ -6861,8 +6861,8 @@ class WorkitemRelationArgsDict(TypedDict):
 @pulumi.input_type
 class WorkitemRelationArgs:
     def __init__(__self__, *,
-                 rel: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 rel: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] rel: The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
         :param pulumi.Input[_builtins.str] url: The URL of the Work Item.
@@ -6874,35 +6874,35 @@ class WorkitemRelationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rel(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rel(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
         """
         return pulumi.get(self, "rel")
 
     @rel.setter
-    def rel(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rel(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rel", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Work Item.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
 class WorkitemtrackingFieldSupportedOperationArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The friendly name of the field. Changing this forces a new field to be created.
     """
-    reference_name: NotRequired[pulumi.Input[_builtins.str]]
+    reference_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
     """
@@ -6910,8 +6910,8 @@ class WorkitemtrackingFieldSupportedOperationArgsDict(TypedDict):
 @pulumi.input_type
 class WorkitemtrackingFieldSupportedOperationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The friendly name of the field. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.str] reference_name: The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
@@ -6923,26 +6923,26 @@ class WorkitemtrackingFieldSupportedOperationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the field. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
         """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
-    def reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_name", value)
 
 
@@ -6951,15 +6951,15 @@ class WorkitemtrackingprocessControlContributionArgsDict(TypedDict):
     """
     The ID of the contribution (extension).
     """
-    height: NotRequired[pulumi.Input[_builtins.int]]
+    height: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The height for the contribution.
     """
-    inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    inputs: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A dictionary holding key value pairs for contribution inputs.
     """
-    show_on_deleted_work_item: NotRequired[pulumi.Input[_builtins.bool]]
+    show_on_deleted_work_item: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value indicating if the contribution should be shown on deleted work items. Default: `false`
     """
@@ -6968,9 +6968,9 @@ class WorkitemtrackingprocessControlContributionArgsDict(TypedDict):
 class WorkitemtrackingprocessControlContributionArgs:
     def __init__(__self__, *,
                  contribution_id: pulumi.Input[_builtins.str],
-                 height: Optional[pulumi.Input[_builtins.int]] = None,
-                 inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 show_on_deleted_work_item: Optional[pulumi.Input[_builtins.bool]] = None):
+                 height: pulumi.Input[Optional[_builtins.int]] = None,
+                 inputs: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 show_on_deleted_work_item: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] contribution_id: The ID of the contribution (extension).
         :param pulumi.Input[_builtins.int] height: The height for the contribution.
@@ -6999,38 +6999,38 @@ class WorkitemtrackingprocessControlContributionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def height(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def height(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The height for the contribution.
         """
         return pulumi.get(self, "height")
 
     @height.setter
-    def height(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def height(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "height", value)
 
     @_builtins.property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def inputs(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A dictionary holding key value pairs for contribution inputs.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def inputs(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inputs", value)
 
     @_builtins.property
     @pulumi.getter(name="showOnDeletedWorkItem")
-    def show_on_deleted_work_item(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def show_on_deleted_work_item(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the contribution should be shown on deleted work items. Default: `false`
         """
         return pulumi.get(self, "show_on_deleted_work_item")
 
     @show_on_deleted_work_item.setter
-    def show_on_deleted_work_item(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def show_on_deleted_work_item(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "show_on_deleted_work_item", value)
 
 
@@ -7039,47 +7039,47 @@ class WorkitemtrackingprocessGroupControlArgsDict(TypedDict):
     """
     The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
     """
-    contribution: NotRequired[pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgsDict']]
+    contribution: NotRequired[pulumi.Input[Optional['WorkitemtrackingprocessGroupControlContributionArgs']]]
     """
     Contribution configuration for extension controls. A `contribution` block as defined below.
     """
-    control_type: NotRequired[pulumi.Input[_builtins.str]]
+    control_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of the control (e.g., HtmlFieldControl, FieldControl).
     """
-    inherited: NotRequired[pulumi.Input[_builtins.bool]]
+    inherited: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value indicating whether this control has been inherited from a parent layout.
     """
-    is_contribution: NotRequired[pulumi.Input[_builtins.bool]]
+    is_contribution: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value indicating if the control is a contribution (extension) control. Default: `false`
     """
-    label: NotRequired[pulumi.Input[_builtins.str]]
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Label for the control.
     """
-    metadata: NotRequired[pulumi.Input[_builtins.str]]
+    metadata: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Inner text of the control.
     """
-    order: NotRequired[pulumi.Input[_builtins.int]]
+    order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Order in which the group should appear in the section.
     """
-    overridden: NotRequired[pulumi.Input[_builtins.bool]]
+    overridden: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value indicating whether this control has been overridden by a child layout.
     """
-    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value indicating if the control is read only. Default: `false`
     """
-    visible: NotRequired[pulumi.Input[_builtins.bool]]
+    visible: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value indicating if the control should be visible or not. Default: `true`
     """
-    watermark: NotRequired[pulumi.Input[_builtins.str]]
+    watermark: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Watermark text for the textbox.
     """
@@ -7088,17 +7088,17 @@ class WorkitemtrackingprocessGroupControlArgsDict(TypedDict):
 class WorkitemtrackingprocessGroupControlArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 contribution: Optional[pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgs']] = None,
-                 control_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_contribution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 overridden: Optional[pulumi.Input[_builtins.bool]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark: Optional[pulumi.Input[_builtins.str]] = None):
+                 contribution: pulumi.Input[Optional['WorkitemtrackingprocessGroupControlContributionArgs']] = None,
+                 control_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_contribution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 overridden: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 watermark: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
         :param pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgs'] contribution: Contribution configuration for extension controls. A `contribution` block as defined below.
@@ -7151,134 +7151,134 @@ class WorkitemtrackingprocessGroupControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def contribution(self) -> Optional[pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgs']]:
+    def contribution(self) -> pulumi.Input[Optional['WorkitemtrackingprocessGroupControlContributionArgs']]:
         """
         Contribution configuration for extension controls. A `contribution` block as defined below.
         """
         return pulumi.get(self, "contribution")
 
     @contribution.setter
-    def contribution(self, value: Optional[pulumi.Input['WorkitemtrackingprocessGroupControlContributionArgs']]):
+    def contribution(self, value: pulumi.Input[Optional['WorkitemtrackingprocessGroupControlContributionArgs']]):
         pulumi.set(self, "contribution", value)
 
     @_builtins.property
     @pulumi.getter(name="controlType")
-    def control_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the control (e.g., HtmlFieldControl, FieldControl).
         """
         return pulumi.get(self, "control_type")
 
     @control_type.setter
-    def control_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def inherited(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inherited(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating whether this control has been inherited from a parent layout.
         """
         return pulumi.get(self, "inherited")
 
     @inherited.setter
-    def inherited(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inherited(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inherited", value)
 
     @_builtins.property
     @pulumi.getter(name="isContribution")
-    def is_contribution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_contribution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the control is a contribution (extension) control. Default: `false`
         """
         return pulumi.get(self, "is_contribution")
 
     @is_contribution.setter
-    def is_contribution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_contribution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_contribution", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for the control.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inner text of the control.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order in which the group should appear in the section.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def overridden(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overridden(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating whether this control has been overridden by a child layout.
         """
         return pulumi.get(self, "overridden")
 
     @overridden.setter
-    def overridden(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overridden(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overridden", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the control is read only. Default: `false`
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the control should be visible or not. Default: `true`
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
     @_builtins.property
     @pulumi.getter
-    def watermark(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def watermark(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Watermark text for the textbox.
         """
         return pulumi.get(self, "watermark")
 
     @watermark.setter
-    def watermark(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def watermark(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "watermark", value)
 
 
@@ -7287,15 +7287,15 @@ class WorkitemtrackingprocessGroupControlContributionArgsDict(TypedDict):
     """
     The ID of the contribution (extension).
     """
-    height: NotRequired[pulumi.Input[_builtins.int]]
+    height: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The height for the contribution.
     """
-    inputs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    inputs: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A dictionary holding key value pairs for contribution inputs.
     """
-    show_on_deleted_work_item: NotRequired[pulumi.Input[_builtins.bool]]
+    show_on_deleted_work_item: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A value indicating if the contribution should be shown on deleted work items. Default: `false`
     """
@@ -7304,9 +7304,9 @@ class WorkitemtrackingprocessGroupControlContributionArgsDict(TypedDict):
 class WorkitemtrackingprocessGroupControlContributionArgs:
     def __init__(__self__, *,
                  contribution_id: pulumi.Input[_builtins.str],
-                 height: Optional[pulumi.Input[_builtins.int]] = None,
-                 inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 show_on_deleted_work_item: Optional[pulumi.Input[_builtins.bool]] = None):
+                 height: pulumi.Input[Optional[_builtins.int]] = None,
+                 inputs: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 show_on_deleted_work_item: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] contribution_id: The ID of the contribution (extension).
         :param pulumi.Input[_builtins.int] height: The height for the contribution.
@@ -7335,43 +7335,43 @@ class WorkitemtrackingprocessGroupControlContributionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def height(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def height(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The height for the contribution.
         """
         return pulumi.get(self, "height")
 
     @height.setter
-    def height(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def height(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "height", value)
 
     @_builtins.property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def inputs(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A dictionary holding key value pairs for contribution inputs.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def inputs(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inputs", value)
 
     @_builtins.property
     @pulumi.getter(name="showOnDeletedWorkItem")
-    def show_on_deleted_work_item(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def show_on_deleted_work_item(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the contribution should be shown on deleted work items. Default: `false`
         """
         return pulumi.get(self, "show_on_deleted_work_item")
 
     @show_on_deleted_work_item.setter
-    def show_on_deleted_work_item(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def show_on_deleted_work_item(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "show_on_deleted_work_item", value)
 
 
 class WorkitemtrackingprocessPageSectionArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the section.
     """
@@ -7379,7 +7379,7 @@ class WorkitemtrackingprocessPageSectionArgsDict(TypedDict):
 @pulumi.input_type
 class WorkitemtrackingprocessPageSectionArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the section.
         """
@@ -7388,14 +7388,14 @@ class WorkitemtrackingprocessPageSectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the section.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -7408,7 +7408,7 @@ class WorkitemtrackingprocessRuleActionArgsDict(TypedDict):
     """
     Field (reference name) to act on.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value to set on the target field.
     """
@@ -7418,7 +7418,7 @@ class WorkitemtrackingprocessRuleActionArgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[_builtins.str],
                  target_field: pulumi.Input[_builtins.str],
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] action_type: Type of action. Valid values: `makeRequired`, `makeReadOnly`, `setDefaultValue`, `setDefaultFromClock`, `setDefaultFromField`, `copyValue`, `copyFromClock`, `copyFromCurrentUser`, `copyFromField`, `setValueToEmpty`, `copyFromServerClock`, `copyFromServerCurrentUser`, `hideTargetField`, `disallowValue`.
         :param pulumi.Input[_builtins.str] target_field: Field (reference name) to act on.
@@ -7455,14 +7455,14 @@ class WorkitemtrackingprocessRuleActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value to set on the target field.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -7471,11 +7471,11 @@ class WorkitemtrackingprocessRuleConditionArgsDict(TypedDict):
     """
     Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
     """
-    field: NotRequired[pulumi.Input[_builtins.str]]
+    field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Field reference name for the condition. Required for most condition types.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value to match for the condition.
     """
@@ -7484,8 +7484,8 @@ class WorkitemtrackingprocessRuleConditionArgsDict(TypedDict):
 class WorkitemtrackingprocessRuleConditionArgs:
     def __init__(__self__, *,
                  condition_type: pulumi.Input[_builtins.str],
-                 field: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 field: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] condition_type: Type of condition. Valid values: `when`, `whenNot`, `whenChanged`, `whenNotChanged`, `whenWas`, `whenCurrentUserIsMemberOfGroup`, `whenCurrentUserIsNotMemberOfGroup`.
         :param pulumi.Input[_builtins.str] field: Field reference name for the condition. Required for most condition types.
@@ -7511,39 +7511,39 @@ class WorkitemtrackingprocessRuleConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Field reference name for the condition. Required for most condition types.
         """
         return pulumi.get(self, "field")
 
     @field.setter
-    def field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value to match for the condition.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class WorkitemtrackingprocessWorkitemtypePageArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the section.
     """
-    page_type: NotRequired[pulumi.Input[_builtins.str]]
+    page_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the page.
     """
-    sections: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgsDict']]]]
+    sections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]]]
     """
     A `sections` block as defined below.
     """
@@ -7551,9 +7551,9 @@ class WorkitemtrackingprocessWorkitemtypePageArgsDict(TypedDict):
 @pulumi.input_type
 class WorkitemtrackingprocessWorkitemtypePageArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 page_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 sections: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 page_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 sections: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the section.
         :param pulumi.Input[_builtins.str] page_type: The type of the page.
@@ -7568,47 +7568,47 @@ class WorkitemtrackingprocessWorkitemtypePageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the section.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="pageType")
-    def page_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def page_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the page.
         """
         return pulumi.get(self, "page_type")
 
     @page_type.setter
-    def page_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def page_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "page_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def sections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]]:
+    def sections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]]:
         """
         A `sections` block as defined below.
         """
         return pulumi.get(self, "sections")
 
     @sections.setter
-    def sections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]]):
+    def sections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]]):
         pulumi.set(self, "sections", value)
 
 
 class WorkitemtrackingprocessWorkitemtypePageSectionArgsDict(TypedDict):
-    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict']]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]]]
     """
     A `groups` block as defined above.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the section.
     """
@@ -7616,8 +7616,8 @@ class WorkitemtrackingprocessWorkitemtypePageSectionArgsDict(TypedDict):
 @pulumi.input_type
 class WorkitemtrackingprocessWorkitemtypePageSectionArgs:
     def __init__(__self__, *,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]] groups: A `groups` block as defined above.
         :param pulumi.Input[_builtins.str] id: The ID of the section.
@@ -7629,35 +7629,35 @@ class WorkitemtrackingprocessWorkitemtypePageSectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]]:
         """
         A `groups` block as defined above.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the section.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
 class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict(TypedDict):
-    controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict']]]]
+    controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]]]
     """
     A `controls` block as defined above.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the section.
     """
@@ -7665,8 +7665,8 @@ class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict(TypedDict):
 @pulumi.input_type
 class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs:
     def __init__(__self__, *,
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 controls: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]] controls: A `controls` block as defined above.
         :param pulumi.Input[_builtins.str] id: The ID of the section.
@@ -7678,31 +7678,31 @@ class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]]:
+    def controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]]:
         """
         A `controls` block as defined above.
         """
         return pulumi.get(self, "controls")
 
     @controls.setter
-    def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]]):
+    def controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]]):
         pulumi.set(self, "controls", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the section.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
 class WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the section.
     """
@@ -7710,7 +7710,7 @@ class WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict(TypedDi
 @pulumi.input_type
 class WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The ID of the section.
         """
@@ -7719,14 +7719,14 @@ class WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the section.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 

@@ -269,9 +269,9 @@ def get_serviceendpoint_azurecr(project_id: Optional[_builtins.str] = None,
         service_endpoint_name=pulumi.get(__ret__, 'service_endpoint_name'),
         service_principal_id=pulumi.get(__ret__, 'service_principal_id'),
         spn_object_id=pulumi.get(__ret__, 'spn_object_id'))
-def get_serviceendpoint_azurecr_output(project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       service_endpoint_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       service_endpoint_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_serviceendpoint_azurecr_output(project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                       service_endpoint_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       service_endpoint_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceendpointAzurecrResult]:
     """
     Use this data source to access information about an existing Azure Container Registry Service Endpoint.

@@ -220,9 +220,9 @@ def get_serviceendpoint_dockerregistry(project_id: Optional[_builtins.str] = Non
         registry_type=pulumi.get(__ret__, 'registry_type'),
         service_endpoint_id=pulumi.get(__ret__, 'service_endpoint_id'),
         service_endpoint_name=pulumi.get(__ret__, 'service_endpoint_name'))
-def get_serviceendpoint_dockerregistry_output(project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                              service_endpoint_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              service_endpoint_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_serviceendpoint_dockerregistry_output(project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                              service_endpoint_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              service_endpoint_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceendpointDockerregistryResult]:
     """
     Use this data source to access information about an existing Docker Registry Service Endpoint.

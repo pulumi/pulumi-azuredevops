@@ -113,19 +113,19 @@ export interface PoolState {
     /**
      * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
-    autoProvision?: pulumi.Input<boolean>;
+    autoProvision?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
      */
-    autoUpdate?: pulumi.Input<boolean>;
+    autoUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the agent pool.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
      */
-    poolType?: pulumi.Input<string>;
+    poolType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -135,17 +135,17 @@ export interface PoolArgs {
     /**
      * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
-    autoProvision?: pulumi.Input<boolean>;
+    autoProvision?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
      */
-    autoUpdate?: pulumi.Input<boolean>;
+    autoUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the agent pool.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
      */
-    poolType?: pulumi.Input<string>;
+    poolType?: pulumi.Input<string | undefined>;
 }

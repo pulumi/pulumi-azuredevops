@@ -20,8 +20,8 @@ __all__ = ['QueueArgs', 'Queue']
 class QueueArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
-                 agent_pool_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_pool_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Queue resource.
 
@@ -52,7 +52,7 @@ class QueueArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentPoolId")
-    def agent_pool_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def agent_pool_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the organization agent pool. Conflicts with `name`.
 
@@ -62,28 +62,28 @@ class QueueArgs:
         return pulumi.get(self, "agent_pool_id")
 
     @agent_pool_id.setter
-    def agent_pool_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def agent_pool_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "agent_pool_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _QueueState:
     def __init__(__self__, *,
-                 agent_pool_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_pool_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Queue resources.
 
@@ -103,7 +103,7 @@ class _QueueState:
 
     @_builtins.property
     @pulumi.getter(name="agentPoolId")
-    def agent_pool_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def agent_pool_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the organization agent pool. Conflicts with `name`.
 
@@ -113,31 +113,31 @@ class _QueueState:
         return pulumi.get(self, "agent_pool_id")
 
     @agent_pool_id.setter
-    def agent_pool_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def agent_pool_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "agent_pool_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project in which to create the resource.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
 
@@ -147,9 +147,9 @@ class Queue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_pool_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an agent queue within Azure DevOps. In the UI, this is equivalent to adding an
@@ -170,7 +170,7 @@ class Queue(pulumi.CustomResource):
         example = azuredevops.get_pool(name="example-pool")
         example_queue = azuredevops.Queue("example",
             project_id=example_project.id,
-            agent_pool_id=example.id)
+            agent_pool_id=output(example.id).apply(lambda x: int(x)))
         # Grant access to queue to all pipelines in the project
         example_resource_authorization = azuredevops.ResourceAuthorization("example",
             project_id=example_project.id,
@@ -238,7 +238,7 @@ class Queue(pulumi.CustomResource):
         example = azuredevops.get_pool(name="example-pool")
         example_queue = azuredevops.Queue("example",
             project_id=example_project.id,
-            agent_pool_id=example.id)
+            agent_pool_id=output(example.id).apply(lambda x: int(x)))
         # Grant access to queue to all pipelines in the project
         example_resource_authorization = azuredevops.ResourceAuthorization("example",
             project_id=example_project.id,
@@ -287,9 +287,9 @@ class Queue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_pool_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -314,9 +314,9 @@ class Queue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_pool_id: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Queue':
+            agent_pool_id: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Queue':
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

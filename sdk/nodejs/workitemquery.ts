@@ -226,23 +226,23 @@ export interface WorkitemqueryState {
     /**
      * Root folder for the query. Must be one of `Shared Queries` or `My Queries`.
      */
-    area?: pulumi.Input<string>;
+    area?: pulumi.Input<string | undefined>;
     /**
      * The display name of the query.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the parent query folder under which to create the query.
      */
-    parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project containing the query.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The WIQL (Work Item Query Language) statement. Length 1–32000 characters.
      */
-    wiql?: pulumi.Input<string>;
+    wiql?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -252,15 +252,15 @@ export interface WorkitemqueryArgs {
     /**
      * Root folder for the query. Must be one of `Shared Queries` or `My Queries`.
      */
-    area?: pulumi.Input<string>;
+    area?: pulumi.Input<string | undefined>;
     /**
      * The display name of the query.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the parent query folder under which to create the query.
      */
-    parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project containing the query.
      */

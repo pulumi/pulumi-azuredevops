@@ -21,9 +21,9 @@ __all__ = ['FeedArgs', 'Feed']
 @pulumi.input_type
 class FeedArgs:
     def __init__(__self__, *,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['FeedFeatureArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input['FeedFeatureArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Feed resource.
 
@@ -42,7 +42,7 @@ class FeedArgs:
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FeedFeatureArgs']]]]:
+    def features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FeedFeatureArgs']]]]:
         """
         A `features` blocks as documented below.
 
@@ -51,40 +51,40 @@ class FeedArgs:
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FeedFeatureArgs']]]]):
+    def features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FeedFeatureArgs']]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Feed.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
 
 @pulumi.input_type
 class _FeedState:
     def __init__(__self__, *,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['FeedFeatureArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input['FeedFeatureArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Feed resources.
 
@@ -103,7 +103,7 @@ class _FeedState:
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FeedFeatureArgs']]]]:
+    def features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FeedFeatureArgs']]]]:
         """
         A `features` blocks as documented below.
 
@@ -112,31 +112,31 @@ class _FeedState:
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FeedFeatureArgs']]]]):
+    def features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FeedFeatureArgs']]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Feed.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
 
@@ -146,9 +146,9 @@ class Feed(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Feed within Azure DevOps organization.
@@ -299,9 +299,9 @@ class Feed(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -324,9 +324,9 @@ class Feed(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Feed':
+            features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Feed':
         """
         Get an existing Feed resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

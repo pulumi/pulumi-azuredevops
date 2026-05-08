@@ -161,38 +161,38 @@ export interface ServiceendpointNugetState {
     /**
      * The API Key used to connect to the endpoint.
      */
-    apiKey?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    apiKey?: pulumi.Input<string | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The URL for the feed. This will generally end with `index.json`.
      */
-    feedUrl?: pulumi.Input<string>;
+    feedUrl?: pulumi.Input<string | undefined>;
     /**
      * The account password used to connect to the endpoint
      *
      * > **Note** Only one of `apiKey` or `personalAccessToken` or  `username`, `password` can be set at the same time.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The Personal access token used to  connect to the endpoint. Personal access tokens are applicable only for NuGet feeds hosted on other Azure DevOps Services organizations or Azure DevOps Server 2019 (or later).
      */
-    personalAccessToken?: pulumi.Input<string>;
+    personalAccessToken?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The account username used to connect to the endpoint.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -202,11 +202,11 @@ export interface ServiceendpointNugetArgs {
     /**
      * The API Key used to connect to the endpoint.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The URL for the feed. This will generally end with `index.json`.
      */
@@ -216,11 +216,11 @@ export interface ServiceendpointNugetArgs {
      *
      * > **Note** Only one of `apiKey` or `personalAccessToken` or  `username`, `password` can be set at the same time.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The Personal access token used to  connect to the endpoint. Personal access tokens are applicable only for NuGet feeds hosted on other Azure DevOps Services organizations or Azure DevOps Server 2019 (or later).
      */
-    personalAccessToken?: pulumi.Input<string>;
+    personalAccessToken?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
@@ -232,5 +232,5 @@ export interface ServiceendpointNugetArgs {
     /**
      * The account username used to connect to the endpoint.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

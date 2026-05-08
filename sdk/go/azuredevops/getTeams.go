@@ -33,8 +33,8 @@ import (
 // }
 // ctx.Export("projectId", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,11-37)))
 // ctx.Export("name", pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:7,11-32)))
-// ctx.Export("allAdministrators", []interface{}(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:11,11-42)))
-// ctx.Export("administrators", []interface{}(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:15,11-35)))
+// ctx.Export("allAdministrators", pulumi.StringArrayArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:11,11-42)))
+// ctx.Export("administrators", pulumi.StringArrayArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:15,11-35)))
 // return nil
 // })
 // }

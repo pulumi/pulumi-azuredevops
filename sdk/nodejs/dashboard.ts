@@ -162,27 +162,27 @@ export interface DashboardState {
     /**
      * The description of the dashboard.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The owner of the Dashboard, could be the project or a team.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project. Changing this forces a new resource to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The interval for client to automatically refresh the dashboard. Expressed in minutes. Possible values are: `0`, `5`.Defaults to `0`.
      */
-    refreshInterval?: pulumi.Input<number>;
+    refreshInterval?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Team.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,11 +192,11 @@ export interface DashboardArgs {
     /**
      * The description of the dashboard.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Dashboard.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project. Changing this forces a new resource to be created.
      */
@@ -204,9 +204,9 @@ export interface DashboardArgs {
     /**
      * The interval for client to automatically refresh the dashboard. Expressed in minutes. Possible values are: `0`, `5`.Defaults to `0`.
      */
-    refreshInterval?: pulumi.Input<number>;
+    refreshInterval?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Team.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }

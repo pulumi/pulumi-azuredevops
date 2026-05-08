@@ -21,9 +21,9 @@ class WorkitemqueryArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  wiql: pulumi.Input[_builtins.str],
-                 area: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 area: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workitemquery resource.
 
@@ -68,49 +68,49 @@ class WorkitemqueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def area(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def area(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Root folder for the query. Must be one of `Shared Queries` or `My Queries`.
         """
         return pulumi.get(self, "area")
 
     @area.setter
-    def area(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def area(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "area", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the query.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
-    def parent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the parent query folder under which to create the query.
         """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
-    def parent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_id", value)
 
 
 @pulumi.input_type
 class _WorkitemqueryState:
     def __init__(__self__, *,
-                 area: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 wiql: Optional[pulumi.Input[_builtins.str]] = None):
+                 area: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 wiql: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workitemquery resources.
 
@@ -133,62 +133,62 @@ class _WorkitemqueryState:
 
     @_builtins.property
     @pulumi.getter
-    def area(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def area(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Root folder for the query. Must be one of `Shared Queries` or `My Queries`.
         """
         return pulumi.get(self, "area")
 
     @area.setter
-    def area(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def area(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "area", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the query.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
-    def parent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the parent query folder under which to create the query.
         """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
-    def parent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Project containing the query.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def wiql(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wiql(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The WIQL (Work Item Query Language) statement. Length 1–32000 characters.
         """
         return pulumi.get(self, "wiql")
 
     @wiql.setter
-    def wiql(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wiql(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wiql", value)
 
 
@@ -198,11 +198,11 @@ class Workitemquery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 area: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 wiql: Optional[pulumi.Input[_builtins.str]] = None,
+                 area: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 wiql: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Work Item Query (WIQL based list / tree query) in Azure DevOps.
@@ -467,11 +467,11 @@ class Workitemquery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 area: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 wiql: Optional[pulumi.Input[_builtins.str]] = None,
+                 area: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 wiql: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -500,11 +500,11 @@ class Workitemquery(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            area: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            wiql: Optional[pulumi.Input[_builtins.str]] = None) -> 'Workitemquery':
+            area: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            wiql: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workitemquery':
         """
         Get an existing Workitemquery resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

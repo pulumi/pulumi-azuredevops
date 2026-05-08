@@ -92,11 +92,11 @@ export interface GetServiceendpointGenericV2OutputArgs {
     /**
      * The ID of the service endpoint to retrieve. One of `serviceEndpointId` or `serviceEndpointName` must be specified.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the service endpoint to retrieve. One of `serviceEndpointId` or `serviceEndpointName` must be specified.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project to which the service endpoint belongs.
      */

@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: example.id,
- *     agentPoolId: examplePool.id,
+ *     agentPoolId: examplePool.id.apply(x =>Number(x)),
  * });
  * const examplePipelineAuthorization = new azuredevops.PipelineAuthorization("example", {
  *     projectId: example.id,
@@ -62,7 +62,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: exampleProject.id,
- *     agentPoolId: examplePool.id,
+ *     agentPoolId: examplePool.id.apply(x =>Number(x)),
  * });
  * const example = azuredevops.getGitRepositoryOutput({
  *     projectId: exampleProject.id,
@@ -81,7 +81,7 @@ import * as utilities from "./utilities";
  *     projectId: exampleProject.id,
  *     resourceId: exampleQueue.id,
  *     type: "queue",
- *     pipelineId: exampleBuildDefinition.id,
+ *     pipelineId: exampleBuildDefinition.id.apply(x =>Number(x)),
  * });
  * ```
  *
@@ -190,19 +190,19 @@ export interface PipelineAuthorizationState {
     /**
      * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      */
-    pipelineId?: pulumi.Input<number>;
+    pipelineId?: pulumi.Input<number | undefined>;
     /**
      * The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
      */
-    pipelineProjectId?: pulumi.Input<string>;
+    pipelineProjectId?: pulumi.Input<string | undefined>;
     /**
      * The  ID of the project. Changing this forces a new resource to be created
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource to authorize. Changing this forces a new resource to be created
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      *
@@ -211,7 +211,7 @@ export interface PipelineAuthorizationState {
      * Typical process for connecting to GitHub:
      * **Pipeline  <----> Service Connection(`endpoint`) <----> GitHub Repository**
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -221,11 +221,11 @@ export interface PipelineAuthorizationArgs {
     /**
      * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      */
-    pipelineId?: pulumi.Input<number>;
+    pipelineId?: pulumi.Input<number | undefined>;
     /**
      * The ID of the project where the pipeline exists. Defaults to `projectId` if not specified. Changing this forces a new resource to be created
      */
-    pipelineProjectId?: pulumi.Input<string>;
+    pipelineProjectId?: pulumi.Input<string | undefined>;
     /**
      * The  ID of the project. Changing this forces a new resource to be created
      */

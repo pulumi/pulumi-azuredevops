@@ -272,9 +272,9 @@ def get_build_definition(name: Optional[_builtins.str] = None,
         schedules=pulumi.get(__ret__, 'schedules'),
         variable_groups=pulumi.get(__ret__, 'variable_groups'),
         variables=pulumi.get(__ret__, 'variables'))
-def get_build_definition_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                path: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                project_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_build_definition_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                path: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                project_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildDefinitionResult]:
     """
     Use this data source to access information about an existing Build Definition.

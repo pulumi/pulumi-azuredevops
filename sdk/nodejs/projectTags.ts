@@ -116,11 +116,11 @@ export interface ProjectTagsState {
     /**
      * The ID of the Project. Changing this forces a new resource to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags assigned to the Project.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

@@ -152,7 +152,7 @@ export interface ProjectPipelineSettingsState {
     /**
      * Limit job authorization scope to current project for non-release pipelines.
      */
-    enforceJobScope?: pulumi.Input<boolean>;
+    enforceJobScope?: pulumi.Input<boolean | undefined>;
     /**
      * Limit job authorization scope to current project for release pipelines.
      *
@@ -160,27 +160,27 @@ export interface ProjectPipelineSettingsState {
      * For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
      * In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
      */
-    enforceJobScopeForRelease?: pulumi.Input<boolean>;
+    enforceJobScopeForRelease?: pulumi.Input<boolean | undefined>;
     /**
      * Protect access to repositories in YAML pipelines.
      */
-    enforceReferencedRepoScopedToken?: pulumi.Input<boolean>;
+    enforceReferencedRepoScopedToken?: pulumi.Input<boolean | undefined>;
     /**
      * Limit variables that can be set at queue time.
      */
-    enforceSettableVar?: pulumi.Input<boolean>;
+    enforceSettableVar?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project for which the project pipeline settings will be managed.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Publish metadata from pipelines.
      */
-    publishPipelineMetadata?: pulumi.Input<boolean>;
+    publishPipelineMetadata?: pulumi.Input<boolean | undefined>;
     /**
      * Disable anonymous access to badges.
      */
-    statusBadgesArePrivate?: pulumi.Input<boolean>;
+    statusBadgesArePrivate?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface ProjectPipelineSettingsArgs {
     /**
      * Limit job authorization scope to current project for non-release pipelines.
      */
-    enforceJobScope?: pulumi.Input<boolean>;
+    enforceJobScope?: pulumi.Input<boolean | undefined>;
     /**
      * Limit job authorization scope to current project for release pipelines.
      *
@@ -198,15 +198,15 @@ export interface ProjectPipelineSettingsArgs {
      * For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
      * In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
      */
-    enforceJobScopeForRelease?: pulumi.Input<boolean>;
+    enforceJobScopeForRelease?: pulumi.Input<boolean | undefined>;
     /**
      * Protect access to repositories in YAML pipelines.
      */
-    enforceReferencedRepoScopedToken?: pulumi.Input<boolean>;
+    enforceReferencedRepoScopedToken?: pulumi.Input<boolean | undefined>;
     /**
      * Limit variables that can be set at queue time.
      */
-    enforceSettableVar?: pulumi.Input<boolean>;
+    enforceSettableVar?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project for which the project pipeline settings will be managed.
      */
@@ -214,9 +214,9 @@ export interface ProjectPipelineSettingsArgs {
     /**
      * Publish metadata from pipelines.
      */
-    publishPipelineMetadata?: pulumi.Input<boolean>;
+    publishPipelineMetadata?: pulumi.Input<boolean | undefined>;
     /**
      * Disable anonymous access to badges.
      */
-    statusBadgesArePrivate?: pulumi.Input<boolean>;
+    statusBadgesArePrivate?: pulumi.Input<boolean | undefined>;
 }

@@ -22,8 +22,8 @@ class FeedPermissionArgs:
                  feed_id: pulumi.Input[_builtins.str],
                  identity_descriptor: pulumi.Input[_builtins.str],
                  role: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FeedPermission resource.
 
@@ -79,38 +79,38 @@ class FeedPermissionArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the assignment
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
 
 @pulumi.input_type
 class _FeedPermissionState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 feed_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_descriptor: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 feed_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_descriptor: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FeedPermission resources.
 
@@ -136,74 +136,74 @@ class _FeedPermissionState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the assignment
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="feedId")
-    def feed_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def feed_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Feed.
         """
         return pulumi.get(self, "feed_id")
 
     @feed_id.setter
-    def feed_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def feed_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "feed_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityDescriptor")
-    def identity_descriptor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_descriptor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Descriptor of identity you want to assign a role.
         """
         return pulumi.get(self, "identity_descriptor")
 
     @identity_descriptor.setter
-    def identity_descriptor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_descriptor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_descriptor", value)
 
     @_builtins.property
     @pulumi.getter(name="identityId")
-    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the identity.
         """
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
-    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
 
@@ -213,11 +213,11 @@ class FeedPermission(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 feed_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_descriptor: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 feed_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_descriptor: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages creation of the Feed Permission within Azure DevOps organization.
@@ -330,11 +330,11 @@ class FeedPermission(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 feed_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_descriptor: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 feed_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_descriptor: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -366,12 +366,12 @@ class FeedPermission(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            feed_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_descriptor: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            role: Optional[pulumi.Input[_builtins.str]] = None) -> 'FeedPermission':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            feed_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_descriptor: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None) -> 'FeedPermission':
         """
         Get an existing FeedPermission resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

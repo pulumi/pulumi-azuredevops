@@ -19,12 +19,12 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -63,7 +63,7 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Description of the Project.
         *
@@ -71,12 +71,12 @@ class ProjectArgs:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def features(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 
@@ -95,68 +95,68 @@ class ProjectArgs:
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def features(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Project Name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionControl")
-    def version_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
         """
         return pulumi.get(self, "version_control")
 
     @version_control.setter
-    def version_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_control", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemTemplate")
-    def work_item_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
         return pulumi.get(self, "work_item_template")
 
     @work_item_template.setter
-    def work_item_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_template", value)
 
 
 @pulumi.input_type
 class _ProjectState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_template_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Project resources.
 
@@ -198,7 +198,7 @@ class _ProjectState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Description of the Project.
         *
@@ -206,12 +206,12 @@ class _ProjectState:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def features(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 
@@ -230,67 +230,67 @@ class _ProjectState:
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def features(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Project Name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="processTemplateId")
-    def process_template_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Process Template ID used by the Project.
         """
         return pulumi.get(self, "process_template_id")
 
     @process_template_id.setter
-    def process_template_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_template_id", value)
 
     @_builtins.property
     @pulumi.getter(name="versionControl")
-    def version_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
         """
         return pulumi.get(self, "version_control")
 
     @version_control.setter
-    def version_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_control", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemTemplate")
-    def work_item_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
         return pulumi.get(self, "work_item_template")
 
     @work_item_template.setter
-    def work_item_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_template", value)
 
 
@@ -300,12 +300,12 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a project within Azure DevOps.
@@ -440,12 +440,12 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -472,13 +472,13 @@ class Project(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            features: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            process_template_id: Optional[pulumi.Input[_builtins.str]] = None,
-            version_control: Optional[pulumi.Input[_builtins.str]] = None,
-            visibility: Optional[pulumi.Input[_builtins.str]] = None,
-            work_item_template: Optional[pulumi.Input[_builtins.str]] = None) -> 'Project':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            features: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            process_template_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version_control: pulumi.Input[Optional[_builtins.str]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_template: pulumi.Input[Optional[_builtins.str]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

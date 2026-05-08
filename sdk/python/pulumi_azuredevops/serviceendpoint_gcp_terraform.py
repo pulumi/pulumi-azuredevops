@@ -21,12 +21,12 @@ class ServiceendpointGcpTerraformArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
-                 client_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointGcpTerraform resource.
 
@@ -80,89 +80,89 @@ class ServiceendpointGcpTerraformArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientEmail")
-    def client_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client email field in the JSON key file for creating the JSON Web Token.
         """
         return pulumi.get(self, "client_email")
 
     @client_email.setter
-    def client_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_email", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="gcpProjectId")
-    def gcp_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gcp_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GCP project associated with the Service Connection.
         """
         return pulumi.get(self, "gcp_project_id")
 
     @gcp_project_id.setter
-    def gcp_project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gcp_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gcp_project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Private Key for connecting to the endpoint.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scope to be provided.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenUri")
-    def token_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The token uri field in the JSON key file for creating the JSON Web Token.
         """
         return pulumi.get(self, "token_uri")
 
     @token_uri.setter
-    def token_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_uri", value)
 
 
 @pulumi.input_type
 class _ServiceendpointGcpTerraformState:
     def __init__(__self__, *,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 client_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 client_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointGcpTerraform resources.
 
@@ -196,107 +196,107 @@ class _ServiceendpointGcpTerraformState:
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="clientEmail")
-    def client_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client email field in the JSON key file for creating the JSON Web Token.
         """
         return pulumi.get(self, "client_email")
 
     @client_email.setter
-    def client_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_email", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="gcpProjectId")
-    def gcp_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gcp_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GCP project associated with the Service Connection.
         """
         return pulumi.get(self, "gcp_project_id")
 
     @gcp_project_id.setter
-    def gcp_project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gcp_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gcp_project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Private Key for connecting to the endpoint.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scope to be provided.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint name.
         """
         return pulumi.get(self, "service_endpoint_name")
 
     @service_endpoint_name.setter
-    def service_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenUri")
-    def token_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The token uri field in the JSON key file for creating the JSON Web Token.
         """
         return pulumi.get(self, "token_uri")
 
     @token_uri.setter
-    def token_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_uri", value)
 
 
@@ -306,14 +306,14 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a GCP for Terraform service endpoint for Terraform within Azure DevOps. Using this service endpoint requires you to first install the Azure Terraform Extension for Azure DevOps from Microsoft DevLabs.
@@ -423,14 +423,14 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -465,15 +465,15 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            client_email: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            gcp_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            private_key: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-            token_uri: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceendpointGcpTerraform':
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            client_email: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            token_uri: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceendpointGcpTerraform':
         """
         Get an existing ServiceendpointGcpTerraform resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

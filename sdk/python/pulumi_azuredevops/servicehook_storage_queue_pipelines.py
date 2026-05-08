@@ -25,10 +25,10 @@ class ServicehookStorageQueuePipelinesArgs:
                  account_name: pulumi.Input[_builtins.str],
                  project_id: pulumi.Input[_builtins.str],
                  queue_name: pulumi.Input[_builtins.str],
-                 run_state_changed_event: Optional[pulumi.Input['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']] = None,
-                 stage_state_changed_event: Optional[pulumi.Input['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 visi_timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 run_state_changed_event: pulumi.Input[Optional['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']] = None,
+                 stage_state_changed_event: pulumi.Input[Optional['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 visi_timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ServicehookStorageQueuePipelines resource.
 
@@ -106,19 +106,19 @@ class ServicehookStorageQueuePipelinesArgs:
 
     @_builtins.property
     @pulumi.getter(name="runStateChangedEvent")
-    def run_state_changed_event(self) -> Optional[pulumi.Input['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']]:
+    def run_state_changed_event(self) -> pulumi.Input[Optional['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']]:
         """
         A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
         """
         return pulumi.get(self, "run_state_changed_event")
 
     @run_state_changed_event.setter
-    def run_state_changed_event(self, value: Optional[pulumi.Input['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']]):
+    def run_state_changed_event(self, value: pulumi.Input[Optional['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']]):
         pulumi.set(self, "run_state_changed_event", value)
 
     @_builtins.property
     @pulumi.getter(name="stageStateChangedEvent")
-    def stage_state_changed_event(self) -> Optional[pulumi.Input['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']]:
+    def stage_state_changed_event(self) -> pulumi.Input[Optional['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']]:
         """
         A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
 
@@ -127,45 +127,45 @@ class ServicehookStorageQueuePipelinesArgs:
         return pulumi.get(self, "stage_state_changed_event")
 
     @stage_state_changed_event.setter
-    def stage_state_changed_event(self, value: Optional[pulumi.Input['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']]):
+    def stage_state_changed_event(self, value: pulumi.Input[Optional['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']]):
         pulumi.set(self, "stage_state_changed_event", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         event time-to-live - the duration a message can remain in the queue before it's automatically removed. Defaults to `604800`.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="visiTimeout")
-    def visi_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def visi_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         event visibility timout - how long a message is invisible to other consumers after it's been dequeued. Defaults to `0`.
         """
         return pulumi.get(self, "visi_timeout")
 
     @visi_timeout.setter
-    def visi_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def visi_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "visi_timeout", value)
 
 
 @pulumi.input_type
 class _ServicehookStorageQueuePipelinesState:
     def __init__(__self__, *,
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_state_changed_event: Optional[pulumi.Input['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']] = None,
-                 stage_state_changed_event: Optional[pulumi.Input['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 visi_timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_state_changed_event: pulumi.Input[Optional['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']] = None,
+                 stage_state_changed_event: pulumi.Input[Optional['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 visi_timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ServicehookStorageQueuePipelines resources.
 
@@ -199,67 +199,67 @@ class _ServicehookStorageQueuePipelinesState:
 
     @_builtins.property
     @pulumi.getter(name="accountKey")
-    def account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid account key from the queue's storage account.
         """
         return pulumi.get(self, "account_key")
 
     @account_key.setter
-    def account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The queue's storage account name.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated project. Changing this forces a new Service Hook Storage Queue Pipelines to be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="queueName")
-    def queue_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def queue_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the queue that will store the events.
         """
         return pulumi.get(self, "queue_name")
 
     @queue_name.setter
-    def queue_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def queue_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_name", value)
 
     @_builtins.property
     @pulumi.getter(name="runStateChangedEvent")
-    def run_state_changed_event(self) -> Optional[pulumi.Input['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']]:
+    def run_state_changed_event(self) -> pulumi.Input[Optional['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']]:
         """
         A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
         """
         return pulumi.get(self, "run_state_changed_event")
 
     @run_state_changed_event.setter
-    def run_state_changed_event(self, value: Optional[pulumi.Input['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']]):
+    def run_state_changed_event(self, value: pulumi.Input[Optional['ServicehookStorageQueuePipelinesRunStateChangedEventArgs']]):
         pulumi.set(self, "run_state_changed_event", value)
 
     @_builtins.property
     @pulumi.getter(name="stageStateChangedEvent")
-    def stage_state_changed_event(self) -> Optional[pulumi.Input['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']]:
+    def stage_state_changed_event(self) -> pulumi.Input[Optional['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']]:
         """
         A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
 
@@ -268,31 +268,31 @@ class _ServicehookStorageQueuePipelinesState:
         return pulumi.get(self, "stage_state_changed_event")
 
     @stage_state_changed_event.setter
-    def stage_state_changed_event(self, value: Optional[pulumi.Input['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']]):
+    def stage_state_changed_event(self, value: pulumi.Input[Optional['ServicehookStorageQueuePipelinesStageStateChangedEventArgs']]):
         pulumi.set(self, "stage_state_changed_event", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         event time-to-live - the duration a message can remain in the queue before it's automatically removed. Defaults to `604800`.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="visiTimeout")
-    def visi_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def visi_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         event visibility timout - how long a message is invisible to other consumers after it's been dequeued. Defaults to `0`.
         """
         return pulumi.get(self, "visi_timeout")
 
     @visi_timeout.setter
-    def visi_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def visi_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "visi_timeout", value)
 
 
@@ -302,14 +302,14 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_state_changed_event: Optional[pulumi.Input[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']]] = None,
-                 stage_state_changed_event: Optional[pulumi.Input[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 visi_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']]] = None,
+                 stage_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 visi_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Storage Queue Pipelines Service Hook .
@@ -463,14 +463,14 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_state_changed_event: Optional[pulumi.Input[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']]] = None,
-                 stage_state_changed_event: Optional[pulumi.Input[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 visi_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 account_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']]] = None,
+                 stage_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 visi_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -508,14 +508,14 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_key: Optional[pulumi.Input[_builtins.str]] = None,
-            account_name: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            queue_name: Optional[pulumi.Input[_builtins.str]] = None,
-            run_state_changed_event: Optional[pulumi.Input[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']]] = None,
-            stage_state_changed_event: Optional[pulumi.Input[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']]] = None,
-            ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            visi_timeout: Optional[pulumi.Input[_builtins.int]] = None) -> 'ServicehookStorageQueuePipelines':
+            account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+            run_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']]] = None,
+            stage_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            visi_timeout: pulumi.Input[Optional[_builtins.int]] = None) -> 'ServicehookStorageQueuePipelines':
         """
         Get an existing ServicehookStorageQueuePipelines resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

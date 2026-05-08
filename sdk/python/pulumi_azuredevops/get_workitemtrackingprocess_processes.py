@@ -102,7 +102,7 @@ def get_workitemtrackingprocess_processes(expand: Optional[_builtins.str] = None
         expand=pulumi.get(__ret__, 'expand'),
         id=pulumi.get(__ret__, 'id'),
         processes=pulumi.get(__ret__, 'processes'))
-def get_workitemtrackingprocess_processes_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_workitemtrackingprocess_processes_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkitemtrackingprocessProcessesResult]:
     """
     Use this data source to access information about existing processes.

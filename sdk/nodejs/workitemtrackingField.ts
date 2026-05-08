@@ -216,70 +216,70 @@ export interface WorkitemtrackingFieldState {
     /**
      * Indicates whether the field can be sorted in server queries.
      */
-    canSortBy?: pulumi.Input<boolean>;
+    canSortBy?: pulumi.Input<boolean | undefined>;
     /**
      * The description of the field. Changing this forces a new field to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this field is an identity field.
      */
-    isIdentity?: pulumi.Input<boolean>;
+    isIdentity?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether this field is locked for editing. Default: `false`.
      */
-    isLocked?: pulumi.Input<boolean>;
+    isLocked?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether this field is a picklist.
      */
-    isPicklist?: pulumi.Input<boolean>;
+    isPicklist?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether this field is a suggested picklist. 
      *
      * > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklistId`
      */
-    isPicklistSuggested?: pulumi.Input<boolean>;
+    isPicklistSuggested?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether the field can be queried in the server.
      */
-    isQueryable?: pulumi.Input<boolean>;
+    isQueryable?: pulumi.Input<boolean | undefined>;
     /**
      * The friendly name of the field. Changing this forces a new field to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the picklist associated with this field, if applicable. Changing this forces a new field to be created.
      */
-    picklistId?: pulumi.Input<string>;
+    picklistId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the field is read-only. Default: `false`. Changing this forces a new field to be created.
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
      */
-    referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Set to `true` to restore a previously deleted field instead of creating a new one. When set to `true`, the resource will attempt to restore the field with the specified `referenceName`.
      */
-    restore?: pulumi.Input<boolean>;
+    restore?: pulumi.Input<boolean | undefined>;
     /**
      * The supported operations on this field. A `supportedOperations` block as defined below.
      */
-    supportedOperations?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingFieldSupportedOperation>[]>;
+    supportedOperations?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingFieldSupportedOperation>[] | undefined>;
     /**
      * The type of the field. Possible values: `string`, `integer`, `dateTime`, `plainText`, `html`, `treePath`, `history`, `double`, `guid`, `boolean`, `identity`. Changing this forces a new field to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The URL of the field resource.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The usage of the field. Possible values: `none`, `workItem`, `workItemLink`, `tree`, `workItemTypeExtension`. Default: `workItem`. Changing this forces a new field to be created.
      */
-    usage?: pulumi.Input<string>;
+    usage?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -289,29 +289,29 @@ export interface WorkitemtrackingFieldArgs {
     /**
      * The description of the field. Changing this forces a new field to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this field is locked for editing. Default: `false`.
      */
-    isLocked?: pulumi.Input<boolean>;
+    isLocked?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether this field is a suggested picklist. 
      *
      * > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklistId`
      */
-    isPicklistSuggested?: pulumi.Input<boolean>;
+    isPicklistSuggested?: pulumi.Input<boolean | undefined>;
     /**
      * The friendly name of the field. Changing this forces a new field to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the picklist associated with this field, if applicable. Changing this forces a new field to be created.
      */
-    picklistId?: pulumi.Input<string>;
+    picklistId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the field is read-only. Default: `false`. Changing this forces a new field to be created.
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
      */
@@ -320,7 +320,7 @@ export interface WorkitemtrackingFieldArgs {
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Set to `true` to restore a previously deleted field instead of creating a new one. When set to `true`, the resource will attempt to restore the field with the specified `referenceName`.
      */
-    restore?: pulumi.Input<boolean>;
+    restore?: pulumi.Input<boolean | undefined>;
     /**
      * The type of the field. Possible values: `string`, `integer`, `dateTime`, `plainText`, `html`, `treePath`, `history`, `double`, `guid`, `boolean`, `identity`. Changing this forces a new field to be created.
      */
@@ -328,5 +328,5 @@ export interface WorkitemtrackingFieldArgs {
     /**
      * The usage of the field. Possible values: `none`, `workItem`, `workItemLink`, `tree`, `workItemTypeExtension`. Default: `workItem`. Changing this forces a new field to be created.
      */
-    usage?: pulumi.Input<string>;
+    usage?: pulumi.Input<string | undefined>;
 }

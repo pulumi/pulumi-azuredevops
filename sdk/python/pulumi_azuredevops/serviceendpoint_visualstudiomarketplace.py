@@ -24,9 +24,9 @@ class ServiceendpointVisualstudiomarketplaceArgs:
                  project_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 authentication_basic: Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']] = None,
-                 authentication_token: Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_basic: pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']] = None,
+                 authentication_token: pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointVisualstudiomarketplace resource.
 
@@ -87,7 +87,7 @@ class ServiceendpointVisualstudiomarketplaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationBasic")
-    def authentication_basic(self) -> Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']]:
+    def authentication_basic(self) -> pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']]:
         """
         An `authentication_basic` block as documented below.
 
@@ -96,44 +96,44 @@ class ServiceendpointVisualstudiomarketplaceArgs:
         return pulumi.get(self, "authentication_basic")
 
     @authentication_basic.setter
-    def authentication_basic(self, value: Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']]):
+    def authentication_basic(self, value: pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']]):
         pulumi.set(self, "authentication_basic", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationToken")
-    def authentication_token(self) -> Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']]:
+    def authentication_token(self) -> pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']]:
         """
         An `authentication_token` block as documented below.
         """
         return pulumi.get(self, "authentication_token")
 
     @authentication_token.setter
-    def authentication_token(self, value: Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']]):
+    def authentication_token(self, value: pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']]):
         pulumi.set(self, "authentication_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 @pulumi.input_type
 class _ServiceendpointVisualstudiomarketplaceState:
     def __init__(__self__, *,
-                 authentication_basic: Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']] = None,
-                 authentication_token: Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_basic: pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']] = None,
+                 authentication_token: pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']] = None,
+                 authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointVisualstudiomarketplace resources.
 
@@ -163,7 +163,7 @@ class _ServiceendpointVisualstudiomarketplaceState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationBasic")
-    def authentication_basic(self) -> Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']]:
+    def authentication_basic(self) -> pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']]:
         """
         An `authentication_basic` block as documented below.
 
@@ -172,76 +172,76 @@ class _ServiceendpointVisualstudiomarketplaceState:
         return pulumi.get(self, "authentication_basic")
 
     @authentication_basic.setter
-    def authentication_basic(self, value: Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']]):
+    def authentication_basic(self, value: pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs']]):
         pulumi.set(self, "authentication_basic", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationToken")
-    def authentication_token(self) -> Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']]:
+    def authentication_token(self) -> pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']]:
         """
         An `authentication_token` block as documented below.
         """
         return pulumi.get(self, "authentication_token")
 
     @authentication_token.setter
-    def authentication_token(self, value: Optional[pulumi.Input['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']]):
+    def authentication_token(self, value: pulumi.Input[Optional['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs']]):
         pulumi.set(self, "authentication_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint name.
         """
         return pulumi.get(self, "service_endpoint_name")
 
     @service_endpoint_name.setter
-    def service_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The server URL for Visual Studio Marketplace.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -251,12 +251,12 @@ class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: Optional[pulumi.Input[Union['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgsDict']]] = None,
-                 authentication_token: Optional[pulumi.Input[Union['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgsDict']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Visual Studio Marketplace service endpoint within Azure DevOps. Using this service endpoint requires you to install: [Azure DevOps Extension Tasks](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.vsts-developer-tools-build-tasks)
@@ -414,12 +414,12 @@ class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: Optional[pulumi.Input[Union['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgsDict']]] = None,
-                 authentication_token: Optional[pulumi.Input[Union['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgsDict']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -452,13 +452,13 @@ class ServiceendpointVisualstudiomarketplace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_basic: Optional[pulumi.Input[Union['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgsDict']]] = None,
-            authentication_token: Optional[pulumi.Input[Union['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict']]] = None,
-            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceendpointVisualstudiomarketplace':
+            authentication_basic: pulumi.Input[Optional[Union['ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgsDict']]] = None,
+            authentication_token: pulumi.Input[Optional[Union['ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs', 'ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgsDict']]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceendpointVisualstudiomarketplace':
         """
         Get an existing ServiceendpointVisualstudiomarketplace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

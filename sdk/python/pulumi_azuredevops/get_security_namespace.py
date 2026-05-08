@@ -137,8 +137,8 @@ def get_security_namespace(id: Optional[_builtins.str] = None,
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_security_namespace_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_security_namespace_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityNamespaceResult]:
     """
     Use this data source to access information about a specific security namespace within Azure DevOps. Security namespaces define the security model for different resources and operations in Azure DevOps.

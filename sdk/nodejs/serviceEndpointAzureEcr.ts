@@ -248,63 +248,63 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointAzureEcr resources.
  */
 export interface ServiceEndpointAzureEcrState {
-    appObjectId?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    azSpnRoleAssignmentId?: pulumi.Input<string>;
-    azSpnRolePermissions?: pulumi.Input<string>;
+    appObjectId?: pulumi.Input<string | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    azSpnRoleAssignmentId?: pulumi.Input<string | undefined>;
+    azSpnRolePermissions?: pulumi.Input<string | undefined>;
     /**
      * The Azure container registry name.
      */
-    azurecrName?: pulumi.Input<string>;
+    azurecrName?: pulumi.Input<string | undefined>;
     /**
      * The tenant id of the service principal.
      */
-    azurecrSpnTenantid?: pulumi.Input<string>;
+    azurecrSpnTenantid?: pulumi.Input<string | undefined>;
     /**
      * The subscription id of the Azure targets.
      */
-    azurecrSubscriptionId?: pulumi.Input<string>;
+    azurecrSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The subscription name of the Azure targets.
      */
-    azurecrSubscriptionName?: pulumi.Input<string>;
+    azurecrSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * A `credentials` block as defined below.
      */
-    credentials?: pulumi.Input<inputs.ServiceEndpointAzureEcrCredentials>;
+    credentials?: pulumi.Input<inputs.ServiceEndpointAzureEcrCredentials | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The resource group to which the container registry belongs.
      */
-    resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
      */
-    serviceEndpointAuthenticationScheme?: pulumi.Input<string>;
+    serviceEndpointAuthenticationScheme?: pulumi.Input<string | undefined>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The Application(Client) ID of the Service Principal.
      */
-    servicePrincipalId?: pulumi.Input<string>;
-    spnObjectId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string | undefined>;
+    spnObjectId?: pulumi.Input<string | undefined>;
     /**
      * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      */
-    workloadIdentityFederationIssuer?: pulumi.Input<string>;
+    workloadIdentityFederationIssuer?: pulumi.Input<string | undefined>;
     /**
      * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
      */
-    workloadIdentityFederationSubject?: pulumi.Input<string>;
+    workloadIdentityFederationSubject?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -314,27 +314,27 @@ export interface ServiceEndpointAzureEcrArgs {
     /**
      * The Azure container registry name.
      */
-    azurecrName?: pulumi.Input<string>;
+    azurecrName?: pulumi.Input<string | undefined>;
     /**
      * The tenant id of the service principal.
      */
-    azurecrSpnTenantid?: pulumi.Input<string>;
+    azurecrSpnTenantid?: pulumi.Input<string | undefined>;
     /**
      * The subscription id of the Azure targets.
      */
-    azurecrSubscriptionId?: pulumi.Input<string>;
+    azurecrSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The subscription name of the Azure targets.
      */
-    azurecrSubscriptionName?: pulumi.Input<string>;
+    azurecrSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * A `credentials` block as defined below.
      */
-    credentials?: pulumi.Input<inputs.ServiceEndpointAzureEcrCredentials>;
+    credentials?: pulumi.Input<inputs.ServiceEndpointAzureEcrCredentials | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
@@ -342,11 +342,11 @@ export interface ServiceEndpointAzureEcrArgs {
     /**
      * The resource group to which the container registry belongs.
      */
-    resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
      */
-    serviceEndpointAuthenticationScheme?: pulumi.Input<string>;
+    serviceEndpointAuthenticationScheme?: pulumi.Input<string | undefined>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */

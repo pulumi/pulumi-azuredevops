@@ -107,7 +107,7 @@ def get_securityrole_definitions(scope: Optional[_builtins.str] = None,
         definitions=pulumi.get(__ret__, 'definitions'),
         id=pulumi.get(__ret__, 'id'),
         scope=pulumi.get(__ret__, 'scope'))
-def get_securityrole_definitions_output(scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_securityrole_definitions_output(scope: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityroleDefinitionsResult]:
     """
     Use this data source to access information about existing Security Role Definitions within a given scope in Azure DevOps.

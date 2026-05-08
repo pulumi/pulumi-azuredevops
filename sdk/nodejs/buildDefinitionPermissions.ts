@@ -191,7 +191,7 @@ export interface BuildDefinitionPermissionsState {
     /**
      * The id of the build definition to assign the permissions.
      */
-    buildDefinitionId?: pulumi.Input<string>;
+    buildDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available.
      *
@@ -215,19 +215,19 @@ export interface BuildDefinitionPermissionsState {
      * | CreateBuildDefinition                    | Create build pipeline                 |
      * | EditPipelineQueueConfigurationPermission | Edit queue build configuration        |
      */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The **group** principal to assign the permissions.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project to assign the permissions.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -273,5 +273,5 @@ export interface BuildDefinitionPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }

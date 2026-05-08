@@ -211,35 +211,35 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointServiceFabric resources.
  */
 export interface ServiceEndpointServiceFabricState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An `azureActiveDirectory` block as documented below.
      */
-    azureActiveDirectory?: pulumi.Input<inputs.ServiceEndpointServiceFabricAzureActiveDirectory>;
+    azureActiveDirectory?: pulumi.Input<inputs.ServiceEndpointServiceFabricAzureActiveDirectory | undefined>;
     /**
      * A `certificate` block as documented below.
      */
-    certificate?: pulumi.Input<inputs.ServiceEndpointServiceFabricCertificate>;
+    certificate?: pulumi.Input<inputs.ServiceEndpointServiceFabricCertificate | undefined>;
     /**
      * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      */
-    clusterEndpoint?: pulumi.Input<string>;
+    clusterEndpoint?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `none` block as documented below.
      */
-    none?: pulumi.Input<inputs.ServiceEndpointServiceFabricNone>;
+    none?: pulumi.Input<inputs.ServiceEndpointServiceFabricNone | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -249,11 +249,11 @@ export interface ServiceEndpointServiceFabricArgs {
     /**
      * An `azureActiveDirectory` block as documented below.
      */
-    azureActiveDirectory?: pulumi.Input<inputs.ServiceEndpointServiceFabricAzureActiveDirectory>;
+    azureActiveDirectory?: pulumi.Input<inputs.ServiceEndpointServiceFabricAzureActiveDirectory | undefined>;
     /**
      * A `certificate` block as documented below.
      */
-    certificate?: pulumi.Input<inputs.ServiceEndpointServiceFabricCertificate>;
+    certificate?: pulumi.Input<inputs.ServiceEndpointServiceFabricCertificate | undefined>;
     /**
      * Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
      */
@@ -261,11 +261,11 @@ export interface ServiceEndpointServiceFabricArgs {
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `none` block as documented below.
      */
-    none?: pulumi.Input<inputs.ServiceEndpointServiceFabricNone>;
+    none?: pulumi.Input<inputs.ServiceEndpointServiceFabricNone | undefined>;
     /**
      * The ID of the project.
      */

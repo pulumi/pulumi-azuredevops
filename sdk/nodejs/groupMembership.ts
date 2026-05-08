@@ -121,14 +121,14 @@ export interface GroupMembershipState {
     /**
      * The descriptor of the group being managed.
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * A list of user or group descriptors that will become members of the group.
      *
      * > **NOTE** 1. It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      * <br>2. The `members` uses `descriptor` as the identifier not Resource ID or others.
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The mode how the resource manages group members.
      *
@@ -136,7 +136,7 @@ export interface GroupMembershipState {
      * <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * <br>3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -161,5 +161,5 @@ export interface GroupMembershipArgs {
      * <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * <br>3. To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
 }

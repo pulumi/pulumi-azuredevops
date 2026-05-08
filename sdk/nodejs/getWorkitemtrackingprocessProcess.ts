@@ -123,7 +123,7 @@ export interface GetWorkitemtrackingprocessProcessOutputArgs {
     /**
      * Specifies the expand option when getting the processes. Default: "none"
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process.
      */

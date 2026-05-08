@@ -19,10 +19,10 @@ __all__ = ['PoolArgs', 'Pool']
 @pulumi.input_type
 class PoolArgs:
     def __init__(__self__, *,
-                 auto_provision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Pool resource.
 
@@ -42,60 +42,60 @@ class PoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoProvision")
-    def auto_provision(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_provision(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         """
         return pulumi.get(self, "auto_provision")
 
     @auto_provision.setter
-    def auto_provision(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_provision(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_provision", value)
 
     @_builtins.property
     @pulumi.getter(name="autoUpdate")
-    def auto_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         """
         return pulumi.get(self, "auto_update")
 
     @auto_update.setter
-    def auto_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_update", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the agent pool.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="poolType")
-    def pool_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
         return pulumi.get(self, "pool_type")
 
     @pool_type.setter
-    def pool_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_type", value)
 
 
 @pulumi.input_type
 class _PoolState:
     def __init__(__self__, *,
-                 auto_provision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Pool resources.
 
@@ -115,50 +115,50 @@ class _PoolState:
 
     @_builtins.property
     @pulumi.getter(name="autoProvision")
-    def auto_provision(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_provision(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         """
         return pulumi.get(self, "auto_provision")
 
     @auto_provision.setter
-    def auto_provision(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_provision(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_provision", value)
 
     @_builtins.property
     @pulumi.getter(name="autoUpdate")
-    def auto_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         """
         return pulumi.get(self, "auto_update")
 
     @auto_update.setter
-    def auto_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_update", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the agent pool.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="poolType")
-    def pool_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
         return pulumi.get(self, "pool_type")
 
     @pool_type.setter
-    def pool_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_type", value)
 
 
@@ -168,10 +168,10 @@ class Pool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_provision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an agent pool within Azure DevOps.
@@ -257,10 +257,10 @@ class Pool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_provision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -284,10 +284,10 @@ class Pool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_provision: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pool_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Pool':
+            auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Pool':
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,8 +21,8 @@ class ExtensionArgs:
     def __init__(__self__, *,
                  extension_id: pulumi.Input[_builtins.str],
                  publisher_id: pulumi.Input[_builtins.str],
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
 
@@ -64,39 +64,39 @@ class ExtensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to disable the extension.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the extension.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class _ExtensionState:
     def __init__(__self__, *,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extension_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extension_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Extension resources.
 
@@ -125,86 +125,86 @@ class _ExtensionState:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to disable the extension.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionId")
-    def extension_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
         """
         return pulumi.get(self, "extension_id")
 
     @extension_id.setter
-    def extension_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension_id", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionName")
-    def extension_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the extension.
         """
         return pulumi.get(self, "extension_name")
 
     @extension_name.setter
-    def extension_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherId")
-    def publisher_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure DevOps Marketplace publisher identifier, for example `ms`.
         """
         return pulumi.get(self, "publisher_id")
 
     @publisher_id.setter
-    def publisher_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherName")
-    def publisher_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the publisher.
         """
         return pulumi.get(self, "publisher_name")
 
     @publisher_name.setter
-    def publisher_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of all oauth scopes required by this extension.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the extension.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -214,10 +214,10 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extension_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extension_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages extension within Azure DevOps organization.
@@ -303,10 +303,10 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extension_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extension_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -337,13 +337,13 @@ class Extension(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            extension_id: Optional[pulumi.Input[_builtins.str]] = None,
-            extension_name: Optional[pulumi.Input[_builtins.str]] = None,
-            publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-            publisher_name: Optional[pulumi.Input[_builtins.str]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'Extension':
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            extension_id: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_name: pulumi.Input[Optional[_builtins.str]] = None,
+            publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+            publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'Extension':
         """
         Get an existing Extension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

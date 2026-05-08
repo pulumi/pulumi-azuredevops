@@ -105,11 +105,11 @@ export interface GetServiceendpointSonarcloudOutputArgs {
     /**
      * the ID of the Service Endpoint.
      */
-    serviceEndpointId?: pulumi.Input<string>;
+    serviceEndpointId?: pulumi.Input<string | undefined>;
     /**
      * the Name of the Service Endpoint.
      *
      * > **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }

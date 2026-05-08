@@ -182,39 +182,39 @@ export interface ServiceendpointGenericV2State {
     /**
      * Map of key/value pairs for the specific authorization scheme. These often include sensitive data like tokens, usernames, and passwords.
      */
-    authorizationParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorizationParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The authorization scheme to use. Common values include "UsernamePassword", "Token", "OAuth", etc.
      */
-    authorizationScheme?: pulumi.Input<string>;
+    authorizationScheme?: pulumi.Input<string | undefined>;
     /**
      * The description of the service endpoint. Defaults to "Managed by Pulumi".
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the service endpoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Additional data associated with the service endpoint. This is a map of key/value pairs.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the project to which the service endpoint belongs.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The URL of the server associated with the service endpoint.
      */
-    serverUrl?: pulumi.Input<string>;
+    serverUrl?: pulumi.Input<string | undefined>;
     /**
      * A list of project IDs where the service endpoint should be shared.
      */
-    sharedProjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    sharedProjectIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of the service endpoint. This can be any valid service endpoint type, such as "generic", "artifactory", etc.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -224,7 +224,7 @@ export interface ServiceendpointGenericV2Args {
     /**
      * Map of key/value pairs for the specific authorization scheme. These often include sensitive data like tokens, usernames, and passwords.
      */
-    authorizationParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorizationParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The authorization scheme to use. Common values include "UsernamePassword", "Token", "OAuth", etc.
      */
@@ -232,15 +232,15 @@ export interface ServiceendpointGenericV2Args {
     /**
      * The description of the service endpoint. Defaults to "Managed by Pulumi".
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the service endpoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Additional data associated with the service endpoint. This is a map of key/value pairs.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the project to which the service endpoint belongs.
      */
@@ -252,7 +252,7 @@ export interface ServiceendpointGenericV2Args {
     /**
      * A list of project IDs where the service endpoint should be shared.
      */
-    sharedProjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    sharedProjectIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of the service endpoint. This can be any valid service endpoint type, such as "generic", "artifactory", etc.
      */

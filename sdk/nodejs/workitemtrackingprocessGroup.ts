@@ -229,35 +229,35 @@ export interface WorkitemtrackingprocessGroupState {
     /**
      * Controls to be created with the group. Required for HTML controls which cannot be added to existing groups. This is mutally exclusive with 'azuredevops_workitemtrackingprocess_control' resources. A `control` block as defined below.
      */
-    controls?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessGroupControl>[]>;
+    controls?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessGroupControl>[] | undefined>;
     /**
      * Label for the group.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Order in which the group should appear in the section.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The ID of the page to add the group to. Changing this moves the group to the new page.
      */
-    pageId?: pulumi.Input<string>;
+    pageId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process. Changing this forces a new group to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the section to add the group to. Changing this moves the group to the new section.
      */
-    sectionId?: pulumi.Input<string>;
+    sectionId?: pulumi.Input<string | undefined>;
     /**
      * A value indicating if the group should be visible or not. Default: `true`
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * The reference name of the work item type. Changing this forces a new group to be created.
      */
-    workItemTypeReferenceName?: pulumi.Input<string>;
+    workItemTypeReferenceName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -267,7 +267,7 @@ export interface WorkitemtrackingprocessGroupArgs {
     /**
      * Controls to be created with the group. Required for HTML controls which cannot be added to existing groups. This is mutally exclusive with 'azuredevops_workitemtrackingprocess_control' resources. A `control` block as defined below.
      */
-    controls?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessGroupControl>[]>;
+    controls?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessGroupControl>[] | undefined>;
     /**
      * Label for the group.
      */
@@ -275,7 +275,7 @@ export interface WorkitemtrackingprocessGroupArgs {
     /**
      * Order in which the group should appear in the section.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The ID of the page to add the group to. Changing this moves the group to the new page.
      */
@@ -291,7 +291,7 @@ export interface WorkitemtrackingprocessGroupArgs {
     /**
      * A value indicating if the group should be visible or not. Default: `true`
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * The reference name of the work item type. Changing this forces a new group to be created.
      */

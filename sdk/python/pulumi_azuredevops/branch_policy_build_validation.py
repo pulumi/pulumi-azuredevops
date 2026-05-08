@@ -23,8 +23,8 @@ class BranchPolicyBuildValidationArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  settings: pulumi.Input['BranchPolicyBuildValidationSettingsArgs'],
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BranchPolicyBuildValidation resource.
 
@@ -66,36 +66,36 @@ class BranchPolicyBuildValidationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def blocking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blocking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be blocking. Defaults to `true`.
         """
         return pulumi.get(self, "blocking")
 
     @blocking.setter
-    def blocking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blocking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blocking", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
 class _BranchPolicyBuildValidationState:
     def __init__(__self__, *,
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input['BranchPolicyBuildValidationSettingsArgs']] = None):
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional['BranchPolicyBuildValidationSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering BranchPolicyBuildValidation resources.
 
@@ -115,50 +115,50 @@ class _BranchPolicyBuildValidationState:
 
     @_builtins.property
     @pulumi.getter
-    def blocking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blocking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be blocking. Defaults to `true`.
         """
         return pulumi.get(self, "blocking")
 
     @blocking.setter
-    def blocking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blocking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blocking", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project in which the policy will be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['BranchPolicyBuildValidationSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['BranchPolicyBuildValidationSettingsArgs']]:
         """
         A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['BranchPolicyBuildValidationSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['BranchPolicyBuildValidationSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
 
@@ -168,10 +168,10 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']]] = None,
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Manages a build validation branch policy within Azure DevOps.
@@ -203,7 +203,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
             blocking=True,
             settings={
                 "display_name": "Example build validation policy",
-                "build_definition_id": example_build_definition.id,
+                "build_definition_id": example_build_definition.id.apply(lambda x: int(x)),
                 "queue_on_source_update_only": True,
                 "valid_duration": 720,
                 "filename_patterns": [
@@ -285,7 +285,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
             blocking=True,
             settings={
                 "display_name": "Example build validation policy",
-                "build_definition_id": example_build_definition.id,
+                "build_definition_id": example_build_definition.id.apply(lambda x: int(x)),
                 "queue_on_source_update_only": True,
                 "valid_duration": 720,
                 "filename_patterns": [
@@ -339,10 +339,10 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']]] = None,
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -372,10 +372,10 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            settings: Optional[pulumi.Input[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']]] = None) -> 'BranchPolicyBuildValidation':
+            blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']]] = None) -> 'BranchPolicyBuildValidation':
         """
         Get an existing BranchPolicyBuildValidation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

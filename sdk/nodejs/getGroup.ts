@@ -140,5 +140,5 @@ export interface GetGroupOutputArgs {
     /**
      * The ID of the Project. If `projectId` is not specified the project collection groups will be searched.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }

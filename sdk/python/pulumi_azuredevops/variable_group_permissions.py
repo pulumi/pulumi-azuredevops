@@ -23,7 +23,7 @@ class VariableGroupPermissionsArgs:
                  principal: pulumi.Input[_builtins.str],
                  project_id: pulumi.Input[_builtins.str],
                  variable_group_id: pulumi.Input[_builtins.str],
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None):
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VariableGroupPermissions resource.
 
@@ -108,25 +108,25 @@ class VariableGroupPermissionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
         return pulumi.get(self, "replace")
 
     @replace.setter
-    def replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace", value)
 
 
 @pulumi.input_type
 class _VariableGroupPermissionsState:
     def __init__(__self__, *,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variable_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variable_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VariableGroupPermissions resources.
 
@@ -158,7 +158,7 @@ class _VariableGroupPermissionsState:
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def permissions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         the permissions to assign. The following permissions are available.
 
@@ -174,55 +174,55 @@ class _VariableGroupPermissionsState:
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def permissions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The **group** principal to assign the permissions.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
         return pulumi.get(self, "replace")
 
     @replace.setter
-    def replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace", value)
 
     @_builtins.property
     @pulumi.getter(name="variableGroupId")
-    def variable_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variable_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the variable group to assign the permissions.
         """
         return pulumi.get(self, "variable_group_id")
 
     @variable_group_id.setter
-    def variable_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variable_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable_group_id", value)
 
 
@@ -232,11 +232,11 @@ class VariableGroupPermissions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variable_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variable_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages permissions for a Variable Group
@@ -396,11 +396,11 @@ class VariableGroupPermissions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variable_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variable_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -433,11 +433,11 @@ class VariableGroupPermissions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            principal: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            replace: Optional[pulumi.Input[_builtins.bool]] = None,
-            variable_group_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VariableGroupPermissions':
+            permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replace: pulumi.Input[Optional[_builtins.bool]] = None,
+            variable_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VariableGroupPermissions':
         """
         Get an existing VariableGroupPermissions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -131,8 +131,8 @@ def get_identity_group(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         project_id=pulumi.get(__ret__, 'project_id'),
         subject_descriptor=pulumi.get(__ret__, 'subject_descriptor'))
-def get_identity_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                              project_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_identity_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                              project_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityGroupResult]:
     """
     Use this data source to access information about an existing Group within Azure DevOps On-Premise(Azure DevOps Server).

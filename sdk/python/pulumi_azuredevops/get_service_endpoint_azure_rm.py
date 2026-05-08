@@ -311,9 +311,9 @@ def get_service_endpoint_azure_rm(project_id: Optional[_builtins.str] = None,
         service_principal_id=pulumi.get(__ret__, 'service_principal_id'),
         workload_identity_federation_issuer=pulumi.get(__ret__, 'workload_identity_federation_issuer'),
         workload_identity_federation_subject=pulumi.get(__ret__, 'workload_identity_federation_subject'))
-def get_service_endpoint_azure_rm_output(project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                         service_endpoint_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         service_endpoint_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_service_endpoint_azure_rm_output(project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                         service_endpoint_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         service_endpoint_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceEndpointAzureRMResult]:
     """
     Use this data source to access information about an existing AzureRM service Endpoint.

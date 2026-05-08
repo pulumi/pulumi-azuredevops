@@ -219,43 +219,43 @@ export interface GitRepositoryFileState {
     /**
      * The email of the author.
      */
-    authorEmail?: pulumi.Input<string>;
+    authorEmail?: pulumi.Input<string | undefined>;
     /**
      * The name of the author.
      */
-    authorName?: pulumi.Input<string>;
+    authorName?: pulumi.Input<string | undefined>;
     /**
      * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * Commit message when adding or updating the managed file.
      */
-    commitMessage?: pulumi.Input<string>;
+    commitMessage?: pulumi.Input<string | undefined>;
     /**
      * The email of the committer.
      */
-    committerEmail?: pulumi.Input<string>;
+    committerEmail?: pulumi.Input<string | undefined>;
     /**
      * The name of the committer.
      */
-    committerName?: pulumi.Input<string>;
+    committerName?: pulumi.Input<string | undefined>;
     /**
      * The file content.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The path of the file to manage.
      */
-    file?: pulumi.Input<string>;
+    file?: pulumi.Input<string | undefined>;
     /**
      * Enable overwriting existing files (defaults to `false`).
      */
-    overwriteOnCreate?: pulumi.Input<boolean>;
+    overwriteOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Git repository.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -265,27 +265,27 @@ export interface GitRepositoryFileArgs {
     /**
      * The email of the author.
      */
-    authorEmail?: pulumi.Input<string>;
+    authorEmail?: pulumi.Input<string | undefined>;
     /**
      * The name of the author.
      */
-    authorName?: pulumi.Input<string>;
+    authorName?: pulumi.Input<string | undefined>;
     /**
      * Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * Commit message when adding or updating the managed file.
      */
-    commitMessage?: pulumi.Input<string>;
+    commitMessage?: pulumi.Input<string | undefined>;
     /**
      * The email of the committer.
      */
-    committerEmail?: pulumi.Input<string>;
+    committerEmail?: pulumi.Input<string | undefined>;
     /**
      * The name of the committer.
      */
-    committerName?: pulumi.Input<string>;
+    committerName?: pulumi.Input<string | undefined>;
     /**
      * The file content.
      */
@@ -297,7 +297,7 @@ export interface GitRepositoryFileArgs {
     /**
      * Enable overwriting existing files (defaults to `false`).
      */
-    overwriteOnCreate?: pulumi.Input<boolean>;
+    overwriteOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Git repository.
      */

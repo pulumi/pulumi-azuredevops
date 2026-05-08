@@ -141,11 +141,11 @@ export interface GetAreaOutputArgs {
     /**
      * Read children nodes, _Depth_: 1, _Default_: `true`
      */
-    fetchChildren?: pulumi.Input<boolean>;
+    fetchChildren?: pulumi.Input<boolean | undefined>;
     /**
      * The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The project ID.
      */

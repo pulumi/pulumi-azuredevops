@@ -100,7 +100,7 @@ def get_group_membership(group_descriptor: Optional[_builtins.str] = None,
         group_descriptor=pulumi.get(__ret__, 'group_descriptor'),
         id=pulumi.get(__ret__, 'id'),
         members=pulumi.get(__ret__, 'members'))
-def get_group_membership_output(group_descriptor: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_membership_output(group_descriptor: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupMembershipResult]:
     """
     Use this data source to access information about an existing Group Memberships within Azure DevOps

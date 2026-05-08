@@ -23,9 +23,9 @@ class ServiceEndpointGitHubArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
-                 auth_oauth: Optional[pulumi.Input['ServiceEndpointGitHubAuthOauthArgs']] = None,
-                 auth_personal: Optional[pulumi.Input['ServiceEndpointGitHubAuthPersonalArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_oauth: pulumi.Input[Optional['ServiceEndpointGitHubAuthOauthArgs']] = None,
+                 auth_personal: pulumi.Input[Optional['ServiceEndpointGitHubAuthPersonalArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointGitHub resource.
 
@@ -72,31 +72,31 @@ class ServiceEndpointGitHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="authOauth")
-    def auth_oauth(self) -> Optional[pulumi.Input['ServiceEndpointGitHubAuthOauthArgs']]:
+    def auth_oauth(self) -> pulumi.Input[Optional['ServiceEndpointGitHubAuthOauthArgs']]:
         """
         An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         """
         return pulumi.get(self, "auth_oauth")
 
     @auth_oauth.setter
-    def auth_oauth(self, value: Optional[pulumi.Input['ServiceEndpointGitHubAuthOauthArgs']]):
+    def auth_oauth(self, value: pulumi.Input[Optional['ServiceEndpointGitHubAuthOauthArgs']]):
         pulumi.set(self, "auth_oauth", value)
 
     @_builtins.property
     @pulumi.getter(name="authPersonal")
-    def auth_personal(self) -> Optional[pulumi.Input['ServiceEndpointGitHubAuthPersonalArgs']]:
+    def auth_personal(self) -> pulumi.Input[Optional['ServiceEndpointGitHubAuthPersonalArgs']]:
         """
         An `auth_personal` block as documented below. Allows connecting using a personal access token.
         """
         return pulumi.get(self, "auth_personal")
 
     @auth_personal.setter
-    def auth_personal(self, value: Optional[pulumi.Input['ServiceEndpointGitHubAuthPersonalArgs']]):
+    def auth_personal(self, value: pulumi.Input[Optional['ServiceEndpointGitHubAuthPersonalArgs']]):
         pulumi.set(self, "auth_personal", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
 
@@ -105,19 +105,19 @@ class ServiceEndpointGitHubArgs:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 @pulumi.input_type
 class _ServiceEndpointGitHubState:
     def __init__(__self__, *,
-                 auth_oauth: Optional[pulumi.Input['ServiceEndpointGitHubAuthOauthArgs']] = None,
-                 auth_personal: Optional[pulumi.Input['ServiceEndpointGitHubAuthPersonalArgs']] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_oauth: pulumi.Input[Optional['ServiceEndpointGitHubAuthOauthArgs']] = None,
+                 auth_personal: pulumi.Input[Optional['ServiceEndpointGitHubAuthPersonalArgs']] = None,
+                 authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointGitHub resources.
 
@@ -144,40 +144,40 @@ class _ServiceEndpointGitHubState:
 
     @_builtins.property
     @pulumi.getter(name="authOauth")
-    def auth_oauth(self) -> Optional[pulumi.Input['ServiceEndpointGitHubAuthOauthArgs']]:
+    def auth_oauth(self) -> pulumi.Input[Optional['ServiceEndpointGitHubAuthOauthArgs']]:
         """
         An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         """
         return pulumi.get(self, "auth_oauth")
 
     @auth_oauth.setter
-    def auth_oauth(self, value: Optional[pulumi.Input['ServiceEndpointGitHubAuthOauthArgs']]):
+    def auth_oauth(self, value: pulumi.Input[Optional['ServiceEndpointGitHubAuthOauthArgs']]):
         pulumi.set(self, "auth_oauth", value)
 
     @_builtins.property
     @pulumi.getter(name="authPersonal")
-    def auth_personal(self) -> Optional[pulumi.Input['ServiceEndpointGitHubAuthPersonalArgs']]:
+    def auth_personal(self) -> pulumi.Input[Optional['ServiceEndpointGitHubAuthPersonalArgs']]:
         """
         An `auth_personal` block as documented below. Allows connecting using a personal access token.
         """
         return pulumi.get(self, "auth_personal")
 
     @auth_personal.setter
-    def auth_personal(self, value: Optional[pulumi.Input['ServiceEndpointGitHubAuthPersonalArgs']]):
+    def auth_personal(self, value: pulumi.Input[Optional['ServiceEndpointGitHubAuthPersonalArgs']]):
         pulumi.set(self, "auth_personal", value)
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
 
@@ -186,31 +186,31 @@ class _ServiceEndpointGitHubState:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint name.
         """
         return pulumi.get(self, "service_endpoint_name")
 
     @service_endpoint_name.setter
-    def service_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_name", value)
 
 
@@ -220,11 +220,11 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_oauth: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthOauthArgs', 'ServiceEndpointGitHubAuthOauthArgsDict']]] = None,
-                 auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_oauth: pulumi.Input[Optional[Union['ServiceEndpointGitHubAuthOauthArgs', 'ServiceEndpointGitHubAuthOauthArgsDict']]] = None,
+                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a GitHub service endpoint within Azure DevOps.
@@ -397,11 +397,11 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_oauth: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthOauthArgs', 'ServiceEndpointGitHubAuthOauthArgsDict']]] = None,
-                 auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_oauth: pulumi.Input[Optional[Union['ServiceEndpointGitHubAuthOauthArgs', 'ServiceEndpointGitHubAuthOauthArgsDict']]] = None,
+                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -431,12 +431,12 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_oauth: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthOauthArgs', 'ServiceEndpointGitHubAuthOauthArgsDict']]] = None,
-            auth_personal: Optional[pulumi.Input[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']]] = None,
-            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceEndpointGitHub':
+            auth_oauth: pulumi.Input[Optional[Union['ServiceEndpointGitHubAuthOauthArgs', 'ServiceEndpointGitHubAuthOauthArgsDict']]] = None,
+            auth_personal: pulumi.Input[Optional[Union['ServiceEndpointGitHubAuthPersonalArgs', 'ServiceEndpointGitHubAuthPersonalArgsDict']]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceEndpointGitHub':
         """
         Get an existing ServiceEndpointGitHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

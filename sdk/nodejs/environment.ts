@@ -116,15 +116,15 @@ export interface EnvironmentState {
     /**
      * A description for the Environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Environment to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -134,11 +134,11 @@ export interface EnvironmentArgs {
     /**
      * A description for the Environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this Environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Environment to be created.
      */

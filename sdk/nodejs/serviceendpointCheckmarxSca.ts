@@ -190,44 +190,44 @@ export interface ServiceendpointCheckmarxScaState {
     /**
      * The Access Control URL of the Checkmarx SCA.
      */
-    accessControlUrl?: pulumi.Input<string>;
+    accessControlUrl?: pulumi.Input<string | undefined>;
     /**
      * The account of the Checkmarx SCA.
      */
-    account?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    account?: pulumi.Input<string | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The password of the Checkmarx SCA.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Server URL of the Checkmarx SCA.
      */
-    serverUrl?: pulumi.Input<string>;
+    serverUrl?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The full team name of the Checkmarx.
      */
-    team?: pulumi.Input<string>;
+    team?: pulumi.Input<string | undefined>;
     /**
      * The username of the Checkmarx SCA.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
     /**
      * The Web App URL of the Checkmarx SCA.
      */
-    webAppUrl?: pulumi.Input<string>;
+    webAppUrl?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -245,7 +245,7 @@ export interface ServiceendpointCheckmarxScaArgs {
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The password of the Checkmarx SCA.
      */
@@ -265,7 +265,7 @@ export interface ServiceendpointCheckmarxScaArgs {
     /**
      * The full team name of the Checkmarx.
      */
-    team?: pulumi.Input<string>;
+    team?: pulumi.Input<string | undefined>;
     /**
      * The username of the Checkmarx SCA.
      */

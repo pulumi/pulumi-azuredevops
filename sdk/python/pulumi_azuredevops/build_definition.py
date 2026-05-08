@@ -23,20 +23,20 @@ class BuildDefinitionArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  repository: pulumi.Input['BuildDefinitionRepositoryArgs'],
-                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]] = None,
-                 ci_trigger: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]] = None,
-                 job_authorization_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 jobs: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_trigger: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']] = None,
-                 queue_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]] = None,
-                 variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None):
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_completion_triggers: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]] = None,
+                 ci_trigger: pulumi.Input[Optional['BuildDefinitionCiTriggerArgs']] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]] = None,
+                 job_authorization_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 jobs: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_trigger: pulumi.Input[Optional['BuildDefinitionPullRequestTriggerArgs']] = None,
+                 queue_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]] = None,
+                 variable_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None):
         """
         The set of arguments for constructing a BuildDefinition resource.
 
@@ -115,79 +115,79 @@ class BuildDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentPoolName")
-    def agent_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         """
         return pulumi.get(self, "agent_pool_name")
 
     @agent_pool_name.setter
-    def agent_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="agentSpecification")
-    def agent_specification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_specification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
         """
         return pulumi.get(self, "agent_specification")
 
     @agent_specification.setter
-    def agent_specification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_specification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="buildCompletionTriggers")
-    def build_completion_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]:
+    def build_completion_triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]:
         """
         A `build_completion_trigger` block as documented below.
         """
         return pulumi.get(self, "build_completion_triggers")
 
     @build_completion_triggers.setter
-    def build_completion_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]):
+    def build_completion_triggers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]):
         pulumi.set(self, "build_completion_triggers", value)
 
     @_builtins.property
     @pulumi.getter(name="ciTrigger")
-    def ci_trigger(self) -> Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']]:
+    def ci_trigger(self) -> pulumi.Input[Optional['BuildDefinitionCiTriggerArgs']]:
         """
         A `ci_trigger` block as documented below.
         """
         return pulumi.get(self, "ci_trigger")
 
     @ci_trigger.setter
-    def ci_trigger(self, value: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']]):
+    def ci_trigger(self, value: pulumi.Input[Optional['BuildDefinitionCiTriggerArgs']]):
         pulumi.set(self, "ci_trigger", value)
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]]:
+    def features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]]:
         """
         A `features` blocks as documented below.
         """
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]]):
+    def features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter(name="jobAuthorizationScope")
-    def job_authorization_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_authorization_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
         """
         return pulumi.get(self, "job_authorization_scope")
 
     @job_authorization_scope.setter
-    def job_authorization_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_authorization_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_authorization_scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def jobs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]:
+    def jobs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]:
         """
         A `jobs` blocks as documented below.
 
@@ -196,111 +196,111 @@ class BuildDefinitionArgs:
         return pulumi.get(self, "jobs")
 
     @jobs.setter
-    def jobs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]):
+    def jobs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]):
         pulumi.set(self, "jobs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the build definition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder path of the build definition.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestTrigger")
-    def pull_request_trigger(self) -> Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']]:
+    def pull_request_trigger(self) -> pulumi.Input[Optional['BuildDefinitionPullRequestTriggerArgs']]:
         """
         A `pull_request_trigger` block as documented below.
         """
         return pulumi.get(self, "pull_request_trigger")
 
     @pull_request_trigger.setter
-    def pull_request_trigger(self, value: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']]):
+    def pull_request_trigger(self, value: pulumi.Input[Optional['BuildDefinitionPullRequestTriggerArgs']]):
         pulumi.set(self, "pull_request_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="queueStatus")
-    def queue_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def queue_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         """
         return pulumi.get(self, "queue_status")
 
     @queue_status.setter
-    def queue_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def queue_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]:
+    def schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]:
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]):
+    def schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @_builtins.property
     @pulumi.getter(name="variableGroups")
-    def variable_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def variable_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list of variable group IDs (integers) to link to the build definition.
         """
         return pulumi.get(self, "variable_groups")
 
     @variable_groups.setter
-    def variable_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def variable_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "variable_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]]:
         """
         A list of `variable` blocks, as documented below.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
 @pulumi.input_type
 class _BuildDefinitionState:
     def __init__(__self__, *,
-                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]] = None,
-                 ci_trigger: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]] = None,
-                 job_authorization_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 jobs: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_trigger: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']] = None,
-                 queue_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input['BuildDefinitionRepositoryArgs']] = None,
-                 revision: Optional[pulumi.Input[_builtins.int]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]] = None,
-                 variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None):
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_completion_triggers: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]] = None,
+                 ci_trigger: pulumi.Input[Optional['BuildDefinitionCiTriggerArgs']] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]] = None,
+                 job_authorization_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 jobs: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_trigger: pulumi.Input[Optional['BuildDefinitionPullRequestTriggerArgs']] = None,
+                 queue_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional['BuildDefinitionRepositoryArgs']] = None,
+                 revision: pulumi.Input[Optional[_builtins.int]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]] = None,
+                 variable_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering BuildDefinition resources.
 
@@ -360,79 +360,79 @@ class _BuildDefinitionState:
 
     @_builtins.property
     @pulumi.getter(name="agentPoolName")
-    def agent_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         """
         return pulumi.get(self, "agent_pool_name")
 
     @agent_pool_name.setter
-    def agent_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="agentSpecification")
-    def agent_specification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_specification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Agent Specification to run the pipelines. Required when `repo_type` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
         """
         return pulumi.get(self, "agent_specification")
 
     @agent_specification.setter
-    def agent_specification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_specification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="buildCompletionTriggers")
-    def build_completion_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]:
+    def build_completion_triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]:
         """
         A `build_completion_trigger` block as documented below.
         """
         return pulumi.get(self, "build_completion_triggers")
 
     @build_completion_triggers.setter
-    def build_completion_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]):
+    def build_completion_triggers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionBuildCompletionTriggerArgs']]]]):
         pulumi.set(self, "build_completion_triggers", value)
 
     @_builtins.property
     @pulumi.getter(name="ciTrigger")
-    def ci_trigger(self) -> Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']]:
+    def ci_trigger(self) -> pulumi.Input[Optional['BuildDefinitionCiTriggerArgs']]:
         """
         A `ci_trigger` block as documented below.
         """
         return pulumi.get(self, "ci_trigger")
 
     @ci_trigger.setter
-    def ci_trigger(self, value: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']]):
+    def ci_trigger(self, value: pulumi.Input[Optional['BuildDefinitionCiTriggerArgs']]):
         pulumi.set(self, "ci_trigger", value)
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]]:
+    def features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]]:
         """
         A `features` blocks as documented below.
         """
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]]):
+    def features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter(name="jobAuthorizationScope")
-    def job_authorization_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_authorization_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
         """
         return pulumi.get(self, "job_authorization_scope")
 
     @job_authorization_scope.setter
-    def job_authorization_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_authorization_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_authorization_scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def jobs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]:
+    def jobs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]:
         """
         A `jobs` blocks as documented below.
 
@@ -441,124 +441,124 @@ class _BuildDefinitionState:
         return pulumi.get(self, "jobs")
 
     @jobs.setter
-    def jobs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]):
+    def jobs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobArgs']]]]):
         pulumi.set(self, "jobs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the build definition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder path of the build definition.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project ID or project name.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestTrigger")
-    def pull_request_trigger(self) -> Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']]:
+    def pull_request_trigger(self) -> pulumi.Input[Optional['BuildDefinitionPullRequestTriggerArgs']]:
         """
         A `pull_request_trigger` block as documented below.
         """
         return pulumi.get(self, "pull_request_trigger")
 
     @pull_request_trigger.setter
-    def pull_request_trigger(self, value: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']]):
+    def pull_request_trigger(self, value: pulumi.Input[Optional['BuildDefinitionPullRequestTriggerArgs']]):
         pulumi.set(self, "pull_request_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="queueStatus")
-    def queue_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def queue_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
         """
         return pulumi.get(self, "queue_status")
 
     @queue_status.setter
-    def queue_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def queue_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input['BuildDefinitionRepositoryArgs']]:
+    def repository(self) -> pulumi.Input[Optional['BuildDefinitionRepositoryArgs']]:
         """
         A `repository` block as documented below.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input['BuildDefinitionRepositoryArgs']]):
+    def repository(self, value: pulumi.Input[Optional['BuildDefinitionRepositoryArgs']]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def revision(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The revision of the build definition
         """
         return pulumi.get(self, "revision")
 
     @revision.setter
-    def revision(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def revision(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]:
+    def schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]:
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]):
+    def schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @_builtins.property
     @pulumi.getter(name="variableGroups")
-    def variable_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def variable_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         A list of variable group IDs (integers) to link to the build definition.
         """
         return pulumi.get(self, "variable_groups")
 
     @variable_groups.setter
-    def variable_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def variable_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "variable_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]]:
         """
         A list of `variable` blocks, as documented below.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -568,22 +568,22 @@ class BuildDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
-                 ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
-                 job_authorization_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 jobs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_trigger: Optional[pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']]] = None,
-                 queue_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionScheduleArgs', 'BuildDefinitionScheduleArgsDict']]]]] = None,
-                 variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]]] = None,
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_completion_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
+                 ci_trigger: pulumi.Input[Optional[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
+                 job_authorization_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 jobs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_trigger: pulumi.Input[Optional[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']]] = None,
+                 queue_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionScheduleArgs', 'BuildDefinitionScheduleArgsDict']]]]] = None,
+                 variable_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Build Definition within Azure DevOps.
@@ -645,7 +645,7 @@ class BuildDefinition(pulumi.CustomResource):
                 "branch_name": example_git.default_branch,
                 "yml_path": "azure-pipelines.yml",
             },
-            variable_groups=[example_variable_group.id],
+            variable_groups=[example_variable_group.id.apply(lambda x: int(x))],
             variables=[
                 {
                     "name": "PipelineVariable",
@@ -980,7 +980,7 @@ class BuildDefinition(pulumi.CustomResource):
                 "branch_name": example_git.default_branch,
                 "yml_path": "azure-pipelines.yml",
             },
-            variable_groups=[example_variable_group.id],
+            variable_groups=[example_variable_group.id.apply(lambda x: int(x))],
             variables=[
                 {
                     "name": "PipelineVariable",
@@ -1244,22 +1244,22 @@ class BuildDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_specification: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
-                 ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
-                 job_authorization_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 jobs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_trigger: Optional[pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']]] = None,
-                 queue_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionScheduleArgs', 'BuildDefinitionScheduleArgsDict']]]]] = None,
-                 variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]]] = None,
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_specification: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_completion_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
+                 ci_trigger: pulumi.Input[Optional[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
+                 job_authorization_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 jobs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_trigger: pulumi.Input[Optional[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']]] = None,
+                 queue_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionScheduleArgs', 'BuildDefinitionScheduleArgsDict']]]]] = None,
+                 variable_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1300,23 +1300,23 @@ class BuildDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_specification: Optional[pulumi.Input[_builtins.str]] = None,
-            build_completion_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
-            ci_trigger: Optional[pulumi.Input[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
-            features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
-            job_authorization_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            jobs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            path: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            pull_request_trigger: Optional[pulumi.Input[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']]] = None,
-            queue_status: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']]] = None,
-            revision: Optional[pulumi.Input[_builtins.int]] = None,
-            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionScheduleArgs', 'BuildDefinitionScheduleArgsDict']]]]] = None,
-            variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]]] = None) -> 'BuildDefinition':
+            agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_specification: pulumi.Input[Optional[_builtins.str]] = None,
+            build_completion_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict']]]]] = None,
+            ci_trigger: pulumi.Input[Optional[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict']]] = None,
+            features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict']]]]] = None,
+            job_authorization_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            jobs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            pull_request_trigger: pulumi.Input[Optional[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict']]] = None,
+            queue_status: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict']]] = None,
+            revision: pulumi.Input[Optional[_builtins.int]] = None,
+            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionScheduleArgs', 'BuildDefinitionScheduleArgsDict']]]]] = None,
+            variable_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict']]]]] = None) -> 'BuildDefinition':
         """
         Get an existing BuildDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

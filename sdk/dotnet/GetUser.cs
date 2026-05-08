@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.Index.GetUser.Invoke(new()
+        ///     var example = AzureDevOps.GetUser.Invoke(new()
         ///     {
         ///         Descriptor = "descriptor",
         ///     });
@@ -56,7 +56,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.Index.GetUser.Invoke(new()
+        ///     var example = AzureDevOps.GetUser.Invoke(new()
         ///     {
         ///         Descriptor = "descriptor",
         ///     });
@@ -86,7 +86,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = AzureDevOps.Index.GetUser.Invoke(new()
+        ///     var example = AzureDevOps.GetUser.Invoke(new()
         ///     {
         ///         Descriptor = "descriptor",
         ///     });

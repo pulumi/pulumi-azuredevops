@@ -147,15 +147,15 @@ export interface FeedState {
      *
      * > **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
      */
-    features?: pulumi.Input<pulumi.Input<inputs.FeedFeature>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.FeedFeature>[] | undefined>;
     /**
      * The name of the Feed.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,13 +167,13 @@ export interface FeedArgs {
      *
      * > **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
      */
-    features?: pulumi.Input<pulumi.Input<inputs.FeedFeature>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.FeedFeature>[] | undefined>;
     /**
      * The name of the Feed.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }

@@ -149,31 +149,31 @@ export class ServiceendpointNexus extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceendpointNexus resources.
  */
 export interface ServiceendpointNexusState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to Managed by Terraform.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint password to authenticate at the Nexus IQ Instance.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Nexus to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The name of the service endpoint. Changing this forces a new Service Connection Nexus to be created.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint url.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint username to authenticate at the Nexus IQ Instance.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface ServiceendpointNexusArgs {
     /**
      * The Service Endpoint description. Defaults to Managed by Terraform.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint password to authenticate at the Nexus IQ Instance.
      */

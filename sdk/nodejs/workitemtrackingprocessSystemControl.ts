@@ -153,31 +153,31 @@ export interface WorkitemtrackingprocessSystemControlState {
     /**
      * The ID of the system control (e.g., `System.AreaPath`, `System.IterationPath`, `System.Reason`). Changing this forces a new resource to be created.
      */
-    controlId?: pulumi.Input<string>;
+    controlId?: pulumi.Input<string | undefined>;
     /**
      * Type of the control.
      */
-    controlType?: pulumi.Input<string>;
+    controlType?: pulumi.Input<string | undefined>;
     /**
      * Label for the control.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process. Changing this forces a new resource to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * Whether the control is read-only.
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the control should be visible. Defaults to `true`.
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new resource to be created.
      */
-    workItemTypeId?: pulumi.Input<string>;
+    workItemTypeId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -191,7 +191,7 @@ export interface WorkitemtrackingprocessSystemControlArgs {
     /**
      * Label for the control.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process. Changing this forces a new resource to be created.
      */
@@ -199,7 +199,7 @@ export interface WorkitemtrackingprocessSystemControlArgs {
     /**
      * Whether the control should be visible. Defaults to `true`.
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new resource to be created.
      */

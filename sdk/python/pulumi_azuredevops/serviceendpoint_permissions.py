@@ -22,8 +22,8 @@ class ServiceendpointPermissionsArgs:
                  permissions: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  principal: pulumi.Input[_builtins.str],
                  project_id: pulumi.Input[_builtins.str],
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 serviceendpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 serviceendpoint_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointPermissions resource.
 
@@ -95,37 +95,37 @@ class ServiceendpointPermissionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
         return pulumi.get(self, "replace")
 
     @replace.setter
-    def replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceendpointId")
-    def serviceendpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serviceendpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the service endpoint to assign the permissions.
         """
         return pulumi.get(self, "serviceendpoint_id")
 
     @serviceendpoint_id.setter
-    def serviceendpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serviceendpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serviceendpoint_id", value)
 
 
 @pulumi.input_type
 class _ServiceendpointPermissionsState:
     def __init__(__self__, *,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 serviceendpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 serviceendpoint_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointPermissions resources.
 
@@ -156,7 +156,7 @@ class _ServiceendpointPermissionsState:
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def permissions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         the permissions to assign. The following permissions are available.
 
@@ -171,55 +171,55 @@ class _ServiceendpointPermissionsState:
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def permissions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The **group** principal to assign the permissions.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
         return pulumi.get(self, "replace")
 
     @replace.setter
-    def replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceendpointId")
-    def serviceendpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def serviceendpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the service endpoint to assign the permissions.
         """
         return pulumi.get(self, "serviceendpoint_id")
 
     @serviceendpoint_id.setter
-    def serviceendpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def serviceendpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "serviceendpoint_id", value)
 
 
@@ -229,11 +229,11 @@ class ServiceendpointPermissions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 serviceendpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 serviceendpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages permissions for a Service Endpoint
@@ -406,11 +406,11 @@ class ServiceendpointPermissions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 serviceendpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 serviceendpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -441,11 +441,11 @@ class ServiceendpointPermissions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            principal: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            replace: Optional[pulumi.Input[_builtins.bool]] = None,
-            serviceendpoint_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceendpointPermissions':
+            permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replace: pulumi.Input[Optional[_builtins.bool]] = None,
+            serviceendpoint_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceendpointPermissions':
         """
         Get an existing ServiceendpointPermissions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

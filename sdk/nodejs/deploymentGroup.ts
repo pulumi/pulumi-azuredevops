@@ -129,23 +129,23 @@ export interface DeploymentGroupState {
     /**
      * A description for the Deployment Group. Defaults to `""`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The number of deployment targets in the Deployment Group.
      */
-    machineCount?: pulumi.Input<number>;
+    machineCount?: pulumi.Input<number | undefined>;
     /**
      * The name of the Deployment Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the deployment pool in which deployment agents are registered. If not specified, a new pool will be created. Changing this forces a new Deployment Group to be created.
      */
-    poolId?: pulumi.Input<number>;
+    poolId?: pulumi.Input<number | undefined>;
     /**
      * The ID of the project. Changing this forces a new Deployment Group to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -155,15 +155,15 @@ export interface DeploymentGroupArgs {
     /**
      * A description for the Deployment Group. Defaults to `""`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Deployment Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the deployment pool in which deployment agents are registered. If not specified, a new pool will be created. Changing this forces a new Deployment Group to be created.
      */
-    poolId?: pulumi.Input<number>;
+    poolId?: pulumi.Input<number | undefined>;
     /**
      * The ID of the project. Changing this forces a new Deployment Group to be created.
      */

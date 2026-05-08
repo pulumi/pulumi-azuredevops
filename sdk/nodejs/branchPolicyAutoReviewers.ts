@@ -144,19 +144,19 @@ export interface BranchPolicyAutoReviewersState {
     /**
      * A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
      */
-    blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
-    settings?: pulumi.Input<inputs.BranchPolicyAutoReviewersSettings>;
+    settings?: pulumi.Input<inputs.BranchPolicyAutoReviewersSettings | undefined>;
 }
 
 /**
@@ -166,11 +166,11 @@ export interface BranchPolicyAutoReviewersArgs {
     /**
      * A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
      */
-    blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project in which the policy will be created.
      */

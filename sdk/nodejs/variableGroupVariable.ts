@@ -157,25 +157,25 @@ export interface VariableGroupVariableState {
     /**
      * The name of the variable. Must be unique within the Variable Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The value of the secret variable.
      *
      * > **NOTE** Exactly one of `value` and `secretValue` must be specified.
      */
-    secretValue?: pulumi.Input<string>;
+    secretValue?: pulumi.Input<string | undefined>;
     /**
      * The value of the variable.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * The ID of the variable group.
      */
-    variableGroupId?: pulumi.Input<string>;
+    variableGroupId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -185,7 +185,7 @@ export interface VariableGroupVariableArgs {
     /**
      * The name of the variable. Must be unique within the Variable Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
@@ -195,11 +195,11 @@ export interface VariableGroupVariableArgs {
      *
      * > **NOTE** Exactly one of `value` and `secretValue` must be specified.
      */
-    secretValue?: pulumi.Input<string>;
+    secretValue?: pulumi.Input<string | undefined>;
     /**
      * The value of the variable.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * The ID of the variable group.
      */

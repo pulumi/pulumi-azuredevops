@@ -238,7 +238,7 @@ export interface WorkItemQueryPermissionsState {
     /**
      * Path to a query or folder beneath `Shared Queries`
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available
      *
@@ -249,19 +249,19 @@ export interface WorkItemQueryPermissionsState {
      * | Delete                   | Delete                             |
      * | ManagePermissions        | Manage Permissions                 |
      */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The **group** principal to assign the permissions.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project to assign the permissions.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -271,7 +271,7 @@ export interface WorkItemQueryPermissionsArgs {
     /**
      * Path to a query or folder beneath `Shared Queries`
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available
      *
@@ -294,5 +294,5 @@ export interface WorkItemQueryPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Defaults to `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }

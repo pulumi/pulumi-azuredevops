@@ -23,10 +23,10 @@ class GitArgs:
     def __init__(__self__, *,
                  initialization: pulumi.Input['GitInitializationArgs'],
                  project_id: pulumi.Input[_builtins.str],
-                 default_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Git resource.
 
@@ -74,68 +74,68 @@ class GitArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ref of the default branch. Will be used as the branch name for initialized repositories.
         """
         return pulumi.get(self, "default_branch")
 
     @default_branch.setter
-    def default_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_branch", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The ability to disable or enable the repository. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the git repository.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentRepositoryId")
-    def parent_repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Git project from which a fork is to be created.
         """
         return pulumi.get(self, "parent_repository_id")
 
     @parent_repository_id.setter
-    def parent_repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_repository_id", value)
 
 
 @pulumi.input_type
 class _GitState:
     def __init__(__self__, *,
-                 default_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initialization: Optional[pulumi.Input['GitInitializationArgs']] = None,
-                 is_fork: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 size: Optional[pulumi.Input[_builtins.int]] = None,
-                 ssh_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initialization: pulumi.Input[Optional['GitInitializationArgs']] = None,
+                 is_fork: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 size: pulumi.Input[Optional[_builtins.int]] = None,
+                 ssh_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Git resources.
 
@@ -179,146 +179,146 @@ class _GitState:
 
     @_builtins.property
     @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ref of the default branch. Will be used as the branch name for initialized repositories.
         """
         return pulumi.get(self, "default_branch")
 
     @default_branch.setter
-    def default_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_branch", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The ability to disable or enable the repository. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def initialization(self) -> Optional[pulumi.Input['GitInitializationArgs']]:
+    def initialization(self) -> pulumi.Input[Optional['GitInitializationArgs']]:
         """
         A `initialization` block as documented below.
         """
         return pulumi.get(self, "initialization")
 
     @initialization.setter
-    def initialization(self, value: Optional[pulumi.Input['GitInitializationArgs']]):
+    def initialization(self, value: pulumi.Input[Optional['GitInitializationArgs']]):
         pulumi.set(self, "initialization", value)
 
     @_builtins.property
     @pulumi.getter(name="isFork")
-    def is_fork(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_fork(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if the repository was created as a fork.
         """
         return pulumi.get(self, "is_fork")
 
     @is_fork.setter
-    def is_fork(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_fork(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_fork", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the git repository.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentRepositoryId")
-    def parent_repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Git project from which a fork is to be created.
         """
         return pulumi.get(self, "parent_repository_id")
 
     @parent_repository_id.setter
-    def parent_repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project ID or project name.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteUrl")
-    def remote_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Git HTTPS URL of the repository
         """
         return pulumi.get(self, "remote_url")
 
     @remote_url.setter
-    def remote_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size in bytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size", value)
 
     @_builtins.property
     @pulumi.getter(name="sshUrl")
-    def ssh_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssh_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Git SSH URL of the repository.
         """
         return pulumi.get(self, "ssh_url")
 
     @ssh_url.setter
-    def ssh_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssh_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssh_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         REST API URL of the repository.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="webUrl")
-    def web_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Web link to the repository.
         """
         return pulumi.get(self, "web_url")
 
     @web_url.setter
-    def web_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_url", value)
 
 
@@ -328,12 +328,12 @@ class Git(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initialization: Optional[pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initialization: pulumi.Input[Optional[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a git repository within Azure DevOps.
@@ -793,12 +793,12 @@ class Git(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initialization: Optional[pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initialization: pulumi.Input[Optional[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -834,18 +834,18 @@ class Git(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            default_branch: Optional[pulumi.Input[_builtins.str]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            initialization: Optional[pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
-            is_fork: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_url: Optional[pulumi.Input[_builtins.str]] = None,
-            size: Optional[pulumi.Input[_builtins.int]] = None,
-            ssh_url: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            web_url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Git':
+            default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            initialization: pulumi.Input[Optional[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
+            is_fork: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_url: pulumi.Input[Optional[_builtins.str]] = None,
+            size: pulumi.Input[Optional[_builtins.int]] = None,
+            ssh_url: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            web_url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Git':
         """
         Get an existing Git resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

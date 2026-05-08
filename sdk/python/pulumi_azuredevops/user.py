@@ -19,11 +19,11 @@ __all__ = ['UserArgs', 'User']
 @pulumi.input_type
 class UserArgs:
     def __init__(__self__, *,
-                 account_license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 licensing_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 licensing_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -48,19 +48,19 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountLicenseType")
-    def account_license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         """
         return pulumi.get(self, "account_license_type")
 
     @account_license_type.setter
-    def account_license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_license_type", value)
 
     @_builtins.property
     @pulumi.getter(name="licensingSource")
-    def licensing_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def licensing_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
 
@@ -69,55 +69,55 @@ class UserArgs:
         return pulumi.get(self, "licensing_source")
 
     @licensing_source.setter
-    def licensing_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def licensing_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "licensing_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def origin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of source provider for the origin identifier.
         """
         return pulumi.get(self, "origin")
 
     @origin.setter
-    def origin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin", value)
 
     @_builtins.property
     @pulumi.getter(name="originId")
-    def origin_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
         """
         return pulumi.get(self, "origin_id")
 
     @origin_id.setter
-    def origin_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalName")
-    def principal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
         """
         return pulumi.get(self, "principal_name")
 
     @principal_name.setter
-    def principal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_name", value)
 
 
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
-                 account_license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 descriptor: Optional[pulumi.Input[_builtins.str]] = None,
-                 licensing_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 descriptor: pulumi.Input[Optional[_builtins.str]] = None,
+                 licensing_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
 
@@ -145,31 +145,31 @@ class _UserState:
 
     @_builtins.property
     @pulumi.getter(name="accountLicenseType")
-    def account_license_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_license_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         """
         return pulumi.get(self, "account_license_type")
 
     @account_license_type.setter
-    def account_license_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_license_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_license_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def descriptor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def descriptor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
         """
         return pulumi.get(self, "descriptor")
 
     @descriptor.setter
-    def descriptor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def descriptor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "descriptor", value)
 
     @_builtins.property
     @pulumi.getter(name="licensingSource")
-    def licensing_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def licensing_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
 
@@ -178,43 +178,43 @@ class _UserState:
         return pulumi.get(self, "licensing_source")
 
     @licensing_source.setter
-    def licensing_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def licensing_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "licensing_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def origin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of source provider for the origin identifier.
         """
         return pulumi.get(self, "origin")
 
     @origin.setter
-    def origin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin", value)
 
     @_builtins.property
     @pulumi.getter(name="originId")
-    def origin_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
         """
         return pulumi.get(self, "origin_id")
 
     @origin_id.setter
-    def origin_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalName")
-    def principal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
         """
         return pulumi.get(self, "principal_name")
 
     @principal_name.setter
-    def principal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_name", value)
 
 
@@ -224,11 +224,11 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 licensing_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 licensing_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a user entitlement within Azure DevOps.
@@ -333,11 +333,11 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_license_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 licensing_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_license_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 licensing_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -363,12 +363,12 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_license_type: Optional[pulumi.Input[_builtins.str]] = None,
-            descriptor: Optional[pulumi.Input[_builtins.str]] = None,
-            licensing_source: Optional[pulumi.Input[_builtins.str]] = None,
-            origin: Optional[pulumi.Input[_builtins.str]] = None,
-            origin_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'User':
+            account_license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            descriptor: pulumi.Input[Optional[_builtins.str]] = None,
+            licensing_source: pulumi.Input[Optional[_builtins.str]] = None,
+            origin: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

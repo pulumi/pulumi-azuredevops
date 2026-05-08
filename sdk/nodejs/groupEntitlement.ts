@@ -146,33 +146,33 @@ export interface GroupEntitlementState {
     /**
      * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
-    accountLicenseType?: pulumi.Input<string>;
+    accountLicenseType?: pulumi.Input<string | undefined>;
     /**
      * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the group graph subject.
      */
-    descriptor?: pulumi.Input<string>;
+    descriptor?: pulumi.Input<string | undefined>;
     /**
      * The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      *
      * > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      */
-    licensingSource?: pulumi.Input<string>;
+    licensingSource?: pulumi.Input<string | undefined>;
     /**
      * The type of source provider for the origin identifier.
      */
-    origin?: pulumi.Input<string>;
+    origin?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier from the system of origin. Typically, a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
      */
-    originId?: pulumi.Input<string>;
+    originId?: pulumi.Input<string | undefined>;
     /**
      * The principal name of a graph member on Azure DevOps
      */
-    principalName?: pulumi.Input<string>;
+    principalName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -182,23 +182,23 @@ export interface GroupEntitlementArgs {
     /**
      * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
-    accountLicenseType?: pulumi.Input<string>;
+    accountLicenseType?: pulumi.Input<string | undefined>;
     /**
      * The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.). Possible values are: `account`, `auto`, `msdn`, `none`, `profile`, `trial`. Defaults to `account`.
      *
      * > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      */
-    licensingSource?: pulumi.Input<string>;
+    licensingSource?: pulumi.Input<string | undefined>;
     /**
      * The type of source provider for the origin identifier.
      */
-    origin?: pulumi.Input<string>;
+    origin?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier from the system of origin. Typically, a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
      */
-    originId?: pulumi.Input<string>;
+    originId?: pulumi.Input<string | undefined>;
 }

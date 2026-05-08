@@ -154,10 +154,10 @@ def get_git_repository_file(branch: Optional[_builtins.str] = None,
         last_commit_message=pulumi.get(__ret__, 'last_commit_message'),
         repository_id=pulumi.get(__ret__, 'repository_id'),
         tag=pulumi.get(__ret__, 'tag'))
-def get_git_repository_file_output(branch: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   file: Optional[pulumi.Input[_builtins.str]] = None,
-                                   repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   tag: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_git_repository_file_output(branch: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   file: pulumi.Input[Optional[_builtins.str]] = None,
+                                   repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   tag: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGitRepositoryFileResult]:
     """
     Use this data source to get an existing Git Repository File.

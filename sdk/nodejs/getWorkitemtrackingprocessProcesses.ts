@@ -87,5 +87,5 @@ export interface GetWorkitemtrackingprocessProcessesOutputArgs {
     /**
      * Specifies the expand option when getting the processes. Default: "none"
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
 }

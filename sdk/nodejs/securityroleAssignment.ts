@@ -142,19 +142,19 @@ export interface SecurityroleAssignmentState {
     /**
      * The ID of the identity to authorize.
      */
-    identityId?: pulumi.Input<string>;
+    identityId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * Name of the role to assign.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
     /**
      * The scope in which this assignment should exist.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 /**

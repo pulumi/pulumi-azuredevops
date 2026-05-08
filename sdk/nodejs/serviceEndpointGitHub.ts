@@ -179,26 +179,26 @@ export interface ServiceEndpointGitHubState {
     /**
      * An `authOauth` block as documented below. Allows connecting using an Oauth token.
      */
-    authOauth?: pulumi.Input<inputs.ServiceEndpointGitHubAuthOauth>;
+    authOauth?: pulumi.Input<inputs.ServiceEndpointGitHubAuthOauth | undefined>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubAuthPersonal>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubAuthPersonal | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      *
      * ~>**NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly."
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -208,17 +208,17 @@ export interface ServiceEndpointGitHubArgs {
     /**
      * An `authOauth` block as documented below. Allows connecting using an Oauth token.
      */
-    authOauth?: pulumi.Input<inputs.ServiceEndpointGitHubAuthOauth>;
+    authOauth?: pulumi.Input<inputs.ServiceEndpointGitHubAuthOauth | undefined>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubAuthPersonal>;
+    authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubAuthPersonal | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      *
      * ~>**NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly."
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

@@ -133,7 +133,7 @@ export interface GetUsersOutputArgs {
     /**
      * A `features` block as defined below.
      */
-    features?: pulumi.Input<inputs.GetUsersFeaturesArgs>;
+    features?: pulumi.Input<inputs.GetUsersFeaturesArgs | undefined>;
     /**
      * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
      * <pre>List of possible origins
@@ -146,15 +146,15 @@ export interface GetUsersOutputArgs {
      * ```
      * </pre>
      */
-    origin?: pulumi.Input<string>;
+    origin?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier from the system of origin.
      */
-    originId?: pulumi.Input<string>;
+    originId?: pulumi.Input<string | undefined>;
     /**
      * The PrincipalName of this graph member from the source provider.
      */
-    principalName?: pulumi.Input<string>;
+    principalName?: pulumi.Input<string | undefined>;
     /**
      * A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
      * <pre>List of possible subject types
@@ -182,5 +182,5 @@ export interface GetUsersOutputArgs {
      * ```
      * </pre>
      */
-    subjectTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    subjectTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

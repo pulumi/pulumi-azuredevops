@@ -123,7 +123,7 @@ def get_service_principal(display_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         origin=pulumi.get(__ret__, 'origin'),
         origin_id=pulumi.get(__ret__, 'origin_id'))
-def get_service_principal_output(display_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_principal_output(display_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServicePrincipalResult]:
     """
     Use this data source to access information about an existing Service Principal.

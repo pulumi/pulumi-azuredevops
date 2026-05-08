@@ -111,9 +111,9 @@ export interface GetTeamsOutputArgs {
     /**
      * The Project ID. If no project ID all teams of the organization will be returned.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of teams to return. Defaults to `100`.
      */
-    top?: pulumi.Input<number>;
+    top?: pulumi.Input<number | undefined>;
 }

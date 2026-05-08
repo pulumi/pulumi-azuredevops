@@ -165,39 +165,39 @@ export class ServiceendpointCheckmarxSast extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceendpointCheckmarxSast resources.
  */
 export interface ServiceendpointCheckmarxSastState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The password of the Checkmarx SAST.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Predefined sets of queries that you can select when Creating, Configuring and Branching Projects. Predefined presets are provided by Checkmarx and you can configure your own. You can also import and export presets (on the server).In Service Connection if preset(optional) value is added, then it will igonres Preset available in pipeline and uses preset available in service connection only.If Preset is blank in service connection then it will use pipelines preset.
      */
-    preset?: pulumi.Input<string>;
+    preset?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Server URL of the Checkmarx SAST.
      */
-    serverUrl?: pulumi.Input<string>;
+    serverUrl?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The full team name of the Checkmarx.
      */
-    team?: pulumi.Input<string>;
+    team?: pulumi.Input<string | undefined>;
     /**
      * The username of the Checkmarx SAST.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -207,7 +207,7 @@ export interface ServiceendpointCheckmarxSastArgs {
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The password of the Checkmarx SAST.
      */
@@ -215,7 +215,7 @@ export interface ServiceendpointCheckmarxSastArgs {
     /**
      * Predefined sets of queries that you can select when Creating, Configuring and Branching Projects. Predefined presets are provided by Checkmarx and you can configure your own. You can also import and export presets (on the server).In Service Connection if preset(optional) value is added, then it will igonres Preset available in pipeline and uses preset available in service connection only.If Preset is blank in service connection then it will use pipelines preset.
      */
-    preset?: pulumi.Input<string>;
+    preset?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
@@ -231,7 +231,7 @@ export interface ServiceendpointCheckmarxSastArgs {
     /**
      * The full team name of the Checkmarx.
      */
-    team?: pulumi.Input<string>;
+    team?: pulumi.Input<string | undefined>;
     /**
      * The username of the Checkmarx SAST.
      */

@@ -158,32 +158,32 @@ export interface ServiceendpointJenkinsState {
     /**
      * Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
      */
-    acceptUntrustedCerts?: pulumi.Input<boolean>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    acceptUntrustedCerts?: pulumi.Input<boolean | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to Managed by Terraform.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint password to authenticate at the Jenkins Instance.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The name of the service endpoint. Changing this forces a new Service Connection Jenkins to be created.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint url.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint username to authenticate at the Jenkins Instance.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -193,11 +193,11 @@ export interface ServiceendpointJenkinsArgs {
     /**
      * Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
      */
-    acceptUntrustedCerts?: pulumi.Input<boolean>;
+    acceptUntrustedCerts?: pulumi.Input<boolean | undefined>;
     /**
      * The Service Endpoint description. Defaults to Managed by Terraform.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint password to authenticate at the Jenkins Instance.
      */

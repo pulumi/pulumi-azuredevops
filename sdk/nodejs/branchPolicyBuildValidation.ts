@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  *     blocking: true,
  *     settings: {
  *         displayName: "Example build validation policy",
- *         buildDefinitionId: exampleBuildDefinition.id,
+ *         buildDefinitionId: exampleBuildDefinition.id.apply(x =>Number(x)),
  *         queueOnSourceUpdateOnly: true,
  *         validDuration: 720,
  *         filenamePatterns: [
@@ -166,19 +166,19 @@ export interface BranchPolicyBuildValidationState {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
-    settings?: pulumi.Input<inputs.BranchPolicyBuildValidationSettings>;
+    settings?: pulumi.Input<inputs.BranchPolicyBuildValidationSettings | undefined>;
 }
 
 /**
@@ -188,11 +188,11 @@ export interface BranchPolicyBuildValidationArgs {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project in which the policy will be created.
      */

@@ -155,8 +155,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetAgentQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -212,8 +212,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetAgentQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -269,8 +269,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetAgentQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -326,8 +326,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetAgentQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -383,8 +383,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetAgentQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -440,8 +440,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetAreaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -500,8 +500,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetAreaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -560,8 +560,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetAreaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -620,8 +620,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetAreaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -680,8 +680,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetAreaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -739,8 +739,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -786,8 +786,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -833,8 +833,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -880,8 +880,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -927,8 +927,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -972,8 +972,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1010,8 +1010,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1048,8 +1048,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1086,8 +1086,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1124,8 +1124,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1162,8 +1162,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1200,8 +1200,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1239,8 +1239,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1284,8 +1284,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1329,8 +1329,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1374,8 +1374,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1419,8 +1419,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetDescriptorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1468,8 +1468,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.EnvironmentArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1535,8 +1535,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.EnvironmentArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1602,8 +1602,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.EnvironmentArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1669,8 +1669,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.EnvironmentArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1736,8 +1736,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.EnvironmentArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1800,8 +1800,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1833,8 +1833,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1883,8 +1883,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1916,8 +1916,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1966,8 +1966,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1999,8 +1999,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2049,8 +2049,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2082,8 +2082,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2132,8 +2132,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2165,8 +2165,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2215,8 +2215,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2248,8 +2248,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2298,8 +2298,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2331,8 +2331,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetFeedArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2382,8 +2382,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2434,8 +2434,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2486,8 +2486,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2538,8 +2538,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2590,8 +2590,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2642,8 +2642,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2696,8 +2696,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2750,8 +2750,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2804,8 +2804,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2858,8 +2858,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryFileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2911,8 +2911,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2974,8 +2974,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3037,8 +3037,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3100,8 +3100,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3163,8 +3163,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3225,8 +3225,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3269,8 +3269,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3313,8 +3313,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3357,8 +3357,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3401,8 +3401,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetGroupMembershipArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3446,8 +3446,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3500,8 +3500,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3554,8 +3554,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3608,8 +3608,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3662,8 +3662,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3716,8 +3716,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3770,8 +3770,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3823,8 +3823,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3869,8 +3869,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3915,8 +3915,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3961,8 +3961,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4007,8 +4007,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4054,8 +4054,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4108,8 +4108,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4162,8 +4162,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4216,8 +4216,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4270,8 +4270,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4324,8 +4324,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4378,8 +4378,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetIdentityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4468,8 +4468,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetIterationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4534,8 +4534,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetIterationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4600,8 +4600,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetIterationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4666,8 +4666,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetIterationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4732,8 +4732,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetIterationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4796,8 +4796,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4844,8 +4844,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4892,8 +4892,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4940,8 +4940,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4988,8 +4988,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5035,8 +5035,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5080,8 +5080,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5125,8 +5125,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5170,8 +5170,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5215,8 +5215,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5260,8 +5260,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5305,8 +5305,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5351,8 +5351,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5401,8 +5401,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5451,8 +5451,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5501,8 +5501,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5551,8 +5551,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5601,8 +5601,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5651,8 +5651,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5701,8 +5701,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5750,8 +5750,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5799,8 +5799,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5848,8 +5848,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5897,8 +5897,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5946,8 +5946,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5995,8 +5995,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6046,8 +6046,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6104,8 +6104,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6162,8 +6162,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6220,8 +6220,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6278,8 +6278,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6336,8 +6336,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6394,8 +6394,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6452,8 +6452,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6487,8 +6487,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6535,8 +6535,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6570,8 +6570,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6618,8 +6618,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6653,8 +6653,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6701,8 +6701,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6736,8 +6736,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6784,8 +6784,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6819,8 +6819,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6867,8 +6867,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6902,8 +6902,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6950,8 +6950,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6985,8 +6985,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7033,8 +7033,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7069,8 +7069,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7104,8 +7104,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7145,8 +7145,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7194,8 +7194,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7244,8 +7244,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7291,8 +7291,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7347,8 +7347,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7383,8 +7383,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7418,8 +7418,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7459,8 +7459,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7508,8 +7508,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7558,8 +7558,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7605,8 +7605,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7661,8 +7661,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7697,8 +7697,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7732,8 +7732,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7773,8 +7773,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7822,8 +7822,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7872,8 +7872,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7919,8 +7919,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7975,8 +7975,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8011,8 +8011,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8046,8 +8046,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8087,8 +8087,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8136,8 +8136,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8186,8 +8186,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8233,8 +8233,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8289,8 +8289,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8325,8 +8325,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8360,8 +8360,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8401,8 +8401,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8450,8 +8450,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8500,8 +8500,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8547,8 +8547,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8603,8 +8603,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8639,8 +8639,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8674,8 +8674,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8715,8 +8715,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8764,8 +8764,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8814,8 +8814,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8861,8 +8861,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8917,8 +8917,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8953,8 +8953,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8988,8 +8988,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9029,8 +9029,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9078,8 +9078,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9128,8 +9128,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9175,8 +9175,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityNamespaceTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9232,8 +9232,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9310,8 +9310,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9388,8 +9388,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9466,8 +9466,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9544,8 +9544,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9622,8 +9622,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9700,8 +9700,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9775,8 +9775,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9820,8 +9820,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9865,8 +9865,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9910,8 +9910,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9955,8 +9955,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetSecurityroleDefinitionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10003,8 +10003,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10043,8 +10043,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10092,8 +10092,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10132,8 +10132,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10181,8 +10181,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10221,8 +10221,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10270,8 +10270,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10310,8 +10310,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10359,8 +10359,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10399,8 +10399,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10448,8 +10448,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10488,8 +10488,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10537,8 +10537,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10577,8 +10577,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10626,8 +10626,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10666,8 +10666,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10715,8 +10715,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10755,8 +10755,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10804,8 +10804,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10844,8 +10844,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10890,8 +10890,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10931,8 +10931,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10972,8 +10972,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11013,8 +11013,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11054,8 +11054,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11095,8 +11095,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11137,8 +11137,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11179,8 +11179,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11221,8 +11221,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11263,8 +11263,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11308,8 +11308,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11348,8 +11348,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11401,8 +11401,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11441,8 +11441,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11494,8 +11494,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11534,8 +11534,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11587,8 +11587,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11627,8 +11627,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11680,8 +11680,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11720,8 +11720,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointBitbucketArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11773,8 +11773,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11813,8 +11813,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11862,8 +11862,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11902,8 +11902,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11951,8 +11951,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11991,8 +11991,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12040,8 +12040,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12080,8 +12080,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12129,8 +12129,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12169,8 +12169,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointDockerregistryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12250,8 +12250,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12292,8 +12292,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12334,8 +12334,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12376,8 +12376,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12418,8 +12418,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12460,8 +12460,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12502,8 +12502,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12544,8 +12544,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12586,8 +12586,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12628,8 +12628,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12670,8 +12670,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12715,8 +12715,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12760,8 +12760,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12805,8 +12805,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12850,8 +12850,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12897,8 +12897,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12956,8 +12956,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13015,8 +13015,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13074,8 +13074,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13133,8 +13133,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.ProjectArgs;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13190,8 +13190,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13241,8 +13241,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13292,8 +13292,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13343,8 +13343,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13394,8 +13394,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13445,8 +13445,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13496,8 +13496,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetTeamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13549,8 +13549,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13595,8 +13595,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13641,8 +13641,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13687,8 +13687,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13733,8 +13733,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13843,8 +13843,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetVariableGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13896,8 +13896,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetVariableGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13949,8 +13949,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetVariableGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14002,8 +14002,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetVariableGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14055,8 +14055,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import com.pulumi.azuredevops.inputs.GetVariableGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14105,8 +14105,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14150,8 +14150,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14195,8 +14195,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14240,8 +14240,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14285,8 +14285,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14330,8 +14330,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14374,8 +14374,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14418,8 +14418,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14462,8 +14462,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14506,8 +14506,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14550,8 +14550,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14594,8 +14594,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessProcessesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14638,8 +14638,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14684,8 +14684,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14730,8 +14730,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14776,8 +14776,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14822,8 +14822,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14868,8 +14868,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14913,8 +14913,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14958,8 +14958,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15003,8 +15003,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15048,8 +15048,8 @@ public final class AzuredevopsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
      * import com.pulumi.azuredevops.inputs.GetWorkitemtrackingprocessWorkitemtypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -166,39 +166,39 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointDockerRegistry resources.
  */
 export interface ServiceEndpointDockerRegistryState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The email for Docker account user.
      */
-    dockerEmail?: pulumi.Input<string>;
+    dockerEmail?: pulumi.Input<string | undefined>;
     /**
      * The password for the account user identified above.
      */
-    dockerPassword?: pulumi.Input<string>;
+    dockerPassword?: pulumi.Input<string | undefined>;
     /**
      * The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
      */
-    dockerRegistry?: pulumi.Input<string>;
+    dockerRegistry?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Docker account user.
      */
-    dockerUsername?: pulumi.Input<string>;
+    dockerUsername?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Can be "DockerHub" or "Others" (Default "DockerHub")
      */
-    registryType?: pulumi.Input<string>;
+    registryType?: pulumi.Input<string | undefined>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -208,23 +208,23 @@ export interface ServiceEndpointDockerRegistryArgs {
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The email for Docker account user.
      */
-    dockerEmail?: pulumi.Input<string>;
+    dockerEmail?: pulumi.Input<string | undefined>;
     /**
      * The password for the account user identified above.
      */
-    dockerPassword?: pulumi.Input<string>;
+    dockerPassword?: pulumi.Input<string | undefined>;
     /**
      * The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
      */
-    dockerRegistry?: pulumi.Input<string>;
+    dockerRegistry?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Docker account user.
      */
-    dockerUsername?: pulumi.Input<string>;
+    dockerUsername?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
@@ -232,7 +232,7 @@ export interface ServiceEndpointDockerRegistryArgs {
     /**
      * Can be "DockerHub" or "Others" (Default "DockerHub")
      */
-    registryType?: pulumi.Input<string>;
+    registryType?: pulumi.Input<string | undefined>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */

@@ -384,11 +384,11 @@ export interface GetSecurityNamespaceTokenOutputArgs {
     /**
      * A map of identifiers required for token generation. The required identifiers depend on the namespace. Not used when `returnIdentifierInfo` is `true`.
      */
-    identifiers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    identifiers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the security namespace. Conflicts with `namespaceName`.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the security namespace. Conflicts with `namespaceId`. Common values include:
      * - `Collection` - Organization/collection-level permissions
@@ -402,11 +402,11 @@ export interface GetSecurityNamespaceTokenOutputArgs {
      * - `Server` - Server-level permissions
      * - `VersionControlPrivileges` - Version control privileges
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * When set to `true`, the data source will return the lists of required and optional identifiers for the namespace instead of generating a token. This is useful for discovering what identifiers are needed for a particular namespace. Default: `false`.
      *
      * > **NOTE:** One of either `namespaceId` or `namespaceName` must be specified.
      */
-    returnIdentifierInfo?: pulumi.Input<boolean>;
+    returnIdentifierInfo?: pulumi.Input<boolean | undefined>;
 }

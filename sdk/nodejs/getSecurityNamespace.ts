@@ -140,9 +140,9 @@ export interface GetSecurityNamespaceOutputArgs {
      *
      * > **NOTE:** One of `name` or `id` must be specified.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the security namespace.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

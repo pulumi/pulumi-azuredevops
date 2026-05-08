@@ -70,5 +70,5 @@ export interface GetIdentityUsersOutputArgs {
     /**
      * The type of search to perform. Possible values are: `AccountName`, `DisplayName`, and `MailAddress`. Default is `General`.
      */
-    searchFilter?: pulumi.Input<string>;
+    searchFilter?: pulumi.Input<string | undefined>;
 }

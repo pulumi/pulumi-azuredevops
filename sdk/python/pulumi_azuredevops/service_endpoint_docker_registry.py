@@ -21,12 +21,12 @@ class ServiceEndpointDockerRegistryArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_registry: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_registry: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointDockerRegistry resource.
 
@@ -80,89 +80,89 @@ class ServiceEndpointDockerRegistryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerEmail")
-    def docker_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docker_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email for Docker account user.
         """
         return pulumi.get(self, "docker_email")
 
     @docker_email.setter
-    def docker_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docker_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docker_email", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerPassword")
-    def docker_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docker_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the account user identified above.
         """
         return pulumi.get(self, "docker_password")
 
     @docker_password.setter
-    def docker_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docker_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docker_password", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerRegistry")
-    def docker_registry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docker_registry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         """
         return pulumi.get(self, "docker_registry")
 
     @docker_registry.setter
-    def docker_registry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docker_registry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docker_registry", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerUsername")
-    def docker_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docker_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the Docker account user.
         """
         return pulumi.get(self, "docker_username")
 
     @docker_username.setter
-    def docker_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docker_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docker_username", value)
 
     @_builtins.property
     @pulumi.getter(name="registryType")
-    def registry_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registry_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be "DockerHub" or "Others" (Default "DockerHub")
         """
         return pulumi.get(self, "registry_type")
 
     @registry_type.setter
-    def registry_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registry_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registry_type", value)
 
 
 @pulumi.input_type
 class _ServiceEndpointDockerRegistryState:
     def __init__(__self__, *,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_registry: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_registry: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointDockerRegistry resources.
 
@@ -196,107 +196,107 @@ class _ServiceEndpointDockerRegistryState:
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerEmail")
-    def docker_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docker_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email for Docker account user.
         """
         return pulumi.get(self, "docker_email")
 
     @docker_email.setter
-    def docker_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docker_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docker_email", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerPassword")
-    def docker_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docker_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the account user identified above.
         """
         return pulumi.get(self, "docker_password")
 
     @docker_password.setter
-    def docker_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docker_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docker_password", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerRegistry")
-    def docker_registry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docker_registry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         """
         return pulumi.get(self, "docker_registry")
 
     @docker_registry.setter
-    def docker_registry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docker_registry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docker_registry", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerUsername")
-    def docker_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docker_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the Docker account user.
         """
         return pulumi.get(self, "docker_username")
 
     @docker_username.setter
-    def docker_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docker_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docker_username", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="registryType")
-    def registry_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registry_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be "DockerHub" or "Others" (Default "DockerHub")
         """
         return pulumi.get(self, "registry_type")
 
     @registry_type.setter
-    def registry_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registry_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registry_type", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name you will use to refer to this service connection in task inputs.
         """
         return pulumi.get(self, "service_endpoint_name")
 
     @service_endpoint_name.setter
-    def service_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_name", value)
 
 
@@ -306,14 +306,14 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_registry: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_registry: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Docker Registry service endpoint within Azure DevOps.
@@ -441,14 +441,14 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_registry: Optional[pulumi.Input[_builtins.str]] = None,
-                 docker_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_registry: pulumi.Input[Optional[_builtins.str]] = None,
+                 docker_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -483,15 +483,15 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            docker_email: Optional[pulumi.Input[_builtins.str]] = None,
-            docker_password: Optional[pulumi.Input[_builtins.str]] = None,
-            docker_registry: Optional[pulumi.Input[_builtins.str]] = None,
-            docker_username: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            registry_type: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceEndpointDockerRegistry':
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            docker_email: pulumi.Input[Optional[_builtins.str]] = None,
+            docker_password: pulumi.Input[Optional[_builtins.str]] = None,
+            docker_registry: pulumi.Input[Optional[_builtins.str]] = None,
+            docker_username: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_type: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceEndpointDockerRegistry':
         """
         Get an existing ServiceEndpointDockerRegistry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

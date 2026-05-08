@@ -21,10 +21,10 @@ class ServiceEndpointAzureDevOpsArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_api_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_api_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointAzureDevOps resource.
 
@@ -72,63 +72,63 @@ class ServiceEndpointAzureDevOpsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="orgUrl")
-    def org_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization URL.
         """
         return pulumi.get(self, "org_url")
 
     @org_url.setter
-    def org_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_url", value)
 
     @_builtins.property
     @pulumi.getter(name="personalAccessToken")
-    def personal_access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def personal_access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure DevOps personal access token.
         """
         return pulumi.get(self, "personal_access_token")
 
     @personal_access_token.setter
-    def personal_access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def personal_access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "personal_access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseApiUrl")
-    def release_api_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_api_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the release API.
         """
         return pulumi.get(self, "release_api_url")
 
     @release_api_url.setter
-    def release_api_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_api_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_api_url", value)
 
 
 @pulumi.input_type
 class _ServiceEndpointAzureDevOpsState:
     def __init__(__self__, *,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointAzureDevOps resources.
 
@@ -156,83 +156,83 @@ class _ServiceEndpointAzureDevOpsState:
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="orgUrl")
-    def org_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization URL.
         """
         return pulumi.get(self, "org_url")
 
     @org_url.setter
-    def org_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_url", value)
 
     @_builtins.property
     @pulumi.getter(name="personalAccessToken")
-    def personal_access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def personal_access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure DevOps personal access token.
         """
         return pulumi.get(self, "personal_access_token")
 
     @personal_access_token.setter
-    def personal_access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def personal_access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "personal_access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseApiUrl")
-    def release_api_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_api_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the release API.
         """
         return pulumi.get(self, "release_api_url")
 
     @release_api_url.setter
-    def release_api_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_api_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_api_url", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint name.
         """
         return pulumi.get(self, "service_endpoint_name")
 
     @service_endpoint_name.setter
-    def service_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_name", value)
 
 
@@ -242,12 +242,12 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Azure DevOps service endpoint within Azure DevOps.
@@ -361,12 +361,12 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 org_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 personal_access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_api_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 org_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 personal_access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_api_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -399,13 +399,13 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            org_url: Optional[pulumi.Input[_builtins.str]] = None,
-            personal_access_token: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            release_api_url: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceEndpointAzureDevOps':
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            org_url: pulumi.Input[Optional[_builtins.str]] = None,
+            personal_access_token: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            release_api_url: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceEndpointAzureDevOps':
         """
         Get an existing ServiceEndpointAzureDevOps resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -24,8 +24,8 @@ class WorkitemtrackingprocessPageArgs:
                  label: pulumi.Input[_builtins.str],
                  process_id: pulumi.Input[_builtins.str],
                  work_item_type_id: pulumi.Input[_builtins.str],
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None):
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessPage resource.
 
@@ -81,38 +81,38 @@ class WorkitemtrackingprocessPageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order in which the page should appear in the layout.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the page should be visible or not. Default: `true`
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingprocessPageState:
     def __init__(__self__, *,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sections: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessPageSectionArgs']]]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sections: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessPageSectionArgs']]]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessPage resources.
 
@@ -138,74 +138,74 @@ class _WorkitemtrackingprocessPageState:
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label for the page.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order in which the page should appear in the layout.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="processId")
-    def process_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the process. Changing this forces a new page to be created.
         """
         return pulumi.get(self, "process_id")
 
     @process_id.setter
-    def process_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def sections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessPageSectionArgs']]]]:
+    def sections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessPageSectionArgs']]]]:
         """
         The sections of the page. A `sections` block as defined below.
         """
         return pulumi.get(self, "sections")
 
     @sections.setter
-    def sections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessPageSectionArgs']]]]):
+    def sections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessPageSectionArgs']]]]):
         pulumi.set(self, "sections", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the page should be visible or not. Default: `true`
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemTypeId")
-    def work_item_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID (reference name) of the work item type. Changing this forces a new page to be created.
         """
         return pulumi.get(self, "work_item_type_id")
 
     @work_item_type_id.setter
-    def work_item_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type_id", value)
 
 
@@ -215,11 +215,11 @@ class WorkitemtrackingprocessPage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a page in the work item form layout for a work item type.
@@ -318,11 +318,11 @@ class WorkitemtrackingprocessPage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -354,12 +354,12 @@ class WorkitemtrackingprocessPage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            process_id: Optional[pulumi.Input[_builtins.str]] = None,
-            sections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessPageSectionArgs', 'WorkitemtrackingprocessPageSectionArgsDict']]]]] = None,
-            visible: Optional[pulumi.Input[_builtins.bool]] = None,
-            work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessPage':
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessPageSectionArgs', 'WorkitemtrackingprocessPageSectionArgsDict']]]]] = None,
+            visible: pulumi.Input[Optional[_builtins.bool]] = None,
+            work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessPage':
         """
         Get an existing WorkitemtrackingprocessPage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

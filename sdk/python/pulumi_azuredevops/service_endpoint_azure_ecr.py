@@ -23,14 +23,14 @@ class ServiceEndpointAzureEcrArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
-                 azurecr_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_spn_tenantid: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_authentication_scheme: Optional[pulumi.Input[_builtins.str]] = None):
+                 azurecr_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['ServiceEndpointAzureEcrCredentialsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_authentication_scheme: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointAzureEcr resource.
 
@@ -90,122 +90,122 @@ class ServiceEndpointAzureEcrArgs:
 
     @_builtins.property
     @pulumi.getter(name="azurecrName")
-    def azurecr_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azurecr_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure container registry name.
         """
         return pulumi.get(self, "azurecr_name")
 
     @azurecr_name.setter
-    def azurecr_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azurecr_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azurecr_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azurecrSpnTenantid")
-    def azurecr_spn_tenantid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azurecr_spn_tenantid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of the service principal.
         """
         return pulumi.get(self, "azurecr_spn_tenantid")
 
     @azurecr_spn_tenantid.setter
-    def azurecr_spn_tenantid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azurecr_spn_tenantid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azurecr_spn_tenantid", value)
 
     @_builtins.property
     @pulumi.getter(name="azurecrSubscriptionId")
-    def azurecr_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azurecr_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription id of the Azure targets.
         """
         return pulumi.get(self, "azurecr_subscription_id")
 
     @azurecr_subscription_id.setter
-    def azurecr_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azurecr_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azurecr_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="azurecrSubscriptionName")
-    def azurecr_subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azurecr_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription name of the Azure targets.
         """
         return pulumi.get(self, "azurecr_subscription_name")
 
     @azurecr_subscription_name.setter
-    def azurecr_subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azurecr_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azurecr_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['ServiceEndpointAzureEcrCredentialsArgs']]:
         """
         A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['ServiceEndpointAzureEcrCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource group to which the container registry belongs.
         """
         return pulumi.get(self, "resource_group")
 
     @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointAuthenticationScheme")
-    def service_endpoint_authentication_scheme(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_authentication_scheme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
         """
         return pulumi.get(self, "service_endpoint_authentication_scheme")
 
     @service_endpoint_authentication_scheme.setter
-    def service_endpoint_authentication_scheme(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_authentication_scheme(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_authentication_scheme", value)
 
 
 @pulumi.input_type
 class _ServiceEndpointAzureEcrState:
     def __init__(__self__, *,
-                 app_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 az_spn_role_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 az_spn_role_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_spn_tenantid: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_authentication_scheme: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 spn_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_identity_federation_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload_identity_federation_subject: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 az_spn_role_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 az_spn_role_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['ServiceEndpointAzureEcrCredentialsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_authentication_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 spn_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_identity_federation_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_identity_federation_subject: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointAzureEcr resources.
 
@@ -262,203 +262,203 @@ class _ServiceEndpointAzureEcrState:
 
     @_builtins.property
     @pulumi.getter(name="appObjectId")
-    def app_object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "app_object_id")
 
     @app_object_id.setter
-    def app_object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_object_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="azSpnRoleAssignmentId")
-    def az_spn_role_assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def az_spn_role_assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "az_spn_role_assignment_id")
 
     @az_spn_role_assignment_id.setter
-    def az_spn_role_assignment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def az_spn_role_assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "az_spn_role_assignment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="azSpnRolePermissions")
-    def az_spn_role_permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def az_spn_role_permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "az_spn_role_permissions")
 
     @az_spn_role_permissions.setter
-    def az_spn_role_permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def az_spn_role_permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "az_spn_role_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="azurecrName")
-    def azurecr_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azurecr_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure container registry name.
         """
         return pulumi.get(self, "azurecr_name")
 
     @azurecr_name.setter
-    def azurecr_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azurecr_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azurecr_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azurecrSpnTenantid")
-    def azurecr_spn_tenantid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azurecr_spn_tenantid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tenant id of the service principal.
         """
         return pulumi.get(self, "azurecr_spn_tenantid")
 
     @azurecr_spn_tenantid.setter
-    def azurecr_spn_tenantid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azurecr_spn_tenantid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azurecr_spn_tenantid", value)
 
     @_builtins.property
     @pulumi.getter(name="azurecrSubscriptionId")
-    def azurecr_subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azurecr_subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription id of the Azure targets.
         """
         return pulumi.get(self, "azurecr_subscription_id")
 
     @azurecr_subscription_id.setter
-    def azurecr_subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azurecr_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azurecr_subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="azurecrSubscriptionName")
-    def azurecr_subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azurecr_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription name of the Azure targets.
         """
         return pulumi.get(self, "azurecr_subscription_name")
 
     @azurecr_subscription_name.setter
-    def azurecr_subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azurecr_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azurecr_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['ServiceEndpointAzureEcrCredentialsArgs']]:
         """
         A `credentials` block as defined below.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['ServiceEndpointAzureEcrCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['ServiceEndpointAzureEcrCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource group to which the container registry belongs.
         """
         return pulumi.get(self, "resource_group")
 
     @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointAuthenticationScheme")
-    def service_endpoint_authentication_scheme(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_authentication_scheme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility. `ManagedServiceIdentity` has not yet been implemented for this resource.
         """
         return pulumi.get(self, "service_endpoint_authentication_scheme")
 
     @service_endpoint_authentication_scheme.setter
-    def service_endpoint_authentication_scheme(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_authentication_scheme(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_authentication_scheme", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name you will use to refer to this service connection in task inputs.
         """
         return pulumi.get(self, "service_endpoint_name")
 
     @service_endpoint_name.setter
-    def service_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipalId")
-    def service_principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application(Client) ID of the Service Principal.
         """
         return pulumi.get(self, "service_principal_id")
 
     @service_principal_id.setter
-    def service_principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="spnObjectId")
-    def spn_object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spn_object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "spn_object_id")
 
     @spn_object_id.setter
-    def spn_object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spn_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spn_object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityFederationIssuer")
-    def workload_identity_federation_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_identity_federation_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         """
         return pulumi.get(self, "workload_identity_federation_issuer")
 
     @workload_identity_federation_issuer.setter
-    def workload_identity_federation_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_identity_federation_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_identity_federation_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityFederationSubject")
-    def workload_identity_federation_subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workload_identity_federation_subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
         """
         return pulumi.get(self, "workload_identity_federation_subject")
 
     @workload_identity_federation_subject.setter
-    def workload_identity_federation_subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workload_identity_federation_subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workload_identity_federation_subject", value)
 
 
@@ -468,16 +468,16 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azurecr_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_spn_tenantid: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_authentication_scheme: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azurecr_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_authentication_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Azure Container Registry service endpoint within Azure DevOps.
@@ -679,16 +679,16 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azurecr_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_spn_tenantid: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azurecr_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_authentication_scheme: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azurecr_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azurecr_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_authentication_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -730,24 +730,24 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            az_spn_role_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            az_spn_role_permissions: Optional[pulumi.Input[_builtins.str]] = None,
-            azurecr_name: Optional[pulumi.Input[_builtins.str]] = None,
-            azurecr_spn_tenantid: Optional[pulumi.Input[_builtins.str]] = None,
-            azurecr_subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-            azurecr_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials: Optional[pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_authentication_scheme: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            spn_object_id: Optional[pulumi.Input[_builtins.str]] = None,
-            workload_identity_federation_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            workload_identity_federation_subject: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceEndpointAzureEcr':
+            app_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            az_spn_role_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            az_spn_role_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+            azurecr_name: pulumi.Input[Optional[_builtins.str]] = None,
+            azurecr_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
+            azurecr_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+            azurecr_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_authentication_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            spn_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workload_identity_federation_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            workload_identity_federation_subject: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceEndpointAzureEcr':
         """
         Get an existing ServiceEndpointAzureEcr resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -101,5 +101,5 @@ export interface GetGroupsOutputArgs {
     /**
      * The ID of the Project. If no project ID is specified all groups of an organization will be returned
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }

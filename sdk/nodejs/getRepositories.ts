@@ -135,13 +135,13 @@ export interface GetRepositoriesOutputArgs {
      *
      * DataSource without specifying any arguments will return all Git repositories of an organization.
      */
-    includeHidden?: pulumi.Input<boolean>;
+    includeHidden?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the Git repository to retrieve; requires `projectId` to be specified as well
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of project to list Git repositories
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }

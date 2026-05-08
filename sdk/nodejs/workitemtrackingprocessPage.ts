@@ -144,27 +144,27 @@ export interface WorkitemtrackingprocessPageState {
     /**
      * The label for the page.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Order in which the page should appear in the layout.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The ID of the process. Changing this forces a new page to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * The sections of the page. A `sections` block as defined below.
      */
-    sections?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessPageSection>[]>;
+    sections?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessPageSection>[] | undefined>;
     /**
      * A value indicating if the page should be visible or not. Default: `true`
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new page to be created.
      */
-    workItemTypeId?: pulumi.Input<string>;
+    workItemTypeId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface WorkitemtrackingprocessPageArgs {
     /**
      * Order in which the page should appear in the layout.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The ID of the process. Changing this forces a new page to be created.
      */
@@ -186,7 +186,7 @@ export interface WorkitemtrackingprocessPageArgs {
     /**
      * A value indicating if the page should be visible or not. Default: `true`
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new page to be created.
      */

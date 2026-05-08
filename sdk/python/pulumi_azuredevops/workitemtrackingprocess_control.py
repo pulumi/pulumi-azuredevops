@@ -25,14 +25,14 @@ class WorkitemtrackingprocessControlArgs:
                  group_id: pulumi.Input[_builtins.str],
                  process_id: pulumi.Input[_builtins.str],
                  work_item_type_reference_name: pulumi.Input[_builtins.str],
-                 contribution: Optional[pulumi.Input['WorkitemtrackingprocessControlContributionArgs']] = None,
-                 is_contribution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark: Optional[pulumi.Input[_builtins.str]] = None):
+                 contribution: pulumi.Input[Optional['WorkitemtrackingprocessControlContributionArgs']] = None,
+                 is_contribution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 watermark: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessControl resource.
 
@@ -120,119 +120,119 @@ class WorkitemtrackingprocessControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def contribution(self) -> Optional[pulumi.Input['WorkitemtrackingprocessControlContributionArgs']]:
+    def contribution(self) -> pulumi.Input[Optional['WorkitemtrackingprocessControlContributionArgs']]:
         """
         Contribution configuration for extension controls. A `contribution` block as defined below.
         """
         return pulumi.get(self, "contribution")
 
     @contribution.setter
-    def contribution(self, value: Optional[pulumi.Input['WorkitemtrackingprocessControlContributionArgs']]):
+    def contribution(self, value: pulumi.Input[Optional['WorkitemtrackingprocessControlContributionArgs']]):
         pulumi.set(self, "contribution", value)
 
     @_builtins.property
     @pulumi.getter(name="isContribution")
-    def is_contribution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_contribution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the control is a contribution (extension) control. Default: `false`
         """
         return pulumi.get(self, "is_contribution")
 
     @is_contribution.setter
-    def is_contribution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_contribution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_contribution", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for the control.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inner text of the control.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order in which the control should appear in its group.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the control is readonly. Default: `false`
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the control should be visible or not. Default: `true`
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
     @_builtins.property
     @pulumi.getter
-    def watermark(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def watermark(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Watermark text for the textbox.
         """
         return pulumi.get(self, "watermark")
 
     @watermark.setter
-    def watermark(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def watermark(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "watermark", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingprocessControlState:
     def __init__(__self__, *,
-                 contribution: Optional[pulumi.Input['WorkitemtrackingprocessControlContributionArgs']] = None,
-                 control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_contribution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 overridden: Optional[pulumi.Input[_builtins.bool]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type_reference_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 contribution: pulumi.Input[Optional['WorkitemtrackingprocessControlContributionArgs']] = None,
+                 control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_contribution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 overridden: pulumi.Input[Optional[_builtins.bool]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 watermark: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type_reference_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessControl resources.
 
@@ -285,182 +285,182 @@ class _WorkitemtrackingprocessControlState:
 
     @_builtins.property
     @pulumi.getter
-    def contribution(self) -> Optional[pulumi.Input['WorkitemtrackingprocessControlContributionArgs']]:
+    def contribution(self) -> pulumi.Input[Optional['WorkitemtrackingprocessControlContributionArgs']]:
         """
         Contribution configuration for extension controls. A `contribution` block as defined below.
         """
         return pulumi.get(self, "contribution")
 
     @contribution.setter
-    def contribution(self, value: Optional[pulumi.Input['WorkitemtrackingprocessControlContributionArgs']]):
+    def contribution(self, value: pulumi.Input[Optional['WorkitemtrackingprocessControlContributionArgs']]):
         pulumi.set(self, "contribution", value)
 
     @_builtins.property
     @pulumi.getter(name="controlId")
-    def control_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID for the control. For field controls, this is the field reference name. Changing this forces a new control to be created.
         """
         return pulumi.get(self, "control_id")
 
     @control_id.setter
-    def control_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_id", value)
 
     @_builtins.property
     @pulumi.getter(name="controlType")
-    def control_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the control (e.g., FieldControl, HtmlFieldControl, DateTimeControl).
         """
         return pulumi.get(self, "control_type")
 
     @control_type.setter
-    def control_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_type", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the group to add the control to. Changing this moves the control to the new group.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def inherited(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inherited(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating whether this layout node has been inherited from a parent layout.
         """
         return pulumi.get(self, "inherited")
 
     @inherited.setter
-    def inherited(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inherited(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inherited", value)
 
     @_builtins.property
     @pulumi.getter(name="isContribution")
-    def is_contribution(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_contribution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the control is a contribution (extension) control. Default: `false`
         """
         return pulumi.get(self, "is_contribution")
 
     @is_contribution.setter
-    def is_contribution(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_contribution(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_contribution", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for the control.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inner text of the control.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order in which the control should appear in its group.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter
-    def overridden(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overridden(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating whether this layout node has been overridden by a child layout.
         """
         return pulumi.get(self, "overridden")
 
     @overridden.setter
-    def overridden(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overridden(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overridden", value)
 
     @_builtins.property
     @pulumi.getter(name="processId")
-    def process_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the process. Changing this forces a new control to be created.
         """
         return pulumi.get(self, "process_id")
 
     @process_id.setter
-    def process_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_id", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the control is readonly. Default: `false`
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value indicating if the control should be visible or not. Default: `true`
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
     @_builtins.property
     @pulumi.getter
-    def watermark(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def watermark(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Watermark text for the textbox.
         """
         return pulumi.get(self, "watermark")
 
     @watermark.setter
-    def watermark(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def watermark(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "watermark", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemTypeReferenceName")
-    def work_item_type_reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type_reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference name of the work item type. Changing this forces a new control to be created.
         """
         return pulumi.get(self, "work_item_type_reference_name")
 
     @work_item_type_reference_name.setter
-    def work_item_type_reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type_reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type_reference_name", value)
 
 
@@ -470,18 +470,18 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contribution: Optional[pulumi.Input[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']]] = None,
-                 control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_contribution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 contribution: pulumi.Input[Optional[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']]] = None,
+                 control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_contribution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 watermark: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a control within a group for a work item type. Controls can be field controls or contribution controls (extensions).
@@ -675,18 +675,18 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contribution: Optional[pulumi.Input[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']]] = None,
-                 control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_contribution: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 watermark: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 contribution: pulumi.Input[Optional[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']]] = None,
+                 control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_contribution: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 watermark: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -729,21 +729,21 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contribution: Optional[pulumi.Input[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']]] = None,
-            control_id: Optional[pulumi.Input[_builtins.str]] = None,
-            control_type: Optional[pulumi.Input[_builtins.str]] = None,
-            group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            inherited: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_contribution: Optional[pulumi.Input[_builtins.bool]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata: Optional[pulumi.Input[_builtins.str]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            overridden: Optional[pulumi.Input[_builtins.bool]] = None,
-            process_id: Optional[pulumi.Input[_builtins.str]] = None,
-            read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            visible: Optional[pulumi.Input[_builtins.bool]] = None,
-            watermark: Optional[pulumi.Input[_builtins.str]] = None,
-            work_item_type_reference_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessControl':
+            contribution: pulumi.Input[Optional[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']]] = None,
+            control_id: pulumi.Input[Optional[_builtins.str]] = None,
+            control_type: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            inherited: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_contribution: pulumi.Input[Optional[_builtins.bool]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            overridden: pulumi.Input[Optional[_builtins.bool]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            visible: pulumi.Input[Optional[_builtins.bool]] = None,
+            watermark: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_type_reference_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessControl':
         """
         Get an existing WorkitemtrackingprocessControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

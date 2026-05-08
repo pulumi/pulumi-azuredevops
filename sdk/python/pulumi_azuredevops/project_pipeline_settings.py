@@ -20,12 +20,12 @@ __all__ = ['ProjectPipelineSettingsArgs', 'ProjectPipelineSettings']
 class ProjectPipelineSettingsArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
-                 enforce_job_scope: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_job_scope_for_release: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_referenced_repo_scoped_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_settable_var: Optional[pulumi.Input[_builtins.bool]] = None,
-                 publish_pipeline_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status_badges_are_private: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enforce_job_scope: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_job_scope_for_release: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_referenced_repo_scoped_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_settable_var: pulumi.Input[Optional[_builtins.bool]] = None,
+                 publish_pipeline_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status_badges_are_private: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ProjectPipelineSettings resource.
 
@@ -69,19 +69,19 @@ class ProjectPipelineSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="enforceJobScope")
-    def enforce_job_scope(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_job_scope(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Limit job authorization scope to current project for non-release pipelines.
         """
         return pulumi.get(self, "enforce_job_scope")
 
     @enforce_job_scope.setter
-    def enforce_job_scope(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_job_scope(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_job_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceJobScopeForRelease")
-    def enforce_job_scope_for_release(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_job_scope_for_release(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Limit job authorization scope to current project for release pipelines.
 
@@ -92,68 +92,68 @@ class ProjectPipelineSettingsArgs:
         return pulumi.get(self, "enforce_job_scope_for_release")
 
     @enforce_job_scope_for_release.setter
-    def enforce_job_scope_for_release(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_job_scope_for_release(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_job_scope_for_release", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceReferencedRepoScopedToken")
-    def enforce_referenced_repo_scoped_token(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_referenced_repo_scoped_token(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Protect access to repositories in YAML pipelines.
         """
         return pulumi.get(self, "enforce_referenced_repo_scoped_token")
 
     @enforce_referenced_repo_scoped_token.setter
-    def enforce_referenced_repo_scoped_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_referenced_repo_scoped_token(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_referenced_repo_scoped_token", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceSettableVar")
-    def enforce_settable_var(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_settable_var(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Limit variables that can be set at queue time.
         """
         return pulumi.get(self, "enforce_settable_var")
 
     @enforce_settable_var.setter
-    def enforce_settable_var(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_settable_var(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_settable_var", value)
 
     @_builtins.property
     @pulumi.getter(name="publishPipelineMetadata")
-    def publish_pipeline_metadata(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish_pipeline_metadata(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Publish metadata from pipelines.
         """
         return pulumi.get(self, "publish_pipeline_metadata")
 
     @publish_pipeline_metadata.setter
-    def publish_pipeline_metadata(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish_pipeline_metadata(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish_pipeline_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="statusBadgesArePrivate")
-    def status_badges_are_private(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def status_badges_are_private(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disable anonymous access to badges.
         """
         return pulumi.get(self, "status_badges_are_private")
 
     @status_badges_are_private.setter
-    def status_badges_are_private(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def status_badges_are_private(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "status_badges_are_private", value)
 
 
 @pulumi.input_type
 class _ProjectPipelineSettingsState:
     def __init__(__self__, *,
-                 enforce_job_scope: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_job_scope_for_release: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_referenced_repo_scoped_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_settable_var: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_pipeline_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status_badges_are_private: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enforce_job_scope: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_job_scope_for_release: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_referenced_repo_scoped_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_settable_var: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_pipeline_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status_badges_are_private: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ProjectPipelineSettings resources.
 
@@ -186,19 +186,19 @@ class _ProjectPipelineSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="enforceJobScope")
-    def enforce_job_scope(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_job_scope(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Limit job authorization scope to current project for non-release pipelines.
         """
         return pulumi.get(self, "enforce_job_scope")
 
     @enforce_job_scope.setter
-    def enforce_job_scope(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_job_scope(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_job_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceJobScopeForRelease")
-    def enforce_job_scope_for_release(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_job_scope_for_release(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Limit job authorization scope to current project for release pipelines.
 
@@ -209,67 +209,67 @@ class _ProjectPipelineSettingsState:
         return pulumi.get(self, "enforce_job_scope_for_release")
 
     @enforce_job_scope_for_release.setter
-    def enforce_job_scope_for_release(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_job_scope_for_release(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_job_scope_for_release", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceReferencedRepoScopedToken")
-    def enforce_referenced_repo_scoped_token(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_referenced_repo_scoped_token(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Protect access to repositories in YAML pipelines.
         """
         return pulumi.get(self, "enforce_referenced_repo_scoped_token")
 
     @enforce_referenced_repo_scoped_token.setter
-    def enforce_referenced_repo_scoped_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_referenced_repo_scoped_token(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_referenced_repo_scoped_token", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceSettableVar")
-    def enforce_settable_var(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforce_settable_var(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Limit variables that can be set at queue time.
         """
         return pulumi.get(self, "enforce_settable_var")
 
     @enforce_settable_var.setter
-    def enforce_settable_var(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforce_settable_var(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforce_settable_var", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project for which the project pipeline settings will be managed.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="publishPipelineMetadata")
-    def publish_pipeline_metadata(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish_pipeline_metadata(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Publish metadata from pipelines.
         """
         return pulumi.get(self, "publish_pipeline_metadata")
 
     @publish_pipeline_metadata.setter
-    def publish_pipeline_metadata(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish_pipeline_metadata(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish_pipeline_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="statusBadgesArePrivate")
-    def status_badges_are_private(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def status_badges_are_private(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disable anonymous access to badges.
         """
         return pulumi.get(self, "status_badges_are_private")
 
     @status_badges_are_private.setter
-    def status_badges_are_private(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def status_badges_are_private(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "status_badges_are_private", value)
 
 
@@ -279,13 +279,13 @@ class ProjectPipelineSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enforce_job_scope: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_job_scope_for_release: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_referenced_repo_scoped_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_settable_var: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_pipeline_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status_badges_are_private: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enforce_job_scope: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_job_scope_for_release: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_referenced_repo_scoped_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_settable_var: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_pipeline_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status_badges_are_private: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages Pipeline Settings for Azure DevOps projects
@@ -404,13 +404,13 @@ class ProjectPipelineSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enforce_job_scope: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_job_scope_for_release: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_referenced_repo_scoped_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforce_settable_var: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_pipeline_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status_badges_are_private: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enforce_job_scope: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_job_scope_for_release: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_referenced_repo_scoped_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforce_settable_var: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_pipeline_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status_badges_are_private: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -439,13 +439,13 @@ class ProjectPipelineSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enforce_job_scope: Optional[pulumi.Input[_builtins.bool]] = None,
-            enforce_job_scope_for_release: Optional[pulumi.Input[_builtins.bool]] = None,
-            enforce_referenced_repo_scoped_token: Optional[pulumi.Input[_builtins.bool]] = None,
-            enforce_settable_var: Optional[pulumi.Input[_builtins.bool]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            publish_pipeline_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-            status_badges_are_private: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ProjectPipelineSettings':
+            enforce_job_scope: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforce_job_scope_for_release: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforce_referenced_repo_scoped_token: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforce_settable_var: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            publish_pipeline_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+            status_badges_are_private: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ProjectPipelineSettings':
         """
         Get an existing ProjectPipelineSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

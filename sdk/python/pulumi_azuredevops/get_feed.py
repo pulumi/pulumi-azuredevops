@@ -135,9 +135,9 @@ def get_feed(feed_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         project_id=pulumi.get(__ret__, 'project_id'))
-def get_feed_output(feed_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    project_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_feed_output(feed_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    project_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeedResult]:
     """
     Use this data source to access information about existing Feed within a given project in Azure DevOps.

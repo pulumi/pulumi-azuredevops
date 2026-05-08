@@ -23,7 +23,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Index.Project("example", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // azure container registry service connection
-    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.Index.ServiceEndpointAzureEcr("example", new()
+    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ServiceEndpointName = "Example AzureCR",
@@ -58,7 +58,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new AzureDevOps.Index.Project("example", new()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
     ///         Name = "Example Project",
     ///         Visibility = "private",
@@ -67,13 +67,13 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Managed by Pulumi",
     ///     });
     /// 
-    ///     var identity = new Azurerm.Index.ResourceGroup("identity", new()
+    ///     var identity = new Azurerm.ResourceGroup("identity", new()
     ///     {
     ///         Name = "identity",
     ///         Location = "UK South",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azurerm.Index.UserAssignedIdentity("example", new()
+    ///     var exampleUserAssignedIdentity = new Azurerm.UserAssignedIdentity("example", new()
     ///     {
     ///         Location = identity.Location,
     ///         Name = "example-identity",
@@ -81,7 +81,7 @@ namespace Pulumi.AzureDevOps
     ///     });
     /// 
     ///     // azure container registry service connection
-    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.Index.ServiceEndpointAzureEcr("example", new()
+    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("example", new()
     ///     {
     ///         ProjectId = example.Id,
     ///         ResourceGroup = "Example AzureCR ResourceGroup",
@@ -97,7 +97,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///     });
     /// 
-    ///     var exampleFederatedIdentityCredential = new Azurerm.Index.FederatedIdentityCredential("example", new()
+    ///     var exampleFederatedIdentityCredential = new Azurerm.FederatedIdentityCredential("example", new()
     ///     {
     ///         Name = "example-federated-credential",
     ///         ResourceGroupName = identity.Name,

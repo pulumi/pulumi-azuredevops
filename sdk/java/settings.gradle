@@ -11,4 +11,3 @@ pluginManagement {
 }
 
 rootProject.name = "com.pulumi.azuredevops"
-include("lib")

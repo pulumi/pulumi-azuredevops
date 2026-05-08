@@ -127,8 +127,8 @@ def get_projects(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         projects=pulumi.get(__ret__, 'projects'),
         state=pulumi.get(__ret__, 'state'))
-def get_projects_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_projects_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectsResult]:
     """
     Use this data source to access information about existing Projects within Azure DevOps.

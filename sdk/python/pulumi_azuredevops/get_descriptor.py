@@ -101,7 +101,7 @@ def get_descriptor(storage_key: Optional[_builtins.str] = None,
         descriptor=pulumi.get(__ret__, 'descriptor'),
         id=pulumi.get(__ret__, 'id'),
         storage_key=pulumi.get(__ret__, 'storage_key'))
-def get_descriptor_output(storage_key: Optional[pulumi.Input[_builtins.str]] = None,
+def get_descriptor_output(storage_key: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDescriptorResult]:
     """
     Use this data source to access information about an existing Descriptor.

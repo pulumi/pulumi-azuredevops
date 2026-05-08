@@ -370,79 +370,79 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointAzureRM resources.
  */
 export interface ServiceEndpointAzureRMState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Management group ID of the Azure targets.
      */
-    azurermManagementGroupId?: pulumi.Input<string>;
+    azurermManagementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The Management group Name of the targets.
      */
-    azurermManagementGroupName?: pulumi.Input<string>;
+    azurermManagementGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Tenant ID of the service principal.
      */
-    azurermSpnTenantid?: pulumi.Input<string>;
+    azurermSpnTenantid?: pulumi.Input<string | undefined>;
     /**
      * The Subscription ID of the Azure targets.
      */
-    azurermSubscriptionId?: pulumi.Input<string>;
+    azurermSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The Subscription Name of the targets.
      */
-    azurermSubscriptionName?: pulumi.Input<string>;
+    azurermSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * A `credentials` block as defined below.
      */
-    credentials?: pulumi.Input<inputs.ServiceEndpointAzureRMCredentials>;
+    credentials?: pulumi.Input<inputs.ServiceEndpointAzureRMCredentials | undefined>;
     /**
      * Service connection description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * A `features` block as defined below.
      */
-    features?: pulumi.Input<inputs.ServiceEndpointAzureRMFeatures>;
+    features?: pulumi.Input<inputs.ServiceEndpointAzureRMFeatures | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The resource group used for scope of automatic service endpoint.
      */
-    resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string | undefined>;
     /**
      * The server URL of the service endpoint. Changing this forces a new resource to be created.
      *
      * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      */
-    serverUrl?: pulumi.Input<string>;
+    serverUrl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      *
      * > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      */
-    serviceEndpointAuthenticationScheme?: pulumi.Input<string>;
+    serviceEndpointAuthenticationScheme?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint Name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The Application(Client) ID of the Service Principal.
      */
-    servicePrincipalId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string | undefined>;
     /**
      * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      */
-    workloadIdentityFederationIssuer?: pulumi.Input<string>;
+    workloadIdentityFederationIssuer?: pulumi.Input<string | undefined>;
     /**
      * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
      */
-    workloadIdentityFederationSubject?: pulumi.Input<string>;
+    workloadIdentityFederationSubject?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -452,39 +452,39 @@ export interface ServiceEndpointAzureRMArgs {
     /**
      * The Management group ID of the Azure targets.
      */
-    azurermManagementGroupId?: pulumi.Input<string>;
+    azurermManagementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The Management group Name of the targets.
      */
-    azurermManagementGroupName?: pulumi.Input<string>;
+    azurermManagementGroupName?: pulumi.Input<string | undefined>;
     /**
      * The Tenant ID of the service principal.
      */
-    azurermSpnTenantid?: pulumi.Input<string>;
+    azurermSpnTenantid?: pulumi.Input<string | undefined>;
     /**
      * The Subscription ID of the Azure targets.
      */
-    azurermSubscriptionId?: pulumi.Input<string>;
+    azurermSubscriptionId?: pulumi.Input<string | undefined>;
     /**
      * The Subscription Name of the targets.
      */
-    azurermSubscriptionName?: pulumi.Input<string>;
+    azurermSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * A `credentials` block as defined below.
      */
-    credentials?: pulumi.Input<inputs.ServiceEndpointAzureRMCredentials>;
+    credentials?: pulumi.Input<inputs.ServiceEndpointAzureRMCredentials | undefined>;
     /**
      * Service connection description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * A `features` block as defined below.
      */
-    features?: pulumi.Input<inputs.ServiceEndpointAzureRMFeatures>;
+    features?: pulumi.Input<inputs.ServiceEndpointAzureRMFeatures | undefined>;
     /**
      * The ID of the project.
      */
@@ -492,19 +492,19 @@ export interface ServiceEndpointAzureRMArgs {
     /**
      * The resource group used for scope of automatic service endpoint.
      */
-    resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string | undefined>;
     /**
      * The server URL of the service endpoint. Changing this forces a new resource to be created.
      *
      * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      */
-    serverUrl?: pulumi.Input<string>;
+    serverUrl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of Azure Resource Manager Service Endpoint. Possible values are `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
      *
      * > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      */
-    serviceEndpointAuthenticationScheme?: pulumi.Input<string>;
+    serviceEndpointAuthenticationScheme?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint Name.
      */

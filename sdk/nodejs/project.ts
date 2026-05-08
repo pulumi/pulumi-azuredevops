@@ -162,7 +162,7 @@ export interface ProjectState {
      * The Description of the Project.
      * *
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      *
@@ -178,27 +178,27 @@ export interface ProjectState {
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
-    features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    features?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Project Name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Process Template ID used by the Project.
      */
-    processTemplateId?: pulumi.Input<string>;
+    processTemplateId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
      */
-    versionControl?: pulumi.Input<string>;
+    versionControl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
     /**
      * Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      */
-    workItemTemplate?: pulumi.Input<string>;
+    workItemTemplate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,7 +209,7 @@ export interface ProjectArgs {
      * The Description of the Project.
      * *
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features. Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      *
@@ -225,21 +225,21 @@ export interface ProjectArgs {
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
-    features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    features?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Project Name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version control system. Possbile values are: `Git` or `Tfvc`. Defaults to `Git`.
      */
-    versionControl?: pulumi.Input<string>;
+    versionControl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the visibility of the Project. Possible values are: `private` or `public`. Defaults to `private`.
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
     /**
      * Specifies the work item template. Possible values are: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      */
-    workItemTemplate?: pulumi.Input<string>;
+    workItemTemplate?: pulumi.Input<string | undefined>;
 }

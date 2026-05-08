@@ -20,9 +20,9 @@ __all__ = ['WorkitemtrackingprocessListArgs', 'WorkitemtrackingprocessList']
 class WorkitemtrackingprocessListArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 is_suggested: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessList resource.
 
@@ -53,49 +53,49 @@ class WorkitemtrackingprocessListArgs:
 
     @_builtins.property
     @pulumi.getter(name="isSuggested")
-    def is_suggested(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_suggested(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether items outside of the suggested list are allowed. Defaults to `false`.
         """
         return pulumi.get(self, "is_suggested")
 
     @is_suggested.setter
-    def is_suggested(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_suggested(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_suggested", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the list.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data type of the list. Valid values: `string`, `integer`. Defaults to `string`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingprocessListState:
     def __init__(__self__, *,
-                 is_suggested: Optional[pulumi.Input[_builtins.bool]] = None,
-                 items: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+                 items: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessList resources.
 
@@ -118,62 +118,62 @@ class _WorkitemtrackingprocessListState:
 
     @_builtins.property
     @pulumi.getter(name="isSuggested")
-    def is_suggested(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_suggested(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether items outside of the suggested list are allowed. Defaults to `false`.
         """
         return pulumi.get(self, "is_suggested")
 
     @is_suggested.setter
-    def is_suggested(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_suggested(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_suggested", value)
 
     @_builtins.property
     @pulumi.getter
-    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def items(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of items.
         """
         return pulumi.get(self, "items")
 
     @items.setter
-    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def items(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "items", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the list.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data type of the list. Valid values: `string`, `integer`. Defaults to `string`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the list.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -183,10 +183,10 @@ class WorkitemtrackingprocessList(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_suggested: Optional[pulumi.Input[_builtins.bool]] = None,
-                 items: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+                 items: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an organization-scoped list for work item tracking processes.
@@ -328,10 +328,10 @@ class WorkitemtrackingprocessList(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_suggested: Optional[pulumi.Input[_builtins.bool]] = None,
-                 items: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+                 items: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -358,11 +358,11 @@ class WorkitemtrackingprocessList(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            is_suggested: Optional[pulumi.Input[_builtins.bool]] = None,
-            items: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessList':
+            is_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+            items: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessList':
         """
         Get an existing WorkitemtrackingprocessList resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

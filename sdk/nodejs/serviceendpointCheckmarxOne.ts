@@ -186,38 +186,38 @@ export interface ServiceendpointCheckmarxOneState {
     /**
      * The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
      */
-    apiKey?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    apiKey?: pulumi.Input<string | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
      */
-    authorizationUrl?: pulumi.Input<string>;
+    authorizationUrl?: pulumi.Input<string | undefined>;
     /**
      * The Client ID of the Checkmarx One. Conflict with `apiKey`
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The Client Secret of the Checkmarx One. Conflict with `apiKey`
      *
      * > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Server URL of the Checkmarx One Service.
      */
-    serverUrl?: pulumi.Input<string>;
+    serverUrl?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -227,25 +227,25 @@ export interface ServiceendpointCheckmarxOneArgs {
     /**
      * The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * The URL of Checkmarx Authorization. Used when using `clientId` and `clientSecret` authorization.
      */
-    authorizationUrl?: pulumi.Input<string>;
+    authorizationUrl?: pulumi.Input<string | undefined>;
     /**
      * The Client ID of the Checkmarx One. Conflict with `apiKey`
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The Client Secret of the Checkmarx One. Conflict with `apiKey`
      *
      * > **Note** At least one of `apiKey` and `clientId`, `clientSecret` must be set
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

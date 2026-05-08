@@ -64,7 +64,7 @@ import * as utilities from "./utilities";
  * const examplePool = new azuredevops.Pool("example", {name: "example-pool"});
  * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: example.id,
- *     agentPoolId: examplePool.id,
+ *     agentPoolId: examplePool.id.apply(x =>Number(x)),
  * });
  * const exampleCheckBranchControl = new azuredevops.CheckBranchControl("example", {
  *     projectId: example.id,
@@ -259,39 +259,39 @@ export interface CheckBranchControlState {
     /**
      * The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
      */
-    allowedBranches?: pulumi.Input<string>;
+    allowedBranches?: pulumi.Input<string | undefined>;
     /**
      * The name of the branch control check displayed in the web UI.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Allow deployment from branches for which protection status could not be obtained. Only relevant when verifyBranchProtection is `true`. Defaults to `false`.
      */
-    ignoreUnknownProtectionStatus?: pulumi.Input<boolean>;
+    ignoreUnknownProtectionStatus?: pulumi.Input<boolean | undefined>;
     /**
      * The project ID.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource being protected by the check.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      */
-    targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string | undefined>;
     /**
      * The timeout in minutes for the branch control check. Defaults to `1440`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Validate the branches being deployed are protected. Defaults to `false`.
      */
-    verifyBranchProtection?: pulumi.Input<boolean>;
+    verifyBranchProtection?: pulumi.Input<boolean | undefined>;
     /**
      * The version of the check.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -301,15 +301,15 @@ export interface CheckBranchControlArgs {
     /**
      * The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
      */
-    allowedBranches?: pulumi.Input<string>;
+    allowedBranches?: pulumi.Input<string | undefined>;
     /**
      * The name of the branch control check displayed in the web UI.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Allow deployment from branches for which protection status could not be obtained. Only relevant when verifyBranchProtection is `true`. Defaults to `false`.
      */
-    ignoreUnknownProtectionStatus?: pulumi.Input<boolean>;
+    ignoreUnknownProtectionStatus?: pulumi.Input<boolean | undefined>;
     /**
      * The project ID.
      */
@@ -325,9 +325,9 @@ export interface CheckBranchControlArgs {
     /**
      * The timeout in minutes for the branch control check. Defaults to `1440`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Validate the branches being deployed are protected. Defaults to `false`.
      */
-    verifyBranchProtection?: pulumi.Input<boolean>;
+    verifyBranchProtection?: pulumi.Input<boolean | undefined>;
 }

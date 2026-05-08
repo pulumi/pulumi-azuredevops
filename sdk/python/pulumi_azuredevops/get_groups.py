@@ -105,7 +105,7 @@ def get_groups(project_id: Optional[_builtins.str] = None,
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'),
         project_id=pulumi.get(__ret__, 'project_id'))
-def get_groups_output(project_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_groups_output(project_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupsResult]:
     """
     Use this data source to access information about existing Groups within Azure DevOps

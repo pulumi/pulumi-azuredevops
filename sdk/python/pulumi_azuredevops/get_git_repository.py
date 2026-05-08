@@ -211,8 +211,8 @@ def get_git_repository(name: Optional[_builtins.str] = None,
         ssh_url=pulumi.get(__ret__, 'ssh_url'),
         url=pulumi.get(__ret__, 'url'),
         web_url=pulumi.get(__ret__, 'web_url'))
-def get_git_repository_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                              project_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_git_repository_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                              project_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGitRepositoryResult]:
     """
     Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.

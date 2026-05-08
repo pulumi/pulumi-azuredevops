@@ -185,11 +185,11 @@ def get_users(features: Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeatures
         principal_name=pulumi.get(__ret__, 'principal_name'),
         subject_types=pulumi.get(__ret__, 'subject_types'),
         users=pulumi.get(__ret__, 'users'))
-def get_users_output(features: Optional[pulumi.Input[Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict']]]] = None,
-                     origin: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     origin_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     principal_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     subject_types: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_users_output(features: pulumi.Input[Optional[Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict']]]] = None,
+                     origin: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     origin_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     principal_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     subject_types: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to access information about an existing users within Azure DevOps.

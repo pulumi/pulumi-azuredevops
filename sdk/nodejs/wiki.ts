@@ -159,35 +159,35 @@ export interface WikiState {
     /**
      * Folder path inside repository which is shown as Wiki.
      */
-    mappedPath?: pulumi.Input<string>;
+    mappedPath?: pulumi.Input<string | undefined>;
     /**
      * The name of the Wiki.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The remote web url to the wiki.
      */
-    remoteUrl?: pulumi.Input<string>;
+    remoteUrl?: pulumi.Input<string | undefined>;
     /**
      * The ID of the repository.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The REST url for this wiki.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * Version of the wiki.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -197,19 +197,19 @@ export interface WikiArgs {
     /**
      * Folder path inside repository which is shown as Wiki.
      */
-    mappedPath?: pulumi.Input<string>;
+    mappedPath?: pulumi.Input<string | undefined>;
     /**
      * The name of the Wiki.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the repository.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * The type of the wiki. Possible values are `codeWiki`, `projectWiki`.
      */
@@ -217,5 +217,5 @@ export interface WikiArgs {
     /**
      * Version of the wiki.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
