@@ -180,7 +180,7 @@ def get_user(descriptor: Optional[_builtins.str] = None,
         origin_id=pulumi.get(__ret__, 'origin_id'),
         principal_name=pulumi.get(__ret__, 'principal_name'),
         subject_kind=pulumi.get(__ret__, 'subject_kind'))
-def get_user_output(descriptor: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(descriptor: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to access information about an existing user within Azure DevOps.

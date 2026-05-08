@@ -146,19 +146,19 @@ export interface WorkitemqueryFolderState {
     /**
      * Root folder. Must be one of `Shared Queries` or `My Queries`.
      */
-    area?: pulumi.Input<string>;
+    area?: pulumi.Input<string | undefined>;
     /**
      * The display name of the folder.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the parent query folder.
      */
-    parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project containing the folder.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,15 +168,15 @@ export interface WorkitemqueryFolderArgs {
     /**
      * Root folder. Must be one of `Shared Queries` or `My Queries`.
      */
-    area?: pulumi.Input<string>;
+    area?: pulumi.Input<string | undefined>;
     /**
      * The display name of the folder.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the parent query folder.
      */
-    parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project containing the folder.
      */

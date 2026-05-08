@@ -157,39 +157,39 @@ export interface CheckApprovalState {
     /**
      * Specifies a list of approver IDs.
      */
-    approvers?: pulumi.Input<pulumi.Input<string>[]>;
+    approvers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The instructions for the approvers.
      */
-    instructions?: pulumi.Input<string>;
+    instructions?: pulumi.Input<string | undefined>;
     /**
      * The minimum number of approvers. This property is applicable when there is more than 1 approver.
      */
-    minimumRequiredApprovers?: pulumi.Input<number>;
+    minimumRequiredApprovers?: pulumi.Input<number | undefined>;
     /**
      * The project ID. Changing this forces a new Approval Check to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Can the requestor approve? Defaults to `false`.
      */
-    requesterCanApprove?: pulumi.Input<boolean>;
+    requesterCanApprove?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the resource being protected by the check. Changing this forces a new Approval Check to be created.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Approval Check to be created.
      */
-    targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string | undefined>;
     /**
      * The timeout in minutes for the approval.  Defaults to `43200`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * The version of the check.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -203,11 +203,11 @@ export interface CheckApprovalArgs {
     /**
      * The instructions for the approvers.
      */
-    instructions?: pulumi.Input<string>;
+    instructions?: pulumi.Input<string | undefined>;
     /**
      * The minimum number of approvers. This property is applicable when there is more than 1 approver.
      */
-    minimumRequiredApprovers?: pulumi.Input<number>;
+    minimumRequiredApprovers?: pulumi.Input<number | undefined>;
     /**
      * The project ID. Changing this forces a new Approval Check to be created.
      */
@@ -215,7 +215,7 @@ export interface CheckApprovalArgs {
     /**
      * Can the requestor approve? Defaults to `false`.
      */
-    requesterCanApprove?: pulumi.Input<boolean>;
+    requesterCanApprove?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the resource being protected by the check. Changing this forces a new Approval Check to be created.
      */
@@ -227,5 +227,5 @@ export interface CheckApprovalArgs {
     /**
      * The timeout in minutes for the approval.  Defaults to `43200`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }

@@ -244,72 +244,72 @@ export interface CheckRestApiState {
     /**
      * The Rest API request body.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * The completion event of the Rest API call. Possible values: `Callback`, `ApiResponse`. Defaults to `Callback`.
      */
-    completionEvent?: pulumi.Input<string>;
+    completionEvent?: pulumi.Input<string | undefined>;
     /**
      * The name of the Service Connection.
      */
-    connectedServiceName?: pulumi.Input<string>;
+    connectedServiceName?: pulumi.Input<string | undefined>;
     /**
      * The type of the Service Connection used to invoke the REST API. Possible values: `connectedServiceName`(**Generic** type service connection) and `connectedServiceNameARM`(**Azure Resource Manager** type service connection).
      */
-    connectedServiceNameSelector?: pulumi.Input<string>;
+    connectedServiceNameSelector?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Rest API check.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The headers of the request in JSON format.
      */
-    headers?: pulumi.Input<string>;
+    headers?: pulumi.Input<string | undefined>;
     /**
      * The HTTP method of the request. Possible values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new resource to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The time between evaluations (minutes). 
      *
      * ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retryInterval` should be `0` or no less then `400`.
      * <br>2. `retryInterval` is not required when `completion_event=Callback`.
      */
-    retryInterval?: pulumi.Input<number>;
+    retryInterval?: pulumi.Input<number | undefined>;
     /**
      * The Criteria which defines when to pass the task. No criteria means response content does not influence the result.
      *
      * ~>**NOTE** `successCriteria` is used when `completion_event=ApiResponse`
      */
-    successCriteria?: pulumi.Input<string>;
+    successCriteria?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource being protected by the check. Changing this forces a new resource to be created
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * The type of resource being protected by the check. Possible values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new resource to be created.
      */
-    targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string | undefined>;
     /**
      * The timeout in minutes for the Rest API check. Defaults to `1440`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * The URL suffix and parameters.
      */
-    urlSuffix?: pulumi.Input<string>;
+    urlSuffix?: pulumi.Input<string | undefined>;
     /**
      * The name of the Variable Group.
      */
-    variableGroupName?: pulumi.Input<string>;
+    variableGroupName?: pulumi.Input<string | undefined>;
     /**
      * The version of the Rest API check.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -319,11 +319,11 @@ export interface CheckRestApiArgs {
     /**
      * The Rest API request body.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * The completion event of the Rest API call. Possible values: `Callback`, `ApiResponse`. Defaults to `Callback`.
      */
-    completionEvent?: pulumi.Input<string>;
+    completionEvent?: pulumi.Input<string | undefined>;
     /**
      * The name of the Service Connection.
      */
@@ -339,7 +339,7 @@ export interface CheckRestApiArgs {
     /**
      * The headers of the request in JSON format.
      */
-    headers?: pulumi.Input<string>;
+    headers?: pulumi.Input<string | undefined>;
     /**
      * The HTTP method of the request. Possible values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`
      */
@@ -354,13 +354,13 @@ export interface CheckRestApiArgs {
      * ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retryInterval` should be `0` or no less then `400`.
      * <br>2. `retryInterval` is not required when `completion_event=Callback`.
      */
-    retryInterval?: pulumi.Input<number>;
+    retryInterval?: pulumi.Input<number | undefined>;
     /**
      * The Criteria which defines when to pass the task. No criteria means response content does not influence the result.
      *
      * ~>**NOTE** `successCriteria` is used when `completion_event=ApiResponse`
      */
-    successCriteria?: pulumi.Input<string>;
+    successCriteria?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource being protected by the check. Changing this forces a new resource to be created
      */
@@ -372,13 +372,13 @@ export interface CheckRestApiArgs {
     /**
      * The timeout in minutes for the Rest API check. Defaults to `1440`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * The URL suffix and parameters.
      */
-    urlSuffix?: pulumi.Input<string>;
+    urlSuffix?: pulumi.Input<string | undefined>;
     /**
      * The name of the Variable Group.
      */
-    variableGroupName?: pulumi.Input<string>;
+    variableGroupName?: pulumi.Input<string | undefined>;
 }

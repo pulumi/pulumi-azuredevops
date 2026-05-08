@@ -22,12 +22,12 @@ __all__ = ['WorkitemtrackingprocessWorkitemtypeArgs', 'WorkitemtrackingprocessWo
 class WorkitemtrackingprocessWorkitemtypeArgs:
     def __init__(__self__, *,
                  process_id: pulumi.Input[_builtins.str],
-                 color: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_work_item_reference_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_work_item_reference_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessWorkitemtype resource.
 
@@ -67,90 +67,90 @@ class WorkitemtrackingprocessWorkitemtypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def color(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Color hexadecimal code to represent the work item type. Default: "#009ccc"
         """
         return pulumi.get(self, "color")
 
     @color.setter
-    def color(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "color", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the work item type.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def icon(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Icon to represent the work item type. Default: "icon_clipboard"
         """
         return pulumi.get(self, "icon")
 
     @icon.setter
-    def icon(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if the work item type is enabled. Default: true
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of work item type. Changing this forces a new work item type to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentWorkItemReferenceName")
-    def parent_work_item_reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_work_item_reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference name of the parent work item type. Changing this forces a new work item type to be created.
         """
         return pulumi.get(self, "parent_work_item_reference_name")
 
     @parent_work_item_reference_name.setter
-    def parent_work_item_reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_work_item_reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_work_item_reference_name", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingprocessWorkitemtypeState:
     def __init__(__self__, *,
-                 color: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pages: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageArgs']]]] = None,
-                 parent_work_item_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageArgs']]]] = None,
+                 parent_work_item_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessWorkitemtype resources.
 
@@ -188,122 +188,122 @@ class _WorkitemtrackingprocessWorkitemtypeState:
 
     @_builtins.property
     @pulumi.getter
-    def color(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Color hexadecimal code to represent the work item type. Default: "#009ccc"
         """
         return pulumi.get(self, "color")
 
     @color.setter
-    def color(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "color", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the work item type.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def icon(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icon(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Icon to represent the work item type. Default: "icon_clipboard"
         """
         return pulumi.get(self, "icon")
 
     @icon.setter
-    def icon(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icon(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icon", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True if the work item type is enabled. Default: true
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of work item type. Changing this forces a new work item type to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageArgs']]]]:
+    def pages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageArgs']]]]:
         """
         A `pages` block as defined below.
         """
         return pulumi.get(self, "pages")
 
     @pages.setter
-    def pages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageArgs']]]]):
+    def pages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageArgs']]]]):
         pulumi.set(self, "pages", value)
 
     @_builtins.property
     @pulumi.getter(name="parentWorkItemReferenceName")
-    def parent_work_item_reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_work_item_reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference name of the parent work item type. Changing this forces a new work item type to be created.
         """
         return pulumi.get(self, "parent_work_item_reference_name")
 
     @parent_work_item_reference_name.setter
-    def parent_work_item_reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_work_item_reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_work_item_reference_name", value)
 
     @_builtins.property
     @pulumi.getter(name="processId")
-    def process_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the process the work item type belongs to. Changing this forces a new work item type to be created.
         """
         return pulumi.get(self, "process_id")
 
     @process_id.setter
-    def process_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_id", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference name of the work item type.
         """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
-    def reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Url of the work item type.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -313,13 +313,13 @@ class WorkitemtrackingprocessWorkitemtype(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 color: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_work_item_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_work_item_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a work item type for a process.
@@ -418,13 +418,13 @@ class WorkitemtrackingprocessWorkitemtype(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 color: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_work_item_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_work_item_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -456,16 +456,16 @@ class WorkitemtrackingprocessWorkitemtype(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            color: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            icon: Optional[pulumi.Input[_builtins.str]] = None,
-            is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessWorkitemtypePageArgs', 'WorkitemtrackingprocessWorkitemtypePageArgsDict']]]]] = None,
-            parent_work_item_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-            process_id: Optional[pulumi.Input[_builtins.str]] = None,
-            reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessWorkitemtype':
+            color: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            icon: pulumi.Input[Optional[_builtins.str]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessWorkitemtypePageArgs', 'WorkitemtrackingprocessWorkitemtypePageArgsDict']]]]] = None,
+            parent_work_item_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessWorkitemtype':
         """
         Get an existing WorkitemtrackingprocessWorkitemtype resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

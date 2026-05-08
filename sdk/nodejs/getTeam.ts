@@ -150,5 +150,5 @@ export interface GetTeamOutputArgs {
      *
      * @deprecated This property is deprecated and will be removed in the feature
      */
-    top?: pulumi.Input<number>;
+    top?: pulumi.Input<number | undefined>;
 }

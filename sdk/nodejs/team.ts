@@ -163,15 +163,15 @@ export interface TeamState {
      * `azuredevops.TeamAdministrators` resource. However it's not possible to use
      * both methods to manage team administrators, since there'll be conflicts.
      */
-    administrators?: pulumi.Input<pulumi.Input<string>[]>;
+    administrators?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the Team.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The descriptor of the Team.
      */
-    descriptor?: pulumi.Input<string>;
+    descriptor?: pulumi.Input<string | undefined>;
     /**
      * List of subject descriptors to define members of the team.
      *
@@ -180,15 +180,15 @@ export interface TeamState {
      * `azuredevops.TeamMembers` resource. However it's not possible to use
      * both methods to manage team members, since there'll be conflicts.
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Team.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Project ID.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -203,11 +203,11 @@ export interface TeamArgs {
      * `azuredevops.TeamAdministrators` resource. However it's not possible to use
      * both methods to manage team administrators, since there'll be conflicts.
      */
-    administrators?: pulumi.Input<pulumi.Input<string>[]>;
+    administrators?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the Team.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of subject descriptors to define members of the team.
      *
@@ -216,11 +216,11 @@ export interface TeamArgs {
      * `azuredevops.TeamMembers` resource. However it's not possible to use
      * both methods to manage team members, since there'll be conflicts.
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Team.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Project ID.
      */

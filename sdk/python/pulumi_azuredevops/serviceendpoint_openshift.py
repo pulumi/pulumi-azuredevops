@@ -23,13 +23,13 @@ class ServiceendpointOpenshiftArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
-                 accept_untrusted_certs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_basic: Optional[pulumi.Input['ServiceendpointOpenshiftAuthBasicArgs']] = None,
-                 auth_none: Optional[pulumi.Input['ServiceendpointOpenshiftAuthNoneArgs']] = None,
-                 auth_token: Optional[pulumi.Input['ServiceendpointOpenshiftAuthTokenArgs']] = None,
-                 certificate_authority_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_basic: pulumi.Input[Optional['ServiceendpointOpenshiftAuthBasicArgs']] = None,
+                 auth_none: pulumi.Input[Optional['ServiceendpointOpenshiftAuthNoneArgs']] = None,
+                 auth_token: pulumi.Input[Optional['ServiceendpointOpenshiftAuthTokenArgs']] = None,
+                 certificate_authority_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointOpenshift resource.
 
@@ -86,102 +86,102 @@ class ServiceendpointOpenshiftArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptUntrustedCerts")
-    def accept_untrusted_certs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accept_untrusted_certs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
         """
         return pulumi.get(self, "accept_untrusted_certs")
 
     @accept_untrusted_certs.setter
-    def accept_untrusted_certs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accept_untrusted_certs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accept_untrusted_certs", value)
 
     @_builtins.property
     @pulumi.getter(name="authBasic")
-    def auth_basic(self) -> Optional[pulumi.Input['ServiceendpointOpenshiftAuthBasicArgs']]:
+    def auth_basic(self) -> pulumi.Input[Optional['ServiceendpointOpenshiftAuthBasicArgs']]:
         """
         An `auth_basic` block as documented below.
         """
         return pulumi.get(self, "auth_basic")
 
     @auth_basic.setter
-    def auth_basic(self, value: Optional[pulumi.Input['ServiceendpointOpenshiftAuthBasicArgs']]):
+    def auth_basic(self, value: pulumi.Input[Optional['ServiceendpointOpenshiftAuthBasicArgs']]):
         pulumi.set(self, "auth_basic", value)
 
     @_builtins.property
     @pulumi.getter(name="authNone")
-    def auth_none(self) -> Optional[pulumi.Input['ServiceendpointOpenshiftAuthNoneArgs']]:
+    def auth_none(self) -> pulumi.Input[Optional['ServiceendpointOpenshiftAuthNoneArgs']]:
         """
         An `auth_none` block as documented below.
         """
         return pulumi.get(self, "auth_none")
 
     @auth_none.setter
-    def auth_none(self, value: Optional[pulumi.Input['ServiceendpointOpenshiftAuthNoneArgs']]):
+    def auth_none(self, value: pulumi.Input[Optional['ServiceendpointOpenshiftAuthNoneArgs']]):
         pulumi.set(self, "auth_none", value)
 
     @_builtins.property
     @pulumi.getter(name="authToken")
-    def auth_token(self) -> Optional[pulumi.Input['ServiceendpointOpenshiftAuthTokenArgs']]:
+    def auth_token(self) -> pulumi.Input[Optional['ServiceendpointOpenshiftAuthTokenArgs']]:
         """
         An `auth_token` block as documented below.
         """
         return pulumi.get(self, "auth_token")
 
     @auth_token.setter
-    def auth_token(self, value: Optional[pulumi.Input['ServiceendpointOpenshiftAuthTokenArgs']]):
+    def auth_token(self, value: pulumi.Input[Optional['ServiceendpointOpenshiftAuthTokenArgs']]):
         pulumi.set(self, "auth_token", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityFile")
-    def certificate_authority_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_authority_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
         """
         return pulumi.get(self, "certificate_authority_file")
 
     @certificate_authority_file.setter
-    def certificate_authority_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_authority_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_authority_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="serverUrl")
-    def server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for the OpenShift cluster to connect to.
         """
         return pulumi.get(self, "server_url")
 
     @server_url.setter
-    def server_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_url", value)
 
 
 @pulumi.input_type
 class _ServiceendpointOpenshiftState:
     def __init__(__self__, *,
-                 accept_untrusted_certs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_basic: Optional[pulumi.Input['ServiceendpointOpenshiftAuthBasicArgs']] = None,
-                 auth_none: Optional[pulumi.Input['ServiceendpointOpenshiftAuthNoneArgs']] = None,
-                 auth_token: Optional[pulumi.Input['ServiceendpointOpenshiftAuthTokenArgs']] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 certificate_authority_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_basic: pulumi.Input[Optional['ServiceendpointOpenshiftAuthBasicArgs']] = None,
+                 auth_none: pulumi.Input[Optional['ServiceendpointOpenshiftAuthNoneArgs']] = None,
+                 auth_token: pulumi.Input[Optional['ServiceendpointOpenshiftAuthTokenArgs']] = None,
+                 authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 certificate_authority_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointOpenshift resources.
 
@@ -218,119 +218,119 @@ class _ServiceendpointOpenshiftState:
 
     @_builtins.property
     @pulumi.getter(name="acceptUntrustedCerts")
-    def accept_untrusted_certs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accept_untrusted_certs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
         """
         return pulumi.get(self, "accept_untrusted_certs")
 
     @accept_untrusted_certs.setter
-    def accept_untrusted_certs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accept_untrusted_certs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accept_untrusted_certs", value)
 
     @_builtins.property
     @pulumi.getter(name="authBasic")
-    def auth_basic(self) -> Optional[pulumi.Input['ServiceendpointOpenshiftAuthBasicArgs']]:
+    def auth_basic(self) -> pulumi.Input[Optional['ServiceendpointOpenshiftAuthBasicArgs']]:
         """
         An `auth_basic` block as documented below.
         """
         return pulumi.get(self, "auth_basic")
 
     @auth_basic.setter
-    def auth_basic(self, value: Optional[pulumi.Input['ServiceendpointOpenshiftAuthBasicArgs']]):
+    def auth_basic(self, value: pulumi.Input[Optional['ServiceendpointOpenshiftAuthBasicArgs']]):
         pulumi.set(self, "auth_basic", value)
 
     @_builtins.property
     @pulumi.getter(name="authNone")
-    def auth_none(self) -> Optional[pulumi.Input['ServiceendpointOpenshiftAuthNoneArgs']]:
+    def auth_none(self) -> pulumi.Input[Optional['ServiceendpointOpenshiftAuthNoneArgs']]:
         """
         An `auth_none` block as documented below.
         """
         return pulumi.get(self, "auth_none")
 
     @auth_none.setter
-    def auth_none(self, value: Optional[pulumi.Input['ServiceendpointOpenshiftAuthNoneArgs']]):
+    def auth_none(self, value: pulumi.Input[Optional['ServiceendpointOpenshiftAuthNoneArgs']]):
         pulumi.set(self, "auth_none", value)
 
     @_builtins.property
     @pulumi.getter(name="authToken")
-    def auth_token(self) -> Optional[pulumi.Input['ServiceendpointOpenshiftAuthTokenArgs']]:
+    def auth_token(self) -> pulumi.Input[Optional['ServiceendpointOpenshiftAuthTokenArgs']]:
         """
         An `auth_token` block as documented below.
         """
         return pulumi.get(self, "auth_token")
 
     @auth_token.setter
-    def auth_token(self, value: Optional[pulumi.Input['ServiceendpointOpenshiftAuthTokenArgs']]):
+    def auth_token(self, value: pulumi.Input[Optional['ServiceendpointOpenshiftAuthTokenArgs']]):
         pulumi.set(self, "auth_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityFile")
-    def certificate_authority_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_authority_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
         """
         return pulumi.get(self, "certificate_authority_file")
 
     @certificate_authority_file.setter
-    def certificate_authority_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_authority_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_authority_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serverUrl")
-    def server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for the OpenShift cluster to connect to.
         """
         return pulumi.get(self, "server_url")
 
     @server_url.setter
-    def server_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_url", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint name.
         """
         return pulumi.get(self, "service_endpoint_name")
 
     @service_endpoint_name.setter
-    def service_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_name", value)
 
 
@@ -340,15 +340,15 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_untrusted_certs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_basic: Optional[pulumi.Input[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']]] = None,
-                 auth_none: Optional[pulumi.Input[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']]] = None,
-                 auth_token: Optional[pulumi.Input[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']]] = None,
-                 certificate_authority_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_basic: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']]] = None,
+                 auth_none: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']]] = None,
+                 auth_token: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']]] = None,
+                 certificate_authority_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Openshift service endpoint within Azure DevOps organization. Using this service endpoint requires you to first install the [OpenShift Extension](https://marketplace.visualstudio.com/items?itemName=redhat.openshift-vsts).
@@ -541,15 +541,15 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_untrusted_certs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_basic: Optional[pulumi.Input[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']]] = None,
-                 auth_none: Optional[pulumi.Input[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']]] = None,
-                 auth_token: Optional[pulumi.Input[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']]] = None,
-                 certificate_authority_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_basic: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']]] = None,
+                 auth_none: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']]] = None,
+                 auth_token: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']]] = None,
+                 certificate_authority_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -583,16 +583,16 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accept_untrusted_certs: Optional[pulumi.Input[_builtins.bool]] = None,
-            auth_basic: Optional[pulumi.Input[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']]] = None,
-            auth_none: Optional[pulumi.Input[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']]] = None,
-            auth_token: Optional[pulumi.Input[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']]] = None,
-            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            certificate_authority_file: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            server_url: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceendpointOpenshift':
+            accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
+            auth_basic: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']]] = None,
+            auth_none: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']]] = None,
+            auth_token: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            certificate_authority_file: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            server_url: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceendpointOpenshift':
         """
         Get an existing ServiceendpointOpenshift resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

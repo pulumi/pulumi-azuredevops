@@ -21,14 +21,14 @@ class ServiceEndpointAwsArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
-                 access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_session_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_to_assume: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_oidc: Optional[pulumi.Input[_builtins.bool]] = None):
+                 access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_session_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_to_assume: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_oidc: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ServiceEndpointAws resource.
 
@@ -88,115 +88,115 @@ class ServiceEndpointAwsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS access key ID for signing programmatic requests.
         """
         return pulumi.get(self, "access_key_id")
 
     @access_key_id.setter
-    def access_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleSessionName")
-    def role_session_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_session_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional identifier for the assumed role session.
         """
         return pulumi.get(self, "role_session_name")
 
     @role_session_name.setter
-    def role_session_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_session_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_session_name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleToAssume")
-    def role_to_assume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_to_assume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the role to assume.
         """
         return pulumi.get(self, "role_to_assume")
 
     @role_to_assume.setter
-    def role_to_assume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_to_assume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_to_assume", value)
 
     @_builtins.property
     @pulumi.getter(name="secretAccessKey")
-    def secret_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS secret access key for signing programmatic requests.
         """
         return pulumi.get(self, "secret_access_key")
 
     @secret_access_key.setter
-    def secret_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionToken")
-    def session_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS session token for signing programmatic requests.
         """
         return pulumi.get(self, "session_token")
 
     @session_token.setter
-    def session_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_token", value)
 
     @_builtins.property
     @pulumi.getter(name="useOidc")
-    def use_oidc(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_oidc(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable this to attempt getting credentials with OIDC token from Azure Devops.
         """
         return pulumi.get(self, "use_oidc")
 
     @use_oidc.setter
-    def use_oidc(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_oidc(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_oidc", value)
 
 
 @pulumi.input_type
 class _ServiceEndpointAwsState:
     def __init__(__self__, *,
-                 access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_session_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_to_assume: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_oidc: Optional[pulumi.Input[_builtins.bool]] = None):
+                 access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_session_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_to_assume: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_oidc: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointAws resources.
 
@@ -236,131 +236,131 @@ class _ServiceEndpointAwsState:
 
     @_builtins.property
     @pulumi.getter(name="accessKeyId")
-    def access_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS access key ID for signing programmatic requests.
         """
         return pulumi.get(self, "access_key_id")
 
     @access_key_id.setter
-    def access_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleSessionName")
-    def role_session_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_session_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional identifier for the assumed role session.
         """
         return pulumi.get(self, "role_session_name")
 
     @role_session_name.setter
-    def role_session_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_session_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_session_name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleToAssume")
-    def role_to_assume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_to_assume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the role to assume.
         """
         return pulumi.get(self, "role_to_assume")
 
     @role_to_assume.setter
-    def role_to_assume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_to_assume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_to_assume", value)
 
     @_builtins.property
     @pulumi.getter(name="secretAccessKey")
-    def secret_access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS secret access key for signing programmatic requests.
         """
         return pulumi.get(self, "secret_access_key")
 
     @secret_access_key.setter
-    def secret_access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint name.
         """
         return pulumi.get(self, "service_endpoint_name")
 
     @service_endpoint_name.setter
-    def service_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionToken")
-    def session_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS session token for signing programmatic requests.
         """
         return pulumi.get(self, "session_token")
 
     @session_token.setter
-    def session_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_token", value)
 
     @_builtins.property
     @pulumi.getter(name="useOidc")
-    def use_oidc(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_oidc(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable this to attempt getting credentials with OIDC token from Azure Devops.
         """
         return pulumi.get(self, "use_oidc")
 
     @use_oidc.setter
-    def use_oidc(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_oidc(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_oidc", value)
 
 
@@ -370,16 +370,16 @@ class ServiceEndpointAws(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_session_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_to_assume: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_oidc: Optional[pulumi.Input[_builtins.bool]] = None,
+                 access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_session_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_to_assume: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_oidc: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
@@ -489,16 +489,16 @@ class ServiceEndpointAws(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_session_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_to_assume: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_oidc: Optional[pulumi.Input[_builtins.bool]] = None,
+                 access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_session_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_to_assume: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_oidc: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -535,17 +535,17 @@ class ServiceEndpointAws(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            external_id: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            role_session_name: Optional[pulumi.Input[_builtins.str]] = None,
-            role_to_assume: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_access_key: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-            session_token: Optional[pulumi.Input[_builtins.str]] = None,
-            use_oidc: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ServiceEndpointAws':
+            access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_session_name: pulumi.Input[Optional[_builtins.str]] = None,
+            role_to_assume: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            session_token: pulumi.Input[Optional[_builtins.str]] = None,
+            use_oidc: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ServiceEndpointAws':
         """
         Get an existing ServiceEndpointAws resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

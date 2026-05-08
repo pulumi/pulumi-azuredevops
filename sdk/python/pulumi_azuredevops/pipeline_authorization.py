@@ -22,8 +22,8 @@ class PipelineAuthorizationArgs:
                  project_id: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 pipeline_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 pipeline_project_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 pipeline_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 pipeline_project_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PipelineAuthorization resource.
 
@@ -89,37 +89,37 @@ class PipelineAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="pipelineId")
-    def pipeline_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pipeline_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "pipeline_id")
 
     @pipeline_id.setter
-    def pipeline_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pipeline_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pipeline_id", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineProjectId")
-    def pipeline_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
         """
         return pulumi.get(self, "pipeline_project_id")
 
     @pipeline_project_id.setter
-    def pipeline_project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_project_id", value)
 
 
 @pulumi.input_type
 class _PipelineAuthorizationState:
     def __init__(__self__, *,
-                 pipeline_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 pipeline_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 pipeline_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 pipeline_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PipelineAuthorization resources.
 
@@ -147,55 +147,55 @@ class _PipelineAuthorizationState:
 
     @_builtins.property
     @pulumi.getter(name="pipelineId")
-    def pipeline_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pipeline_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "pipeline_id")
 
     @pipeline_id.setter
-    def pipeline_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pipeline_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pipeline_id", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineProjectId")
-    def pipeline_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project where the pipeline exists. Defaults to `project_id` if not specified. Changing this forces a new resource to be created
         """
         return pulumi.get(self, "pipeline_project_id")
 
     @pipeline_project_id.setter
-    def pipeline_project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The  ID of the project. Changing this forces a new resource to be created
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the resource to authorize. Changing this forces a new resource to be created
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the resource to authorize. Possible values are: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 
@@ -207,7 +207,7 @@ class _PipelineAuthorizationState:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -217,11 +217,11 @@ class PipelineAuthorization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pipeline_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 pipeline_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 pipeline_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 pipeline_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manage pipeline access permissions to resources.
@@ -250,7 +250,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             auto_update=False)
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
             project_id=example.id,
             resource_id=example_queue.id,
@@ -275,7 +275,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             auto_update=False)
         example_queue = azuredevops.Queue("example",
             project_id=example_project.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example = azuredevops.get_git_repository_output(project_id=example_project.id,
             name="Example Project")
         example_build_definition = azuredevops.BuildDefinition("example",
@@ -290,7 +290,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             project_id=example_project.id,
             resource_id=example_queue.id,
             type="queue",
-            pipeline_id=example_build_definition.id)
+            pipeline_id=example_build_definition.id.apply(lambda x: int(x)))
         ```
 
         ## Relevant Links
@@ -344,7 +344,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             auto_update=False)
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_pipeline_authorization = azuredevops.PipelineAuthorization("example",
             project_id=example.id,
             resource_id=example_queue.id,
@@ -369,7 +369,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             auto_update=False)
         example_queue = azuredevops.Queue("example",
             project_id=example_project.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example = azuredevops.get_git_repository_output(project_id=example_project.id,
             name="Example Project")
         example_build_definition = azuredevops.BuildDefinition("example",
@@ -384,7 +384,7 @@ class PipelineAuthorization(pulumi.CustomResource):
             project_id=example_project.id,
             resource_id=example_queue.id,
             type="queue",
-            pipeline_id=example_build_definition.id)
+            pipeline_id=example_build_definition.id.apply(lambda x: int(x)))
         ```
 
         ## Relevant Links
@@ -407,11 +407,11 @@ class PipelineAuthorization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pipeline_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 pipeline_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 pipeline_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 pipeline_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -442,11 +442,11 @@ class PipelineAuthorization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            pipeline_id: Optional[pulumi.Input[_builtins.int]] = None,
-            pipeline_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'PipelineAuthorization':
+            pipeline_id: pulumi.Input[Optional[_builtins.int]] = None,
+            pipeline_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'PipelineAuthorization':
         """
         Get an existing PipelineAuthorization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

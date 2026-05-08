@@ -23,8 +23,8 @@ class WorkitemtrackingprocessStateArgs:
                  process_id: pulumi.Input[_builtins.str],
                  state_category: pulumi.Input[_builtins.str],
                  work_item_type_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessState resource.
 
@@ -94,39 +94,39 @@ class WorkitemtrackingprocessStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the state. Changing this forces a new state to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order within the category where the state should appear.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingprocessStateState:
     def __init__(__self__, *,
-                 color: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessState resources.
 
@@ -155,86 +155,86 @@ class _WorkitemtrackingprocessStateState:
 
     @_builtins.property
     @pulumi.getter
-    def color(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Color hexadecimal code to represent the state, e.g. `#b2b2b2`.
         """
         return pulumi.get(self, "color")
 
     @color.setter
-    def color(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "color", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the state. Changing this forces a new state to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Order within the category where the state should appear.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="processId")
-    def process_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the process. Changing this forces a new state to be created.
         """
         return pulumi.get(self, "process_id")
 
     @process_id.setter
-    def process_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_id", value)
 
     @_builtins.property
     @pulumi.getter(name="stateCategory")
-    def state_category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Category of the state. Valid values: `Proposed`, `InProgress`, `Resolved`, `Completed`, `Removed`.
         """
         return pulumi.get(self, "state_category")
 
     @state_category.setter
-    def state_category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_category", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the state.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemTypeId")
-    def work_item_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID (reference name) of the work item type. Changing this forces a new state to be created.
         """
         return pulumi.get(self, "work_item_type_id")
 
     @work_item_type_id.setter
-    def work_item_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type_id", value)
 
 
@@ -244,12 +244,12 @@ class WorkitemtrackingprocessState(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 color: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a state for a work item type.
@@ -353,12 +353,12 @@ class WorkitemtrackingprocessState(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 color: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -393,13 +393,13 @@ class WorkitemtrackingprocessState(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            color: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            process_id: Optional[pulumi.Input[_builtins.str]] = None,
-            state_category: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessState':
+            color: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            state_category: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessState':
         """
         Get an existing WorkitemtrackingprocessState resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

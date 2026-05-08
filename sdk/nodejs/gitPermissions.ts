@@ -330,7 +330,7 @@ export interface GitPermissionsState {
      *
      * > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
      */
-    branchName?: pulumi.Input<string>;
+    branchName?: pulumi.Input<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available
      *
@@ -353,26 +353,26 @@ export interface GitPermissionsState {
      * | PullRequestContribute   | Contribute to pull requests                            |
      * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
      */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The **group** principal to assign the permissions.
      *
      * > **Note**  The `descriptor` of the user/group not the `ID`. Some resources in this provider use the `descriptor`
      * as resource ID. It is recommended to check before use.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project to assign the permissions.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the GIT repository to assign the permissions
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -384,7 +384,7 @@ export interface GitPermissionsArgs {
      *
      * > **Note** To assign permissions to a branch, the `repositoryId` must be set as well.
      */
-    branchName?: pulumi.Input<string>;
+    branchName?: pulumi.Input<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available
      *
@@ -422,9 +422,9 @@ export interface GitPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the GIT repository to assign the permissions
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }

@@ -160,43 +160,43 @@ export interface WorkitemtrackingprocessWorkitemtypeState {
     /**
      * Color hexadecimal code to represent the work item type. Default: "#009ccc"
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Description of the work item type.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Icon to represent the work item type. Default: "iconClipboard"
      */
-    icon?: pulumi.Input<string>;
+    icon?: pulumi.Input<string | undefined>;
     /**
      * True if the work item type is enabled. Default: true
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of work item type. Changing this forces a new work item type to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A `pages` block as defined below.
      */
-    pages?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePage>[]>;
+    pages?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePage>[] | undefined>;
     /**
      * Reference name of the parent work item type. Changing this forces a new work item type to be created.
      */
-    parentWorkItemReferenceName?: pulumi.Input<string>;
+    parentWorkItemReferenceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process the work item type belongs to. Changing this forces a new work item type to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * Reference name of the work item type.
      */
-    referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string | undefined>;
     /**
      * Url of the work item type.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -206,27 +206,27 @@ export interface WorkitemtrackingprocessWorkitemtypeArgs {
     /**
      * Color hexadecimal code to represent the work item type. Default: "#009ccc"
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Description of the work item type.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Icon to represent the work item type. Default: "iconClipboard"
      */
-    icon?: pulumi.Input<string>;
+    icon?: pulumi.Input<string | undefined>;
     /**
      * True if the work item type is enabled. Default: true
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of work item type. Changing this forces a new work item type to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Reference name of the parent work item type. Changing this forces a new work item type to be created.
      */
-    parentWorkItemReferenceName?: pulumi.Input<string>;
+    parentWorkItemReferenceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process the work item type belongs to. Changing this forces a new work item type to be created.
      */

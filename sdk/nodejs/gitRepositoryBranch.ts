@@ -142,27 +142,27 @@ export interface GitRepositoryBranchState {
     /**
      * The commit object ID of last commit on the branch.
      */
-    lastCommitId?: pulumi.Input<string>;
+    lastCommitId?: pulumi.Input<string | undefined>;
     /**
      * The name of the branch in short format not prefixed with `refs/heads/`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The reference to the source branch to create the branch from, in `<name>` or `refs/heads/<name>` format. Conflict with `refTag`, `refCommitId`.
      */
-    refBranch?: pulumi.Input<string>;
+    refBranch?: pulumi.Input<string | undefined>;
     /**
      * The commit object ID to create the branch from. Conflict with `refBranch`, `refTag`.
      */
-    refCommitId?: pulumi.Input<string>;
+    refCommitId?: pulumi.Input<string | undefined>;
     /**
      * The reference to the tag to create the branch from, in `<name>` or `refs/tags/<name>` format. Conflict with `refBranch`, `refCommitId`.
      */
-    refTag?: pulumi.Input<string>;
+    refTag?: pulumi.Input<string | undefined>;
     /**
      * The ID of the repository the branch is created against.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,19 +172,19 @@ export interface GitRepositoryBranchArgs {
     /**
      * The name of the branch in short format not prefixed with `refs/heads/`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The reference to the source branch to create the branch from, in `<name>` or `refs/heads/<name>` format. Conflict with `refTag`, `refCommitId`.
      */
-    refBranch?: pulumi.Input<string>;
+    refBranch?: pulumi.Input<string | undefined>;
     /**
      * The commit object ID to create the branch from. Conflict with `refBranch`, `refTag`.
      */
-    refCommitId?: pulumi.Input<string>;
+    refCommitId?: pulumi.Input<string | undefined>;
     /**
      * The reference to the tag to create the branch from, in `<name>` or `refs/tags/<name>` format. Conflict with `refBranch`, `refCommitId`.
      */
-    refTag?: pulumi.Input<string>;
+    refTag?: pulumi.Input<string | undefined>;
     /**
      * The ID of the repository the branch is created against.
      */

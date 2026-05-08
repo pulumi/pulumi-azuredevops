@@ -179,30 +179,30 @@ export interface ServiceendpointJfrogXrayV2State {
     /**
      * An `authenticationBasic` block as documented below.
      */
-    authenticationBasic?: pulumi.Input<inputs.ServiceendpointJfrogXrayV2AuthenticationBasic>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceendpointJfrogXrayV2AuthenticationBasic | undefined>;
     /**
      * An `authenticationToken` block as documented below.
      */
-    authenticationToken?: pulumi.Input<inputs.ServiceendpointJfrogXrayV2AuthenticationToken>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authenticationToken?: pulumi.Input<inputs.ServiceendpointJfrogXrayV2AuthenticationToken | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * URL of the Artifactory server to connect with.
      *
      * > **NOTE:** URL should not end in a slash character.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -212,15 +212,15 @@ export interface ServiceendpointJfrogXrayV2Args {
     /**
      * An `authenticationBasic` block as documented below.
      */
-    authenticationBasic?: pulumi.Input<inputs.ServiceendpointJfrogXrayV2AuthenticationBasic>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceendpointJfrogXrayV2AuthenticationBasic | undefined>;
     /**
      * An `authenticationToken` block as documented below.
      */
-    authenticationToken?: pulumi.Input<inputs.ServiceendpointJfrogXrayV2AuthenticationToken>;
+    authenticationToken?: pulumi.Input<inputs.ServiceendpointJfrogXrayV2AuthenticationToken | undefined>;
     /**
      * The Service Endpoint description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

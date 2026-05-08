@@ -196,8 +196,8 @@ def get_workitemtrackingprocess_process(expand: Optional[_builtins.str] = None,
         parent_process_type_id=pulumi.get(__ret__, 'parent_process_type_id'),
         projects=pulumi.get(__ret__, 'projects'),
         reference_name=pulumi.get(__ret__, 'reference_name'))
-def get_workitemtrackingprocess_process_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                               id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workitemtrackingprocess_process_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               id: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkitemtrackingprocessProcessResult]:
     """
     Use this data source to access information about an existing process.

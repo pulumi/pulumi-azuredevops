@@ -13,17 +13,17 @@ export interface BranchPolicyAutoReviewersSettings {
     /**
      * Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * Minimum number of required reviewers. Defaults to `1`.
      *
      * > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
      */
-    minimumNumberOfReviewers?: pulumi.Input<number>;
+    minimumNumberOfReviewers?: pulumi.Input<number | undefined>;
     /**
      * Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
      */
-    pathFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    pathFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
@@ -31,22 +31,22 @@ export interface BranchPolicyAutoReviewersSettings {
     /**
      * Controls whether or not the submitter's vote counts. Defaults to `false`.
      */
-    submitterCanVote?: pulumi.Input<boolean>;
+    submitterCanVote?: pulumi.Input<boolean | undefined>;
 }
 
 export interface BranchPolicyAutoReviewersSettingsScope {
     /**
      * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
-    matchType?: pulumi.Input<string>;
+    matchType?: pulumi.Input<string | undefined>;
     /**
      * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
-    repositoryRef?: pulumi.Input<string>;
+    repositoryRef?: pulumi.Input<string | undefined>;
 }
 
 export interface BranchPolicyBuildValidationSettings {
@@ -61,15 +61,15 @@ export interface BranchPolicyBuildValidationSettings {
     /**
      * If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
      */
-    filenamePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    filenamePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If set to true, the build will need to be manually queued. Defaults to `false`
      */
-    manualQueueOnly?: pulumi.Input<boolean>;
+    manualQueueOnly?: pulumi.Input<boolean | undefined>;
     /**
      * True if the build should queue on source updates only. Defaults to `true`.
      */
-    queueOnSourceUpdateOnly?: pulumi.Input<boolean>;
+    queueOnSourceUpdateOnly?: pulumi.Input<boolean | undefined>;
     /**
      * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
@@ -82,22 +82,22 @@ export interface BranchPolicyBuildValidationSettings {
      * 2.  Expire after a period of time : `valid_duration=360` and `queue_on_source_update_only=true`
      * 3.  Never expire: `valid_duration=0` and `queue_on_source_update_only=true`
      */
-    validDuration?: pulumi.Input<number>;
+    validDuration?: pulumi.Input<number | undefined>;
 }
 
 export interface BranchPolicyBuildValidationSettingsScope {
     /**
      * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
-    matchType?: pulumi.Input<string>;
+    matchType?: pulumi.Input<string | undefined>;
     /**
      * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
-    repositoryRef?: pulumi.Input<string>;
+    repositoryRef?: pulumi.Input<string | undefined>;
 }
 
 export interface BranchPolicyCommentResolutionSettings {
@@ -111,34 +111,34 @@ export interface BranchPolicyCommentResolutionSettingsScope {
     /**
      * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
-    matchType?: pulumi.Input<string>;
+    matchType?: pulumi.Input<string | undefined>;
     /**
      * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
-    repositoryRef?: pulumi.Input<string>;
+    repositoryRef?: pulumi.Input<string | undefined>;
 }
 
 export interface BranchPolicyMergeTypesSettings {
     /**
      * Allow basic merge with no fast forward. Defaults to `false`.
      */
-    allowBasicNoFastForward?: pulumi.Input<boolean>;
+    allowBasicNoFastForward?: pulumi.Input<boolean | undefined>;
     /**
      * Allow rebase with fast forward. Defaults to `false`.
      */
-    allowRebaseAndFastForward?: pulumi.Input<boolean>;
+    allowRebaseAndFastForward?: pulumi.Input<boolean | undefined>;
     /**
      * Allow rebase with merge commit. Defaults to `false`.
      */
-    allowRebaseWithMerge?: pulumi.Input<boolean>;
+    allowRebaseWithMerge?: pulumi.Input<boolean | undefined>;
     /**
      * Allow squash merge. Defaults to `false`
      */
-    allowSquash?: pulumi.Input<boolean>;
+    allowSquash?: pulumi.Input<boolean | undefined>;
     /**
      * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
@@ -149,48 +149,48 @@ export interface BranchPolicyMergeTypesSettingsScope {
     /**
      * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
-    matchType?: pulumi.Input<string>;
+    matchType?: pulumi.Input<string | undefined>;
     /**
      * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
-    repositoryRef?: pulumi.Input<string>;
+    repositoryRef?: pulumi.Input<string | undefined>;
 }
 
 export interface BranchPolicyMinReviewersSettings {
     /**
      * Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
      */
-    allowCompletionWithRejectsOrWaits?: pulumi.Input<boolean>;
+    allowCompletionWithRejectsOrWaits?: pulumi.Input<boolean | undefined>;
     /**
      * Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
      */
-    lastPusherCannotApprove?: pulumi.Input<boolean>;
+    lastPusherCannotApprove?: pulumi.Input<boolean | undefined>;
     /**
      * Require at least one approval on every iteration. Defaults to `false`.
      *
      * > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
      */
-    onEachIterationRequireVote?: pulumi.Input<boolean>;
+    onEachIterationRequireVote?: pulumi.Input<boolean | undefined>;
     /**
      * On last iteration require vote. Defaults to `false`.
      */
-    onLastIterationRequireVote?: pulumi.Input<boolean>;
+    onLastIterationRequireVote?: pulumi.Input<boolean | undefined>;
     /**
      * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
      */
-    onPushResetAllVotes?: pulumi.Input<boolean>;
+    onPushResetAllVotes?: pulumi.Input<boolean | undefined>;
     /**
      * When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
      */
-    onPushResetApprovedVotes?: pulumi.Input<boolean>;
+    onPushResetApprovedVotes?: pulumi.Input<boolean | undefined>;
     /**
      * The number of reviewers needed to approve.
      */
-    reviewerCount?: pulumi.Input<number>;
+    reviewerCount?: pulumi.Input<number | undefined>;
     /**
      * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
@@ -198,22 +198,22 @@ export interface BranchPolicyMinReviewersSettings {
     /**
      * Allow requesters to approve their own changes. Defaults to `false`.
      */
-    submitterCanVote?: pulumi.Input<boolean>;
+    submitterCanVote?: pulumi.Input<boolean | undefined>;
 }
 
 export interface BranchPolicyMinReviewersSettingsScope {
     /**
      * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
-    matchType?: pulumi.Input<string>;
+    matchType?: pulumi.Input<string | undefined>;
     /**
      * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
-    repositoryRef?: pulumi.Input<string>;
+    repositoryRef?: pulumi.Input<string | undefined>;
 }
 
 export interface BranchPolicyStatusCheckSettings {
@@ -222,30 +222,30 @@ export interface BranchPolicyStatusCheckSettings {
      * status is posted to the pull request. If policy `applicability=conditional`, policy is applied only after a status
      * is posted to the pull request. Possible values `default`, `conditional`. Defaults to `default`.
      */
-    applicability?: pulumi.Input<string>;
+    applicability?: pulumi.Input<string | undefined>;
     /**
      * The authorized user can post the status.
      */
-    authorId?: pulumi.Input<string>;
+    authorId?: pulumi.Input<string | undefined>;
     /**
      * The display name.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * If a path filter is set, the policy will only apply when files which match the filter are changed. Not setting this field means that the policy is always applied.
      *
      * ~>**NOTE** 1. Specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`.
      * <br> 2. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
      */
-    filenamePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    filenamePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
      */
-    genre?: pulumi.Input<string>;
+    genre?: pulumi.Input<string | undefined>;
     /**
      * Reset status whenever there are new changes.
      */
-    invalidateOnUpdate?: pulumi.Input<boolean>;
+    invalidateOnUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The status name to check.
      */
@@ -260,15 +260,15 @@ export interface BranchPolicyStatusCheckSettingsScope {
     /**
      * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
-    matchType?: pulumi.Input<string>;
+    matchType?: pulumi.Input<string | undefined>;
     /**
      * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type=DefaultBranch`, this should not be defined.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `match_type=Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type=Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
-    repositoryRef?: pulumi.Input<string>;
+    repositoryRef?: pulumi.Input<string | undefined>;
 }
 
 export interface BranchPolicyWorkItemLinkingSettings {
@@ -282,15 +282,15 @@ export interface BranchPolicyWorkItemLinkingSettingsScope {
     /**
      * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
-    matchType?: pulumi.Input<string>;
+    matchType?: pulumi.Input<string | undefined>;
     /**
      * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
-    repositoryRef?: pulumi.Input<string>;
+    repositoryRef?: pulumi.Input<string | undefined>;
 }
 
 export interface BuildDefinitionBuildCompletionTrigger {
@@ -308,29 +308,29 @@ export interface BuildDefinitionBuildCompletionTriggerBranchFilter {
     /**
      * List of branch patterns to exclude.
      */
-    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of branch patterns to include.
      */
-    includes?: pulumi.Input<pulumi.Input<string>[]>;
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface BuildDefinitionCiTrigger {
     /**
      * Override the azure-pipeline file and use a this configuration for all builds.
      */
-    override?: pulumi.Input<inputs.BuildDefinitionCiTriggerOverride>;
+    override?: pulumi.Input<inputs.BuildDefinitionCiTriggerOverride | undefined>;
     /**
      * Use the azure-pipeline file for the build configuration. Defaults to `false`.
      */
-    useYaml?: pulumi.Input<boolean>;
+    useYaml?: pulumi.Input<boolean | undefined>;
 }
 
 export interface BuildDefinitionCiTriggerOverride {
     /**
      * If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
      */
-    batch?: pulumi.Input<boolean>;
+    batch?: pulumi.Input<boolean | undefined>;
     /**
      * The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      */
@@ -338,41 +338,41 @@ export interface BuildDefinitionCiTriggerOverride {
     /**
      * The number of max builds per branch. Defaults to `1`.
      */
-    maxConcurrentBuildsPerBranch?: pulumi.Input<number>;
+    maxConcurrentBuildsPerBranch?: pulumi.Input<number | undefined>;
     /**
      * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      */
-    pathFilters?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionCiTriggerOverridePathFilter>[]>;
+    pathFilters?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionCiTriggerOverridePathFilter>[] | undefined>;
     /**
      * How often the external repository is polled. Defaults to `0`.
      */
-    pollingInterval?: pulumi.Input<number>;
+    pollingInterval?: pulumi.Input<number | undefined>;
     /**
      * This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
      */
-    pollingJobId?: pulumi.Input<string>;
+    pollingJobId?: pulumi.Input<string | undefined>;
 }
 
 export interface BuildDefinitionCiTriggerOverrideBranchFilter {
     /**
      * List of branch patterns to exclude.
      */
-    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of branch patterns to include.
      */
-    includes?: pulumi.Input<pulumi.Input<string>[]>;
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface BuildDefinitionCiTriggerOverridePathFilter {
     /**
      * List of path patterns to exclude.
      */
-    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of path patterns to include.
      */
-    includes?: pulumi.Input<pulumi.Input<string>[]>;
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface BuildDefinitionFeature {
@@ -381,14 +381,14 @@ export interface BuildDefinitionFeature {
      *
      * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create. If the first run fails, the build definition will still be marked as successfully created. A warning message indicating the inability to run pipeline will be displayed.
      */
-    skipFirstRun?: pulumi.Input<boolean>;
+    skipFirstRun?: pulumi.Input<boolean | undefined>;
 }
 
 export interface BuildDefinitionJob {
     /**
      * Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
      */
-    allowScriptsAuthAccessOption?: pulumi.Input<boolean>;
+    allowScriptsAuthAccessOption?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies when this job should run. Can **Custom conditions** to specify more complex conditions. Possible values: `succeeded()`, `succeededOrFailed()`, `always()`, `failed()` etc. More details: [Pipeline conditions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/conditions?view=azure-devops)
      */
@@ -396,19 +396,19 @@ export interface BuildDefinitionJob {
     /**
      * A `dependencies` blocks as documented below. Define the job dependencies.
      */
-    dependencies?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionJobDependency>[]>;
+    dependencies?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionJobDependency>[] | undefined>;
     /**
      * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
      */
-    jobAuthorizationScope?: pulumi.Input<string>;
+    jobAuthorizationScope?: pulumi.Input<string | undefined>;
     /**
      * The job cancel timeout (in minutes) for builds cancelled by user for this definition. Possible values are between `0` and `60`. Defaults to `0`.
      */
-    jobCancelTimeoutInMinutes?: pulumi.Input<number>;
+    jobCancelTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The job execution timeout (in minutes) for builds queued against this definition. Possible values are between `0` and `1000000000`. Defaults to `0`.
      */
-    jobTimeoutInMinutes?: pulumi.Input<number>;
+    jobTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The name of the job.
      */
@@ -434,7 +434,7 @@ export interface BuildDefinitionJobTarget {
     /**
      * A list of demands that represents the agent capabilities required by this build. Example: `git`
      */
-    demands?: pulumi.Input<pulumi.Input<string>[]>;
+    demands?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A `executionOptions` blocks as documented below.
      */
@@ -449,15 +449,15 @@ export interface BuildDefinitionJobTargetExecutionOptions {
     /**
      * Whether to continue the job when an error occurs. Possible values are: `true`, `false`.
      */
-    continueOnError?: pulumi.Input<boolean>;
+    continueOnError?: pulumi.Input<boolean | undefined>;
     /**
      * Limit the number of agents to be used. If job type is `AgentlessJob`, the concurrency is not configurable and is fixed to 50.
      */
-    maxConcurrency?: pulumi.Input<number>;
+    maxConcurrency?: pulumi.Input<number | undefined>;
     /**
      * A list of comma separated configuration variables to use. These are defined on the Variables tab. For example, OperatingSystem, Browser will run the tasks for both variables. Available when `execution_options.type` is `Multi-Configuration`.
      */
-    multipliers?: pulumi.Input<string>;
+    multipliers?: pulumi.Input<string | undefined>;
     /**
      * The execution type of the Job. Possible values are: `None`, `Multi-Configuration`, `Multi-Agent`.
      */
@@ -465,7 +465,7 @@ export interface BuildDefinitionJobTargetExecutionOptions {
 }
 
 export interface BuildDefinitionPullRequestTrigger {
-    commentRequired?: pulumi.Input<string>;
+    commentRequired?: pulumi.Input<string | undefined>;
     /**
      * Set permissions for Forked repositories.
      */
@@ -473,15 +473,15 @@ export interface BuildDefinitionPullRequestTrigger {
     /**
      * When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
      */
-    initialBranch?: pulumi.Input<string>;
+    initialBranch?: pulumi.Input<string | undefined>;
     /**
      * Override the azure-pipeline file and use this configuration for all builds.
      */
-    override?: pulumi.Input<inputs.BuildDefinitionPullRequestTriggerOverride>;
+    override?: pulumi.Input<inputs.BuildDefinitionPullRequestTriggerOverride | undefined>;
     /**
      * Use the azure-pipeline file for the build configuration. Defaults to `false`.
      */
-    useYaml?: pulumi.Input<boolean>;
+    useYaml?: pulumi.Input<boolean | undefined>;
 }
 
 export interface BuildDefinitionPullRequestTriggerForks {
@@ -499,7 +499,7 @@ export interface BuildDefinitionPullRequestTriggerOverride {
     /**
      * . Defaults to `true`.
      */
-    autoCancel?: pulumi.Input<boolean>;
+    autoCancel?: pulumi.Input<boolean | undefined>;
     /**
      * The branches to include and exclude from the trigger. A `branchFilter` block as documented below.
      */
@@ -507,40 +507,40 @@ export interface BuildDefinitionPullRequestTriggerOverride {
     /**
      * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      */
-    pathFilters?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionPullRequestTriggerOverridePathFilter>[]>;
+    pathFilters?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionPullRequestTriggerOverridePathFilter>[] | undefined>;
 }
 
 export interface BuildDefinitionPullRequestTriggerOverrideBranchFilter {
     /**
      * List of branch patterns to exclude.
      */
-    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of branch patterns to include.
      */
-    includes?: pulumi.Input<pulumi.Input<string>[]>;
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface BuildDefinitionPullRequestTriggerOverridePathFilter {
     /**
      * List of path patterns to exclude.
      */
-    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of path patterns to include.
      */
-    includes?: pulumi.Input<pulumi.Input<string>[]>;
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface BuildDefinitionRepository {
     /**
      * The branch name for which builds are triggered. Defaults to `master`.
      */
-    branchName?: pulumi.Input<string>;
+    branchName?: pulumi.Input<string | undefined>;
     /**
      * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`. Conflict with `url`
      */
-    githubEnterpriseUrl?: pulumi.Input<string>;
+    githubEnterpriseUrl?: pulumi.Input<string | undefined>;
     /**
      * The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
      */
@@ -552,19 +552,19 @@ export interface BuildDefinitionRepository {
     /**
      * Report build status. Default is true.
      */
-    reportBuildStatus?: pulumi.Input<boolean>;
+    reportBuildStatus?: pulumi.Input<boolean | undefined>;
     /**
      * The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
      */
-    serviceConnectionId?: pulumi.Input<string>;
+    serviceConnectionId?: pulumi.Input<string | undefined>;
     /**
      * The URL of the Git repository. Used if `repoType` is `Git`. Conflict with `githubEnterpriseUrl`
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The path of the Yaml file describing the build definition.
      */
-    ymlPath?: pulumi.Input<string>;
+    ymlPath?: pulumi.Input<string | undefined>;
 }
 
 export interface BuildDefinitionSchedule {
@@ -579,19 +579,19 @@ export interface BuildDefinitionSchedule {
     /**
      * The ID of the schedule job
      */
-    scheduleJobId?: pulumi.Input<string>;
+    scheduleJobId?: pulumi.Input<string | undefined>;
     /**
      * Schedule builds if the source or pipeline has changed. Defaults to `true`.
      */
-    scheduleOnlyWithChanges?: pulumi.Input<boolean>;
+    scheduleOnlyWithChanges?: pulumi.Input<boolean | undefined>;
     /**
      * Build start hour. Possible values are: `0 ~ 23`. Defaults to `0`.
      */
-    startHours?: pulumi.Input<number>;
+    startHours?: pulumi.Input<number | undefined>;
     /**
      * Build start minute. Possible values are: `0 ~ 59`. Defaults to `0`.
      */
-    startMinutes?: pulumi.Input<number>;
+    startMinutes?: pulumi.Input<number | undefined>;
     /**
      * Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Possible values are:
      * `(UTC-12:00) International Date Line West`,
@@ -736,29 +736,29 @@ export interface BuildDefinitionSchedule {
      * `(UTC+13:00) Samoa`,
      * `(UTC+14:00) Kiritimati Island`.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
 }
 
 export interface BuildDefinitionScheduleBranchFilter {
     /**
      * List of branch patterns to exclude.
      */
-    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of branch patterns to include.
      */
-    includes?: pulumi.Input<pulumi.Input<string>[]>;
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface BuildDefinitionVariable {
     /**
      * True if the variable can be overridden. Defaults to `true`.
      */
-    allowOverride?: pulumi.Input<boolean>;
+    allowOverride?: pulumi.Input<boolean | undefined>;
     /**
      * True if the variable is a secret. Defaults to `false`.
      */
-    isSecret?: pulumi.Input<boolean>;
+    isSecret?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the variable.
      */
@@ -766,11 +766,11 @@ export interface BuildDefinitionVariable {
     /**
      * The secret value of the variable. Used when `isSecret` set to `true`.
      */
-    secretValue?: pulumi.Input<string>;
+    secretValue?: pulumi.Input<string | undefined>;
     /**
      * The value of the variable.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface CheckRequiredTemplateRequiredTemplate {
@@ -785,7 +785,7 @@ export interface CheckRequiredTemplateRequiredTemplate {
     /**
      * The type of the repository storing the template. Possible values are: `azuregit`, `github`, `githubenterprise`, `bitbucket`. Defaults to `azuregit`.
      */
-    repositoryType?: pulumi.Input<string>;
+    repositoryType?: pulumi.Input<string | undefined>;
     /**
      * The path to the template yaml.
      */
@@ -796,11 +796,11 @@ export interface FeedFeature {
     /**
      * Determines if Feed should be Permanently removed, Defaults to `false`
      */
-    permanentDelete?: pulumi.Input<boolean>;
+    permanentDelete?: pulumi.Input<boolean | undefined>;
     /**
      * Determines if Feed should be Restored during creation (if possible), Defaults to `false`
      */
-    restore?: pulumi.Input<boolean>;
+    restore?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetUsersFeatures {
@@ -818,7 +818,7 @@ export interface GetUsersFeaturesArgs {
      *
      * > **Note** Setting `concurrentWorkers` to a value greater than 1 can greatly decrease the time it takes to read the data source.
      */
-    concurrentWorkers?: pulumi.Input<number>;
+    concurrentWorkers?: pulumi.Input<number | undefined>;
 }
 
 export interface GitInitialization {
@@ -832,23 +832,23 @@ export interface GitInitialization {
      *
      * ~>**Note** At least `serviceConnectionId` or `username/password` needs to be set to import private repository.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The ID of service connection used to authenticate to a private repository for import initialization. Conflicts with `username` and `password`.
      */
-    serviceConnectionId?: pulumi.Input<string>;
+    serviceConnectionId?: pulumi.Input<string | undefined>;
     /**
      * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
      */
-    sourceType?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string | undefined>;
     /**
      * The URL of the source repository. Used if the `initType` is `Import`.
      */
-    sourceUrl?: pulumi.Input<string>;
+    sourceUrl?: pulumi.Input<string | undefined>;
     /**
      * The username used to authenticate to a private repository for import initialization. Conflicts with `serviceConnectionId`.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceEndpointArtifactoryAuthenticationBasic {
@@ -880,7 +880,7 @@ export interface ServiceEndpointAzureRMCredentials {
     /**
      * The service principal certificate. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      */
-    serviceprincipalcertificate?: pulumi.Input<string>;
+    serviceprincipalcertificate?: pulumi.Input<string | undefined>;
     /**
      * The service principal application ID
      */
@@ -888,14 +888,14 @@ export interface ServiceEndpointAzureRMCredentials {
     /**
      * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      */
-    serviceprincipalkey?: pulumi.Input<string>;
+    serviceprincipalkey?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceEndpointAzureRMFeatures {
     /**
      * Whether or not to validate connection with Azure after create or update operations. Defaults to `false`
      */
-    validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ServiceEndpointGitHubAuthOauth {
@@ -932,11 +932,11 @@ export interface ServiceEndpointKubernetesAzureSubscription {
     /**
      * Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
      */
-    azureEnvironment?: pulumi.Input<string>;
+    azureEnvironment?: pulumi.Input<string | undefined>;
     /**
      * Set this option to allow use cluster admin credentials.
      */
-    clusterAdmin?: pulumi.Input<boolean>;
+    clusterAdmin?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Kubernetes cluster.
      */
@@ -944,7 +944,7 @@ export interface ServiceEndpointKubernetesAzureSubscription {
     /**
      * The Kubernetes namespace. Default value is "default".
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * The resource group name, to which the Kubernetes cluster is deployed.
      */
@@ -967,11 +967,11 @@ export interface ServiceEndpointKubernetesKubeconfig {
     /**
      * Set this option to allow clients to accept a self-signed certificate.
      */
-    acceptUntrustedCerts?: pulumi.Input<boolean>;
+    acceptUntrustedCerts?: pulumi.Input<boolean | undefined>;
     /**
      * Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
      */
-    clusterContext?: pulumi.Input<string>;
+    clusterContext?: pulumi.Input<string | undefined>;
     /**
      * The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
      */
@@ -982,7 +982,7 @@ export interface ServiceEndpointKubernetesServiceAccount {
     /**
      * Set this option to allow clients to accept a self-signed certificate. Defaults to `false`.
      */
-    acceptUntrustedCerts?: pulumi.Input<boolean>;
+    acceptUntrustedCerts?: pulumi.Input<boolean | undefined>;
     /**
      * The certificate from a Kubernetes secret object.
      */
@@ -1008,7 +1008,7 @@ export interface ServiceEndpointServiceFabricAzureActiveDirectory {
     /**
      * The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
      */
-    serverCertificateCommonName?: pulumi.Input<string>;
+    serverCertificateCommonName?: pulumi.Input<string | undefined>;
     /**
      * Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      */
@@ -1016,7 +1016,7 @@ export interface ServiceEndpointServiceFabricAzureActiveDirectory {
     /**
      * The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
      */
-    serverCertificateThumbprint?: pulumi.Input<string>;
+    serverCertificateThumbprint?: pulumi.Input<string | undefined>;
     /**
      * Specify an Azure Active Directory account.
      */
@@ -1031,11 +1031,11 @@ export interface ServiceEndpointServiceFabricCertificate {
     /**
      * Password for the certificate.
      */
-    clientCertificatePassword?: pulumi.Input<string>;
+    clientCertificatePassword?: pulumi.Input<string | undefined>;
     /**
      * The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
      */
-    serverCertificateCommonName?: pulumi.Input<string>;
+    serverCertificateCommonName?: pulumi.Input<string | undefined>;
     /**
      * Verification mode for the cluster. Possible values are: `Thumbprint`, `CommonName`.
      */
@@ -1043,18 +1043,18 @@ export interface ServiceEndpointServiceFabricCertificate {
     /**
      * The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
      */
-    serverCertificateThumbprint?: pulumi.Input<string>;
+    serverCertificateThumbprint?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceEndpointServiceFabricNone {
     /**
      * Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
      */
-    clusterSpn?: pulumi.Input<string>;
+    clusterSpn?: pulumi.Input<string | undefined>;
     /**
      * Skip using windows security for authentication.
      */
-    unsecured?: pulumi.Input<boolean>;
+    unsecured?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ServiceendpointArgocdAuthenticationBasic {
@@ -1187,7 +1187,7 @@ export interface ServiceendpointOpenshiftAuthNone {
     /**
      * The kubectl config
      */
-    kubeConfig?: pulumi.Input<string>;
+    kubeConfig?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceendpointOpenshiftAuthToken {
@@ -1219,185 +1219,185 @@ export interface ServicehookStorageQueuePipelinesRunStateChangedEvent {
     /**
      * The pipeline ID that will generate an event. If not specified, all pipelines in the project will trigger the event.
      */
-    pipelineId?: pulumi.Input<string>;
+    pipelineId?: pulumi.Input<string | undefined>;
     /**
      * Which run result should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all results will trigger the event.
      */
-    runResultFilter?: pulumi.Input<string>;
+    runResultFilter?: pulumi.Input<string | undefined>;
     /**
      * Which run state should generate an event. Only valid if publishedEvent is `RunStateChanged`. If not specified, all states will trigger the event.
      */
-    runStateFilter?: pulumi.Input<string>;
+    runStateFilter?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookStorageQueuePipelinesStageStateChangedEvent {
     /**
      * The pipeline ID that will generate an event.
      */
-    pipelineId?: pulumi.Input<string>;
+    pipelineId?: pulumi.Input<string | undefined>;
     /**
      * Which stage should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all stages will trigger the event.
      */
-    stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string | undefined>;
     /**
      * Which stage result should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all results will trigger the event.
      */
-    stageResultFilter?: pulumi.Input<string>;
+    stageResultFilter?: pulumi.Input<string | undefined>;
     /**
      * Which stage state should generate an event. Only valid if publishedEvent is `StageStateChanged`. If not specified, all states will trigger the event.
      */
-    stageStateFilter?: pulumi.Input<string>;
+    stageStateFilter?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsBuildCompleted {
     /**
      * Include only events for completed builds that have a specific completion status. Valid values: `Succeeded`, `PartiallySucceeded`, `Failed`, `Stopped`.
      */
-    buildStatus?: pulumi.Input<string>;
+    buildStatus?: pulumi.Input<string | undefined>;
     /**
      * Include only events for completed builds for a specific pipeline.
      */
-    definitionName?: pulumi.Input<string>;
+    definitionName?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsGitPullRequestCommented {
     /**
      * Include only events for pull requests in a specific branch.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsGitPullRequestCreated {
     /**
      * Include only events for pull requests in a specific branch.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests created by users in a specific group.
      */
-    pullRequestCreatedBy?: pulumi.Input<string>;
+    pullRequestCreatedBy?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests with reviewers in a specific group.
      */
-    pullRequestReviewersContains?: pulumi.Input<string>;
+    pullRequestReviewersContains?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsGitPullRequestMergeAttempted {
     /**
      * Include only events for pull requests in a specific branch.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests with a specific merge result. Valid values: `Succeeded`, `Unsuccessful`, `Conflicts`, `Failure`, `RejectedByPolicy`.
      */
-    mergeResult?: pulumi.Input<string>;
+    mergeResult?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests created by users in a specific group.
      */
-    pullRequestCreatedBy?: pulumi.Input<string>;
+    pullRequestCreatedBy?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests with reviewers in a specific group.
      */
-    pullRequestReviewersContains?: pulumi.Input<string>;
+    pullRequestReviewersContains?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsGitPullRequestUpdated {
     /**
      * Include only events for pull requests in a specific branch.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests with a specific change. Valid values: `PushNotification`, `ReviewersUpdateNotification`, `StatusUpdateNotification`, `ReviewerVoteNotification`.
      */
-    notificationType?: pulumi.Input<string>;
+    notificationType?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests created by users in a specific group.
      */
-    pullRequestCreatedBy?: pulumi.Input<string>;
+    pullRequestCreatedBy?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests with reviewers in a specific group.
      */
-    pullRequestReviewersContains?: pulumi.Input<string>;
+    pullRequestReviewersContains?: pulumi.Input<string | undefined>;
     /**
      * Include only events for pull requests in a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsGitPush {
     /**
      * Include only events for code pushes to a specific branch.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * Include only events for code pushes by users in a specific group.
      */
-    pushedBy?: pulumi.Input<string>;
+    pushedBy?: pulumi.Input<string | undefined>;
     /**
      * Include only events for code pushes to a specific repository (repository ID). If not specified, all repositories in the project will trigger the event.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsRepositoryCreated {
     /**
      * Include only events for repositories created in a specific project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsRepositoryDeleted {
     /**
      * Include only events for repositories with a specific repository ID.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsRepositoryForked {
     /**
      * Include only events for repositories with a specific repository ID.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsRepositoryRenamed {
     /**
      * Include only events for repositories with a specific repository ID.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsRepositoryStatusChanged {
     /**
      * Include only events for repositories with a specific repository ID.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsServiceConnectionCreated {
     /**
      * Include only events for service connections created in a specific project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsServiceConnectionUpdated {
     /**
      * Include only events for service connections updated in a specific project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsTfvcCheckin {
@@ -1411,91 +1411,91 @@ export interface ServicehookWebhookTfsWorkItemCommented {
     /**
      * Include only events for work items under a specific area path.
      */
-    areaPath?: pulumi.Input<string>;
+    areaPath?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items with a comment that contains a specific string.
      */
-    commentPattern?: pulumi.Input<string>;
+    commentPattern?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items that contain a specific tag.
      */
-    tag?: pulumi.Input<string>;
+    tag?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items of a specific type.
      */
-    workItemType?: pulumi.Input<string>;
+    workItemType?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsWorkItemCreated {
     /**
      * Include only events for work items under a specific area path.
      */
-    areaPath?: pulumi.Input<string>;
+    areaPath?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items with one or more links added or removed.
      */
-    linksChanged?: pulumi.Input<boolean>;
+    linksChanged?: pulumi.Input<boolean | undefined>;
     /**
      * Include only events for work items that contain a specific tag.
      */
-    tag?: pulumi.Input<string>;
+    tag?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items of a specific type.
      */
-    workItemType?: pulumi.Input<string>;
+    workItemType?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsWorkItemDeleted {
     /**
      * Include only events for work items under a specific area path.
      */
-    areaPath?: pulumi.Input<string>;
+    areaPath?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items that contain a specific tag.
      */
-    tag?: pulumi.Input<string>;
+    tag?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items of a specific type.
      */
-    workItemType?: pulumi.Input<string>;
+    workItemType?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsWorkItemRestored {
     /**
      * Include only events for work items under a specific area path.
      */
-    areaPath?: pulumi.Input<string>;
+    areaPath?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items that contain a specific tag.
      */
-    tag?: pulumi.Input<string>;
+    tag?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items of a specific type.
      */
-    workItemType?: pulumi.Input<string>;
+    workItemType?: pulumi.Input<string | undefined>;
 }
 
 export interface ServicehookWebhookTfsWorkItemUpdated {
     /**
      * Include only events for work items under a specific area path.
      */
-    areaPath?: pulumi.Input<string>;
+    areaPath?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items with a change in a specific field.
      */
-    changedFields?: pulumi.Input<string>;
+    changedFields?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items with one or more links added or removed.
      */
-    linksChanged?: pulumi.Input<boolean>;
+    linksChanged?: pulumi.Input<boolean | undefined>;
     /**
      * Include only events for work items that contain a specific tag.
      */
-    tag?: pulumi.Input<string>;
+    tag?: pulumi.Input<string | undefined>;
     /**
      * Include only events for work items of a specific type.
      */
-    workItemType?: pulumi.Input<string>;
+    workItemType?: pulumi.Input<string | undefined>;
 }
 
 export interface VariableGroupKeyVault {
@@ -1506,7 +1506,7 @@ export interface VariableGroupKeyVault {
     /**
      * Set the Azure Key Vault Secret search depth. Defaults to `20`.
      */
-    searchDepth?: pulumi.Input<number>;
+    searchDepth?: pulumi.Input<number | undefined>;
     /**
      * The id of the Azure subscription endpoint to access the key vault.
      */
@@ -1514,13 +1514,13 @@ export interface VariableGroupKeyVault {
 }
 
 export interface VariableGroupVariable {
-    contentType?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    expires?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    expires?: pulumi.Input<string | undefined>;
     /**
      * A boolean flag describing if the variable value is sensitive. Defaults to `false`.
      */
-    isSecret?: pulumi.Input<boolean>;
+    isSecret?: pulumi.Input<boolean | undefined>;
     /**
      * The key value used for the variable. Must be unique within the Variable Group.
      */
@@ -1528,33 +1528,33 @@ export interface VariableGroupVariable {
     /**
      * The secret value of the variable. If omitted, it will default to empty string. Used when `isSecret` set to `true`.
      */
-    secretValue?: pulumi.Input<string>;
+    secretValue?: pulumi.Input<string | undefined>;
     /**
      * The value of the variable. If omitted, it will default to empty string.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface WorkitemRelation {
     /**
      * The type of relationship. For example: `System.LinkTypes.Hierarchy-Reverse` is a parent relationship. More details [item link type](https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference?view=azure-devops#example).
      */
-    rel?: pulumi.Input<string>;
+    rel?: pulumi.Input<string | undefined>;
     /**
      * The URL of the Work Item.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export interface WorkitemtrackingFieldSupportedOperation {
     /**
      * The friendly name of the field. Changing this forces a new field to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
      */
-    referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string | undefined>;
 }
 
 export interface WorkitemtrackingprocessControlContribution {
@@ -1565,26 +1565,26 @@ export interface WorkitemtrackingprocessControlContribution {
     /**
      * The height for the contribution.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * A dictionary holding key value pairs for contribution inputs.
      */
-    inputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    inputs?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A value indicating if the contribution should be shown on deleted work items. Default: `false`
      */
-    showOnDeletedWorkItem?: pulumi.Input<boolean>;
+    showOnDeletedWorkItem?: pulumi.Input<boolean | undefined>;
 }
 
 export interface WorkitemtrackingprocessGroupControl {
     /**
      * Contribution configuration for extension controls. A `contribution` block as defined below.
      */
-    contribution?: pulumi.Input<inputs.WorkitemtrackingprocessGroupControlContribution>;
+    contribution?: pulumi.Input<inputs.WorkitemtrackingprocessGroupControlContribution | undefined>;
     /**
      * Type of the control (e.g., HtmlFieldControl, FieldControl).
      */
-    controlType?: pulumi.Input<string>;
+    controlType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
      */
@@ -1592,39 +1592,39 @@ export interface WorkitemtrackingprocessGroupControl {
     /**
      * A value indicating whether this control has been inherited from a parent layout.
      */
-    inherited?: pulumi.Input<boolean>;
+    inherited?: pulumi.Input<boolean | undefined>;
     /**
      * A value indicating if the control is a contribution (extension) control. Default: `false`
      */
-    isContribution?: pulumi.Input<boolean>;
+    isContribution?: pulumi.Input<boolean | undefined>;
     /**
      * Label for the control.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Inner text of the control.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * Order in which the group should appear in the section.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * A value indicating whether this control has been overridden by a child layout.
      */
-    overridden?: pulumi.Input<boolean>;
+    overridden?: pulumi.Input<boolean | undefined>;
     /**
      * A value indicating if the control is read only. Default: `false`
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * A value indicating if the control should be visible or not. Default: `true`
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * Watermark text for the textbox.
      */
-    watermark?: pulumi.Input<string>;
+    watermark?: pulumi.Input<string | undefined>;
 }
 
 export interface WorkitemtrackingprocessGroupControlContribution {
@@ -1635,22 +1635,22 @@ export interface WorkitemtrackingprocessGroupControlContribution {
     /**
      * The height for the contribution.
      */
-    height?: pulumi.Input<number>;
+    height?: pulumi.Input<number | undefined>;
     /**
      * A dictionary holding key value pairs for contribution inputs.
      */
-    inputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    inputs?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A value indicating if the contribution should be shown on deleted work items. Default: `false`
      */
-    showOnDeletedWorkItem?: pulumi.Input<boolean>;
+    showOnDeletedWorkItem?: pulumi.Input<boolean | undefined>;
 }
 
 export interface WorkitemtrackingprocessPageSection {
     /**
      * The ID of the section.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface WorkitemtrackingprocessRuleAction {
@@ -1665,7 +1665,7 @@ export interface WorkitemtrackingprocessRuleAction {
     /**
      * Value to set on the target field.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface WorkitemtrackingprocessRuleCondition {
@@ -1676,53 +1676,53 @@ export interface WorkitemtrackingprocessRuleCondition {
     /**
      * Field reference name for the condition. Required for most condition types.
      */
-    field?: pulumi.Input<string>;
+    field?: pulumi.Input<string | undefined>;
     /**
      * Value to match for the condition.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface WorkitemtrackingprocessWorkitemtypePage {
     /**
      * The ID of the section.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The type of the page.
      */
-    pageType?: pulumi.Input<string>;
+    pageType?: pulumi.Input<string | undefined>;
     /**
      * A `sections` block as defined below.
      */
-    sections?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePageSection>[]>;
+    sections?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePageSection>[] | undefined>;
 }
 
 export interface WorkitemtrackingprocessWorkitemtypePageSection {
     /**
      * A `groups` block as defined above.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePageSectionGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePageSectionGroup>[] | undefined>;
     /**
      * The ID of the section.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface WorkitemtrackingprocessWorkitemtypePageSectionGroup {
     /**
      * A `controls` block as defined above.
      */
-    controls?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePageSectionGroupControl>[]>;
+    controls?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessWorkitemtypePageSectionGroupControl>[] | undefined>;
     /**
      * The ID of the section.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface WorkitemtrackingprocessWorkitemtypePageSectionGroupControl {
     /**
      * The ID of the section.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

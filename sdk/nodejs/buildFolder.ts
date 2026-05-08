@@ -121,15 +121,15 @@ export interface BuildFolderState {
     /**
      * Folder Description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder path.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project in which the folder will be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -139,7 +139,7 @@ export interface BuildFolderArgs {
     /**
      * Folder Description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The folder path.
      */

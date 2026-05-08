@@ -279,10 +279,10 @@ def get_security_namespace_token(identifiers: Optional[Mapping[str, _builtins.st
         required_identifiers=pulumi.get(__ret__, 'required_identifiers'),
         return_identifier_info=pulumi.get(__ret__, 'return_identifier_info'),
         token=pulumi.get(__ret__, 'token'))
-def get_security_namespace_token_output(identifiers: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                                        namespace_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        namespace_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        return_identifier_info: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_security_namespace_token_output(identifiers: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                                        namespace_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        return_identifier_info: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityNamespaceTokenResult]:
     """
     Use this data source to generate security tokens for Azure DevOps security namespaces. Security tokens are required when managing permissions with the `SecurityPermissions` resource.

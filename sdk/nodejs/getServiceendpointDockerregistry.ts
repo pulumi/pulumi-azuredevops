@@ -168,12 +168,12 @@ export interface GetServiceendpointDockerregistryOutputArgs {
     /**
      * the ID of the Service Endpoint.
      */
-    serviceEndpointId?: pulumi.Input<string>;
+    serviceEndpointId?: pulumi.Input<string | undefined>;
     /**
      * the Name of the Service Endpoint.
      *
      * > **NOTE:** 1. One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
      * <br>2. When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }

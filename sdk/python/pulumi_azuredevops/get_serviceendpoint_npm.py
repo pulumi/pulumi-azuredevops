@@ -152,9 +152,9 @@ def get_serviceendpoint_npm(project_id: Optional[_builtins.str] = None,
         service_endpoint_id=pulumi.get(__ret__, 'service_endpoint_id'),
         service_endpoint_name=pulumi.get(__ret__, 'service_endpoint_name'),
         url=pulumi.get(__ret__, 'url'))
-def get_serviceendpoint_npm_output(project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   service_endpoint_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   service_endpoint_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_serviceendpoint_npm_output(project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   service_endpoint_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   service_endpoint_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceendpointNpmResult]:
     """
     Use this data source to access information about an existing NPM Service Endpoint.

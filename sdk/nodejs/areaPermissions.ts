@@ -164,7 +164,7 @@ export interface AreaPermissionsState {
     /**
      * The name of the branch to assign the permissions.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available.
      *
@@ -180,19 +180,19 @@ export interface AreaPermissionsState {
      * | MANAGE_TEST_SUITES     | Manage test suites                   |
      * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
      */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The **group** principal to assign the permissions.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project to assign the permissions.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -202,7 +202,7 @@ export interface AreaPermissionsArgs {
     /**
      * The name of the branch to assign the permissions.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available.
      *
@@ -230,5 +230,5 @@ export interface AreaPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }

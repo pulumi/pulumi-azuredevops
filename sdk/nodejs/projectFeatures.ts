@@ -141,8 +141,8 @@ export interface ProjectFeaturesState {
      * via the `features` block by using the `azuredevops.Project` resource.
      * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
-    features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    projectId?: pulumi.Input<string>;
+    features?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 /**

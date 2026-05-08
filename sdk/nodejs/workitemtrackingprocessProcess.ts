@@ -133,31 +133,31 @@ export interface WorkitemtrackingprocessProcessState {
     /**
      * Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.
      */
-    customizationType?: pulumi.Input<string>;
+    customizationType?: pulumi.Input<string | undefined>;
     /**
      * Description of the process. Default: ""
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Is the process default? Default: false
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Is the process enabled? Default: true
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the process.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the parent process. Changing this forces a new process to be created.
      */
-    parentProcessTypeId?: pulumi.Input<string>;
+    parentProcessTypeId?: pulumi.Input<string | undefined>;
     /**
      * Reference name of process being created. If not specified, server will assign a unique reference name. Changing this forces a new process to be created.
      */
-    referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,19 +167,19 @@ export interface WorkitemtrackingprocessProcessArgs {
     /**
      * Description of the process. Default: ""
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Is the process default? Default: false
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Is the process enabled? Default: true
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the process.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the parent process. Changing this forces a new process to be created.
      */
@@ -187,5 +187,5 @@ export interface WorkitemtrackingprocessProcessArgs {
     /**
      * Reference name of process being created. If not specified, server will assign a unique reference name. Changing this forces a new process to be created.
      */
-    referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string | undefined>;
 }

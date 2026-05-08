@@ -154,19 +154,19 @@ export interface TaggingPermissionsState {
      * | Update    | Update tag definition     |
      * | Delete    | Delete tag definition     |
      */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The **group or user** principal to assign the permissions.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -191,9 +191,9 @@ export interface TaggingPermissionsArgs {
     /**
      * The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }

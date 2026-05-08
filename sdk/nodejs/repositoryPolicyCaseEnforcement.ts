@@ -163,23 +163,23 @@ export interface RepositoryPolicyCaseEnforcementState {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Avoid case-sensitivity conflicts by blocking pushes that change name casing on files, folders, branches, and tags.
      */
-    enforceConsistentCase?: pulumi.Input<boolean>;
+    enforceConsistentCase?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    repositoryIds?: pulumi.Input<pulumi.Input<string>[]>;
+    repositoryIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -189,11 +189,11 @@ export interface RepositoryPolicyCaseEnforcementArgs {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Avoid case-sensitivity conflicts by blocking pushes that change name casing on files, folders, branches, and tags.
      */
@@ -205,5 +205,5 @@ export interface RepositoryPolicyCaseEnforcementArgs {
     /**
      * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    repositoryIds?: pulumi.Input<pulumi.Input<string>[]>;
+    repositoryIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

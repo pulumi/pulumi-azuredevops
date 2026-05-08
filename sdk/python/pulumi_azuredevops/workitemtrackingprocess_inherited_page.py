@@ -88,10 +88,10 @@ class WorkitemtrackingprocessInheritedPageArgs:
 @pulumi.input_type
 class _WorkitemtrackingprocessInheritedPageState:
     def __init__(__self__, *,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 page_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 page_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessInheritedPage resources.
 
@@ -111,50 +111,50 @@ class _WorkitemtrackingprocessInheritedPageState:
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for the page.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter(name="pageId")
-    def page_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def page_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the inherited page to customize. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "page_id")
 
     @page_id.setter
-    def page_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def page_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "page_id", value)
 
     @_builtins.property
     @pulumi.getter(name="processId")
-    def process_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the process. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "process_id")
 
     @process_id.setter
-    def process_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemTypeId")
-    def work_item_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID (reference name) of the work item type. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "work_item_type_id")
 
     @work_item_type_id.setter
-    def work_item_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type_id", value)
 
 
@@ -164,10 +164,10 @@ class WorkitemtrackingprocessInheritedPage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 page_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 page_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages inherited page customizations for a work item type.
@@ -277,10 +277,10 @@ class WorkitemtrackingprocessInheritedPage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 page_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 page_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,10 +312,10 @@ class WorkitemtrackingprocessInheritedPage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            page_id: Optional[pulumi.Input[_builtins.str]] = None,
-            process_id: Optional[pulumi.Input[_builtins.str]] = None,
-            work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessInheritedPage':
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            page_id: pulumi.Input[Optional[_builtins.str]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessInheritedPage':
         """
         Get an existing WorkitemtrackingprocessInheritedPage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

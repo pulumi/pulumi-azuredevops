@@ -151,22 +151,22 @@ export interface TeamMembersState {
      * `azuredevops.TeamMembers` resource. However, it's not possible to use
      * both methods to manage team members, since there'll be conflicts.
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The mode how the resource manages team members. Possible values: `add`, `overwrite`. Defaults to `add`.
      *
      * > **NOTE:** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced team
      * <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The Project ID.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Team.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -188,7 +188,7 @@ export interface TeamMembersArgs {
      * > **NOTE:** 1. `mode = add`: the resource will ensure that all specified members will be part of the referenced team
      * <br>2. `mode = overwrite`: the resource will replace all existing members with the members specified within the `members` block
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * The Project ID.
      */

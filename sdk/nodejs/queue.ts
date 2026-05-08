@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: exampleProject.id,
- *     agentPoolId: example.then(example => example.id),
+ *     agentPoolId: output(example.then(example => example.id)).apply(x =>Number(x)),
  * });
  * // Grant access to queue to all pipelines in the project
  * const exampleResourceAuthorization = new azuredevops.ResourceAuthorization("example", {
@@ -147,15 +147,15 @@ export interface QueueState {
      * > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
      * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      */
-    agentPoolId?: pulumi.Input<number>;
+    agentPoolId?: pulumi.Input<number | undefined>;
     /**
      * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project in which to create the resource.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,11 +168,11 @@ export interface QueueArgs {
      * > **NOTE:** One of `name` or `agentPoolId` must be specified, but not both.
      * When `agentPoolId` is specified, the agent queue name will be derived from the agent pool name.
      */
-    agentPoolId?: pulumi.Input<number>;
+    agentPoolId?: pulumi.Input<number | undefined>;
     /**
      * The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agentPoolId`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project in which to create the resource.
      */

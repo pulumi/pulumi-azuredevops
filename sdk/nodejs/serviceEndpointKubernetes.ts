@@ -208,33 +208,33 @@ export interface ServiceEndpointKubernetesState {
     /**
      * The hostname (in form of URI) of the Kubernetes API.
      */
-    apiserverUrl?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    apiserverUrl?: pulumi.Input<string | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
      */
-    authorizationType?: pulumi.Input<string>;
+    authorizationType?: pulumi.Input<string | undefined>;
     /**
      * An `azureSubscription` block as defined below.
      */
-    azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpointKubernetesAzureSubscription>[]>;
-    description?: pulumi.Input<string>;
+    azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpointKubernetesAzureSubscription>[] | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `kubeconfig` block as defined below.
      */
-    kubeconfig?: pulumi.Input<inputs.ServiceEndpointKubernetesKubeconfig>;
+    kubeconfig?: pulumi.Input<inputs.ServiceEndpointKubernetesKubeconfig | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * A `serviceAccount` block as defined below.
      */
-    serviceAccount?: pulumi.Input<inputs.ServiceEndpointKubernetesServiceAccount>;
+    serviceAccount?: pulumi.Input<inputs.ServiceEndpointKubernetesServiceAccount | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -252,12 +252,12 @@ export interface ServiceEndpointKubernetesArgs {
     /**
      * An `azureSubscription` block as defined below.
      */
-    azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpointKubernetesAzureSubscription>[]>;
-    description?: pulumi.Input<string>;
+    azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpointKubernetesAzureSubscription>[] | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A `kubeconfig` block as defined below.
      */
-    kubeconfig?: pulumi.Input<inputs.ServiceEndpointKubernetesKubeconfig>;
+    kubeconfig?: pulumi.Input<inputs.ServiceEndpointKubernetesKubeconfig | undefined>;
     /**
      * The ID of the project.
      */
@@ -265,7 +265,7 @@ export interface ServiceEndpointKubernetesArgs {
     /**
      * A `serviceAccount` block as defined below.
      */
-    serviceAccount?: pulumi.Input<inputs.ServiceEndpointKubernetesServiceAccount>;
+    serviceAccount?: pulumi.Input<inputs.ServiceEndpointKubernetesServiceAccount | undefined>;
     /**
      * The Service Endpoint name.
      */

@@ -130,20 +130,20 @@ export interface WikiPageState {
     /**
      * The content of the wiki page.
      */
-    content?: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The path of the wiki page.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Wiki.
      */
-    wikiId?: pulumi.Input<string>;
+    wikiId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -154,7 +154,7 @@ export interface WikiPageArgs {
      * The content of the wiki page.
      */
     content: pulumi.Input<string>;
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * The path of the wiki page.
      */

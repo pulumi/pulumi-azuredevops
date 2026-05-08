@@ -22,7 +22,7 @@ class FeedRetentionPolicyArgs:
                  count_limit: pulumi.Input[_builtins.int],
                  days_to_keep_recently_downloaded_packages: pulumi.Input[_builtins.int],
                  feed_id: pulumi.Input[_builtins.str],
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FeedRetentionPolicy resource.
 
@@ -75,24 +75,24 @@ class FeedRetentionPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Project. If not specified, Feed will be created at the organization level. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
 
 @pulumi.input_type
 class _FeedRetentionPolicyState:
     def __init__(__self__, *,
-                 count_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 days_to_keep_recently_downloaded_packages: Optional[pulumi.Input[_builtins.int]] = None,
-                 feed_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 count_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 days_to_keep_recently_downloaded_packages: pulumi.Input[Optional[_builtins.int]] = None,
+                 feed_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FeedRetentionPolicy resources.
 
@@ -112,50 +112,50 @@ class _FeedRetentionPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="countLimit")
-    def count_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def count_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of versions per package.
         """
         return pulumi.get(self, "count_limit")
 
     @count_limit.setter
-    def count_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def count_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "count_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="daysToKeepRecentlyDownloadedPackages")
-    def days_to_keep_recently_downloaded_packages(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days_to_keep_recently_downloaded_packages(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The days to keep recently downloaded packages.
         """
         return pulumi.get(self, "days_to_keep_recently_downloaded_packages")
 
     @days_to_keep_recently_downloaded_packages.setter
-    def days_to_keep_recently_downloaded_packages(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days_to_keep_recently_downloaded_packages(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days_to_keep_recently_downloaded_packages", value)
 
     @_builtins.property
     @pulumi.getter(name="feedId")
-    def feed_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def feed_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Feed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "feed_id")
 
     @feed_id.setter
-    def feed_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def feed_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "feed_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Project. If not specified, Feed will be created at the organization level. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
 
@@ -165,10 +165,10 @@ class FeedRetentionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 count_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 days_to_keep_recently_downloaded_packages: Optional[pulumi.Input[_builtins.int]] = None,
-                 feed_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 count_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 days_to_keep_recently_downloaded_packages: pulumi.Input[Optional[_builtins.int]] = None,
+                 feed_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the Feed Retention Policy within Azure DevOps.
@@ -312,10 +312,10 @@ class FeedRetentionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 count_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 days_to_keep_recently_downloaded_packages: Optional[pulumi.Input[_builtins.int]] = None,
-                 feed_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 count_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 days_to_keep_recently_downloaded_packages: pulumi.Input[Optional[_builtins.int]] = None,
+                 feed_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -345,10 +345,10 @@ class FeedRetentionPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            count_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            days_to_keep_recently_downloaded_packages: Optional[pulumi.Input[_builtins.int]] = None,
-            feed_id: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'FeedRetentionPolicy':
+            count_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            days_to_keep_recently_downloaded_packages: pulumi.Input[Optional[_builtins.int]] = None,
+            feed_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FeedRetentionPolicy':
         """
         Get an existing FeedRetentionPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

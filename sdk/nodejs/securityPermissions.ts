@@ -245,26 +245,26 @@ export interface SecurityPermissionsState {
     /**
      * The ID of the security namespace. Use the `azuredevops.getSecurityNamespaces` data source to discover available namespaces. Changing this forces a new resource to be created.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * A map of permission names to permission values. All permission names specified must be valid for the given namespace, or an error will be returned. Permission values must be one of:
      * - `Allow` (or `allow`, `ALLOW`) - Grant the permission
      * - `Deny` (or `deny`, `DENY`) - Explicitly deny the permission
      * - `NotSet` (or `notset`, `NOTSET`) - Remove the permission (inherit from parent)
      */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The descriptor or identity ID of the principal (user or group). Changing this forces a new resource to be created.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions with existing permissions. When `true`, all existing permissions for the principal on this token will be replaced with the specified permissions. When `false`, the specified permissions will be merged with existing permissions. Default: `true`.
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
     /**
      * The security token for the resource. Use the `azuredevops.getSecurityNamespaceToken` data source to generate tokens for specific resources. Changing this forces a new resource to be created.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -289,7 +289,7 @@ export interface SecurityPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions with existing permissions. When `true`, all existing permissions for the principal on this token will be replaced with the specified permissions. When `false`, the specified permissions will be merged with existing permissions. Default: `true`.
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
     /**
      * The security token for the resource. Use the `azuredevops.getSecurityNamespaceToken` data source to generate tokens for specific resources. Changing this forces a new resource to be created.
      */

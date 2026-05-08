@@ -22,10 +22,10 @@ class WorkitemtrackingprocessFieldArgs:
                  field_id: pulumi.Input[_builtins.str],
                  process_id: pulumi.Input[_builtins.str],
                  work_item_type_id: pulumi.Input[_builtins.str],
-                 allow_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessField resource.
 
@@ -89,7 +89,7 @@ class WorkitemtrackingprocessFieldArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowGroups")
-    def allow_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Allow setting field value to a group identity. Only applies to identity fields.  
@@ -98,59 +98,59 @@ class WorkitemtrackingprocessFieldArgs:
         return pulumi.get(self, "allow_groups")
 
     @allow_groups.setter
-    def allow_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default value of the field.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the field cannot be edited. Default: `false`.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the field cannot be empty. Default: `false`.
         """
         return pulumi.get(self, "required")
 
     @required.setter
-    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingprocessFieldState:
     def __init__(__self__, *,
-                 allow_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 customization: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 customization: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessField resources.
 
@@ -190,7 +190,7 @@ class _WorkitemtrackingprocessFieldState:
 
     @_builtins.property
     @pulumi.getter(name="allowGroups")
-    def allow_groups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Allow setting field value to a group identity. Only applies to identity fields.  
@@ -199,115 +199,115 @@ class _WorkitemtrackingprocessFieldState:
         return pulumi.get(self, "allow_groups")
 
     @allow_groups.setter
-    def allow_groups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_groups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def customization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the type of customization on this work item. Possible values are `system`, `inherited`, or `custom`.
         """
         return pulumi.get(self, "customization")
 
     @customization.setter
-    def customization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customization", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default value of the field.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_value", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldId")
-    def field_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID (reference name) of the field. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "field_id")
 
     @field_id.setter
-    def field_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isLocked")
-    def is_locked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_locked(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the field definition is locked for editing.
         """
         return pulumi.get(self, "is_locked")
 
     @is_locked.setter
-    def is_locked(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_locked(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_locked", value)
 
     @_builtins.property
     @pulumi.getter(name="processId")
-    def process_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the process. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "process_id")
 
     @process_id.setter
-    def process_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_id", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the field cannot be edited. Default: `false`.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the field cannot be empty. Default: `false`.
         """
         return pulumi.get(self, "required")
 
     @required.setter
-    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the field resource.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemTypeId")
-    def work_item_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID (reference name) of the work item type. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "work_item_type_id")
 
     @work_item_type_id.setter
-    def work_item_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type_id", value)
 
 
@@ -317,13 +317,13 @@ class WorkitemtrackingprocessField(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a field for a work item type in a process. This resource adds an existing field to a work item type and allows configuring field-specific settings like default value, required, and read-only status.
@@ -440,13 +440,13 @@ class WorkitemtrackingprocessField(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -484,16 +484,16 @@ class WorkitemtrackingprocessField(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_groups: Optional[pulumi.Input[_builtins.bool]] = None,
-            customization: Optional[pulumi.Input[_builtins.str]] = None,
-            default_value: Optional[pulumi.Input[_builtins.str]] = None,
-            field_id: Optional[pulumi.Input[_builtins.str]] = None,
-            is_locked: Optional[pulumi.Input[_builtins.bool]] = None,
-            process_id: Optional[pulumi.Input[_builtins.str]] = None,
-            read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            required: Optional[pulumi.Input[_builtins.bool]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessField':
+            allow_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+            customization: pulumi.Input[Optional[_builtins.str]] = None,
+            default_value: pulumi.Input[Optional[_builtins.str]] = None,
+            field_id: pulumi.Input[Optional[_builtins.str]] = None,
+            is_locked: pulumi.Input[Optional[_builtins.bool]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            required: pulumi.Input[Optional[_builtins.bool]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessField':
         """
         Get an existing WorkitemtrackingprocessField resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

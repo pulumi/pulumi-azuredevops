@@ -122,7 +122,7 @@ export interface GetGitRepositoryFileOutputArgs {
     /**
      * The git branch to use. Conflicts with `tag`; one or the other must be specified.
      */
-    branch?: pulumi.Input<string>;
+    branch?: pulumi.Input<string | undefined>;
     /**
      * The path of the file to get.
      */
@@ -134,5 +134,5 @@ export interface GetGitRepositoryFileOutputArgs {
     /**
      * The tag to use.Conflicts with `branch`; one or the other must be specified.
      */
-    tag?: pulumi.Input<string>;
+    tag?: pulumi.Input<string | undefined>;
 }

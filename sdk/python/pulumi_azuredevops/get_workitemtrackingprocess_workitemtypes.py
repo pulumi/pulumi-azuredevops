@@ -102,7 +102,7 @@ def get_workitemtrackingprocess_workitemtypes(process_id: Optional[_builtins.str
         id=pulumi.get(__ret__, 'id'),
         process_id=pulumi.get(__ret__, 'process_id'),
         work_item_types=pulumi.get(__ret__, 'work_item_types'))
-def get_workitemtrackingprocess_workitemtypes_output(process_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workitemtrackingprocess_workitemtypes_output(process_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkitemtrackingprocessWorkitemtypesResult]:
     """
     Use this data source to access information about all work item types in a process.

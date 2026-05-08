@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.SecurityroleAssignment;
  * import com.pulumi.azuredevops.SecurityroleAssignmentArgs;
  * import com.pulumi.std.StdFunctions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -71,9 +71,9 @@ import javax.annotation.Nullable;
  *             .scope("distributedtask.environmentreferencerole")
  *             .resourceId(StdFunctions.format(Map.ofEntries(
  *                 Map.entry("input", "%s_%s"),
- *                 Map.entry("args",                 
+ *                 Map.entry("args", Arrays.asList(                
  *                     example.id(),
- *                     exampleEnvironment.id())
+ *                     exampleEnvironment.id()))
  *             )).result())
  *             .identityId(exampleGroup.groupId())
  *             .roleName("Administrator")

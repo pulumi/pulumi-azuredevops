@@ -172,23 +172,23 @@ export interface CheckRequiredTemplateState {
     /**
      * The project ID. Changing this forces a new Required Template Check to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * One or more `requiredTemplate` blocks documented below.
      */
-    requiredTemplates?: pulumi.Input<pulumi.Input<inputs.CheckRequiredTemplateRequiredTemplate>[]>;
+    requiredTemplates?: pulumi.Input<pulumi.Input<inputs.CheckRequiredTemplateRequiredTemplate>[] | undefined>;
     /**
      * The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
      */
-    targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string | undefined>;
     /**
      * The version of the check.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**

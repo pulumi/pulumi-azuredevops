@@ -181,9 +181,9 @@ def get_serviceendpoint_generic_v2(id: Optional[_builtins.str] = None,
         server_url=pulumi.get(__ret__, 'server_url'),
         shared_project_ids=pulumi.get(__ret__, 'shared_project_ids'),
         type=pulumi.get(__ret__, 'type'))
-def get_serviceendpoint_generic_v2_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                          name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                          project_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_serviceendpoint_generic_v2_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          project_id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceendpointGenericV2Result]:
     """
     Use this data source to access information about an existing Generic Service Endpoint (v2) within Azure DevOps.

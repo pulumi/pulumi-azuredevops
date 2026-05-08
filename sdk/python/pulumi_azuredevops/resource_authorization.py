@@ -22,8 +22,8 @@ class ResourceAuthorizationArgs:
                  authorized: pulumi.Input[_builtins.bool],
                  project_id: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
-                 definition_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 definition_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceAuthorization resource.
 
@@ -79,37 +79,37 @@ class ResourceAuthorizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="definitionId")
-    def definition_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def definition_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the build definition to authorize.
         """
         return pulumi.get(self, "definition_id")
 
     @definition_id.setter
-    def definition_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def definition_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "definition_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _ResourceAuthorizationState:
     def __init__(__self__, *,
-                 authorized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 definition_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 definition_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceAuthorization resources.
 
@@ -132,62 +132,62 @@ class _ResourceAuthorizationState:
 
     @_builtins.property
     @pulumi.getter
-    def authorized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def authorized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to allow public access in the project.
         """
         return pulumi.get(self, "authorized")
 
     @authorized.setter
-    def authorized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def authorized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "authorized", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionId")
-    def definition_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def definition_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ID of the build definition to authorize.
         """
         return pulumi.get(self, "definition_id")
 
     @definition_id.setter
-    def definition_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def definition_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project ID or project name.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the resource to authorize.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the resource to authorize. Possible values: `endpoint`, `queue`, `variablegroup`. Defaults to value: `endpoint`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -197,11 +197,11 @@ class ResourceAuthorization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 definition_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 definition_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages authorization of resources, e.g. for access in build pipelines.
@@ -300,11 +300,11 @@ class ResourceAuthorization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 definition_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 authorized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 definition_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -337,11 +337,11 @@ class ResourceAuthorization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorized: Optional[pulumi.Input[_builtins.bool]] = None,
-            definition_id: Optional[pulumi.Input[_builtins.int]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ResourceAuthorization':
+            authorized: pulumi.Input[Optional[_builtins.bool]] = None,
+            definition_id: pulumi.Input[Optional[_builtins.int]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ResourceAuthorization':
         """
         Get an existing ResourceAuthorization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

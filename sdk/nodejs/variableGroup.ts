@@ -222,27 +222,27 @@ export interface VariableGroupState {
     /**
      * Boolean that indicate if this variable group is shared by all pipelines of this project.
      */
-    allowAccess?: pulumi.Input<boolean>;
+    allowAccess?: pulumi.Input<boolean | undefined>;
     /**
      * The description of the Variable Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of `keyVault` blocks as documented below.
      */
-    keyVault?: pulumi.Input<inputs.VariableGroupKeyVault>;
+    keyVault?: pulumi.Input<inputs.VariableGroupKeyVault | undefined>;
     /**
      * The name of the Variable Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * One or more `variable` blocks as documented below.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.VariableGroupVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.VariableGroupVariable>[] | undefined>;
 }
 
 /**
@@ -252,19 +252,19 @@ export interface VariableGroupArgs {
     /**
      * Boolean that indicate if this variable group is shared by all pipelines of this project.
      */
-    allowAccess?: pulumi.Input<boolean>;
+    allowAccess?: pulumi.Input<boolean | undefined>;
     /**
      * The description of the Variable Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of `keyVault` blocks as documented below.
      */
-    keyVault?: pulumi.Input<inputs.VariableGroupKeyVault>;
+    keyVault?: pulumi.Input<inputs.VariableGroupKeyVault | undefined>;
     /**
      * The name of the Variable Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

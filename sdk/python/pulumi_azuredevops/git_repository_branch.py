@@ -20,10 +20,10 @@ __all__ = ['GitRepositoryBranchArgs', 'GitRepositoryBranch']
 class GitRepositoryBranchArgs:
     def __init__(__self__, *,
                  repository_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_tag: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_tag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GitRepositoryBranch resource.
 
@@ -57,62 +57,62 @@ class GitRepositoryBranchArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the branch in short format not prefixed with `refs/heads/`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="refBranch")
-    def ref_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference to the source branch to create the branch from, in `<name>` or `refs/heads/<name>` format. Conflict with `ref_tag`, `ref_commit_id`.
         """
         return pulumi.get(self, "ref_branch")
 
     @ref_branch.setter
-    def ref_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="refCommitId")
-    def ref_commit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref_commit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
         """
         return pulumi.get(self, "ref_commit_id")
 
     @ref_commit_id.setter
-    def ref_commit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref_commit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref_commit_id", value)
 
     @_builtins.property
     @pulumi.getter(name="refTag")
-    def ref_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference to the tag to create the branch from, in `<name>` or `refs/tags/<name>` format. Conflict with `ref_branch`, `ref_commit_id`.
         """
         return pulumi.get(self, "ref_tag")
 
     @ref_tag.setter
-    def ref_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref_tag", value)
 
 
 @pulumi.input_type
 class _GitRepositoryBranchState:
     def __init__(__self__, *,
-                 last_commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 last_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GitRepositoryBranch resources.
 
@@ -138,74 +138,74 @@ class _GitRepositoryBranchState:
 
     @_builtins.property
     @pulumi.getter(name="lastCommitId")
-    def last_commit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_commit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The commit object ID of last commit on the branch.
         """
         return pulumi.get(self, "last_commit_id")
 
     @last_commit_id.setter
-    def last_commit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_commit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_commit_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the branch in short format not prefixed with `refs/heads/`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="refBranch")
-    def ref_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference to the source branch to create the branch from, in `<name>` or `refs/heads/<name>` format. Conflict with `ref_tag`, `ref_commit_id`.
         """
         return pulumi.get(self, "ref_branch")
 
     @ref_branch.setter
-    def ref_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="refCommitId")
-    def ref_commit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref_commit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
         """
         return pulumi.get(self, "ref_commit_id")
 
     @ref_commit_id.setter
-    def ref_commit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref_commit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref_commit_id", value)
 
     @_builtins.property
     @pulumi.getter(name="refTag")
-    def ref_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ref_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference to the tag to create the branch from, in `<name>` or `refs/tags/<name>` format. Conflict with `ref_branch`, `ref_commit_id`.
         """
         return pulumi.get(self, "ref_tag")
 
     @ref_tag.setter
-    def ref_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ref_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ref_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the repository the branch is created against.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
@@ -215,11 +215,11 @@ class GitRepositoryBranch(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Git Repository Branch.
@@ -328,11 +328,11 @@ class GitRepositoryBranch(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ref_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ref_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -360,12 +360,12 @@ class GitRepositoryBranch(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            last_commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            ref_branch: Optional[pulumi.Input[_builtins.str]] = None,
-            ref_commit_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ref_tag: Optional[pulumi.Input[_builtins.str]] = None,
-            repository_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'GitRepositoryBranch':
+            last_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ref_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            ref_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ref_tag: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'GitRepositoryBranch':
         """
         Get an existing GitRepositoryBranch resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

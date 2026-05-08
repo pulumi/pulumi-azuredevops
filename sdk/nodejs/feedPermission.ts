@@ -148,27 +148,27 @@ export interface FeedPermissionState {
     /**
      * The display name of the assignment
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Feed.
      */
-    feedId?: pulumi.Input<string>;
+    feedId?: pulumi.Input<string | undefined>;
     /**
      * The Descriptor of identity you want to assign a role.
      */
-    identityDescriptor?: pulumi.Input<string>;
+    identityDescriptor?: pulumi.Input<string | undefined>;
     /**
      * The ID of the identity.
      */
-    identityId?: pulumi.Input<string>;
+    identityId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface FeedPermissionArgs {
     /**
      * The display name of the assignment
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Feed.
      */
@@ -190,7 +190,7 @@ export interface FeedPermissionArgs {
     /**
      * The ID of the Project Feed is created in. If not specified, feed will be created at the organization level.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The role to be assigned. Possible values are: `reader`, `contributor`, `collaborator`, `administrator`
      */

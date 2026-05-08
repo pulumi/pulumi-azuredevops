@@ -250,63 +250,63 @@ export interface WorkitemtrackingprocessControlState {
     /**
      * Contribution configuration for extension controls. A `contribution` block as defined below.
      */
-    contribution?: pulumi.Input<inputs.WorkitemtrackingprocessControlContribution>;
+    contribution?: pulumi.Input<inputs.WorkitemtrackingprocessControlContribution | undefined>;
     /**
      * The ID for the control. For field controls, this is the field reference name. Changing this forces a new control to be created.
      */
-    controlId?: pulumi.Input<string>;
+    controlId?: pulumi.Input<string | undefined>;
     /**
      * The type of the control (e.g., FieldControl, HtmlFieldControl, DateTimeControl).
      */
-    controlType?: pulumi.Input<string>;
+    controlType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the group to add the control to. Changing this moves the control to the new group.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * A value indicating whether this layout node has been inherited from a parent layout.
      */
-    inherited?: pulumi.Input<boolean>;
+    inherited?: pulumi.Input<boolean | undefined>;
     /**
      * A value indicating if the control is a contribution (extension) control. Default: `false`
      */
-    isContribution?: pulumi.Input<boolean>;
+    isContribution?: pulumi.Input<boolean | undefined>;
     /**
      * Label for the control.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Inner text of the control.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * Order in which the control should appear in its group.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * A value indicating whether this layout node has been overridden by a child layout.
      */
-    overridden?: pulumi.Input<boolean>;
+    overridden?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the process. Changing this forces a new control to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * A value indicating if the control is readonly. Default: `false`
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * A value indicating if the control should be visible or not. Default: `true`
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * Watermark text for the textbox.
      */
-    watermark?: pulumi.Input<string>;
+    watermark?: pulumi.Input<string | undefined>;
     /**
      * The reference name of the work item type. Changing this forces a new control to be created.
      */
-    workItemTypeReferenceName?: pulumi.Input<string>;
+    workItemTypeReferenceName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -316,7 +316,7 @@ export interface WorkitemtrackingprocessControlArgs {
     /**
      * Contribution configuration for extension controls. A `contribution` block as defined below.
      */
-    contribution?: pulumi.Input<inputs.WorkitemtrackingprocessControlContribution>;
+    contribution?: pulumi.Input<inputs.WorkitemtrackingprocessControlContribution | undefined>;
     /**
      * The ID for the control. For field controls, this is the field reference name. Changing this forces a new control to be created.
      */
@@ -328,19 +328,19 @@ export interface WorkitemtrackingprocessControlArgs {
     /**
      * A value indicating if the control is a contribution (extension) control. Default: `false`
      */
-    isContribution?: pulumi.Input<boolean>;
+    isContribution?: pulumi.Input<boolean | undefined>;
     /**
      * Label for the control.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Inner text of the control.
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * Order in which the control should appear in its group.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The ID of the process. Changing this forces a new control to be created.
      */
@@ -348,15 +348,15 @@ export interface WorkitemtrackingprocessControlArgs {
     /**
      * A value indicating if the control is readonly. Default: `false`
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * A value indicating if the control should be visible or not. Default: `true`
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * Watermark text for the textbox.
      */
-    watermark?: pulumi.Input<string>;
+    watermark?: pulumi.Input<string | undefined>;
     /**
      * The reference name of the work item type. Changing this forces a new control to be created.
      */

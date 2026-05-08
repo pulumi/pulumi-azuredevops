@@ -23,10 +23,10 @@ class CheckApprovalArgs:
                  project_id: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
                  target_resource_type: pulumi.Input[_builtins.str],
-                 instructions: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_required_approvers: Optional[pulumi.Input[_builtins.int]] = None,
-                 requester_can_approve: Optional[pulumi.Input[_builtins.bool]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_required_approvers: pulumi.Input[Optional[_builtins.int]] = None,
+                 requester_can_approve: pulumi.Input[Optional[_builtins.bool]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a CheckApproval resource.
 
@@ -102,65 +102,65 @@ class CheckApprovalArgs:
 
     @_builtins.property
     @pulumi.getter
-    def instructions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The instructions for the approvers.
         """
         return pulumi.get(self, "instructions")
 
     @instructions.setter
-    def instructions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instructions", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumRequiredApprovers")
-    def minimum_required_approvers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_required_approvers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of approvers. This property is applicable when there is more than 1 approver.
         """
         return pulumi.get(self, "minimum_required_approvers")
 
     @minimum_required_approvers.setter
-    def minimum_required_approvers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_required_approvers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_required_approvers", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterCanApprove")
-    def requester_can_approve(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requester_can_approve(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the requestor approve? Defaults to `false`.
         """
         return pulumi.get(self, "requester_can_approve")
 
     @requester_can_approve.setter
-    def requester_can_approve(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requester_can_approve(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requester_can_approve", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout in minutes for the approval.  Defaults to `43200`.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
 class _CheckApprovalState:
     def __init__(__self__, *,
-                 approvers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 instructions: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_required_approvers: Optional[pulumi.Input[_builtins.int]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_can_approve: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 approvers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_required_approvers: pulumi.Input[Optional[_builtins.int]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_can_approve: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CheckApproval resources.
 
@@ -195,110 +195,110 @@ class _CheckApprovalState:
 
     @_builtins.property
     @pulumi.getter
-    def approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def approvers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of approver IDs.
         """
         return pulumi.get(self, "approvers")
 
     @approvers.setter
-    def approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def approvers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "approvers", value)
 
     @_builtins.property
     @pulumi.getter
-    def instructions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The instructions for the approvers.
         """
         return pulumi.get(self, "instructions")
 
     @instructions.setter
-    def instructions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instructions", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumRequiredApprovers")
-    def minimum_required_approvers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_required_approvers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of approvers. This property is applicable when there is more than 1 approver.
         """
         return pulumi.get(self, "minimum_required_approvers")
 
     @minimum_required_approvers.setter
-    def minimum_required_approvers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_required_approvers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_required_approvers", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project ID. Changing this forces a new Approval Check to be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterCanApprove")
-    def requester_can_approve(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def requester_can_approve(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Can the requestor approve? Defaults to `false`.
         """
         return pulumi.get(self, "requester_can_approve")
 
     @requester_can_approve.setter
-    def requester_can_approve(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def requester_can_approve(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "requester_can_approve", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the resource being protected by the check. Changing this forces a new Approval Check to be created.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Approval Check to be created.
         """
         return pulumi.get(self, "target_resource_type")
 
     @target_resource_type.setter
-    def target_resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout in minutes for the approval.  Defaults to `43200`.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version of the check.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -308,14 +308,14 @@ class CheckApproval(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approvers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 instructions: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_required_approvers: Optional[pulumi.Input[_builtins.int]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_can_approve: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 approvers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_required_approvers: pulumi.Input[Optional[_builtins.int]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_can_approve: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a Approval Check.
@@ -407,14 +407,14 @@ class CheckApproval(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approvers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 instructions: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_required_approvers: Optional[pulumi.Input[_builtins.int]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_can_approve: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 approvers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_required_approvers: pulumi.Input[Optional[_builtins.int]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_can_approve: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -451,15 +451,15 @@ class CheckApproval(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            approvers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            instructions: Optional[pulumi.Input[_builtins.str]] = None,
-            minimum_required_approvers: Optional[pulumi.Input[_builtins.int]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            requester_can_approve: Optional[pulumi.Input[_builtins.bool]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'CheckApproval':
+            approvers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            instructions: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_required_approvers: pulumi.Input[Optional[_builtins.int]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            requester_can_approve: pulumi.Input[Optional[_builtins.bool]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'CheckApproval':
         """
         Get an existing CheckApproval resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

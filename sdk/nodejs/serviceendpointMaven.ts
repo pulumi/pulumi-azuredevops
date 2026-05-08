@@ -182,32 +182,32 @@ export interface ServiceendpointMavenState {
     /**
      * A `authenticationBasic` block as documented below.
      */
-    authenticationBasic?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationBasic>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationBasic | undefined>;
     /**
      * A `authenticationToken` block as documented below.
      */
-    authenticationToken?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationToken>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authenticationToken?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationToken | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to Managed by Terraform.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Maven to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
      */
-    repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string | undefined>;
     /**
      * The name of the service endpoint. Changing this forces a new Service Connection Maven to be created.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The URL of the Maven Repository.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -217,15 +217,15 @@ export interface ServiceendpointMavenArgs {
     /**
      * A `authenticationBasic` block as documented below.
      */
-    authenticationBasic?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationBasic>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationBasic | undefined>;
     /**
      * A `authenticationToken` block as documented below.
      */
-    authenticationToken?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationToken>;
+    authenticationToken?: pulumi.Input<inputs.ServiceendpointMavenAuthenticationToken | undefined>;
     /**
      * The Service Endpoint description. Defaults to Managed by Terraform.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Maven to be created.
      */

@@ -180,43 +180,43 @@ export interface WorkitemtrackingprocessFieldState {
      * Allow setting field value to a group identity. Only applies to identity fields.  
      * **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
      */
-    allowGroups?: pulumi.Input<boolean>;
+    allowGroups?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates the type of customization on this work item. Possible values are `system`, `inherited`, or `custom`.
      */
-    customization?: pulumi.Input<string>;
+    customization?: pulumi.Input<string | undefined>;
     /**
      * The default value of the field.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * The ID (reference name) of the field. Changing this forces a new field to be created.
      */
-    fieldId?: pulumi.Input<string>;
+    fieldId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the field definition is locked for editing.
      */
-    isLocked?: pulumi.Input<boolean>;
+    isLocked?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the process. Changing this forces a new field to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * If true, the field cannot be edited. Default: `false`.
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * If true, the field cannot be empty. Default: `false`.
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
     /**
      * The URL of the field resource.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new field to be created.
      */
-    workItemTypeId?: pulumi.Input<string>;
+    workItemTypeId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,11 +228,11 @@ export interface WorkitemtrackingprocessFieldArgs {
      * Allow setting field value to a group identity. Only applies to identity fields.  
      * **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
      */
-    allowGroups?: pulumi.Input<boolean>;
+    allowGroups?: pulumi.Input<boolean | undefined>;
     /**
      * The default value of the field.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * The ID (reference name) of the field. Changing this forces a new field to be created.
      */
@@ -244,11 +244,11 @@ export interface WorkitemtrackingprocessFieldArgs {
     /**
      * If true, the field cannot be edited. Default: `false`.
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * If true, the field cannot be empty. Default: `false`.
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new field to be created.
      */

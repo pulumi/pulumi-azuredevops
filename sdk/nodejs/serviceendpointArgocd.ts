@@ -178,28 +178,28 @@ export interface ServiceendpointArgocdState {
      *
      * > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      */
-    authenticationBasic?: pulumi.Input<inputs.ServiceendpointArgocdAuthenticationBasic>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceendpointArgocdAuthenticationBasic | undefined>;
     /**
      * An `authenticationToken` block for the ArgoCD as documented below.
      */
-    authenticationToken?: pulumi.Input<inputs.ServiceendpointArgocdAuthenticationToken>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authenticationToken?: pulumi.Input<inputs.ServiceendpointArgocdAuthenticationToken | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * URL of the ArgoCD server to connect with.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -211,15 +211,15 @@ export interface ServiceendpointArgocdArgs {
      *
      * > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      */
-    authenticationBasic?: pulumi.Input<inputs.ServiceendpointArgocdAuthenticationBasic>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceendpointArgocdAuthenticationBasic | undefined>;
     /**
      * An `authenticationToken` block for the ArgoCD as documented below.
      */
-    authenticationToken?: pulumi.Input<inputs.ServiceendpointArgocdAuthenticationToken>;
+    authenticationToken?: pulumi.Input<inputs.ServiceendpointArgocdAuthenticationToken | undefined>;
     /**
      * The Service Endpoint description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

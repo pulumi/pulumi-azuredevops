@@ -166,19 +166,19 @@ export interface LibraryPermissionsState {
      * | Use         | Use library item          |
      * | Owner       | Owner library item        |
      */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The **group** principal to assign the permissions.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -209,5 +209,5 @@ export interface LibraryPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }

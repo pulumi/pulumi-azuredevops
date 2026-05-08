@@ -82,7 +82,7 @@ import * as utilities from "./utilities";
  *     type: "Issue",
  *     state: "Active",
  *     tags: ["Tag"],
- *     parentId: epic.id,
+ *     parentId: epic.id.apply(x =>Number(x)),
  * });
  * ```
  *
@@ -268,57 +268,57 @@ export interface WorkitemState {
     /**
      * A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
      */
-    additionalFieldsJson?: pulumi.Input<string>;
+    additionalFieldsJson?: pulumi.Input<string | undefined>;
     /**
      * Specifies the area where the Work Item is used.
      */
-    areaPath?: pulumi.Input<string>;
+    areaPath?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list with Custom Fields for the Work Item.
      *
      * @deprecated This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
      */
-    customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the iteration in which the Work Item is used.
      */
-    iterationPath?: pulumi.Input<string>;
+    iterationPath?: pulumi.Input<string | undefined>;
     /**
      * The parent work item.
      */
-    parentId?: pulumi.Input<number>;
+    parentId?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * A `relations` blocks as documented below.
      */
-    relations?: pulumi.Input<pulumi.Input<inputs.WorkitemRelation>[]>;
+    relations?: pulumi.Input<pulumi.Input<inputs.WorkitemRelation>[] | undefined>;
     /**
      * The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Tags.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Title of the Work Item.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The URL of the Work Item.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -328,29 +328,29 @@ export interface WorkitemArgs {
     /**
      * A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
      */
-    additionalFieldsJson?: pulumi.Input<string>;
+    additionalFieldsJson?: pulumi.Input<string | undefined>;
     /**
      * Specifies the area where the Work Item is used.
      */
-    areaPath?: pulumi.Input<string>;
+    areaPath?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list with Custom Fields for the Work Item.
      *
      * @deprecated This property is deprecated and will be removed in a future release. Please use "additionalFieldsJson" argument instead.
      */
-    customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the iteration in which the Work Item is used.
      */
-    iterationPath?: pulumi.Input<string>;
+    iterationPath?: pulumi.Input<string | undefined>;
     /**
      * The parent work item.
      */
-    parentId?: pulumi.Input<number>;
+    parentId?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Project.
      */
@@ -358,11 +358,11 @@ export interface WorkitemArgs {
     /**
      * The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of Tags.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Title of the Work Item.
      */

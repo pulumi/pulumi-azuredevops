@@ -23,14 +23,14 @@ class WorkitemtrackingFieldArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_picklist_suggested: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 picklist_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 usage: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_picklist_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 picklist_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 usage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingField resource.
 
@@ -93,31 +93,31 @@ class WorkitemtrackingFieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the field. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isLocked")
-    def is_locked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_locked(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this field is locked for editing. Default: `false`.
         """
         return pulumi.get(self, "is_locked")
 
     @is_locked.setter
-    def is_locked(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_locked(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_locked", value)
 
     @_builtins.property
     @pulumi.getter(name="isPicklistSuggested")
-    def is_picklist_suggested(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_picklist_suggested(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this field is a suggested picklist. 
 
@@ -126,48 +126,48 @@ class WorkitemtrackingFieldArgs:
         return pulumi.get(self, "is_picklist_suggested")
 
     @is_picklist_suggested.setter
-    def is_picklist_suggested(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_picklist_suggested(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_picklist_suggested", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the field. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="picklistId")
-    def picklist_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def picklist_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the picklist associated with this field, if applicable. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "picklist_id")
 
     @picklist_id.setter
-    def picklist_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def picklist_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "picklist_id", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the field is read-only. Default: `false`. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def restore(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restore(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Set to `true` to restore a previously deleted field instead of creating a new one. When set to `true`, the resource will attempt to restore the field with the specified `reference_name`.
@@ -175,41 +175,41 @@ class WorkitemtrackingFieldArgs:
         return pulumi.get(self, "restore")
 
     @restore.setter
-    def restore(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restore(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restore", value)
 
     @_builtins.property
     @pulumi.getter
-    def usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The usage of the field. Possible values: `none`, `workItem`, `workItemLink`, `tree`, `workItemTypeExtension`. Default: `workItem`. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "usage")
 
     @usage.setter
-    def usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingFieldState:
     def __init__(__self__, *,
-                 can_sort_by: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_identity: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_picklist: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_picklist_suggested: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_queryable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 picklist_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 supported_operations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingFieldSupportedOperationArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage: Optional[pulumi.Input[_builtins.str]] = None):
+                 can_sort_by: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_identity: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_picklist: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_picklist_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_queryable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 picklist_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 supported_operations: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingFieldSupportedOperationArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingField resources.
 
@@ -268,67 +268,67 @@ class _WorkitemtrackingFieldState:
 
     @_builtins.property
     @pulumi.getter(name="canSortBy")
-    def can_sort_by(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def can_sort_by(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the field can be sorted in server queries.
         """
         return pulumi.get(self, "can_sort_by")
 
     @can_sort_by.setter
-    def can_sort_by(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def can_sort_by(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "can_sort_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the field. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isIdentity")
-    def is_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_identity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this field is an identity field.
         """
         return pulumi.get(self, "is_identity")
 
     @is_identity.setter
-    def is_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_identity(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="isLocked")
-    def is_locked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_locked(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this field is locked for editing. Default: `false`.
         """
         return pulumi.get(self, "is_locked")
 
     @is_locked.setter
-    def is_locked(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_locked(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_locked", value)
 
     @_builtins.property
     @pulumi.getter(name="isPicklist")
-    def is_picklist(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_picklist(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this field is a picklist.
         """
         return pulumi.get(self, "is_picklist")
 
     @is_picklist.setter
-    def is_picklist(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_picklist(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_picklist", value)
 
     @_builtins.property
     @pulumi.getter(name="isPicklistSuggested")
-    def is_picklist_suggested(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_picklist_suggested(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether this field is a suggested picklist. 
 
@@ -337,72 +337,72 @@ class _WorkitemtrackingFieldState:
         return pulumi.get(self, "is_picklist_suggested")
 
     @is_picklist_suggested.setter
-    def is_picklist_suggested(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_picklist_suggested(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_picklist_suggested", value)
 
     @_builtins.property
     @pulumi.getter(name="isQueryable")
-    def is_queryable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_queryable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the field can be queried in the server.
         """
         return pulumi.get(self, "is_queryable")
 
     @is_queryable.setter
-    def is_queryable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_queryable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_queryable", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the field. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="picklistId")
-    def picklist_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def picklist_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the picklist associated with this field, if applicable. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "picklist_id")
 
     @picklist_id.setter
-    def picklist_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def picklist_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "picklist_id", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the field is read-only. Default: `false`. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "read_only")
 
     @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_only", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
         """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
-    def reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def restore(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restore(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Set to `true` to restore a previously deleted field instead of creating a new one. When set to `true`, the resource will attempt to restore the field with the specified `reference_name`.
@@ -410,55 +410,55 @@ class _WorkitemtrackingFieldState:
         return pulumi.get(self, "restore")
 
     @restore.setter
-    def restore(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restore(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restore", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedOperations")
-    def supported_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingFieldSupportedOperationArgs']]]]:
+    def supported_operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingFieldSupportedOperationArgs']]]]:
         """
         The supported operations on this field. A `supported_operations` block as defined below.
         """
         return pulumi.get(self, "supported_operations")
 
     @supported_operations.setter
-    def supported_operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemtrackingFieldSupportedOperationArgs']]]]):
+    def supported_operations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingFieldSupportedOperationArgs']]]]):
         pulumi.set(self, "supported_operations", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the field. Possible values: `string`, `integer`, `dateTime`, `plainText`, `html`, `treePath`, `history`, `double`, `guid`, `boolean`, `identity`. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the field resource.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter
-    def usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The usage of the field. Possible values: `none`, `workItem`, `workItemLink`, `tree`, `workItemTypeExtension`. Default: `workItem`. Changing this forces a new field to be created.
         """
         return pulumi.get(self, "usage")
 
     @usage.setter
-    def usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage", value)
 
 
@@ -468,16 +468,16 @@ class WorkitemtrackingField(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_picklist_suggested: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 picklist_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_picklist_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 picklist_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a work item field in Azure DevOps.
@@ -606,16 +606,16 @@ class WorkitemtrackingField(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_locked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_picklist_suggested: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 picklist_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_locked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_picklist_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 picklist_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -657,22 +657,22 @@ class WorkitemtrackingField(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            can_sort_by: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            is_identity: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_locked: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_picklist: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_picklist_suggested: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_queryable: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            picklist_id: Optional[pulumi.Input[_builtins.str]] = None,
-            read_only: Optional[pulumi.Input[_builtins.bool]] = None,
-            reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-            restore: Optional[pulumi.Input[_builtins.bool]] = None,
-            supported_operations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingFieldSupportedOperationArgs', 'WorkitemtrackingFieldSupportedOperationArgsDict']]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            usage: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingField':
+            can_sort_by: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_identity: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_locked: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_picklist: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_picklist_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_queryable: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            picklist_id: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+            restore: pulumi.Input[Optional[_builtins.bool]] = None,
+            supported_operations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingFieldSupportedOperationArgs', 'WorkitemtrackingFieldSupportedOperationArgsDict']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            usage: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingField':
         """
         Get an existing WorkitemtrackingField resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

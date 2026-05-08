@@ -170,44 +170,44 @@ export interface ServiceEndpointAwsState {
     /**
      * The AWS access key ID for signing programmatic requests.
      */
-    accessKeyId?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    accessKeyId?: pulumi.Input<string | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Optional identifier for the assumed role session.
      */
-    roleSessionName?: pulumi.Input<string>;
+    roleSessionName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the role to assume.
      */
-    roleToAssume?: pulumi.Input<string>;
+    roleToAssume?: pulumi.Input<string | undefined>;
     /**
      * The AWS secret access key for signing programmatic requests.
      */
-    secretAccessKey?: pulumi.Input<string>;
+    secretAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The AWS session token for signing programmatic requests.
      */
-    sessionToken?: pulumi.Input<string>;
+    sessionToken?: pulumi.Input<string | undefined>;
     /**
      * Enable this to attempt getting credentials with OIDC token from Azure Devops.
      */
-    useOidc?: pulumi.Input<boolean>;
+    useOidc?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -217,15 +217,15 @@ export interface ServiceEndpointAwsArgs {
     /**
      * The AWS access key ID for signing programmatic requests.
      */
-    accessKeyId?: pulumi.Input<string>;
+    accessKeyId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
@@ -233,15 +233,15 @@ export interface ServiceEndpointAwsArgs {
     /**
      * Optional identifier for the assumed role session.
      */
-    roleSessionName?: pulumi.Input<string>;
+    roleSessionName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the role to assume.
      */
-    roleToAssume?: pulumi.Input<string>;
+    roleToAssume?: pulumi.Input<string | undefined>;
     /**
      * The AWS secret access key for signing programmatic requests.
      */
-    secretAccessKey?: pulumi.Input<string>;
+    secretAccessKey?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
@@ -249,9 +249,9 @@ export interface ServiceEndpointAwsArgs {
     /**
      * The AWS session token for signing programmatic requests.
      */
-    sessionToken?: pulumi.Input<string>;
+    sessionToken?: pulumi.Input<string | undefined>;
     /**
      * Enable this to attempt getting credentials with OIDC token from Azure Devops.
      */
-    useOidc?: pulumi.Input<boolean>;
+    useOidc?: pulumi.Input<boolean | undefined>;
 }

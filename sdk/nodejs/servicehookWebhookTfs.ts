@@ -290,62 +290,62 @@ export interface ServicehookWebhookTfsState {
     /**
      * Accept untrusted SSL certificates. Defaults to `false`.
      */
-    acceptUntrustedCerts?: pulumi.Input<boolean>;
+    acceptUntrustedCerts?: pulumi.Input<boolean | undefined>;
     /**
      * Basic authentication password.
      */
-    basicAuthPassword?: pulumi.Input<string>;
+    basicAuthPassword?: pulumi.Input<string | undefined>;
     /**
      * Basic authentication username.
      */
-    basicAuthUsername?: pulumi.Input<string>;
-    buildCompleted?: pulumi.Input<inputs.ServicehookWebhookTfsBuildCompleted>;
+    basicAuthUsername?: pulumi.Input<string | undefined>;
+    buildCompleted?: pulumi.Input<inputs.ServicehookWebhookTfsBuildCompleted | undefined>;
     /**
      * Detailed messages to send - `all`, `text`, `html`, `markdown`, or `none`. Defaults to `all`.
      */
-    detailedMessagesToSend?: pulumi.Input<string>;
-    gitPullRequestCommented?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestCommented>;
-    gitPullRequestCreated?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestCreated>;
-    gitPullRequestMergeAttempted?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestMergeAttempted>;
-    gitPullRequestUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestUpdated>;
-    gitPush?: pulumi.Input<inputs.ServicehookWebhookTfsGitPush>;
+    detailedMessagesToSend?: pulumi.Input<string | undefined>;
+    gitPullRequestCommented?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestCommented | undefined>;
+    gitPullRequestCreated?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestCreated | undefined>;
+    gitPullRequestMergeAttempted?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestMergeAttempted | undefined>;
+    gitPullRequestUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestUpdated | undefined>;
+    gitPush?: pulumi.Input<inputs.ServicehookWebhookTfsGitPush | undefined>;
     /**
      * HTTP headers as key-value pairs to include in the webhook request.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Messages to send - `all`, `text`, `html`, `markdown`, or `none`. Defaults to `all`.
      */
-    messagesToSend?: pulumi.Input<string>;
+    messagesToSend?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Hook Webhook TFS to be created.
      */
-    projectId?: pulumi.Input<string>;
-    repositoryCreated?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryCreated>;
-    repositoryDeleted?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryDeleted>;
-    repositoryForked?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryForked>;
-    repositoryRenamed?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryRenamed>;
-    repositoryStatusChanged?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryStatusChanged>;
+    projectId?: pulumi.Input<string | undefined>;
+    repositoryCreated?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryCreated | undefined>;
+    repositoryDeleted?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryDeleted | undefined>;
+    repositoryForked?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryForked | undefined>;
+    repositoryRenamed?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryRenamed | undefined>;
+    repositoryStatusChanged?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryStatusChanged | undefined>;
     /**
      * Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
      */
-    resourceDetailsToSend?: pulumi.Input<string>;
+    resourceDetailsToSend?: pulumi.Input<string | undefined>;
     /**
      * The resource version for the webhook subscription. Defaults to `latest`.
      */
-    resourceVersion?: pulumi.Input<string>;
-    serviceConnectionCreated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionCreated>;
-    serviceConnectionUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionUpdated>;
-    tfvcCheckin?: pulumi.Input<inputs.ServicehookWebhookTfsTfvcCheckin>;
+    resourceVersion?: pulumi.Input<string | undefined>;
+    serviceConnectionCreated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionCreated | undefined>;
+    serviceConnectionUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionUpdated | undefined>;
+    tfvcCheckin?: pulumi.Input<inputs.ServicehookWebhookTfsTfvcCheckin | undefined>;
     /**
      * The URL to send HTTP POST to.
      */
-    url?: pulumi.Input<string>;
-    workItemCommented?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemCommented>;
-    workItemCreated?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemCreated>;
-    workItemDeleted?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemDeleted>;
-    workItemRestored?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemRestored>;
-    workItemUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemUpdated>;
+    url?: pulumi.Input<string | undefined>;
+    workItemCommented?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemCommented | undefined>;
+    workItemCreated?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemCreated | undefined>;
+    workItemDeleted?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemDeleted | undefined>;
+    workItemRestored?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemRestored | undefined>;
+    workItemUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemUpdated | undefined>;
 }
 
 /**
@@ -355,60 +355,60 @@ export interface ServicehookWebhookTfsArgs {
     /**
      * Accept untrusted SSL certificates. Defaults to `false`.
      */
-    acceptUntrustedCerts?: pulumi.Input<boolean>;
+    acceptUntrustedCerts?: pulumi.Input<boolean | undefined>;
     /**
      * Basic authentication password.
      */
-    basicAuthPassword?: pulumi.Input<string>;
+    basicAuthPassword?: pulumi.Input<string | undefined>;
     /**
      * Basic authentication username.
      */
-    basicAuthUsername?: pulumi.Input<string>;
-    buildCompleted?: pulumi.Input<inputs.ServicehookWebhookTfsBuildCompleted>;
+    basicAuthUsername?: pulumi.Input<string | undefined>;
+    buildCompleted?: pulumi.Input<inputs.ServicehookWebhookTfsBuildCompleted | undefined>;
     /**
      * Detailed messages to send - `all`, `text`, `html`, `markdown`, or `none`. Defaults to `all`.
      */
-    detailedMessagesToSend?: pulumi.Input<string>;
-    gitPullRequestCommented?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestCommented>;
-    gitPullRequestCreated?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestCreated>;
-    gitPullRequestMergeAttempted?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestMergeAttempted>;
-    gitPullRequestUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestUpdated>;
-    gitPush?: pulumi.Input<inputs.ServicehookWebhookTfsGitPush>;
+    detailedMessagesToSend?: pulumi.Input<string | undefined>;
+    gitPullRequestCommented?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestCommented | undefined>;
+    gitPullRequestCreated?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestCreated | undefined>;
+    gitPullRequestMergeAttempted?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestMergeAttempted | undefined>;
+    gitPullRequestUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsGitPullRequestUpdated | undefined>;
+    gitPush?: pulumi.Input<inputs.ServicehookWebhookTfsGitPush | undefined>;
     /**
      * HTTP headers as key-value pairs to include in the webhook request.
      */
-    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Messages to send - `all`, `text`, `html`, `markdown`, or `none`. Defaults to `all`.
      */
-    messagesToSend?: pulumi.Input<string>;
+    messagesToSend?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Hook Webhook TFS to be created.
      */
     projectId: pulumi.Input<string>;
-    repositoryCreated?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryCreated>;
-    repositoryDeleted?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryDeleted>;
-    repositoryForked?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryForked>;
-    repositoryRenamed?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryRenamed>;
-    repositoryStatusChanged?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryStatusChanged>;
+    repositoryCreated?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryCreated | undefined>;
+    repositoryDeleted?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryDeleted | undefined>;
+    repositoryForked?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryForked | undefined>;
+    repositoryRenamed?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryRenamed | undefined>;
+    repositoryStatusChanged?: pulumi.Input<inputs.ServicehookWebhookTfsRepositoryStatusChanged | undefined>;
     /**
      * Resource details to send - `all`, `minimal`, or `none`. Defaults to `all`.
      */
-    resourceDetailsToSend?: pulumi.Input<string>;
+    resourceDetailsToSend?: pulumi.Input<string | undefined>;
     /**
      * The resource version for the webhook subscription. Defaults to `latest`.
      */
-    resourceVersion?: pulumi.Input<string>;
-    serviceConnectionCreated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionCreated>;
-    serviceConnectionUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionUpdated>;
-    tfvcCheckin?: pulumi.Input<inputs.ServicehookWebhookTfsTfvcCheckin>;
+    resourceVersion?: pulumi.Input<string | undefined>;
+    serviceConnectionCreated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionCreated | undefined>;
+    serviceConnectionUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsServiceConnectionUpdated | undefined>;
+    tfvcCheckin?: pulumi.Input<inputs.ServicehookWebhookTfsTfvcCheckin | undefined>;
     /**
      * The URL to send HTTP POST to.
      */
     url: pulumi.Input<string>;
-    workItemCommented?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemCommented>;
-    workItemCreated?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemCreated>;
-    workItemDeleted?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemDeleted>;
-    workItemRestored?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemRestored>;
-    workItemUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemUpdated>;
+    workItemCommented?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemCommented | undefined>;
+    workItemCreated?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemCreated | undefined>;
+    workItemDeleted?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemDeleted | undefined>;
+    workItemRestored?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemRestored | undefined>;
+    workItemUpdated?: pulumi.Input<inputs.ServicehookWebhookTfsWorkItemUpdated | undefined>;
 }

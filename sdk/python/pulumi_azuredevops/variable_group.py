@@ -23,10 +23,10 @@ class VariableGroupArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  variables: pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]],
-                 allow_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input['VariableGroupKeyVaultArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional['VariableGroupKeyVaultArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VariableGroup resource.
 
@@ -74,62 +74,62 @@ class VariableGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowAccess")
-    def allow_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that indicate if this variable group is shared by all pipelines of this project.
         """
         return pulumi.get(self, "allow_access")
 
     @allow_access.setter
-    def allow_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Variable Group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> Optional[pulumi.Input['VariableGroupKeyVaultArgs']]:
+    def key_vault(self) -> pulumi.Input[Optional['VariableGroupKeyVaultArgs']]:
         """
         A list of `key_vault` blocks as documented below.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: Optional[pulumi.Input['VariableGroupKeyVaultArgs']]):
+    def key_vault(self, value: pulumi.Input[Optional['VariableGroupKeyVaultArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Variable Group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _VariableGroupState:
     def __init__(__self__, *,
-                 allow_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input['VariableGroupKeyVaultArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]]] = None):
+                 allow_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional['VariableGroupKeyVaultArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['VariableGroupVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering VariableGroup resources.
 
@@ -155,74 +155,74 @@ class _VariableGroupState:
 
     @_builtins.property
     @pulumi.getter(name="allowAccess")
-    def allow_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that indicate if this variable group is shared by all pipelines of this project.
         """
         return pulumi.get(self, "allow_access")
 
     @allow_access.setter
-    def allow_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Variable Group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> Optional[pulumi.Input['VariableGroupKeyVaultArgs']]:
+    def key_vault(self) -> pulumi.Input[Optional['VariableGroupKeyVaultArgs']]:
         """
         A list of `key_vault` blocks as documented below.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: Optional[pulumi.Input['VariableGroupKeyVaultArgs']]):
+    def key_vault(self, value: pulumi.Input[Optional['VariableGroupKeyVaultArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Variable Group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VariableGroupVariableArgs']]]]:
         """
         One or more `variable` blocks as documented below.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VariableGroupVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -232,12 +232,12 @@ class VariableGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None,
+                 allow_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages variable groups within Azure DevOps.
@@ -495,12 +495,12 @@ class VariableGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_vault: Optional[pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None,
+                 allow_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_vault: pulumi.Input[Optional[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -530,12 +530,12 @@ class VariableGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_access: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            key_vault: Optional[pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None) -> 'VariableGroup':
+            allow_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault: pulumi.Input[Optional[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None) -> 'VariableGroup':
         """
         Get an existing VariableGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

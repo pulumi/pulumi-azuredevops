@@ -21,9 +21,9 @@ class RepositoryPolicyAuthorEmailPatternArgs:
     def __init__(__self__, *,
                  author_email_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  project_id: pulumi.Input[_builtins.str],
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryPolicyAuthorEmailPattern resource.
 
@@ -72,49 +72,49 @@ class RepositoryPolicyAuthorEmailPatternArgs:
 
     @_builtins.property
     @pulumi.getter
-    def blocking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blocking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be blocking. Defaults to `true`.
         """
         return pulumi.get(self, "blocking")
 
     @blocking.setter
-    def blocking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blocking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blocking", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryIds")
-    def repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def repository_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
         return pulumi.get(self, "repository_ids")
 
     @repository_ids.setter
-    def repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def repository_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "repository_ids", value)
 
 
 @pulumi.input_type
 class _RepositoryPolicyAuthorEmailPatternState:
     def __init__(__self__, *,
-                 author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 author_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicyAuthorEmailPattern resources.
 
@@ -139,7 +139,7 @@ class _RepositoryPolicyAuthorEmailPatternState:
 
     @_builtins.property
     @pulumi.getter(name="authorEmailPatterns")
-    def author_email_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def author_email_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
 
@@ -148,55 +148,55 @@ class _RepositoryPolicyAuthorEmailPatternState:
         return pulumi.get(self, "author_email_patterns")
 
     @author_email_patterns.setter
-    def author_email_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def author_email_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "author_email_patterns", value)
 
     @_builtins.property
     @pulumi.getter
-    def blocking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blocking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be blocking. Defaults to `true`.
         """
         return pulumi.get(self, "blocking")
 
     @blocking.setter
-    def blocking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blocking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blocking", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project in which the policy will be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryIds")
-    def repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def repository_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
         return pulumi.get(self, "repository_ids")
 
     @repository_ids.setter
-    def repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def repository_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "repository_ids", value)
 
 
@@ -206,11 +206,11 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 author_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manage author email pattern repository policy within Azure DevOps project.
@@ -377,11 +377,11 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 author_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,11 +410,11 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RepositoryPolicyAuthorEmailPattern':
+            author_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RepositoryPolicyAuthorEmailPattern':
         """
         Get an existing RepositoryPolicyAuthorEmailPattern resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

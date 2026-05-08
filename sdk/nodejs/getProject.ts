@@ -128,11 +128,11 @@ export interface GetProjectOutputArgs {
     /**
      * Name of the Project.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the Project.
      *
      * > **NOTE:** One of either `projectId` or `name` must be specified.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }

@@ -154,19 +154,19 @@ export interface FeedRetentionPolicyState {
     /**
      * The maximum number of versions per package.
      */
-    countLimit?: pulumi.Input<number>;
+    countLimit?: pulumi.Input<number | undefined>;
     /**
      * The days to keep recently downloaded packages.
      */
-    daysToKeepRecentlyDownloadedPackages?: pulumi.Input<number>;
+    daysToKeepRecentlyDownloadedPackages?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Feed. Changing this forces a new resource to be created.
      */
-    feedId?: pulumi.Input<string>;
+    feedId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Project. If not specified, Feed will be created at the organization level. Changing this forces a new resource to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -188,5 +188,5 @@ export interface FeedRetentionPolicyArgs {
     /**
      * The ID of the Project. If not specified, Feed will be created at the organization level. Changing this forces a new resource to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }

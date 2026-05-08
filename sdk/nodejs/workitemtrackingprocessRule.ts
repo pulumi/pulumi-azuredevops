@@ -247,31 +247,31 @@ export interface WorkitemtrackingprocessRuleState {
     /**
      * One or more `action` blocks as defined below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessRuleAction>[] | undefined>;
     /**
      * One or more `condition` blocks as defined below.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.WorkitemtrackingprocessRuleCondition>[] | undefined>;
     /**
      * Indicates if the rule is enabled. Default: `true`
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process. Changing this forces a new rule to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * URL of the rule resource.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new rule to be created.
      */
-    workItemTypeId?: pulumi.Input<string>;
+    workItemTypeId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -289,11 +289,11 @@ export interface WorkitemtrackingprocessRuleArgs {
     /**
      * Indicates if the rule is enabled. Default: `true`
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process. Changing this forces a new rule to be created.
      */

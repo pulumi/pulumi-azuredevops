@@ -25,15 +25,15 @@ class CheckBusinessHoursArgs:
                  target_resource_id: pulumi.Input[_builtins.str],
                  target_resource_type: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 friday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 saturday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sunday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 thursday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 tuesday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wednesday: Optional[pulumi.Input[_builtins.bool]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 friday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 saturday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sunday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 thursday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 tuesday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wednesday: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CheckBusinessHours resource.
 
@@ -152,132 +152,132 @@ class CheckBusinessHoursArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the business hours check displayed in the web UI.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def friday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def friday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Fridays. Defaults to `false`.
         """
         return pulumi.get(self, "friday")
 
     @friday.setter
-    def friday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def friday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "friday", value)
 
     @_builtins.property
     @pulumi.getter
-    def monday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Mondays. Defaults to `false`.
         """
         return pulumi.get(self, "monday")
 
     @monday.setter
-    def monday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monday", value)
 
     @_builtins.property
     @pulumi.getter
-    def saturday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def saturday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Saturdays. Defaults to `false`.
         """
         return pulumi.get(self, "saturday")
 
     @saturday.setter
-    def saturday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def saturday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "saturday", value)
 
     @_builtins.property
     @pulumi.getter
-    def sunday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sunday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Sundays. Defaults to `false`.
         """
         return pulumi.get(self, "sunday")
 
     @sunday.setter
-    def sunday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sunday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sunday", value)
 
     @_builtins.property
     @pulumi.getter
-    def thursday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def thursday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Thursdays. Defaults to `false`.
         """
         return pulumi.get(self, "thursday")
 
     @thursday.setter
-    def thursday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def thursday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "thursday", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout in minutes for the business hours check. Defaults to `1440`.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def tuesday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tuesday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Tuesday. Defaults to `false`.
         """
         return pulumi.get(self, "tuesday")
 
     @tuesday.setter
-    def tuesday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tuesday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tuesday", value)
 
     @_builtins.property
     @pulumi.getter
-    def wednesday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wednesday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Wednesdays. Defaults to `false`.
         """
         return pulumi.get(self, "wednesday")
 
     @wednesday.setter
-    def wednesday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wednesday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wednesday", value)
 
 
 @pulumi.input_type
 class _CheckBusinessHoursState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 friday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 saturday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sunday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 thursday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 tuesday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None,
-                 wednesday: Optional[pulumi.Input[_builtins.bool]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 friday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 saturday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sunday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 thursday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 tuesday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None,
+                 wednesday: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering CheckBusinessHours resources.
 
@@ -333,194 +333,194 @@ class _CheckBusinessHoursState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the business hours check displayed in the web UI.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def friday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def friday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Fridays. Defaults to `false`.
         """
         return pulumi.get(self, "friday")
 
     @friday.setter
-    def friday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def friday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "friday", value)
 
     @_builtins.property
     @pulumi.getter
-    def monday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Mondays. Defaults to `false`.
         """
         return pulumi.get(self, "monday")
 
     @monday.setter
-    def monday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monday", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project ID.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def saturday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def saturday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Saturdays. Defaults to `false`.
         """
         return pulumi.get(self, "saturday")
 
     @saturday.setter
-    def saturday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def saturday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "saturday", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The beginning of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def sunday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sunday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Sundays. Defaults to `false`.
         """
         return pulumi.get(self, "sunday")
 
     @sunday.setter
-    def sunday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sunday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sunday", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the resource being protected by the check.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         """
         return pulumi.get(self, "target_resource_type")
 
     @target_resource_type.setter
-    def target_resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def thursday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def thursday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Thursdays. Defaults to `false`.
         """
         return pulumi.get(self, "thursday")
 
     @thursday.setter
-    def thursday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def thursday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "thursday", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone this check will be evaluated in. See below for supported values.
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout in minutes for the business hours check. Defaults to `1440`.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def tuesday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tuesday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Tuesday. Defaults to `false`.
         """
         return pulumi.get(self, "tuesday")
 
     @tuesday.setter
-    def tuesday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tuesday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tuesday", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version of the check.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter
-    def wednesday(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wednesday(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This check will pass on Wednesdays. Defaults to `false`.
         """
         return pulumi.get(self, "wednesday")
 
     @wednesday.setter
-    def wednesday(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wednesday(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wednesday", value)
 
 
@@ -530,21 +530,21 @@ class CheckBusinessHours(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 friday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 saturday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sunday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 thursday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 tuesday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wednesday: Optional[pulumi.Input[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 friday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 saturday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sunday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 thursday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 tuesday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wednesday: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a business hours check on a resource within Azure DevOps.
@@ -610,7 +610,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         example_pool = azuredevops.Pool("example", name="example-pool")
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
             display_name="Managed by Pulumi",
@@ -928,7 +928,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         example_pool = azuredevops.Pool("example", name="example-pool")
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_check_business_hours = azuredevops.CheckBusinessHours("example",
             project_id=example.id,
             display_name="Managed by Pulumi",
@@ -1173,21 +1173,21 @@ class CheckBusinessHours(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 friday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 monday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 saturday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 sunday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 thursday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 tuesday: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wednesday: Optional[pulumi.Input[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 friday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 saturday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 sunday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 thursday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 tuesday: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wednesday: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1235,22 +1235,22 @@ class CheckBusinessHours(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            end_time: Optional[pulumi.Input[_builtins.str]] = None,
-            friday: Optional[pulumi.Input[_builtins.bool]] = None,
-            monday: Optional[pulumi.Input[_builtins.bool]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            saturday: Optional[pulumi.Input[_builtins.bool]] = None,
-            start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            sunday: Optional[pulumi.Input[_builtins.bool]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            thursday: Optional[pulumi.Input[_builtins.bool]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            tuesday: Optional[pulumi.Input[_builtins.bool]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None,
-            wednesday: Optional[pulumi.Input[_builtins.bool]] = None) -> 'CheckBusinessHours':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            friday: pulumi.Input[Optional[_builtins.bool]] = None,
+            monday: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            saturday: pulumi.Input[Optional[_builtins.bool]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            sunday: pulumi.Input[Optional[_builtins.bool]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            thursday: pulumi.Input[Optional[_builtins.bool]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            tuesday: pulumi.Input[Optional[_builtins.bool]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None,
+            wednesday: pulumi.Input[Optional[_builtins.bool]] = None) -> 'CheckBusinessHours':
         """
         Get an existing CheckBusinessHours resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

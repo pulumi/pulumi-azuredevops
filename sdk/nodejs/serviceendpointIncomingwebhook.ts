@@ -139,31 +139,31 @@ export class ServiceendpointIncomingwebhook extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceendpointIncomingwebhook resources.
  */
 export interface ServiceendpointIncomingwebhookState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to Managed by Terraform.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Http header name on which checksum will be sent.
      */
-    httpHeader?: pulumi.Input<string>;
+    httpHeader?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * The name of the service endpoint. Changing this forces a new Service Connection Incoming WebHook to be created.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the WebHook.
      */
-    webhookName?: pulumi.Input<string>;
+    webhookName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,11 +173,11 @@ export interface ServiceendpointIncomingwebhookArgs {
     /**
      * The Service Endpoint description. Defaults to Managed by Terraform.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Http header name on which checksum will be sent.
      */
-    httpHeader?: pulumi.Input<string>;
+    httpHeader?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
      */
@@ -185,7 +185,7 @@ export interface ServiceendpointIncomingwebhookArgs {
     /**
      * Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * The name of the service endpoint. Changing this forces a new Service Connection Incoming WebHook to be created.
      */
@@ -193,5 +193,5 @@ export interface ServiceendpointIncomingwebhookArgs {
     /**
      * The name of the WebHook.
      */
-    webhookName?: pulumi.Input<string>;
+    webhookName?: pulumi.Input<string | undefined>;
 }

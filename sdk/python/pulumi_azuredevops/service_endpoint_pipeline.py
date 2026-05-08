@@ -25,7 +25,7 @@ class ServiceEndpointPipelineArgs:
                  organization_name: pulumi.Input[_builtins.str],
                  project_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointPipeline resource.
 
@@ -92,26 +92,26 @@ class ServiceEndpointPipelineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 @pulumi.input_type
 class _ServiceEndpointPipelineState:
     def __init__(__self__, *,
-                 auth_personal: Optional[pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs']] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_personal: pulumi.Input[Optional['ServiceEndpointPipelineAuthPersonalArgs']] = None,
+                 authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointPipeline resources.
 
@@ -136,71 +136,71 @@ class _ServiceEndpointPipelineState:
 
     @_builtins.property
     @pulumi.getter(name="authPersonal")
-    def auth_personal(self) -> Optional[pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs']]:
+    def auth_personal(self) -> pulumi.Input[Optional['ServiceEndpointPipelineAuthPersonalArgs']]:
         """
         An `auth_personal` block as documented below. Allows connecting using a personal access token.
         """
         return pulumi.get(self, "auth_personal")
 
     @auth_personal.setter
-    def auth_personal(self, value: Optional[pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs']]):
+    def auth_personal(self, value: pulumi.Input[Optional['ServiceEndpointPipelineAuthPersonalArgs']]):
         pulumi.set(self, "auth_personal", value)
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to `Managed by Terraform`.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationName")
-    def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization name used for `Organization Url` and `Release API Url` fields.
         """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
-    def organization_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint name.
         """
         return pulumi.get(self, "service_endpoint_name")
 
     @service_endpoint_name.setter
-    def service_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_name", value)
 
 
@@ -210,11 +210,11 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_personal: Optional[pulumi.Input[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Azure DevOps Run Pipeline Service Connection service endpoint within Azure DevOps. Allows to run downstream pipelines, monitoring their execution, collecting and consolidating artefacts produced in the delegate pipelines (yaml block `task: RunPipelines@1`). More details on Marketplace page: [RunPipelines](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines)
@@ -321,11 +321,11 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_personal: Optional[pulumi.Input[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -359,12 +359,12 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_personal: Optional[pulumi.Input[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']]] = None,
-            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceEndpointPipeline':
+            auth_personal: pulumi.Input[Optional[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceEndpointPipeline':
         """
         Get an existing ServiceEndpointPipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

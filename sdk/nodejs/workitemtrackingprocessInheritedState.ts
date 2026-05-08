@@ -134,19 +134,19 @@ export interface WorkitemtrackingprocessInheritedStateState {
     /**
      * Name of the inherited state to manage. This is used to look up the state and must match an existing inherited state name. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process. Changing this forces a new resource to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * Whether the state is visible.
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new resource to be created.
      */
-    workItemTypeId?: pulumi.Input<string>;
+    workItemTypeId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -156,7 +156,7 @@ export interface WorkitemtrackingprocessInheritedStateArgs {
     /**
      * Name of the inherited state to manage. This is used to look up the state and must match an existing inherited state name. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process. Changing this forces a new resource to be created.
      */
@@ -164,7 +164,7 @@ export interface WorkitemtrackingprocessInheritedStateArgs {
     /**
      * Whether the state is visible.
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new resource to be created.
      */

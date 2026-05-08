@@ -22,11 +22,11 @@ class CheckBranchControlArgs:
                  project_id: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
                  target_resource_type: pulumi.Input[_builtins.str],
-                 allowed_branches: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_unknown_protection_status: Optional[pulumi.Input[_builtins.bool]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 verify_branch_protection: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allowed_branches: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_unknown_protection_status: pulumi.Input[Optional[_builtins.bool]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 verify_branch_protection: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CheckBranchControl resource.
 
@@ -91,77 +91,77 @@ class CheckBranchControlArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedBranches")
-    def allowed_branches(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_branches(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         """
         return pulumi.get(self, "allowed_branches")
 
     @allowed_branches.setter
-    def allowed_branches(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_branches(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_branches", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the branch control check displayed in the web UI.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreUnknownProtectionStatus")
-    def ignore_unknown_protection_status(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_unknown_protection_status(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
         """
         return pulumi.get(self, "ignore_unknown_protection_status")
 
     @ignore_unknown_protection_status.setter
-    def ignore_unknown_protection_status(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_unknown_protection_status(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_unknown_protection_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout in minutes for the branch control check. Defaults to `1440`.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyBranchProtection")
-    def verify_branch_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify_branch_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Validate the branches being deployed are protected. Defaults to `false`.
         """
         return pulumi.get(self, "verify_branch_protection")
 
     @verify_branch_protection.setter
-    def verify_branch_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify_branch_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify_branch_protection", value)
 
 
 @pulumi.input_type
 class _CheckBranchControlState:
     def __init__(__self__, *,
-                 allowed_branches: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_unknown_protection_status: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 verify_branch_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 allowed_branches: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_unknown_protection_status: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 verify_branch_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CheckBranchControl resources.
 
@@ -196,110 +196,110 @@ class _CheckBranchControlState:
 
     @_builtins.property
     @pulumi.getter(name="allowedBranches")
-    def allowed_branches(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_branches(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify ` * ` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
         """
         return pulumi.get(self, "allowed_branches")
 
     @allowed_branches.setter
-    def allowed_branches(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_branches(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_branches", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the branch control check displayed in the web UI.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreUnknownProtectionStatus")
-    def ignore_unknown_protection_status(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_unknown_protection_status(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
         """
         return pulumi.get(self, "ignore_unknown_protection_status")
 
     @ignore_unknown_protection_status.setter
-    def ignore_unknown_protection_status(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_unknown_protection_status(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_unknown_protection_status", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project ID.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the resource being protected by the check.
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         """
         return pulumi.get(self, "target_resource_type")
 
     @target_resource_type.setter
-    def target_resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout in minutes for the branch control check. Defaults to `1440`.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyBranchProtection")
-    def verify_branch_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify_branch_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Validate the branches being deployed are protected. Defaults to `false`.
         """
         return pulumi.get(self, "verify_branch_protection")
 
     @verify_branch_protection.setter
-    def verify_branch_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify_branch_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify_branch_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version of the check.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -309,14 +309,14 @@ class CheckBranchControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_branches: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_unknown_protection_status: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 verify_branch_protection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allowed_branches: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_unknown_protection_status: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 verify_branch_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a branch control check on a resource within Azure DevOps.
@@ -374,7 +374,7 @@ class CheckBranchControl(pulumi.CustomResource):
         example_pool = azuredevops.Pool("example", name="example-pool")
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
             display_name="Managed by Pulumi",
@@ -521,7 +521,7 @@ class CheckBranchControl(pulumi.CustomResource):
         example_pool = azuredevops.Pool("example", name="example-pool")
         example_queue = azuredevops.Queue("example",
             project_id=example.id,
-            agent_pool_id=example_pool.id)
+            agent_pool_id=example_pool.id.apply(lambda x: int(x)))
         example_check_branch_control = azuredevops.CheckBranchControl("example",
             project_id=example.id,
             display_name="Managed by Pulumi",
@@ -610,14 +610,14 @@ class CheckBranchControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_branches: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_unknown_protection_status: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 verify_branch_protection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allowed_branches: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_unknown_protection_status: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 verify_branch_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -652,15 +652,15 @@ class CheckBranchControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_branches: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_unknown_protection_status: Optional[pulumi.Input[_builtins.bool]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            verify_branch_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'CheckBranchControl':
+            allowed_branches: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_unknown_protection_status: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            verify_branch_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'CheckBranchControl':
         """
         Get an existing CheckBranchControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

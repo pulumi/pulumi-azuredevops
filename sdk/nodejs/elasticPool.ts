@@ -199,51 +199,51 @@ export interface ElasticPoolState {
     /**
      * Set whether agents should be configured to run with interactive UI. Defaults to `false`.
      */
-    agentInteractiveUi?: pulumi.Input<boolean>;
+    agentInteractiveUi?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
-    autoProvision?: pulumi.Input<boolean>;
+    autoProvision?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
      */
-    autoUpdate?: pulumi.Input<boolean>;
+    autoUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Azure resource.
      */
-    azureResourceId?: pulumi.Input<string>;
+    azureResourceId?: pulumi.Input<string | undefined>;
     /**
      * Number of agents to keep on standby.
      */
-    desiredIdle?: pulumi.Input<number>;
+    desiredIdle?: pulumi.Input<number | undefined>;
     /**
      * Maximum number of virtual machines in the scale set.
      */
-    maxCapacity?: pulumi.Input<number>;
+    maxCapacity?: pulumi.Input<number | undefined>;
     /**
      * The name of the Elastic pool.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project where a new Elastic Pool will be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Tear down virtual machines after every use. Defaults to `false`.
      */
-    recycleAfterEachUse?: pulumi.Input<boolean>;
+    recycleAfterEachUse?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of Service Endpoint used to connect to Azure.
      */
-    serviceEndpointId?: pulumi.Input<string>;
+    serviceEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The Project ID of Service Endpoint belongs to.
      */
-    serviceEndpointScope?: pulumi.Input<string>;
+    serviceEndpointScope?: pulumi.Input<string | undefined>;
     /**
      * Delay in minutes before deleting excess idle agents. Defaults to `30`.
      */
-    timeToLiveMinutes?: pulumi.Input<number>;
+    timeToLiveMinutes?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -253,15 +253,15 @@ export interface ElasticPoolArgs {
     /**
      * Set whether agents should be configured to run with interactive UI. Defaults to `false`.
      */
-    agentInteractiveUi?: pulumi.Input<boolean>;
+    agentInteractiveUi?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
-    autoProvision?: pulumi.Input<boolean>;
+    autoProvision?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
      */
-    autoUpdate?: pulumi.Input<boolean>;
+    autoUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Azure resource.
      */
@@ -277,15 +277,15 @@ export interface ElasticPoolArgs {
     /**
      * The name of the Elastic pool.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project where a new Elastic Pool will be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Tear down virtual machines after every use. Defaults to `false`.
      */
-    recycleAfterEachUse?: pulumi.Input<boolean>;
+    recycleAfterEachUse?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of Service Endpoint used to connect to Azure.
      */
@@ -297,5 +297,5 @@ export interface ElasticPoolArgs {
     /**
      * Delay in minutes before deleting excess idle agents. Defaults to `30`.
      */
-    timeToLiveMinutes?: pulumi.Input<number>;
+    timeToLiveMinutes?: pulumi.Input<number | undefined>;
 }

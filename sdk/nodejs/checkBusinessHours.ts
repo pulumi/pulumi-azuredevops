@@ -72,7 +72,7 @@ import * as utilities from "./utilities";
  * const examplePool = new azuredevops.Pool("example", {name: "example-pool"});
  * const exampleQueue = new azuredevops.Queue("example", {
  *     projectId: example.id,
- *     agentPoolId: examplePool.id,
+ *     agentPoolId: examplePool.id.apply(x =>Number(x)),
  * });
  * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("example", {
  *     projectId: example.id,
@@ -474,67 +474,67 @@ export interface CheckBusinessHoursState {
     /**
      * The name of the business hours check displayed in the web UI.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The end of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * This check will pass on Fridays. Defaults to `false`.
      */
-    friday?: pulumi.Input<boolean>;
+    friday?: pulumi.Input<boolean | undefined>;
     /**
      * This check will pass on Mondays. Defaults to `false`.
      */
-    monday?: pulumi.Input<boolean>;
+    monday?: pulumi.Input<boolean | undefined>;
     /**
      * The project ID.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * This check will pass on Saturdays. Defaults to `false`.
      */
-    saturday?: pulumi.Input<boolean>;
+    saturday?: pulumi.Input<boolean | undefined>;
     /**
      * The beginning of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * This check will pass on Sundays. Defaults to `false`.
      */
-    sunday?: pulumi.Input<boolean>;
+    sunday?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the resource being protected by the check.
      */
-    targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string | undefined>;
     /**
      * The type of resource being protected by the check. Possible values are: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      */
-    targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string | undefined>;
     /**
      * This check will pass on Thursdays. Defaults to `false`.
      */
-    thursday?: pulumi.Input<boolean>;
+    thursday?: pulumi.Input<boolean | undefined>;
     /**
      * The time zone this check will be evaluated in. See below for supported values.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The timeout in minutes for the business hours check. Defaults to `1440`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * This check will pass on Tuesday. Defaults to `false`.
      */
-    tuesday?: pulumi.Input<boolean>;
+    tuesday?: pulumi.Input<boolean | undefined>;
     /**
      * The version of the check.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
     /**
      * This check will pass on Wednesdays. Defaults to `false`.
      */
-    wednesday?: pulumi.Input<boolean>;
+    wednesday?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -544,7 +544,7 @@ export interface CheckBusinessHoursArgs {
     /**
      * The name of the business hours check displayed in the web UI.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The end of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
      */
@@ -552,11 +552,11 @@ export interface CheckBusinessHoursArgs {
     /**
      * This check will pass on Fridays. Defaults to `false`.
      */
-    friday?: pulumi.Input<boolean>;
+    friday?: pulumi.Input<boolean | undefined>;
     /**
      * This check will pass on Mondays. Defaults to `false`.
      */
-    monday?: pulumi.Input<boolean>;
+    monday?: pulumi.Input<boolean | undefined>;
     /**
      * The project ID.
      */
@@ -564,7 +564,7 @@ export interface CheckBusinessHoursArgs {
     /**
      * This check will pass on Saturdays. Defaults to `false`.
      */
-    saturday?: pulumi.Input<boolean>;
+    saturday?: pulumi.Input<boolean | undefined>;
     /**
      * The beginning of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
      */
@@ -572,7 +572,7 @@ export interface CheckBusinessHoursArgs {
     /**
      * This check will pass on Sundays. Defaults to `false`.
      */
-    sunday?: pulumi.Input<boolean>;
+    sunday?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the resource being protected by the check.
      */
@@ -584,7 +584,7 @@ export interface CheckBusinessHoursArgs {
     /**
      * This check will pass on Thursdays. Defaults to `false`.
      */
-    thursday?: pulumi.Input<boolean>;
+    thursday?: pulumi.Input<boolean | undefined>;
     /**
      * The time zone this check will be evaluated in. See below for supported values.
      */
@@ -592,13 +592,13 @@ export interface CheckBusinessHoursArgs {
     /**
      * The timeout in minutes for the business hours check. Defaults to `1440`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * This check will pass on Tuesday. Defaults to `false`.
      */
-    tuesday?: pulumi.Input<boolean>;
+    tuesday?: pulumi.Input<boolean | undefined>;
     /**
      * This check will pass on Wednesdays. Defaults to `false`.
      */
-    wednesday?: pulumi.Input<boolean>;
+    wednesday?: pulumi.Input<boolean | undefined>;
 }

@@ -167,7 +167,7 @@ export interface IterativePermissionsState {
     /**
      * The name of the branch to assign the permissions.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available.
      *
@@ -178,19 +178,19 @@ export interface IterativePermissionsState {
      * | CREATE_CHILDREN | Create child nodes             |
      * | DELETE          | Delete this node               |
      */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The **group** principal to assign the permissions.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project to assign the permissions.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -200,7 +200,7 @@ export interface IterativePermissionsArgs {
     /**
      * The name of the branch to assign the permissions.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available.
      *
@@ -223,5 +223,5 @@ export interface IterativePermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }

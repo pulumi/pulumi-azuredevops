@@ -147,24 +147,24 @@ export interface ServiceEndpointPipelineState {
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    authPersonal?: pulumi.Input<inputs.ServiceEndpointPipelineAuthPersonal>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authPersonal?: pulumi.Input<inputs.ServiceEndpointPipelineAuthPersonal | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The organization name used for `Organization Url` and `Release API Url` fields.
      */
-    organizationName?: pulumi.Input<string>;
+    organizationName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface ServiceEndpointPipelineArgs {
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The organization name used for `Organization Url` and `Release API Url` fields.
      */

@@ -156,39 +156,39 @@ export class ServiceendpointGcpTerraform extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceendpointGcpTerraform resources.
  */
 export interface ServiceendpointGcpTerraformState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The client email field in the JSON key file for creating the JSON Web Token.
      */
-    clientEmail?: pulumi.Input<string>;
+    clientEmail?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * GCP project associated with the Service Connection.
      */
-    gcpProjectId?: pulumi.Input<string>;
+    gcpProjectId?: pulumi.Input<string | undefined>;
     /**
      * The Private Key for connecting to the endpoint.
      */
-    privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Scope to be provided.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The token uri field in the JSON key file for creating the JSON Web Token.
      */
-    tokenUri?: pulumi.Input<string>;
+    tokenUri?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -198,19 +198,19 @@ export interface ServiceendpointGcpTerraformArgs {
     /**
      * The client email field in the JSON key file for creating the JSON Web Token.
      */
-    clientEmail?: pulumi.Input<string>;
+    clientEmail?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * GCP project associated with the Service Connection.
      */
-    gcpProjectId?: pulumi.Input<string>;
+    gcpProjectId?: pulumi.Input<string | undefined>;
     /**
      * The Private Key for connecting to the endpoint.
      */
-    privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
@@ -218,7 +218,7 @@ export interface ServiceendpointGcpTerraformArgs {
     /**
      * Scope to be provided.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
@@ -226,5 +226,5 @@ export interface ServiceendpointGcpTerraformArgs {
     /**
      * The token uri field in the JSON key file for creating the JSON Web Token.
      */
-    tokenUri?: pulumi.Input<string>;
+    tokenUri?: pulumi.Input<string | undefined>;
 }

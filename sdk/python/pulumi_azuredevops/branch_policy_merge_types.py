@@ -23,8 +23,8 @@ class BranchPolicyMergeTypesArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  settings: pulumi.Input['BranchPolicyMergeTypesSettingsArgs'],
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a BranchPolicyMergeTypes resource.
 
@@ -66,36 +66,36 @@ class BranchPolicyMergeTypesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def blocking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blocking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be blocking. Defaults to `true`.
         """
         return pulumi.get(self, "blocking")
 
     @blocking.setter
-    def blocking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blocking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blocking", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
 class _BranchPolicyMergeTypesState:
     def __init__(__self__, *,
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input['BranchPolicyMergeTypesSettingsArgs']] = None):
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional['BranchPolicyMergeTypesSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering BranchPolicyMergeTypes resources.
 
@@ -115,50 +115,50 @@ class _BranchPolicyMergeTypesState:
 
     @_builtins.property
     @pulumi.getter
-    def blocking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blocking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be blocking. Defaults to `true`.
         """
         return pulumi.get(self, "blocking")
 
     @blocking.setter
-    def blocking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blocking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blocking", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating if the policy should be enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project in which the policy will be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['BranchPolicyMergeTypesSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['BranchPolicyMergeTypesSettingsArgs']]:
         """
         A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['BranchPolicyMergeTypesSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['BranchPolicyMergeTypesSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
 
@@ -168,10 +168,10 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']]] = None,
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Branch policy for merge types allowed on a specified branch.
@@ -313,10 +313,10 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']]] = None,
+                 blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -344,10 +344,10 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blocking: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            settings: Optional[pulumi.Input[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']]] = None) -> 'BranchPolicyMergeTypes':
+            blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['BranchPolicyMergeTypesSettingsArgs', 'BranchPolicyMergeTypesSettingsArgsDict']]] = None) -> 'BranchPolicyMergeTypes':
         """
         Get an existing BranchPolicyMergeTypes resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

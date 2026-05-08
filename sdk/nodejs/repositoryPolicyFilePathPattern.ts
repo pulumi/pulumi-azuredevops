@@ -167,23 +167,23 @@ export interface RepositoryPolicyFilePathPatternState {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
      */
-    filepathPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    filepathPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    repositoryIds?: pulumi.Input<pulumi.Input<string>[]>;
+    repositoryIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -193,11 +193,11 @@ export interface RepositoryPolicyFilePathPatternArgs {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
      */
@@ -209,5 +209,5 @@ export interface RepositoryPolicyFilePathPatternArgs {
     /**
      * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    repositoryIds?: pulumi.Input<pulumi.Input<string>[]>;
+    repositoryIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

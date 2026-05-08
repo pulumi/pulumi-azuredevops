@@ -25,9 +25,9 @@ class ServiceendpointMavenArgs:
                  repository_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 authentication_basic: Optional[pulumi.Input['ServiceendpointMavenAuthenticationBasicArgs']] = None,
-                 authentication_token: Optional[pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_basic: pulumi.Input[Optional['ServiceendpointMavenAuthenticationBasicArgs']] = None,
+                 authentication_token: pulumi.Input[Optional['ServiceendpointMavenAuthenticationTokenArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceendpointMaven resource.
 
@@ -100,52 +100,52 @@ class ServiceendpointMavenArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationBasic")
-    def authentication_basic(self) -> Optional[pulumi.Input['ServiceendpointMavenAuthenticationBasicArgs']]:
+    def authentication_basic(self) -> pulumi.Input[Optional['ServiceendpointMavenAuthenticationBasicArgs']]:
         """
         A `authentication_basic` block as documented below.
         """
         return pulumi.get(self, "authentication_basic")
 
     @authentication_basic.setter
-    def authentication_basic(self, value: Optional[pulumi.Input['ServiceendpointMavenAuthenticationBasicArgs']]):
+    def authentication_basic(self, value: pulumi.Input[Optional['ServiceendpointMavenAuthenticationBasicArgs']]):
         pulumi.set(self, "authentication_basic", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationToken")
-    def authentication_token(self) -> Optional[pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs']]:
+    def authentication_token(self) -> pulumi.Input[Optional['ServiceendpointMavenAuthenticationTokenArgs']]:
         """
         A `authentication_token` block as documented below.
         """
         return pulumi.get(self, "authentication_token")
 
     @authentication_token.setter
-    def authentication_token(self, value: Optional[pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs']]):
+    def authentication_token(self, value: pulumi.Input[Optional['ServiceendpointMavenAuthenticationTokenArgs']]):
         pulumi.set(self, "authentication_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to Managed by Terraform.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 @pulumi.input_type
 class _ServiceendpointMavenState:
     def __init__(__self__, *,
-                 authentication_basic: Optional[pulumi.Input['ServiceendpointMavenAuthenticationBasicArgs']] = None,
-                 authentication_token: Optional[pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs']] = None,
-                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_basic: pulumi.Input[Optional['ServiceendpointMavenAuthenticationBasicArgs']] = None,
+                 authentication_token: pulumi.Input[Optional['ServiceendpointMavenAuthenticationTokenArgs']] = None,
+                 authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceendpointMaven resources.
 
@@ -176,95 +176,95 @@ class _ServiceendpointMavenState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationBasic")
-    def authentication_basic(self) -> Optional[pulumi.Input['ServiceendpointMavenAuthenticationBasicArgs']]:
+    def authentication_basic(self) -> pulumi.Input[Optional['ServiceendpointMavenAuthenticationBasicArgs']]:
         """
         A `authentication_basic` block as documented below.
         """
         return pulumi.get(self, "authentication_basic")
 
     @authentication_basic.setter
-    def authentication_basic(self, value: Optional[pulumi.Input['ServiceendpointMavenAuthenticationBasicArgs']]):
+    def authentication_basic(self, value: pulumi.Input[Optional['ServiceendpointMavenAuthenticationBasicArgs']]):
         pulumi.set(self, "authentication_basic", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationToken")
-    def authentication_token(self) -> Optional[pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs']]:
+    def authentication_token(self) -> pulumi.Input[Optional['ServiceendpointMavenAuthenticationTokenArgs']]:
         """
         A `authentication_token` block as documented below.
         """
         return pulumi.get(self, "authentication_token")
 
     @authentication_token.setter
-    def authentication_token(self, value: Optional[pulumi.Input['ServiceendpointMavenAuthenticationTokenArgs']]):
+    def authentication_token(self, value: pulumi.Input[Optional['ServiceendpointMavenAuthenticationTokenArgs']]):
         pulumi.set(self, "authentication_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def authorization(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def authorization(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Service Endpoint description. Defaults to Managed by Terraform.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project. Changing this forces a new Service Connection Maven to be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointName")
-    def service_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service endpoint. Changing this forces a new Service Connection Maven to be created.
         """
         return pulumi.get(self, "service_endpoint_name")
 
     @service_endpoint_name.setter
-    def service_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Maven Repository.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -274,13 +274,13 @@ class ServiceendpointMaven(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: Optional[pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
-                 authentication_token: Optional[pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Maven service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Maven instance.
@@ -431,13 +431,13 @@ class ServiceendpointMaven(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: Optional[pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
-                 authentication_token: Optional[pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -473,14 +473,14 @@ class ServiceendpointMaven(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_basic: Optional[pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
-            authentication_token: Optional[pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
-            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            repository_id: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceendpointMaven':
+            authentication_basic: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
+            authentication_token: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceendpointMaven':
         """
         Get an existing ServiceendpointMaven resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -140,13 +140,13 @@ export interface GetFeedOutputArgs {
      *
      * > **Note** Only one of `name` or `feedId` can be set at the same time.
      */
-    feedId?: pulumi.Input<string>;
+    feedId?: pulumi.Input<string | undefined>;
     /**
      * The Name of the Feed.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the Project Feed is created in.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }

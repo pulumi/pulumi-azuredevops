@@ -137,31 +137,31 @@ export interface ExtensionState {
     /**
      * Whether to disable the extension.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
      */
-    extensionId?: pulumi.Input<string>;
+    extensionId?: pulumi.Input<string | undefined>;
     /**
      * The name of the extension.
      */
-    extensionName?: pulumi.Input<string>;
+    extensionName?: pulumi.Input<string | undefined>;
     /**
      * The Azure DevOps Marketplace publisher identifier, for example `ms`.
      */
-    publisherId?: pulumi.Input<string>;
+    publisherId?: pulumi.Input<string | undefined>;
     /**
      * The name of the publisher.
      */
-    publisherName?: pulumi.Input<string>;
+    publisherName?: pulumi.Input<string | undefined>;
     /**
      * List of all oauth scopes required by this extension.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The version of the extension.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -171,7 +171,7 @@ export interface ExtensionArgs {
     /**
      * Whether to disable the extension.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Azure DevOps Marketplace extension identifier, for example `vss-code-search`.
      */
@@ -183,5 +183,5 @@ export interface ExtensionArgs {
     /**
      * The version of the extension.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

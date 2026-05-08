@@ -147,24 +147,24 @@ export interface ServiceEndpointNpmState {
     /**
      * The access token for npm registry.
      */
-    accessToken?: pulumi.Input<string>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    accessToken?: pulumi.Input<string | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * URL of the npm registry to connect with.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface ServiceEndpointNpmArgs {
     /**
      * The Service Endpoint description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

@@ -121,27 +121,27 @@ export interface ServicePrincipalEntitlementState {
     /**
      * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
-    accountLicenseType?: pulumi.Input<string>;
+    accountLicenseType?: pulumi.Input<string | undefined>;
     /**
      * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
      */
-    descriptor?: pulumi.Input<string>;
+    descriptor?: pulumi.Input<string | undefined>;
     /**
      * The display name of service principal.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Possible values are: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
      */
-    licensingSource?: pulumi.Input<string>;
+    licensingSource?: pulumi.Input<string | undefined>;
     /**
      * The type of source provider for the origin identifier.
      */
-    origin?: pulumi.Input<string>;
+    origin?: pulumi.Input<string | undefined>;
     /**
      * The Object ID of the service principal in Entra ID. Changing this forces a new Service Principal Entitlement to be created.
      */
-    originId?: pulumi.Input<string>;
+    originId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -151,15 +151,15 @@ export interface ServicePrincipalEntitlementArgs {
     /**
      * Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
-    accountLicenseType?: pulumi.Input<string>;
+    accountLicenseType?: pulumi.Input<string | undefined>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Possible values are: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
      */
-    licensingSource?: pulumi.Input<string>;
+    licensingSource?: pulumi.Input<string | undefined>;
     /**
      * The type of source provider for the origin identifier.
      */
-    origin?: pulumi.Input<string>;
+    origin?: pulumi.Input<string | undefined>;
     /**
      * The Object ID of the service principal in Entra ID. Changing this forces a new Service Principal Entitlement to be created.
      */

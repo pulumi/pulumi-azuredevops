@@ -22,13 +22,13 @@ class GitRepositoryFileArgs:
                  content: pulumi.Input[_builtins.str],
                  file: pulumi.Input[_builtins.str],
                  repository_id: pulumi.Input[_builtins.str],
-                 author_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 author_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 committer_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 committer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None):
+                 author_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 author_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 committer_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 committer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GitRepositoryFile resource.
 
@@ -99,102 +99,102 @@ class GitRepositoryFileArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorEmail")
-    def author_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def author_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email of the author.
         """
         return pulumi.get(self, "author_email")
 
     @author_email.setter
-    def author_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def author_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "author_email", value)
 
     @_builtins.property
     @pulumi.getter(name="authorName")
-    def author_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def author_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the author.
         """
         return pulumi.get(self, "author_name")
 
     @author_name.setter
-    def author_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def author_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "author_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="commitMessage")
-    def commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Commit message when adding or updating the managed file.
         """
         return pulumi.get(self, "commit_message")
 
     @commit_message.setter
-    def commit_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_message", value)
 
     @_builtins.property
     @pulumi.getter(name="committerEmail")
-    def committer_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def committer_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email of the committer.
         """
         return pulumi.get(self, "committer_email")
 
     @committer_email.setter
-    def committer_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def committer_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "committer_email", value)
 
     @_builtins.property
     @pulumi.getter(name="committerName")
-    def committer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def committer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the committer.
         """
         return pulumi.get(self, "committer_name")
 
     @committer_name.setter
-    def committer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def committer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "committer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteOnCreate")
-    def overwrite_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable overwriting existing files (defaults to `false`).
         """
         return pulumi.get(self, "overwrite_on_create")
 
     @overwrite_on_create.setter
-    def overwrite_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_on_create", value)
 
 
 @pulumi.input_type
 class _GitRepositoryFileState:
     def __init__(__self__, *,
-                 author_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 author_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 committer_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 committer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 file: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 author_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 author_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 committer_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 committer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 file: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GitRepositoryFile resources.
 
@@ -232,122 +232,122 @@ class _GitRepositoryFileState:
 
     @_builtins.property
     @pulumi.getter(name="authorEmail")
-    def author_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def author_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email of the author.
         """
         return pulumi.get(self, "author_email")
 
     @author_email.setter
-    def author_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def author_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "author_email", value)
 
     @_builtins.property
     @pulumi.getter(name="authorName")
-    def author_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def author_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the author.
         """
         return pulumi.get(self, "author_name")
 
     @author_name.setter
-    def author_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def author_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "author_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it does not already exist.
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="commitMessage")
-    def commit_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def commit_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Commit message when adding or updating the managed file.
         """
         return pulumi.get(self, "commit_message")
 
     @commit_message.setter
-    def commit_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def commit_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "commit_message", value)
 
     @_builtins.property
     @pulumi.getter(name="committerEmail")
-    def committer_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def committer_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email of the committer.
         """
         return pulumi.get(self, "committer_email")
 
     @committer_email.setter
-    def committer_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def committer_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "committer_email", value)
 
     @_builtins.property
     @pulumi.getter(name="committerName")
-    def committer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def committer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the committer.
         """
         return pulumi.get(self, "committer_name")
 
     @committer_name.setter
-    def committer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def committer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "committer_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The file content.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter
-    def file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path of the file to manage.
         """
         return pulumi.get(self, "file")
 
     @file.setter
-    def file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteOnCreate")
-    def overwrite_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overwrite_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable overwriting existing files (defaults to `false`).
         """
         return pulumi.get(self, "overwrite_on_create")
 
     @overwrite_on_create.setter
-    def overwrite_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overwrite_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overwrite_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Git repository.
         """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
-    def repository_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_id", value)
 
 
@@ -357,16 +357,16 @@ class GitRepositoryFile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 author_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 committer_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 committer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 file: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 author_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 author_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 committer_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 committer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 file: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manage files within an Azure DevOps Git repository.
@@ -566,16 +566,16 @@ class GitRepositoryFile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 author_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 committer_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 committer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 file: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 repository_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 author_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 author_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 committer_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 committer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 file: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 repository_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -611,16 +611,16 @@ class GitRepositoryFile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            author_email: Optional[pulumi.Input[_builtins.str]] = None,
-            author_name: Optional[pulumi.Input[_builtins.str]] = None,
-            branch: Optional[pulumi.Input[_builtins.str]] = None,
-            commit_message: Optional[pulumi.Input[_builtins.str]] = None,
-            committer_email: Optional[pulumi.Input[_builtins.str]] = None,
-            committer_name: Optional[pulumi.Input[_builtins.str]] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            file: Optional[pulumi.Input[_builtins.str]] = None,
-            overwrite_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-            repository_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'GitRepositoryFile':
+            author_email: pulumi.Input[Optional[_builtins.str]] = None,
+            author_name: pulumi.Input[Optional[_builtins.str]] = None,
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+            committer_email: pulumi.Input[Optional[_builtins.str]] = None,
+            committer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            file: pulumi.Input[Optional[_builtins.str]] = None,
+            overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'GitRepositoryFile':
         """
         Get an existing GitRepositoryFile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

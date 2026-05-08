@@ -190,37 +190,37 @@ export interface ServicehookStorageQueuePipelinesState {
     /**
      * A valid account key from the queue's storage account.
      */
-    accountKey?: pulumi.Input<string>;
+    accountKey?: pulumi.Input<string | undefined>;
     /**
      * The queue's storage account name.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated project. Changing this forces a new Service Hook Storage Queue Pipelines to be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The name of the queue that will store the events.
      */
-    queueName?: pulumi.Input<string>;
+    queueName?: pulumi.Input<string | undefined>;
     /**
      * A `runStateChangedEvent` block as defined below. Conflicts with `stageStateChangedEvent`
      */
-    runStateChangedEvent?: pulumi.Input<inputs.ServicehookStorageQueuePipelinesRunStateChangedEvent>;
+    runStateChangedEvent?: pulumi.Input<inputs.ServicehookStorageQueuePipelinesRunStateChangedEvent | undefined>;
     /**
      * A `stageStateChangedEvent` block as defined below. Conflicts with `runStateChangedEvent`
      *
      * > **Note** At least one of `runStateChangedEvent` and `stageStateChangedEvent` has to be set.
      */
-    stageStateChangedEvent?: pulumi.Input<inputs.ServicehookStorageQueuePipelinesStageStateChangedEvent>;
+    stageStateChangedEvent?: pulumi.Input<inputs.ServicehookStorageQueuePipelinesStageStateChangedEvent | undefined>;
     /**
      * event time-to-live - the duration a message can remain in the queue before it's automatically removed. Defaults to `604800`.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * event visibility timout - how long a message is invisible to other consumers after it's been dequeued. Defaults to `0`.
      */
-    visiTimeout?: pulumi.Input<number>;
+    visiTimeout?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -246,19 +246,19 @@ export interface ServicehookStorageQueuePipelinesArgs {
     /**
      * A `runStateChangedEvent` block as defined below. Conflicts with `stageStateChangedEvent`
      */
-    runStateChangedEvent?: pulumi.Input<inputs.ServicehookStorageQueuePipelinesRunStateChangedEvent>;
+    runStateChangedEvent?: pulumi.Input<inputs.ServicehookStorageQueuePipelinesRunStateChangedEvent | undefined>;
     /**
      * A `stageStateChangedEvent` block as defined below. Conflicts with `runStateChangedEvent`
      *
      * > **Note** At least one of `runStateChangedEvent` and `stageStateChangedEvent` has to be set.
      */
-    stageStateChangedEvent?: pulumi.Input<inputs.ServicehookStorageQueuePipelinesStageStateChangedEvent>;
+    stageStateChangedEvent?: pulumi.Input<inputs.ServicehookStorageQueuePipelinesStageStateChangedEvent | undefined>;
     /**
      * event time-to-live - the duration a message can remain in the queue before it's automatically removed. Defaults to `604800`.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * event visibility timout - how long a message is invisible to other consumers after it's been dequeued. Defaults to `0`.
      */
-    visiTimeout?: pulumi.Input<number>;
+    visiTimeout?: pulumi.Input<number | undefined>;
 }

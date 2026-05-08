@@ -155,37 +155,37 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointGenericGit resources.
  */
 export interface ServiceEndpointGenericGitState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
      */
-    enablePipelinesAccess?: pulumi.Input<boolean>;
+    enablePipelinesAccess?: pulumi.Input<boolean | undefined>;
     /**
      * The PAT or password used to authenticate to the git repository.
      *
      * > **Note** For AzureDevOps Git, PAT should be used as the password.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The URL of the repository associated with the service endpoint.
      */
-    repositoryUrl?: pulumi.Input<string>;
+    repositoryUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the service endpoint.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The username used to authenticate to the git repository.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -195,17 +195,17 @@ export interface ServiceEndpointGenericGitArgs {
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
      */
-    enablePipelinesAccess?: pulumi.Input<boolean>;
+    enablePipelinesAccess?: pulumi.Input<boolean | undefined>;
     /**
      * The PAT or password used to authenticate to the git repository.
      *
      * > **Note** For AzureDevOps Git, PAT should be used as the password.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
@@ -221,5 +221,5 @@ export interface ServiceEndpointGenericGitArgs {
     /**
      * The username used to authenticate to the git repository.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

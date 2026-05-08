@@ -180,28 +180,28 @@ export interface ServiceendpointVisualstudiomarketplaceState {
      *
      * > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      */
-    authenticationBasic?: pulumi.Input<inputs.ServiceendpointVisualstudiomarketplaceAuthenticationBasic>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceendpointVisualstudiomarketplaceAuthenticationBasic | undefined>;
     /**
      * An `authenticationToken` block as documented below.
      */
-    authenticationToken?: pulumi.Input<inputs.ServiceendpointVisualstudiomarketplaceAuthenticationToken>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authenticationToken?: pulumi.Input<inputs.ServiceendpointVisualstudiomarketplaceAuthenticationToken | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The server URL for Visual Studio Marketplace.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -213,15 +213,15 @@ export interface ServiceendpointVisualstudiomarketplaceArgs {
      *
      * > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      */
-    authenticationBasic?: pulumi.Input<inputs.ServiceendpointVisualstudiomarketplaceAuthenticationBasic>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceendpointVisualstudiomarketplaceAuthenticationBasic | undefined>;
     /**
      * An `authenticationToken` block as documented below.
      */
-    authenticationToken?: pulumi.Input<inputs.ServiceendpointVisualstudiomarketplaceAuthenticationToken>;
+    authenticationToken?: pulumi.Input<inputs.ServiceendpointVisualstudiomarketplaceAuthenticationToken | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

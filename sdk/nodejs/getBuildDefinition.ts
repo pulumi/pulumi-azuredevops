@@ -154,7 +154,7 @@ export interface GetBuildDefinitionOutputArgs {
     /**
      * The path of the build definition. Default to `\`.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

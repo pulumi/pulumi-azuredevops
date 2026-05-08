@@ -24,13 +24,13 @@ class ElasticPoolArgs:
                  max_capacity: pulumi.Input[_builtins.int],
                  service_endpoint_id: pulumi.Input[_builtins.str],
                  service_endpoint_scope: pulumi.Input[_builtins.str],
-                 agent_interactive_ui: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_provision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recycle_after_each_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_to_live_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 agent_interactive_ui: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recycle_after_each_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_to_live_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ElasticPool resource.
 
@@ -129,104 +129,104 @@ class ElasticPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentInteractiveUi")
-    def agent_interactive_ui(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def agent_interactive_ui(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set whether agents should be configured to run with interactive UI. Defaults to `false`.
         """
         return pulumi.get(self, "agent_interactive_ui")
 
     @agent_interactive_ui.setter
-    def agent_interactive_ui(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def agent_interactive_ui(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "agent_interactive_ui", value)
 
     @_builtins.property
     @pulumi.getter(name="autoProvision")
-    def auto_provision(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_provision(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         """
         return pulumi.get(self, "auto_provision")
 
     @auto_provision.setter
-    def auto_provision(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_provision(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_provision", value)
 
     @_builtins.property
     @pulumi.getter(name="autoUpdate")
-    def auto_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         """
         return pulumi.get(self, "auto_update")
 
     @auto_update.setter
-    def auto_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_update", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Elastic pool.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project where a new Elastic Pool will be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recycleAfterEachUse")
-    def recycle_after_each_use(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def recycle_after_each_use(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Tear down virtual machines after every use. Defaults to `false`.
         """
         return pulumi.get(self, "recycle_after_each_use")
 
     @recycle_after_each_use.setter
-    def recycle_after_each_use(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def recycle_after_each_use(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "recycle_after_each_use", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLiveMinutes")
-    def time_to_live_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_to_live_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Delay in minutes before deleting excess idle agents. Defaults to `30`.
         """
         return pulumi.get(self, "time_to_live_minutes")
 
     @time_to_live_minutes.setter
-    def time_to_live_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_to_live_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_to_live_minutes", value)
 
 
 @pulumi.input_type
 class _ElasticPoolState:
     def __init__(__self__, *,
-                 agent_interactive_ui: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_provision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_idle: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recycle_after_each_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 agent_interactive_ui: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_idle: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recycle_after_each_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ElasticPool resources.
 
@@ -270,146 +270,146 @@ class _ElasticPoolState:
 
     @_builtins.property
     @pulumi.getter(name="agentInteractiveUi")
-    def agent_interactive_ui(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def agent_interactive_ui(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set whether agents should be configured to run with interactive UI. Defaults to `false`.
         """
         return pulumi.get(self, "agent_interactive_ui")
 
     @agent_interactive_ui.setter
-    def agent_interactive_ui(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def agent_interactive_ui(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "agent_interactive_ui", value)
 
     @_builtins.property
     @pulumi.getter(name="autoProvision")
-    def auto_provision(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_provision(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         """
         return pulumi.get(self, "auto_provision")
 
     @auto_provision.setter
-    def auto_provision(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_provision(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_provision", value)
 
     @_builtins.property
     @pulumi.getter(name="autoUpdate")
-    def auto_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         """
         return pulumi.get(self, "auto_update")
 
     @auto_update.setter
-    def auto_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_update", value)
 
     @_builtins.property
     @pulumi.getter(name="azureResourceId")
-    def azure_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure resource.
         """
         return pulumi.get(self, "azure_resource_id")
 
     @azure_resource_id.setter
-    def azure_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredIdle")
-    def desired_idle(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def desired_idle(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of agents to keep on standby.
         """
         return pulumi.get(self, "desired_idle")
 
     @desired_idle.setter
-    def desired_idle(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def desired_idle(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "desired_idle", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of virtual machines in the scale set.
         """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_capacity", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Elastic pool.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project where a new Elastic Pool will be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recycleAfterEachUse")
-    def recycle_after_each_use(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def recycle_after_each_use(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Tear down virtual machines after every use. Defaults to `false`.
         """
         return pulumi.get(self, "recycle_after_each_use")
 
     @recycle_after_each_use.setter
-    def recycle_after_each_use(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def recycle_after_each_use(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "recycle_after_each_use", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointId")
-    def service_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of Service Endpoint used to connect to Azure.
         """
         return pulumi.get(self, "service_endpoint_id")
 
     @service_endpoint_id.setter
-    def service_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointScope")
-    def service_endpoint_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_endpoint_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Project ID of Service Endpoint belongs to.
         """
         return pulumi.get(self, "service_endpoint_scope")
 
     @service_endpoint_scope.setter
-    def service_endpoint_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_endpoint_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_endpoint_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="timeToLiveMinutes")
-    def time_to_live_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_to_live_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Delay in minutes before deleting excess idle agents. Defaults to `30`.
         """
         return pulumi.get(self, "time_to_live_minutes")
 
     @time_to_live_minutes.setter
-    def time_to_live_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_to_live_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_to_live_minutes", value)
 
 
@@ -419,18 +419,18 @@ class ElasticPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_interactive_ui: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_provision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_idle: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recycle_after_each_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 agent_interactive_ui: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_idle: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recycle_after_each_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages Elastic pool within Azure DevOps.
@@ -566,18 +566,18 @@ class ElasticPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_interactive_ui: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_provision: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 azure_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_idle: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recycle_after_each_use: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_endpoint_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_to_live_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 agent_interactive_ui: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azure_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_idle: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recycle_after_each_use: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_endpoint_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_to_live_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -619,18 +619,18 @@ class ElasticPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_interactive_ui: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_provision: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-            azure_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            desired_idle: Optional[pulumi.Input[_builtins.int]] = None,
-            max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            recycle_after_each_use: Optional[pulumi.Input[_builtins.bool]] = None,
-            service_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-            service_endpoint_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            time_to_live_minutes: Optional[pulumi.Input[_builtins.int]] = None) -> 'ElasticPool':
+            agent_interactive_ui: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+            azure_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            desired_idle: pulumi.Input[Optional[_builtins.int]] = None,
+            max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recycle_after_each_use: pulumi.Input[Optional[_builtins.bool]] = None,
+            service_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            time_to_live_minutes: pulumi.Input[Optional[_builtins.int]] = None) -> 'ElasticPool':
         """
         Get an existing ElasticPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

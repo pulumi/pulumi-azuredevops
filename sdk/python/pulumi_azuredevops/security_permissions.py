@@ -23,7 +23,7 @@ class SecurityPermissionsArgs:
                  permissions: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  principal: pulumi.Input[_builtins.str],
                  token: pulumi.Input[_builtins.str],
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None):
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SecurityPermissions resource.
 
@@ -96,25 +96,25 @@ class SecurityPermissionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions with existing permissions. When `true`, all existing permissions for the principal on this token will be replaced with the specified permissions. When `false`, the specified permissions will be merged with existing permissions. Default: `true`.
         """
         return pulumi.get(self, "replace")
 
     @replace.setter
-    def replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace", value)
 
 
 @pulumi.input_type
 class _SecurityPermissionsState:
     def __init__(__self__, *,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None):
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityPermissions resources.
 
@@ -140,19 +140,19 @@ class _SecurityPermissionsState:
 
     @_builtins.property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the security namespace. Use the `get_security_namespaces` data source to discover available namespaces. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
 
     @namespace_id.setter
-    def namespace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def permissions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of permission names to permission values. All permission names specified must be valid for the given namespace, or an error will be returned. Permission values must be one of:
         - `Allow` (or `allow`, `ALLOW`) - Grant the permission
@@ -162,43 +162,43 @@ class _SecurityPermissionsState:
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def permissions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The descriptor or identity ID of the principal (user or group). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions with existing permissions. When `true`, all existing permissions for the principal on this token will be replaced with the specified permissions. When `false`, the specified permissions will be merged with existing permissions. Default: `true`.
         """
         return pulumi.get(self, "replace")
 
     @replace.setter
-    def replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace", value)
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The security token for the resource. Use the `get_security_namespace_token` data source to generate tokens for specific resources. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
 
@@ -208,11 +208,11 @@ class SecurityPermissions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages permissions for Azure DevOps security namespaces. This is a generic permissions resource that can be used to manage permissions for any security namespace in Azure DevOps.
@@ -468,11 +468,11 @@ class SecurityPermissions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -505,11 +505,11 @@ class SecurityPermissions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            namespace_id: Optional[pulumi.Input[_builtins.str]] = None,
-            permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            principal: Optional[pulumi.Input[_builtins.str]] = None,
-            replace: Optional[pulumi.Input[_builtins.bool]] = None,
-            token: Optional[pulumi.Input[_builtins.str]] = None) -> 'SecurityPermissions':
+            namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            replace: pulumi.Input[Optional[_builtins.bool]] = None,
+            token: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecurityPermissions':
         """
         Get an existing SecurityPermissions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

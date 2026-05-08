@@ -26,14 +26,14 @@ class CheckRestApiArgs:
                  project_id: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
                  target_resource_type: pulumi.Input[_builtins.str],
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 completion_event: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 success_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 url_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 variable_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 completion_event: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 success_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 url_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 variable_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CheckRestApi resource.
 
@@ -168,43 +168,43 @@ class CheckRestApiArgs:
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Rest API request body.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter(name="completionEvent")
-    def completion_event(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def completion_event(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The completion event of the Rest API call. Possible values: `Callback`, `ApiResponse`. Defaults to `Callback`.
         """
         return pulumi.get(self, "completion_event")
 
     @completion_event.setter
-    def completion_event(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def completion_event(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "completion_event", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def headers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The headers of the request in JSON format.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def headers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="retryInterval")
-    def retry_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time between evaluations (minutes). 
 
@@ -214,12 +214,12 @@ class CheckRestApiArgs:
         return pulumi.get(self, "retry_interval")
 
     @retry_interval.setter
-    def retry_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="successCriteria")
-    def success_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def success_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Criteria which defines when to pass the task. No criteria means response content does not influence the result.
 
@@ -228,65 +228,65 @@ class CheckRestApiArgs:
         return pulumi.get(self, "success_criteria")
 
     @success_criteria.setter
-    def success_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def success_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "success_criteria", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout in minutes for the Rest API check. Defaults to `1440`.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="urlSuffix")
-    def url_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL suffix and parameters.
         """
         return pulumi.get(self, "url_suffix")
 
     @url_suffix.setter
-    def url_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="variableGroupName")
-    def variable_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variable_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Variable Group.
         """
         return pulumi.get(self, "variable_group_name")
 
     @variable_group_name.setter
-    def variable_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variable_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable_group_name", value)
 
 
 @pulumi.input_type
 class _CheckRestApiState:
     def __init__(__self__, *,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 completion_event: Optional[pulumi.Input[_builtins.str]] = None,
-                 connected_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connected_service_name_selector: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 success_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 url_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 variable_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.int]] = None):
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 completion_event: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_service_name_selector: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 success_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 url_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 variable_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CheckRestApi resources.
 
@@ -347,103 +347,103 @@ class _CheckRestApiState:
 
     @_builtins.property
     @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Rest API request body.
         """
         return pulumi.get(self, "body")
 
     @body.setter
-    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "body", value)
 
     @_builtins.property
     @pulumi.getter(name="completionEvent")
-    def completion_event(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def completion_event(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The completion event of the Rest API call. Possible values: `Callback`, `ApiResponse`. Defaults to `Callback`.
         """
         return pulumi.get(self, "completion_event")
 
     @completion_event.setter
-    def completion_event(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def completion_event(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "completion_event", value)
 
     @_builtins.property
     @pulumi.getter(name="connectedServiceName")
-    def connected_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connected_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Service Connection.
         """
         return pulumi.get(self, "connected_service_name")
 
     @connected_service_name.setter
-    def connected_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connected_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connected_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="connectedServiceNameSelector")
-    def connected_service_name_selector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connected_service_name_selector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the Service Connection used to invoke the REST API. Possible values: `connectedServiceName`(**Generic** type service connection) and `connectedServiceNameARM`(**Azure Resource Manager** type service connection).
         """
         return pulumi.get(self, "connected_service_name_selector")
 
     @connected_service_name_selector.setter
-    def connected_service_name_selector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connected_service_name_selector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connected_service_name_selector", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the Rest API check.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def headers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The headers of the request in JSON format.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def headers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP method of the request. Possible values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "method", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the project. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="retryInterval")
-    def retry_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time between evaluations (minutes). 
 
@@ -453,12 +453,12 @@ class _CheckRestApiState:
         return pulumi.get(self, "retry_interval")
 
     @retry_interval.setter
-    def retry_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="successCriteria")
-    def success_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def success_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Criteria which defines when to pass the task. No criteria means response content does not influence the result.
 
@@ -467,79 +467,79 @@ class _CheckRestApiState:
         return pulumi.get(self, "success_criteria")
 
     @success_criteria.setter
-    def success_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def success_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "success_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the resource being protected by the check. Changing this forces a new resource to be created
         """
         return pulumi.get(self, "target_resource_id")
 
     @target_resource_id.setter
-    def target_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of resource being protected by the check. Possible values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_type")
 
     @target_resource_type.setter
-    def target_resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeout in minutes for the Rest API check. Defaults to `1440`.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="urlSuffix")
-    def url_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL suffix and parameters.
         """
         return pulumi.get(self, "url_suffix")
 
     @url_suffix.setter
-    def url_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="variableGroupName")
-    def variable_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variable_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Variable Group.
         """
         return pulumi.get(self, "variable_group_name")
 
     @variable_group_name.setter
-    def variable_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variable_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version of the Rest API check.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version", value)
 
 
@@ -549,21 +549,21 @@ class CheckRestApi(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 completion_event: Optional[pulumi.Input[_builtins.str]] = None,
-                 connected_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connected_service_name_selector: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 success_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 url_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 variable_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 completion_event: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_service_name_selector: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 success_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 url_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 variable_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Rest API check on a resource within Azure DevOps.
@@ -725,21 +725,21 @@ class CheckRestApi(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 body: Optional[pulumi.Input[_builtins.str]] = None,
-                 completion_event: Optional[pulumi.Input[_builtins.str]] = None,
-                 connected_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 connected_service_name_selector: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[_builtins.str]] = None,
-                 method: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 success_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 url_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 variable_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 completion_event: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_service_name_selector: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[_builtins.str]] = None,
+                 method: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 success_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 url_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 variable_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -789,22 +789,22 @@ class CheckRestApi(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            body: Optional[pulumi.Input[_builtins.str]] = None,
-            completion_event: Optional[pulumi.Input[_builtins.str]] = None,
-            connected_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            connected_service_name_selector: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            headers: Optional[pulumi.Input[_builtins.str]] = None,
-            method: Optional[pulumi.Input[_builtins.str]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            retry_interval: Optional[pulumi.Input[_builtins.int]] = None,
-            success_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            url_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            variable_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.int]] = None) -> 'CheckRestApi':
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            completion_event: pulumi.Input[Optional[_builtins.str]] = None,
+            connected_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            connected_service_name_selector: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            headers: pulumi.Input[Optional[_builtins.str]] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            retry_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            success_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            url_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            variable_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> 'CheckRestApi':
         """
         Get an existing CheckRestApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

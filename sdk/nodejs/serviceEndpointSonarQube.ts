@@ -144,27 +144,27 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointSonarQube resources.
  */
 export interface ServiceEndpointSonarQubeState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
     /**
      * URL of the SonarQube server to connect with.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -174,7 +174,7 @@ export interface ServiceEndpointSonarQubeArgs {
     /**
      * The Service Endpoint description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

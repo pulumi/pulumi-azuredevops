@@ -147,31 +147,31 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointAzureDevOps resources.
  */
 export interface ServiceEndpointAzureDevOpsState {
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The organization URL.
      */
-    orgUrl?: pulumi.Input<string>;
+    orgUrl?: pulumi.Input<string | undefined>;
     /**
      * The Azure DevOps personal access token.
      */
-    personalAccessToken?: pulumi.Input<string>;
+    personalAccessToken?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The URL of the release API.
      */
-    releaseApiUrl?: pulumi.Input<string>;
+    releaseApiUrl?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -181,15 +181,15 @@ export interface ServiceEndpointAzureDevOpsArgs {
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The organization URL.
      */
-    orgUrl?: pulumi.Input<string>;
+    orgUrl?: pulumi.Input<string | undefined>;
     /**
      * The Azure DevOps personal access token.
      */
-    personalAccessToken?: pulumi.Input<string>;
+    personalAccessToken?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
@@ -197,7 +197,7 @@ export interface ServiceEndpointAzureDevOpsArgs {
     /**
      * The URL of the release API.
      */
-    releaseApiUrl?: pulumi.Input<string>;
+    releaseApiUrl?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */

@@ -20,11 +20,11 @@ __all__ = ['WorkitemtrackingprocessProcessArgs', 'WorkitemtrackingprocessProcess
 class WorkitemtrackingprocessProcessArgs:
     def __init__(__self__, *,
                  parent_process_type_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessProcess resource.
 
@@ -61,75 +61,75 @@ class WorkitemtrackingprocessProcessArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the process. Default: ""
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the process default? Default: false
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the process enabled? Default: true
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the process.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference name of process being created. If not specified, server will assign a unique reference name. Changing this forces a new process to be created.
         """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
-    def reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_name", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingprocessProcessState:
     def __init__(__self__, *,
-                 customization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_process_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 customization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_process_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessProcess resources.
 
@@ -158,86 +158,86 @@ class _WorkitemtrackingprocessProcessState:
 
     @_builtins.property
     @pulumi.getter(name="customizationType")
-    def customization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the type of customization on this process. System Process is default process. Inherited Process is modified process that was System process before.
         """
         return pulumi.get(self, "customization_type")
 
     @customization_type.setter
-    def customization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customization_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the process. Default: ""
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the process default? Default: false
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the process enabled? Default: true
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the process.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentProcessTypeId")
-    def parent_process_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_process_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the parent process. Changing this forces a new process to be created.
         """
         return pulumi.get(self, "parent_process_type_id")
 
     @parent_process_type_id.setter
-    def parent_process_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_process_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_process_type_id", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference name of process being created. If not specified, server will assign a unique reference name. Changing this forces a new process to be created.
         """
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
-    def reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_name", value)
 
 
@@ -247,12 +247,12 @@ class WorkitemtrackingprocessProcess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_process_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_process_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a process.
@@ -338,12 +338,12 @@ class WorkitemtrackingprocessProcess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_process_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_process_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -372,13 +372,13 @@ class WorkitemtrackingprocessProcess(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            customization_type: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_process_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-            reference_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessProcess':
+            customization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_process_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+            reference_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessProcess':
         """
         Get an existing WorkitemtrackingprocessProcess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

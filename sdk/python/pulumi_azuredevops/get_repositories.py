@@ -142,9 +142,9 @@ def get_repositories(include_hidden: Optional[_builtins.bool] = None,
         name=pulumi.get(__ret__, 'name'),
         project_id=pulumi.get(__ret__, 'project_id'),
         repositories=pulumi.get(__ret__, 'repositories'))
-def get_repositories_output(include_hidden: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                            name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            project_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_repositories_output(include_hidden: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                            name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            project_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
     """
     Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.

@@ -373,51 +373,51 @@ export interface GitState {
     /**
      * The ref of the default branch. Will be used as the branch name for initialized repositories.
      */
-    defaultBranch?: pulumi.Input<string>;
+    defaultBranch?: pulumi.Input<string | undefined>;
     /**
      * The ability to disable or enable the repository. Defaults to `false`.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `initialization` block as documented below.
      */
-    initialization?: pulumi.Input<inputs.GitInitialization>;
+    initialization?: pulumi.Input<inputs.GitInitialization | undefined>;
     /**
      * True if the repository was created as a fork.
      */
-    isFork?: pulumi.Input<boolean>;
+    isFork?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the git repository.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Git project from which a fork is to be created.
      */
-    parentRepositoryId?: pulumi.Input<string>;
+    parentRepositoryId?: pulumi.Input<string | undefined>;
     /**
      * The project ID or project name.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Git HTTPS URL of the repository
      */
-    remoteUrl?: pulumi.Input<string>;
+    remoteUrl?: pulumi.Input<string | undefined>;
     /**
      * Size in bytes.
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
     /**
      * Git SSH URL of the repository.
      */
-    sshUrl?: pulumi.Input<string>;
+    sshUrl?: pulumi.Input<string | undefined>;
     /**
      * REST API URL of the repository.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * Web link to the repository.
      */
-    webUrl?: pulumi.Input<string>;
+    webUrl?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -427,11 +427,11 @@ export interface GitArgs {
     /**
      * The ref of the default branch. Will be used as the branch name for initialized repositories.
      */
-    defaultBranch?: pulumi.Input<string>;
+    defaultBranch?: pulumi.Input<string | undefined>;
     /**
      * The ability to disable or enable the repository. Defaults to `false`.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * A `initialization` block as documented below.
      */
@@ -439,11 +439,11 @@ export interface GitArgs {
     /**
      * The name of the git repository.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Git project from which a fork is to be created.
      */
-    parentRepositoryId?: pulumi.Input<string>;
+    parentRepositoryId?: pulumi.Input<string | undefined>;
     /**
      * The project ID or project name.
      */

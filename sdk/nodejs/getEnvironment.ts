@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * });
  * const example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) => azuredevops.getEnvironmentOutput({
  *     projectId: exampleProjectId,
- *     environmentId: exampleEnvironmentId,
+ *     environmentId: Number(exampleEnvironmentId),
  * }));
  * ```
  *
@@ -106,7 +106,7 @@ export interface GetEnvironmentResult {
  * });
  * const example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) => azuredevops.getEnvironmentOutput({
  *     projectId: exampleProjectId,
- *     environmentId: exampleEnvironmentId,
+ *     environmentId: Number(exampleEnvironmentId),
  * }));
  * ```
  *
@@ -130,13 +130,13 @@ export interface GetEnvironmentOutputArgs {
     /**
      * The ID of the Environment.
      */
-    environmentId?: pulumi.Input<number>;
+    environmentId?: pulumi.Input<number | undefined>;
     /**
      * Name of the Environment.
      *
      * > **NOTE:** One of either `environmentId` or `name` must be specified.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

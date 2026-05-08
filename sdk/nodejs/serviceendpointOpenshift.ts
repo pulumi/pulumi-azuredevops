@@ -210,40 +210,40 @@ export interface ServiceendpointOpenshiftState {
     /**
      * Set this option to allow clients to accept a self-signed certificate. Available when using `authBasic` or `authToken` authorization.
      */
-    acceptUntrustedCerts?: pulumi.Input<boolean>;
+    acceptUntrustedCerts?: pulumi.Input<boolean | undefined>;
     /**
      * An `authBasic` block as documented below.
      */
-    authBasic?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthBasic>;
+    authBasic?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthBasic | undefined>;
     /**
      * An `authNone` block as documented below.
      */
-    authNone?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthNone>;
+    authNone?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthNone | undefined>;
     /**
      * An `authToken` block as documented below.
      */
-    authToken?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthToken>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authToken?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthToken | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
      */
-    certificateAuthorityFile?: pulumi.Input<string>;
+    certificateAuthorityFile?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The URL for the OpenShift cluster to connect to.
      */
-    serverUrl?: pulumi.Input<string>;
+    serverUrl?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -253,27 +253,27 @@ export interface ServiceendpointOpenshiftArgs {
     /**
      * Set this option to allow clients to accept a self-signed certificate. Available when using `authBasic` or `authToken` authorization.
      */
-    acceptUntrustedCerts?: pulumi.Input<boolean>;
+    acceptUntrustedCerts?: pulumi.Input<boolean | undefined>;
     /**
      * An `authBasic` block as documented below.
      */
-    authBasic?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthBasic>;
+    authBasic?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthBasic | undefined>;
     /**
      * An `authNone` block as documented below.
      */
-    authNone?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthNone>;
+    authNone?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthNone | undefined>;
     /**
      * An `authToken` block as documented below.
      */
-    authToken?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthToken>;
+    authToken?: pulumi.Input<inputs.ServiceendpointOpenshiftAuthToken | undefined>;
     /**
      * The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `authBasic` or `authToken` authorization.
      */
-    certificateAuthorityFile?: pulumi.Input<string>;
+    certificateAuthorityFile?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint description. Defaults to `Managed by Terraform`.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
@@ -281,7 +281,7 @@ export interface ServiceendpointOpenshiftArgs {
     /**
      * The URL for the OpenShift cluster to connect to.
      */
-    serverUrl?: pulumi.Input<string>;
+    serverUrl?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */

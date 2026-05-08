@@ -139,19 +139,19 @@ export interface WorkitemtrackingprocessInheritedPageState {
     /**
      * Label for the page.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The ID of the inherited page to customize. Changing this forces a new resource to be created.
      */
-    pageId?: pulumi.Input<string>;
+    pageId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process. Changing this forces a new resource to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new resource to be created.
      */
-    workItemTypeId?: pulumi.Input<string>;
+    workItemTypeId?: pulumi.Input<string | undefined>;
 }
 
 /**

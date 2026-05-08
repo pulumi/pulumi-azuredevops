@@ -171,45 +171,45 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointArtifactory resources.
  */
 export interface ServiceEndpointArtifactoryState {
-    authenticationBasic?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationBasic>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationBasic | undefined>;
     /**
      * A `authenticationBasic` block as defined below.
      */
-    authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken>;
-    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken | undefined>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Service Endpoint description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The Service Endpoint name.
      */
-    serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string | undefined>;
     /**
      * URL of the Artifactory server to connect with.
      *
      * _**Note: URL should not end in a slash character.**_
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a ServiceEndpointArtifactory resource.
  */
 export interface ServiceEndpointArtifactoryArgs {
-    authenticationBasic?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationBasic>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationBasic | undefined>;
     /**
      * A `authenticationBasic` block as defined below.
      */
-    authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken>;
+    authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken | undefined>;
     /**
      * The Service Endpoint description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */

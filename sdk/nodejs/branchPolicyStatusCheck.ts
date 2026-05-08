@@ -160,19 +160,19 @@ export interface BranchPolicyStatusCheckState {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
      */
-    settings?: pulumi.Input<inputs.BranchPolicyStatusCheckSettings>;
+    settings?: pulumi.Input<inputs.BranchPolicyStatusCheckSettings | undefined>;
 }
 
 /**
@@ -182,11 +182,11 @@ export interface BranchPolicyStatusCheckArgs {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean | undefined>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the project in which the policy will be created.
      */

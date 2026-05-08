@@ -151,23 +151,23 @@ export interface WorkitemtrackingprocessListState {
     /**
      * Indicates whether items outside of the suggested list are allowed. Defaults to `false`.
      */
-    isSuggested?: pulumi.Input<boolean>;
+    isSuggested?: pulumi.Input<boolean | undefined>;
     /**
      * A list of items.
      */
-    items?: pulumi.Input<pulumi.Input<string>[]>;
+    items?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the list.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Data type of the list. Valid values: `string`, `integer`. Defaults to `string`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * URL of the list.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface WorkitemtrackingprocessListArgs {
     /**
      * Indicates whether items outside of the suggested list are allowed. Defaults to `false`.
      */
-    isSuggested?: pulumi.Input<boolean>;
+    isSuggested?: pulumi.Input<boolean | undefined>;
     /**
      * A list of items.
      */
@@ -185,9 +185,9 @@ export interface WorkitemtrackingprocessListArgs {
     /**
      * Name of the list.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Data type of the list. Valid values: `string`, `integer`. Defaults to `string`. Changing this forces a new resource to be created.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

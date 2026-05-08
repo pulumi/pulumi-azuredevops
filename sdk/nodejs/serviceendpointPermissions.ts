@@ -188,23 +188,23 @@ export interface ServiceendpointPermissionsState {
      * | ViewAuthorization | View authorizations                 |
      * | ViewEndpoint      | View service endpoint properties    |
      */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The **group** principal to assign the permissions.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
     /**
      * The id of the service endpoint to assign the permissions.
      */
-    serviceendpointId?: pulumi.Input<string>;
+    serviceendpointId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -234,9 +234,9 @@ export interface ServiceendpointPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
     /**
      * The id of the service endpoint to assign the permissions.
      */
-    serviceendpointId?: pulumi.Input<string>;
+    serviceendpointId?: pulumi.Input<string | undefined>;
 }

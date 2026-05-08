@@ -23,8 +23,8 @@ class WorkitemtrackingprocessInheritedControlArgs:
                  group_id: pulumi.Input[_builtins.str],
                  process_id: pulumi.Input[_builtins.str],
                  work_item_type_id: pulumi.Input[_builtins.str],
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None):
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkitemtrackingprocessInheritedControl resource.
 
@@ -94,38 +94,38 @@ class WorkitemtrackingprocessInheritedControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for the control.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the control should be visible.
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
 
 @pulumi.input_type
 class _WorkitemtrackingprocessInheritedControlState:
     def __init__(__self__, *,
-                 control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkitemtrackingprocessInheritedControl resources.
 
@@ -151,74 +151,74 @@ class _WorkitemtrackingprocessInheritedControlState:
 
     @_builtins.property
     @pulumi.getter(name="controlId")
-    def control_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the inherited control to customize. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "control_id")
 
     @control_id.setter
-    def control_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_id", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the group containing the control. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Label for the control.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter(name="processId")
-    def process_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def process_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the process. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "process_id")
 
     @process_id.setter
-    def process_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def process_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "process_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def visible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def visible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the control should be visible.
         """
         return pulumi.get(self, "visible")
 
     @visible.setter
-    def visible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def visible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "visible", value)
 
     @_builtins.property
     @pulumi.getter(name="workItemTypeId")
-    def work_item_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def work_item_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID (reference name) of the work item type. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "work_item_type_id")
 
     @work_item_type_id.setter
-    def work_item_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def work_item_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type_id", value)
 
 
@@ -228,12 +228,12 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an inherited control customization for a work item type.
@@ -347,12 +347,12 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 process_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 process_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -386,12 +386,12 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            control_id: Optional[pulumi.Input[_builtins.str]] = None,
-            group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            process_id: Optional[pulumi.Input[_builtins.str]] = None,
-            visible: Optional[pulumi.Input[_builtins.bool]] = None,
-            work_item_type_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WorkitemtrackingprocessInheritedControl':
+            control_id: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            visible: pulumi.Input[Optional[_builtins.bool]] = None,
+            work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessInheritedControl':
         """
         Get an existing WorkitemtrackingprocessInheritedControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

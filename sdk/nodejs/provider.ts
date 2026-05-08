@@ -140,79 +140,79 @@ export interface ProviderArgs {
     /**
      * List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios.
      */
-    auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Base64 encoded certificate to use to authenticate to the service principal.
      */
-    clientCertificate?: pulumi.Input<string>;
+    clientCertificate?: pulumi.Input<string | undefined>;
     /**
      * Password for a client certificate password.
      */
-    clientCertificatePassword?: pulumi.Input<string>;
+    clientCertificatePassword?: pulumi.Input<string | undefined>;
     /**
      * Path to a certificate to use to authenticate to the service principal.
      */
-    clientCertificatePath?: pulumi.Input<string>;
+    clientCertificatePath?: pulumi.Input<string | undefined>;
     /**
      * The service principal client id which should be used for AAD auth.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The path to a file containing the Client ID which should be used.
      */
-    clientIdFilePath?: pulumi.Input<string>;
+    clientIdFilePath?: pulumi.Input<string | undefined>;
     /**
      * Client secret for authenticating to  a service principal.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * Path to a file containing a client secret for authenticating to  a service principal.
      */
-    clientSecretPath?: pulumi.Input<string>;
+    clientSecretPath?: pulumi.Input<string | undefined>;
     /**
      * The Azure Pipelines Service Connection ID to use for authentication.
      */
-    oidcAzureServiceConnectionId?: pulumi.Input<string>;
+    oidcAzureServiceConnectionId?: pulumi.Input<string | undefined>;
     /**
      * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
      */
-    oidcRequestToken?: pulumi.Input<string>;
+    oidcRequestToken?: pulumi.Input<string | undefined>;
     /**
      * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
      */
-    oidcRequestUrl?: pulumi.Input<string>;
+    oidcRequestUrl?: pulumi.Input<string | undefined>;
     /**
      * OIDC token to authenticate as a service principal.
      */
-    oidcToken?: pulumi.Input<string>;
+    oidcToken?: pulumi.Input<string | undefined>;
     /**
      * OIDC token from file to authenticate as a service principal.
      */
-    oidcTokenFilePath?: pulumi.Input<string>;
+    oidcTokenFilePath?: pulumi.Input<string | undefined>;
     /**
      * The url of the Azure DevOps instance which should be used.
      */
-    orgServiceUrl?: pulumi.Input<string>;
+    orgServiceUrl?: pulumi.Input<string | undefined>;
     /**
      * The personal access token which should be used.
      */
-    personalAccessToken?: pulumi.Input<string>;
+    personalAccessToken?: pulumi.Input<string | undefined>;
     /**
      * The service principal tenant id which should be used for AAD auth.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * Use Azure CLI to authenticate. Defaults to `true`.
      */
-    useCli?: pulumi.Input<boolean>;
+    useCli?: pulumi.Input<boolean | undefined>;
     /**
      * Use an Azure Managed Service Identity. Defaults to `false`.
      */
-    useMsi?: pulumi.Input<boolean>;
+    useMsi?: pulumi.Input<boolean | undefined>;
     /**
      * Use an OIDC token to authenticate to a service principal. Defaults to `false`.
      */
-    useOidc?: pulumi.Input<boolean>;
+    useOidc?: pulumi.Input<boolean | undefined>;
 }
 
 export namespace Provider {

@@ -24,14 +24,14 @@ class WorkitemArgs:
                  project_id: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 additional_fields_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 iteration_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 additional_fields_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 area_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 iteration_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workitem resource.
 
@@ -108,118 +108,118 @@ class WorkitemArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalFieldsJson")
-    def additional_fields_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_fields_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
         """
         return pulumi.get(self, "additional_fields_json")
 
     @additional_fields_json.setter
-    def additional_fields_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_fields_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_fields_json", value)
 
     @_builtins.property
     @pulumi.getter(name="areaPath")
-    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def area_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the area where the Work Item is used.
         """
         return pulumi.get(self, "area_path")
 
     @area_path.setter
-    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def area_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "area_path", value)
 
     @_builtins.property
     @pulumi.getter(name="customFields")
     @_utilities.deprecated("""This property is deprecated and will be removed in a future release. Please use \"additional_fields_json\" argument instead.""")
-    def custom_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_fields(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list with Custom Fields for the Work Item.
         """
         return pulumi.get(self, "custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_fields(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_fields", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="iterationPath")
-    def iteration_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iteration_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the iteration in which the Work Item is used.
         """
         return pulumi.get(self, "iteration_path")
 
     @iteration_path.setter
-    def iteration_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iteration_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iteration_path", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
-    def parent_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def parent_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The parent work item.
         """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
-    def parent_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def parent_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "parent_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _WorkitemState:
     def __init__(__self__, *,
-                 additional_fields_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 iteration_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 relations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemRelationArgs']]]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_fields_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 area_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 iteration_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 relations: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemRelationArgs']]]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workitem resources.
 
@@ -269,159 +269,159 @@ class _WorkitemState:
 
     @_builtins.property
     @pulumi.getter(name="additionalFieldsJson")
-    def additional_fields_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def additional_fields_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
         """
         return pulumi.get(self, "additional_fields_json")
 
     @additional_fields_json.setter
-    def additional_fields_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def additional_fields_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "additional_fields_json", value)
 
     @_builtins.property
     @pulumi.getter(name="areaPath")
-    def area_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def area_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the area where the Work Item is used.
         """
         return pulumi.get(self, "area_path")
 
     @area_path.setter
-    def area_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def area_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "area_path", value)
 
     @_builtins.property
     @pulumi.getter(name="customFields")
     @_utilities.deprecated("""This property is deprecated and will be removed in a future release. Please use \"additional_fields_json\" argument instead.""")
-    def custom_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_fields(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list with Custom Fields for the Work Item.
         """
         return pulumi.get(self, "custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_fields(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_fields", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Work Item. **Note**: Due to current lifecycle behavior, omitting this field or setting it to an empty string will not clear the description in Azure DevOps; the provider will instead read the existing value. To avoid a breaking change, the ability to clear this field will be introduced in a future major release.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="iterationPath")
-    def iteration_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iteration_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the iteration in which the Work Item is used.
         """
         return pulumi.get(self, "iteration_path")
 
     @iteration_path.setter
-    def iteration_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iteration_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iteration_path", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
-    def parent_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def parent_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The parent work item.
         """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
-    def parent_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def parent_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "parent_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Project.
         """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
-    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def relations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemRelationArgs']]]]:
+    def relations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemRelationArgs']]]]:
         """
         A `relations` blocks as documented below.
         """
         return pulumi.get(self, "relations")
 
     @relations.setter
-    def relations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkitemRelationArgs']]]]):
+    def relations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemRelationArgs']]]]):
         pulumi.set(self, "relations", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of Tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Title of the Work Item.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the Work Item.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -431,17 +431,17 @@ class Workitem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_fields_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 iteration_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_fields_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 area_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 iteration_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Work Item in Azure Devops.
@@ -513,7 +513,7 @@ class Workitem(pulumi.CustomResource):
             type="Issue",
             state="Active",
             tags=["Tag"],
-            parent_id=epic.id)
+            parent_id=epic.id.apply(lambda x: int(x)))
         ```
 
         ### With Additional Fields
@@ -642,7 +642,7 @@ class Workitem(pulumi.CustomResource):
             type="Issue",
             state="Active",
             tags=["Tag"],
-            parent_id=epic.id)
+            parent_id=epic.id.apply(lambda x: int(x)))
         ```
 
         ### With Additional Fields
@@ -696,17 +696,17 @@ class Workitem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_fields_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 area_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 iteration_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_fields_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 area_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 iteration_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -745,19 +745,19 @@ class Workitem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_fields_json: Optional[pulumi.Input[_builtins.str]] = None,
-            area_path: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            iteration_path: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_id: Optional[pulumi.Input[_builtins.int]] = None,
-            project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            relations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkitemRelationArgs', 'WorkitemRelationArgsDict']]]]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Workitem':
+            additional_fields_json: pulumi.Input[Optional[_builtins.str]] = None,
+            area_path: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            iteration_path: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_id: pulumi.Input[Optional[_builtins.int]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            relations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemRelationArgs', 'WorkitemRelationArgsDict']]]]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workitem':
         """
         Get an existing Workitem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

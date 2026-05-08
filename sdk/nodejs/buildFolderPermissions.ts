@@ -211,7 +211,7 @@ export interface BuildFolderPermissionsState {
     /**
      * The folder path to assign the permissions.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available.
      *
@@ -234,19 +234,19 @@ export interface BuildFolderPermissionsState {
      * | AdministerBuildPermissions     | Administer build permissions          |
      * | CreateBuildDefinition          | Create build pipeline                 |
      */
-    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The **group** principal to assign the permissions.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * The ID of the project to assign the permissions.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -291,5 +291,5 @@ export interface BuildFolderPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
 }

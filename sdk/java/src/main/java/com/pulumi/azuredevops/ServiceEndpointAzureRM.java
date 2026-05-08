@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
  * import com.pulumi.azuredevops.inputs.ServiceEndpointAzureRMCredentialsArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -100,8 +100,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
  * import com.pulumi.azuredevops.inputs.ServiceEndpointAzureRMCredentialsArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -153,8 +153,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -207,8 +207,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.inputs.ServiceEndpointAzureRMCredentialsArgs;
  * import com.pulumi.azurerm.FederatedIdentityCredential;
  * import com.pulumi.azurerm.FederatedIdentityCredentialArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -258,7 +258,7 @@ import javax.annotation.Nullable;
  *             .name("example-federated-credential")
  *             .resourceGroupName(identity.name())
  *             .parentId(exampleUserAssignedIdentity.id())
- *             .audience(List.of("api://AzureADTokenExchange"))
+ *             .audience(Arrays.asList("api://AzureADTokenExchange"))
  *             .issuer(exampleServiceEndpointAzureRM.workloadIdentityFederationIssuer())
  *             .subject(exampleServiceEndpointAzureRM.workloadIdentityFederationSubject())
  *             .build());
@@ -281,8 +281,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -328,8 +328,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

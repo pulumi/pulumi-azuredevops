@@ -152,27 +152,27 @@ export interface WorkitemtrackingprocessInheritedControlState {
     /**
      * The ID of the inherited control to customize. Changing this forces a new resource to be created.
      */
-    controlId?: pulumi.Input<string>;
+    controlId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the group containing the control. Changing this forces a new resource to be created.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Label for the control.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process. Changing this forces a new resource to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * Whether the control should be visible.
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new resource to be created.
      */
-    workItemTypeId?: pulumi.Input<string>;
+    workItemTypeId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface WorkitemtrackingprocessInheritedControlArgs {
     /**
      * Label for the control.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The ID of the process. Changing this forces a new resource to be created.
      */
@@ -198,7 +198,7 @@ export interface WorkitemtrackingprocessInheritedControlArgs {
     /**
      * Whether the control should be visible.
      */
-    visible?: pulumi.Input<boolean>;
+    visible?: pulumi.Input<boolean | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new resource to be created.
      */

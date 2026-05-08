@@ -153,31 +153,31 @@ export interface WorkitemtrackingprocessStateState {
     /**
      * Color hexadecimal code to represent the state, e.g. `#b2b2b2`.
      */
-    color?: pulumi.Input<string>;
+    color?: pulumi.Input<string | undefined>;
     /**
      * Name of the state. Changing this forces a new state to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Order within the category where the state should appear.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The ID of the process. Changing this forces a new state to be created.
      */
-    processId?: pulumi.Input<string>;
+    processId?: pulumi.Input<string | undefined>;
     /**
      * Category of the state. Valid values: `Proposed`, `InProgress`, `Resolved`, `Completed`, `Removed`.
      */
-    stateCategory?: pulumi.Input<string>;
+    stateCategory?: pulumi.Input<string | undefined>;
     /**
      * URL of the state.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The ID (reference name) of the work item type. Changing this forces a new state to be created.
      */
-    workItemTypeId?: pulumi.Input<string>;
+    workItemTypeId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -191,11 +191,11 @@ export interface WorkitemtrackingprocessStateArgs {
     /**
      * Name of the state. Changing this forces a new state to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Order within the category where the state should appear.
      */
-    order?: pulumi.Input<number>;
+    order?: pulumi.Input<number | undefined>;
     /**
      * The ID of the process. Changing this forces a new state to be created.
      */

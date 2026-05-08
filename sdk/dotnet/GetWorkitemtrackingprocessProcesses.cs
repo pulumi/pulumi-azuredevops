@@ -24,7 +24,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = AzureDevOps.Index.GetWorkitemtrackingprocessProcesses.Invoke();
+        ///     var all = AzureDevOps.GetWorkitemtrackingprocessProcesses.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -53,7 +53,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = AzureDevOps.Index.GetWorkitemtrackingprocessProcesses.Invoke();
+        ///     var all = AzureDevOps.GetWorkitemtrackingprocessProcesses.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -82,7 +82,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = AzureDevOps.Index.GetWorkitemtrackingprocessProcesses.Invoke();
+        ///     var all = AzureDevOps.GetWorkitemtrackingprocessProcesses.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {

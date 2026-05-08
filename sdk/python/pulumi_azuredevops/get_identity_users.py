@@ -113,8 +113,8 @@ def get_identity_users(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         search_filter=pulumi.get(__ret__, 'search_filter'),
         subject_descriptor=pulumi.get(__ret__, 'subject_descriptor'))
-def get_identity_users_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                              search_filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_identity_users_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                              search_filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityUsersResult]:
     """
     Use this data source to access information about an existing users within Azure DevOps On-Premise(Azure DevOps Server).

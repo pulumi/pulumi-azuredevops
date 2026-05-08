@@ -69,7 +69,7 @@ import * as utilities from "./utilities";
  *         branchName: exampleGit.defaultBranch,
  *         ymlPath: "azure-pipelines.yml",
  *     },
- *     variableGroups: [exampleVariableGroup.id],
+ *     variableGroups: [exampleVariableGroup.id.apply(x =>Number(x))],
  *     variables: [
  *         {
  *             name: "PipelineVariable",
@@ -491,70 +491,70 @@ export interface BuildDefinitionState {
     /**
      * The agent pool that should execute the build. Defaults to `Azure Pipelines`.
      */
-    agentPoolName?: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string | undefined>;
     /**
      * The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
      */
-    agentSpecification?: pulumi.Input<string>;
+    agentSpecification?: pulumi.Input<string | undefined>;
     /**
      * A `buildCompletionTrigger` block as documented below.
      */
-    buildCompletionTriggers?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionBuildCompletionTrigger>[]>;
+    buildCompletionTriggers?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionBuildCompletionTrigger>[] | undefined>;
     /**
      * A `ciTrigger` block as documented below.
      */
-    ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
+    ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger | undefined>;
     /**
      * A `features` blocks as documented below.
      */
-    features?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionFeature>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionFeature>[] | undefined>;
     /**
      * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
      */
-    jobAuthorizationScope?: pulumi.Input<string>;
+    jobAuthorizationScope?: pulumi.Input<string | undefined>;
     /**
      * A `jobs` blocks as documented below.
      *
      * > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
      */
-    jobs?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionJob>[]>;
+    jobs?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionJob>[] | undefined>;
     /**
      * The name of the build definition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The folder path of the build definition.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The project ID or project name.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * A `pullRequestTrigger` block as documented below.
      */
-    pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
+    pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger | undefined>;
     /**
      * The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
      */
-    queueStatus?: pulumi.Input<string>;
+    queueStatus?: pulumi.Input<string | undefined>;
     /**
      * A `repository` block as documented below.
      */
-    repository?: pulumi.Input<inputs.BuildDefinitionRepository>;
+    repository?: pulumi.Input<inputs.BuildDefinitionRepository | undefined>;
     /**
      * The revision of the build definition
      */
-    revision?: pulumi.Input<number>;
-    schedules?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionSchedule>[]>;
+    revision?: pulumi.Input<number | undefined>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionSchedule>[] | undefined>;
     /**
      * A list of variable group IDs (integers) to link to the build definition.
      */
-    variableGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    variableGroups?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * A list of `variable` blocks, as documented below.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionVariable>[] | undefined>;
 }
 
 /**
@@ -564,41 +564,41 @@ export interface BuildDefinitionArgs {
     /**
      * The agent pool that should execute the build. Defaults to `Azure Pipelines`.
      */
-    agentPoolName?: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string | undefined>;
     /**
      * The Agent Specification to run the pipelines. Required when `repoType` is `Git`. Example: `windows-2019`, `windows-latest`, `macos-13` etc.
      */
-    agentSpecification?: pulumi.Input<string>;
+    agentSpecification?: pulumi.Input<string | undefined>;
     /**
      * A `buildCompletionTrigger` block as documented below.
      */
-    buildCompletionTriggers?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionBuildCompletionTrigger>[]>;
+    buildCompletionTriggers?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionBuildCompletionTrigger>[] | undefined>;
     /**
      * A `ciTrigger` block as documented below.
      */
-    ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
+    ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger | undefined>;
     /**
      * A `features` blocks as documented below.
      */
-    features?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionFeature>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionFeature>[] | undefined>;
     /**
      * The job authorization scope for builds queued against this definition. Possible values are: `project`, `projectCollection`. Defaults to `projectCollection`.
      */
-    jobAuthorizationScope?: pulumi.Input<string>;
+    jobAuthorizationScope?: pulumi.Input<string | undefined>;
     /**
      * A `jobs` blocks as documented below.
      *
      * > **NOTE:** The `jobs` are classic pipelines, you need to enable the classic pipeline feature for your organization to use this feature.
      */
-    jobs?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionJob>[]>;
+    jobs?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionJob>[] | undefined>;
     /**
      * The name of the build definition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The folder path of the build definition.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The project ID or project name.
      */
@@ -606,22 +606,22 @@ export interface BuildDefinitionArgs {
     /**
      * A `pullRequestTrigger` block as documented below.
      */
-    pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
+    pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger | undefined>;
     /**
      * The queue status of the build definition. Possible values are: `enabled` or `paused` or `disabled`. Defaults to `enabled`.
      */
-    queueStatus?: pulumi.Input<string>;
+    queueStatus?: pulumi.Input<string | undefined>;
     /**
      * A `repository` block as documented below.
      */
     repository: pulumi.Input<inputs.BuildDefinitionRepository>;
-    schedules?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionSchedule>[]>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionSchedule>[] | undefined>;
     /**
      * A list of variable group IDs (integers) to link to the build definition.
      */
-    variableGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    variableGroups?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * A list of `variable` blocks, as documented below.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionVariable>[] | undefined>;
 }
