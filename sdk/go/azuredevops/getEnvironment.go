@@ -45,14 +45,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_ = pulumi.All(exampleProject.ID(), exampleEnvironment.ID()).ApplyT(func(_args []interface{}) (azuredevops.GetEnvironmentResult, error) {
-//				exampleProjectId := _args[0].(string)
-//				exampleEnvironmentId := _args[1].(string)
-//				return azuredevops.GetEnvironmentResult(interface{}(azuredevops.GetEnvironment(ctx, &azuredevops.LookupEnvironmentArgs{
-//					ProjectId:     exampleProjectId,
-//					EnvironmentId: pulumi.IntRef(pulumi.IntRef(int(exampleEnvironmentId))),
-//				}, nil))), nil
-//			}).(azuredevops.GetEnvironmentResultOutput)
+//			_ = azuredevops.GetEnvironmentOutput(ctx, azuredevops.GetEnvironmentOutputArgs{
+//				ProjectId:     exampleProject.ID(),
+//				EnvironmentId: exampleEnvironment.ID(),
+//			}, nil)
 //			return nil
 //		})
 //	}

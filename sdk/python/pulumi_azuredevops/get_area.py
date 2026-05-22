@@ -138,9 +138,9 @@ def get_area(fetch_children: Optional[_builtins.bool] = None,
         version_control="Git",
         visibility="private",
         description="Managed by Pulumi")
-    example = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
+    example = azuredevops.get_area_output(project_id=example_project.id,
         path="/",
-        fetch_children=False))
+        fetch_children=False)
     ```
 
     ## Relevant Links
@@ -190,9 +190,9 @@ def get_area_output(fetch_children: pulumi.Input[Optional[Optional[_builtins.boo
         version_control="Git",
         visibility="private",
         description="Managed by Pulumi")
-    example = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
+    example = azuredevops.get_area_output(project_id=example_project.id,
         path="/",
-        fetch_children=False))
+        fetch_children=False)
     ```
 
     ## Relevant Links
