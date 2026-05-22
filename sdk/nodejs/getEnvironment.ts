@@ -25,10 +25,10 @@ import * as utilities from "./utilities";
  *     name: "Example Environment",
  *     description: "Managed by Pulumi",
  * });
- * const example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) => azuredevops.getEnvironmentOutput({
- *     projectId: exampleProjectId,
- *     environmentId: Number(exampleEnvironmentId),
- * }));
+ * const example = azuredevops.getEnvironmentOutput({
+ *     projectId: exampleProject.id,
+ *     environmentId: exampleEnvironment.id.apply(x =>Number(x)),
+ * });
  * ```
  *
  * ## Relevant Links
@@ -104,10 +104,10 @@ export interface GetEnvironmentResult {
  *     name: "Example Environment",
  *     description: "Managed by Pulumi",
  * });
- * const example = pulumi.all([exampleProject.id, exampleEnvironment.id]).apply(([exampleProjectId, exampleEnvironmentId]) => azuredevops.getEnvironmentOutput({
- *     projectId: exampleProjectId,
- *     environmentId: Number(exampleEnvironmentId),
- * }));
+ * const example = azuredevops.getEnvironmentOutput({
+ *     projectId: exampleProject.id,
+ *     environmentId: exampleEnvironment.id.apply(x =>Number(x)),
+ * });
  * ```
  *
  * ## Relevant Links

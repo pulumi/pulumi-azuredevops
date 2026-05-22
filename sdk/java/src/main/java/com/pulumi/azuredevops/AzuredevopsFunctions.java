@@ -461,11 +461,11 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = exampleProject.id().applyValue(_id -> AzuredevopsFunctions.getArea(GetAreaArgs.builder()
-     *             .projectId(_id)
+     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(exampleProject.id())
      *             .path("/")
      *             .fetchChildren(false)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -521,11 +521,11 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = exampleProject.id().applyValue(_id -> AzuredevopsFunctions.getArea(GetAreaArgs.builder()
-     *             .projectId(_id)
+     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(exampleProject.id())
      *             .path("/")
      *             .fetchChildren(false)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -581,11 +581,11 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = exampleProject.id().applyValue(_id -> AzuredevopsFunctions.getArea(GetAreaArgs.builder()
-     *             .projectId(_id)
+     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(exampleProject.id())
      *             .path("/")
      *             .fetchChildren(false)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -641,11 +641,11 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = exampleProject.id().applyValue(_id -> AzuredevopsFunctions.getArea(GetAreaArgs.builder()
-     *             .projectId(_id)
+     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(exampleProject.id())
      *             .path("/")
      *             .fetchChildren(false)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -701,11 +701,11 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = exampleProject.id().applyValue(_id -> AzuredevopsFunctions.getArea(GetAreaArgs.builder()
-     *             .projectId(_id)
+     *         final var example = AzuredevopsFunctions.getArea(GetAreaArgs.builder()
+     *             .projectId(exampleProject.id())
      *             .path("/")
      *             .fetchChildren(false)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1495,14 +1495,10 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = Output.tuple(exampleProject.id(), exampleEnvironment.id()).applyValue(values -> {
-     *             var exampleProjectId = values.t1;
-     *             var exampleEnvironmentId = values.t2;
-     *             return AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *                 .projectId(exampleProjectId)
-     *                 .environmentId(exampleEnvironmentId)
-     *                 .build());
-     *         });
+     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .environmentId(exampleEnvironment.id())
+     *             .build());
      * 
      *     }
      * }
@@ -1562,14 +1558,10 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = Output.tuple(exampleProject.id(), exampleEnvironment.id()).applyValue(values -> {
-     *             var exampleProjectId = values.t1;
-     *             var exampleEnvironmentId = values.t2;
-     *             return AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *                 .projectId(exampleProjectId)
-     *                 .environmentId(exampleEnvironmentId)
-     *                 .build());
-     *         });
+     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .environmentId(exampleEnvironment.id())
+     *             .build());
      * 
      *     }
      * }
@@ -1629,14 +1621,10 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = Output.tuple(exampleProject.id(), exampleEnvironment.id()).applyValue(values -> {
-     *             var exampleProjectId = values.t1;
-     *             var exampleEnvironmentId = values.t2;
-     *             return AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *                 .projectId(exampleProjectId)
-     *                 .environmentId(exampleEnvironmentId)
-     *                 .build());
-     *         });
+     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .environmentId(exampleEnvironment.id())
+     *             .build());
      * 
      *     }
      * }
@@ -1696,14 +1684,10 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = Output.tuple(exampleProject.id(), exampleEnvironment.id()).applyValue(values -> {
-     *             var exampleProjectId = values.t1;
-     *             var exampleEnvironmentId = values.t2;
-     *             return AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *                 .projectId(exampleProjectId)
-     *                 .environmentId(exampleEnvironmentId)
-     *                 .build());
-     *         });
+     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .environmentId(exampleEnvironment.id())
+     *             .build());
      * 
      *     }
      * }
@@ -1763,14 +1747,10 @@ public final class AzuredevopsFunctions {
      *             .description("Managed by Pulumi")
      *             .build());
      * 
-     *         final var example = Output.tuple(exampleProject.id(), exampleEnvironment.id()).applyValue(values -> {
-     *             var exampleProjectId = values.t1;
-     *             var exampleEnvironmentId = values.t2;
-     *             return AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *                 .projectId(exampleProjectId)
-     *                 .environmentId(exampleEnvironmentId)
-     *                 .build());
-     *         });
+     *         final var example = AzuredevopsFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .projectId(exampleProject.id())
+     *             .environmentId(exampleEnvironment.id())
+     *             .build());
      * 
      *     }
      * }

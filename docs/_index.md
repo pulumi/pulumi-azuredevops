@@ -24,7 +24,7 @@ Use the navigation to the left to read about the available resources.
 Interested in the provider's latest features, or want to make sure you're up to date? Check out the changelog for version information and release notes.
 ## Example Usage
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
@@ -131,6 +131,23 @@ public class App {
             .build());
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    azuredevops = {
+      source = "pulumi/azuredevops"
+    }
+  }
+}
+
+resource "azuredevops_project" "project" {
+  name        = "Project Name"
+  description = "Project Description"
 }
 ```
 

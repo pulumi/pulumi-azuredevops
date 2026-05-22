@@ -37,13 +37,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_ = exampleProject.ID().ApplyT(func(id string) (azuredevops.GetAreaResult, error) {
-//				return azuredevops.GetAreaResult(interface{}(azuredevops.GetArea(ctx, &azuredevops.GetAreaArgs{
-//					ProjectId:     id,
-//					Path:          pulumi.StringRef(pulumi.StringRef("/")),
-//					FetchChildren: pulumi.BoolRef(pulumi.BoolRef(false)),
-//				}, nil))), nil
-//			}).(azuredevops.GetAreaResultOutput)
+//			_ = azuredevops.GetAreaOutput(ctx, azuredevops.GetAreaOutputArgs{
+//				ProjectId:     exampleProject.ID(),
+//				Path:          pulumi.String("/"),
+//				FetchChildren: pulumi.Bool(false),
+//			}, nil)
 //			return nil
 //		})
 //	}

@@ -22,11 +22,11 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Pulumi",
  * });
- * const example = exampleProject.id.apply(id => azuredevops.getAreaOutput({
- *     projectId: id,
+ * const example = azuredevops.getAreaOutput({
+ *     projectId: exampleProject.id,
  *     path: "/",
  *     fetchChildren: false,
- * }));
+ * });
  * ```
  *
  * ## Relevant Links
@@ -110,11 +110,11 @@ export interface GetAreaResult {
  *     visibility: "private",
  *     description: "Managed by Pulumi",
  * });
- * const example = exampleProject.id.apply(id => azuredevops.getAreaOutput({
- *     projectId: id,
+ * const example = azuredevops.getAreaOutput({
+ *     projectId: exampleProject.id,
  *     path: "/",
  *     fetchChildren: false,
- * }));
+ * });
  * ```
  *
  * ## Relevant Links

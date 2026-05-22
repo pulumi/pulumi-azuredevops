@@ -114,11 +114,8 @@ def get_environment(environment_id: Optional[_builtins.int] = None,
         project_id=example_project.id,
         name="Example Environment",
         description="Managed by Pulumi")
-    example = pulumi.Output.all(
-        exampleProjectId=example_project.id,
-        exampleEnvironmentId=example_environment.id
-    ).apply(lambda resolved_outputs: azuredevops.get_environment_output(project_id=resolved_outputs['exampleProjectId'],
-        environment_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)))
+    example = azuredevops.get_environment_output(project_id=example_project.id,
+        environment_id=example_environment.id.apply(lambda x: int(x)))
     ```
 
     ## Relevant Links
@@ -168,11 +165,8 @@ def get_environment_output(environment_id: pulumi.Input[Optional[Optional[_built
         project_id=example_project.id,
         name="Example Environment",
         description="Managed by Pulumi")
-    example = pulumi.Output.all(
-        exampleProjectId=example_project.id,
-        exampleEnvironmentId=example_environment.id
-    ).apply(lambda resolved_outputs: azuredevops.get_environment_output(project_id=resolved_outputs['exampleProjectId'],
-        environment_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)))
+    example = azuredevops.get_environment_output(project_id=example_project.id,
+        environment_id=example_environment.id.apply(lambda x: int(x)))
     ```
 
     ## Relevant Links

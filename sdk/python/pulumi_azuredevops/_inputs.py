@@ -1645,7 +1645,7 @@ class BuildDefinitionBuildCompletionTriggerBranchFilterArgs:
 
 
 class BuildDefinitionCiTriggerArgsDict(TypedDict):
-    override: NotRequired[pulumi.Input[Optional['BuildDefinitionCiTriggerOverrideArgs']]]
+    override: NotRequired[pulumi.Input[Optional['BuildDefinitionCiTriggerOverrideArgsDict']]]
     """
     Override the azure-pipeline file and use a this configuration for all builds.
     """
@@ -1706,7 +1706,7 @@ class BuildDefinitionCiTriggerOverrideArgsDict(TypedDict):
     """
     The number of max builds per branch. Defaults to `1`.
     """
-    path_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]]]
+    path_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgsDict']]]]]
     """
     Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
     """
@@ -1975,7 +1975,7 @@ class BuildDefinitionJobArgsDict(TypedDict):
     """
     Enables scripts and other processes launched by tasks to access the OAuth token through the `System.AccessToken` variable. Possible values: `true`, `false`. Defaults to `false`. Available when Job type is `AgentJob`
     """
-    dependencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgs']]]]]
+    dependencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionJobDependencyArgsDict']]]]]
     """
     A `dependencies` blocks as documented below. Define the job dependencies.
     """
@@ -2332,7 +2332,7 @@ class BuildDefinitionPullRequestTriggerArgsDict(TypedDict):
     """
     When use_yaml is true set this to the name of the branch that the azure-pipelines.yml exists on. Defaults to `Managed by Terraform`.
     """
-    override: NotRequired[pulumi.Input[Optional['BuildDefinitionPullRequestTriggerOverrideArgs']]]
+    override: NotRequired[pulumi.Input[Optional['BuildDefinitionPullRequestTriggerOverrideArgsDict']]]
     """
     Override the azure-pipeline file and use this configuration for all builds.
     """
@@ -2479,7 +2479,7 @@ class BuildDefinitionPullRequestTriggerOverrideArgsDict(TypedDict):
     """
     . Defaults to `true`.
     """
-    path_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]]]
+    path_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgsDict']]]]]
     """
     Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
     """
@@ -7039,7 +7039,7 @@ class WorkitemtrackingprocessGroupControlArgsDict(TypedDict):
     """
     The ID of the control. This is the field reference name (e.g., System.Description) or the contribution ID for extension controls.
     """
-    contribution: NotRequired[pulumi.Input[Optional['WorkitemtrackingprocessGroupControlContributionArgs']]]
+    contribution: NotRequired[pulumi.Input[Optional['WorkitemtrackingprocessGroupControlContributionArgsDict']]]
     """
     Contribution configuration for extension controls. A `contribution` block as defined below.
     """
@@ -7543,7 +7543,7 @@ class WorkitemtrackingprocessWorkitemtypePageArgsDict(TypedDict):
     """
     The type of the page.
     """
-    sections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgs']]]]]
+    sections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionArgsDict']]]]]
     """
     A `sections` block as defined below.
     """
@@ -7604,7 +7604,7 @@ class WorkitemtrackingprocessWorkitemtypePageArgs:
 
 
 class WorkitemtrackingprocessWorkitemtypePageSectionArgsDict(TypedDict):
-    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgs']]]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict']]]]]
     """
     A `groups` block as defined above.
     """
@@ -7653,7 +7653,7 @@ class WorkitemtrackingprocessWorkitemtypePageSectionArgs:
 
 
 class WorkitemtrackingprocessWorkitemtypePageSectionGroupArgsDict(TypedDict):
-    controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgs']]]]]
+    controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkitemtrackingprocessWorkitemtypePageSectionGroupControlArgsDict']]]]]
     """
     A `controls` block as defined above.
     """
