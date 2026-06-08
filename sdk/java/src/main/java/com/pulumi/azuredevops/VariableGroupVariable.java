@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .name("Example Variable Group")
  *             .description("Example Variable Group Description")
  *             .allowAccess(true)
- *             .variables(VariableGroupVariableArgs.builder()
+ *             .variables(com.pulumi.azuredevops.inputs.VariableGroupVariableArgs.builder()
  *                 .name("key1")
  *                 .value("val1")
  *                 .build())

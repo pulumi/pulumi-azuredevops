@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.BranchPolicyAutoReviewers;
  * import com.pulumi.azuredevops.BranchPolicyAutoReviewersArgs;
  * import com.pulumi.azuredevops.inputs.BranchPolicyAutoReviewersSettingsArgs;
+ * import com.pulumi.azuredevops.inputs.BranchPolicyAutoReviewersSettingsScopeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

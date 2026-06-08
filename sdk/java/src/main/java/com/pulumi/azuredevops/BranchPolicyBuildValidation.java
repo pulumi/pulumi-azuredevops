@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.BranchPolicyBuildValidation;
  * import com.pulumi.azuredevops.BranchPolicyBuildValidationArgs;
  * import com.pulumi.azuredevops.inputs.BranchPolicyBuildValidationSettingsArgs;
+ * import com.pulumi.azuredevops.inputs.BranchPolicyBuildValidationSettingsScopeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
