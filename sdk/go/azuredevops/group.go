@@ -47,10 +47,10 @@ import (
 //				Description: pulumi.String("Example description"),
 //				Members: pulumi.StringArray{
 //					pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//						return &example_readers.Descriptor, nil
+//						return example_readers.Descriptor, nil
 //					}).(pulumi.StringPtrOutput)),
 //					pulumi.String(example_contributors.ApplyT(func(example_contributors azuredevops.GetGroupResult) (*string, error) {
-//						return &example_contributors.Descriptor, nil
+//						return example_contributors.Descriptor, nil
 //					}).(pulumi.StringPtrOutput)),
 //				},
 //			})

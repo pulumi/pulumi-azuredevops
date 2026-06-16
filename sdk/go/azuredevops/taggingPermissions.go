@@ -50,7 +50,7 @@ import (
 //			_, err = azuredevops.NewTaggingPermissions(ctx, "example-permissions", &azuredevops.TaggingPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"Enumerate": pulumi.String("allow"),

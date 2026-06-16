@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.BranchPolicyMergeTypes;
  * import com.pulumi.azuredevops.BranchPolicyMergeTypesArgs;
  * import com.pulumi.azuredevops.inputs.BranchPolicyMergeTypesSettingsArgs;
+ * import com.pulumi.azuredevops.inputs.BranchPolicyMergeTypesSettingsScopeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

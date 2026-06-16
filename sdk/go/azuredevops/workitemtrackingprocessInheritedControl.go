@@ -51,10 +51,10 @@ import (
 //				ProcessId:      example.ID(),
 //				WorkItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
 //				GroupId: pulumi.String(exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
-//					return &pages[0].Sections[0].Groups[0].Id, nil
+//					return pages[0].Sections[0].Groups[0].Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ControlId: pulumi.String(exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
-//					return &pages[0].Sections[0].Groups[0].Controls[0].Id, nil
+//					return pages[0].Sections[0].Groups[0].Controls[0].Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Visible: pulumi.Bool(false),
 //			})
