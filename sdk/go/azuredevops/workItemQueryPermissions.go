@@ -56,7 +56,7 @@ import (
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "project-wiq-root-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"CreateRepository": pulumi.String("Deny"),
@@ -111,7 +111,7 @@ import (
 //				ProjectId: example.ID(),
 //				Path:      pulumi.String("/Team"),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"Contribute": pulumi.String("Allow"),
@@ -163,7 +163,7 @@ import (
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-project-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"Read":              pulumi.String("Allow"),
@@ -179,7 +179,7 @@ import (
 //				ProjectId: example.ID(),
 //				Path:      pulumi.String("/"),
 //				Principal: pulumi.String(example_contributors.ApplyT(func(example_contributors azuredevops.GetGroupResult) (*string, error) {
-//					return &example_contributors.Id, nil
+//					return example_contributors.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"Read":   pulumi.String("Allow"),

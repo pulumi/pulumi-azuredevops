@@ -42,10 +42,10 @@ import (
 //				Name:      pulumi.String("Example Agent Queue"),
 //			}, nil)
 //			ctx.Export("name", example.ApplyT(func(example azuredevops.GetAgentQueueResult) (*string, error) {
-//				return &example.Name, nil
+//				return example.Name, nil
 //			}).(pulumi.StringPtrOutput))
 //			ctx.Export("poolId", example.ApplyT(func(example azuredevops.GetAgentQueueResult) (*int, error) {
-//				return &example.AgentPoolId, nil
+//				return example.AgentPoolId, nil
 //			}).(pulumi.IntPtrOutput))
 //			return nil
 //		})

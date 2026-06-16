@@ -52,7 +52,7 @@ import (
 //			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-root-permissions", &azuredevops.ServiceendpointPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"Use":               pulumi.String("allow"),
@@ -79,7 +79,7 @@ import (
 //			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-permissions", &azuredevops.ServiceendpointPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ServiceendpointId: exampleServiceEndpointDockerRegistry.ID(),
 //				Permissions: pulumi.StringMap{

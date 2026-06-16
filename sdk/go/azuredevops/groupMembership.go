@@ -46,7 +46,7 @@ import (
 //			}, nil)
 //			_, err = azuredevops.NewGroupMembership(ctx, "example", &azuredevops.GroupMembershipArgs{
 //				Group: pulumi.String(example.ApplyT(func(example azuredevops.GetGroupResult) (*string, error) {
-//					return &example.Descriptor, nil
+//					return example.Descriptor, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Members: pulumi.StringArray{
 //					exampleUser.Descriptor,

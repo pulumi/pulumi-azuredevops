@@ -45,7 +45,7 @@ import (
 //			_, err = azuredevops.NewLibraryPermissions(ctx, "permissions", &azuredevops.LibraryPermissionsArgs{
 //				ProjectId: project.ID(),
 //				Principal: pulumi.String(tf_project_readers.ApplyT(func(tf_project_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &tf_project_readers.Id, nil
+//					return tf_project_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"View":       pulumi.String("allow"),

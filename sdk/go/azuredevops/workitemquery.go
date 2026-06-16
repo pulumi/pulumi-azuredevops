@@ -190,7 +190,7 @@ import (
 //				ProjectId: example.ID(),
 //				Path:      invokeFormat.Result,
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"Read":              pulumi.String("Allow"),

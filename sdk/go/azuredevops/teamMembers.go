@@ -59,7 +59,7 @@ import (
 //				Mode:      pulumi.String("overwrite"),
 //				Members: pulumi.StringArray{
 //					pulumi.String(example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
-//						return &example_project_readers.Descriptor, nil
+//						return example_project_readers.Descriptor, nil
 //					}).(pulumi.StringPtrOutput)),
 //				},
 //			})

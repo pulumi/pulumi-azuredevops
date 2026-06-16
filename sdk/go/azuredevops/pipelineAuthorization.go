@@ -122,7 +122,7 @@ import (
 //				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 //					RepoType: pulumi.String("TfsGit"),
 //					RepoId: example.ApplyT(func(example azuredevops.GetGitRepositoryResult) (*string, error) {
-//						return &example.Id, nil
+//						return example.Id, nil
 //					}).(pulumi.StringPtrOutput),
 //					YmlPath: pulumi.String("azure-pipelines.yml"),
 //				},

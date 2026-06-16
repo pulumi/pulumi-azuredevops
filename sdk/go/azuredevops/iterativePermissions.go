@@ -52,7 +52,7 @@ import (
 //			_, err = azuredevops.NewIterativePermissions(ctx, "example-root-permissions", &azuredevops.IterativePermissionsArgs{
 //				ProjectId: example.ID(),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"CREATE_CHILDREN": pulumi.String("Deny"),
@@ -66,7 +66,7 @@ import (
 //			_, err = azuredevops.NewIterativePermissions(ctx, "example-iteration-permissions", &azuredevops.IterativePermissionsArgs{
 //				ProjectId: example.ID(),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Path: pulumi.String("Iteration 1"),
 //				Permissions: pulumi.StringMap{

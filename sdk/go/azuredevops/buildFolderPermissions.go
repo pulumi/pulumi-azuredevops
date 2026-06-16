@@ -58,7 +58,7 @@ import (
 //				ProjectId: example.ID(),
 //				Path:      pulumi.String("\\ExampleFolder"),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"ViewBuilds":                 pulumi.String("Allow"),
@@ -116,7 +116,7 @@ import (
 //				ProjectId: example.ID(),
 //				Path:      pulumi.String("\\"),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Permissions: pulumi.StringMap{
 //					"RetainIndefinitely": pulumi.String("Allow"),

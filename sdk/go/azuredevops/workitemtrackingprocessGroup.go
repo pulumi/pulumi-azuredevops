@@ -51,10 +51,10 @@ import (
 //				ProcessId:                 example.ID(),
 //				WorkItemTypeReferenceName: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
 //				PageId: pulumi.String(exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
-//					return &pages[0].Id, nil
+//					return pages[0].Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				SectionId: pulumi.String(exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
-//					return &pages[0].Sections[0].Id, nil
+//					return pages[0].Sections[0].Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Label: pulumi.String("Custom Group"),
 //			})

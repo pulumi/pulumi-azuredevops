@@ -74,7 +74,7 @@ import (
 //			_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "example", &azuredevops.BuildDefinitionPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_readers.Id, nil
+//					return example_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				BuildDefinitionId: exampleBuildDefinition.ID(),
 //				Permissions: pulumi.StringMap{

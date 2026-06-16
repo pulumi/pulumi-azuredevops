@@ -52,7 +52,7 @@ import (
 //			_, err = azuredevops.NewAreaPermissions(ctx, "example-root-permissions", &azuredevops.AreaPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Principal: pulumi.String(example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
-//					return &example_project_readers.Id, nil
+//					return example_project_readers.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Path: pulumi.String("/"),
 //				Permissions: pulumi.StringMap{
