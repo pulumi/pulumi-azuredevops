@@ -95,7 +95,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-azuredevops"
                 packaging = "jar"
-                description = "A Pulumi package for creating and managing Azure DevOps."
+                description = $/A Pulumi package for creating and managing Azure DevOps./$
 
                 url = "https://github.com/pulumi/pulumi-azuredevops"
 

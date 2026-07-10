@@ -38,7 +38,7 @@ class WorkitemtrackingFieldArgs:
         :param pulumi.Input[_builtins.str] type: The type of the field. Possible values: `string`, `integer`, `dateTime`, `plainText`, `html`, `treePath`, `history`, `double`, `guid`, `boolean`, `identity`. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.str] description: The description of the field. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.bool] is_locked: Indicates whether this field is locked for editing. Default: `false`.
-        :param pulumi.Input[_builtins.bool] is_picklist_suggested: Indicates whether this field is a suggested picklist. 
+        :param pulumi.Input[_builtins.bool] is_picklist_suggested: Indicates whether this field is a suggested picklist.
                
                > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklist_id`
         :param pulumi.Input[_builtins.str] name: The friendly name of the field. Changing this forces a new field to be created.
@@ -119,7 +119,7 @@ class WorkitemtrackingFieldArgs:
     @pulumi.getter(name="isPicklistSuggested")
     def is_picklist_suggested(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether this field is a suggested picklist. 
+        Indicates whether this field is a suggested picklist.
 
         > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklist_id`
         """
@@ -218,7 +218,7 @@ class _WorkitemtrackingFieldState:
         :param pulumi.Input[_builtins.bool] is_identity: Indicates whether this field is an identity field.
         :param pulumi.Input[_builtins.bool] is_locked: Indicates whether this field is locked for editing. Default: `false`.
         :param pulumi.Input[_builtins.bool] is_picklist: Indicates whether this field is a picklist.
-        :param pulumi.Input[_builtins.bool] is_picklist_suggested: Indicates whether this field is a suggested picklist. 
+        :param pulumi.Input[_builtins.bool] is_picklist_suggested: Indicates whether this field is a suggested picklist.
                
                > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklist_id`
         :param pulumi.Input[_builtins.bool] is_queryable: Indicates whether the field can be queried in the server.
@@ -330,7 +330,7 @@ class _WorkitemtrackingFieldState:
     @pulumi.getter(name="isPicklistSuggested")
     def is_picklist_suggested(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether this field is a suggested picklist. 
+        Indicates whether this field is a suggested picklist.
 
         > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklist_id`
         """
@@ -528,7 +528,7 @@ class WorkitemtrackingField(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the field. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.bool] is_locked: Indicates whether this field is locked for editing. Default: `false`.
-        :param pulumi.Input[_builtins.bool] is_picklist_suggested: Indicates whether this field is a suggested picklist. 
+        :param pulumi.Input[_builtins.bool] is_picklist_suggested: Indicates whether this field is a suggested picklist.
                
                > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklist_id`
         :param pulumi.Input[_builtins.str] name: The friendly name of the field. Changing this forces a new field to be created.
@@ -685,7 +685,7 @@ class WorkitemtrackingField(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] is_identity: Indicates whether this field is an identity field.
         :param pulumi.Input[_builtins.bool] is_locked: Indicates whether this field is locked for editing. Default: `false`.
         :param pulumi.Input[_builtins.bool] is_picklist: Indicates whether this field is a picklist.
-        :param pulumi.Input[_builtins.bool] is_picklist_suggested: Indicates whether this field is a suggested picklist. 
+        :param pulumi.Input[_builtins.bool] is_picklist_suggested: Indicates whether this field is a suggested picklist.
                
                > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklist_id`
         :param pulumi.Input[_builtins.bool] is_queryable: Indicates whether the field can be queried in the server.
@@ -766,7 +766,7 @@ class WorkitemtrackingField(pulumi.CustomResource):
     @pulumi.getter(name="isPicklistSuggested")
     def is_picklist_suggested(self) -> pulumi.Output[_builtins.bool]:
         """
-        Indicates whether this field is a suggested picklist. 
+        Indicates whether this field is a suggested picklist.
 
         > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklist_id`
         """

@@ -126,7 +126,7 @@ export class CheckRestApi extends pulumi.CustomResource {
      */
     declare public readonly projectId: pulumi.Output<string>;
     /**
-     * The time between evaluations (minutes). 
+     * The time between evaluations (minutes).
      *
      * ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retryInterval` should be `0` or no less then `400`.
      * <br>2. `retryInterval` is not required when `completion_event=Callback`.
@@ -274,7 +274,7 @@ export interface CheckRestApiState {
      */
     projectId?: pulumi.Input<string | undefined>;
     /**
-     * The time between evaluations (minutes). 
+     * The time between evaluations (minutes).
      *
      * ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retryInterval` should be `0` or no less then `400`.
      * <br>2. `retryInterval` is not required when `completion_event=Callback`.
@@ -349,7 +349,7 @@ export interface CheckRestApiArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * The time between evaluations (minutes). 
+     * The time between evaluations (minutes).
      *
      * ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retryInterval` should be `0` or no less then `400`.
      * <br>2. `retryInterval` is not required when `completion_event=Callback`.
