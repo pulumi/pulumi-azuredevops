@@ -78,7 +78,7 @@ export class WorkitemtrackingprocessField extends pulumi.CustomResource {
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Allow setting field value to a group identity. Only applies to identity fields.  
+     * Allow setting field value to a group identity. Only applies to identity fields.\
      * **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
      */
     declare public readonly allowGroups: pulumi.Output<boolean | undefined>;
@@ -177,7 +177,7 @@ export class WorkitemtrackingprocessField extends pulumi.CustomResource {
 export interface WorkitemtrackingprocessFieldState {
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Allow setting field value to a group identity. Only applies to identity fields.  
+     * Allow setting field value to a group identity. Only applies to identity fields.\
      * **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
      */
     allowGroups?: pulumi.Input<boolean | undefined>;
@@ -225,7 +225,7 @@ export interface WorkitemtrackingprocessFieldState {
 export interface WorkitemtrackingprocessFieldArgs {
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Allow setting field value to a group identity. Only applies to identity fields.  
+     * Allow setting field value to a group identity. Only applies to identity fields.\
      * **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
      */
     allowGroups?: pulumi.Input<boolean | undefined>;

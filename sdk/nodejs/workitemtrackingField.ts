@@ -101,7 +101,7 @@ export class WorkitemtrackingField extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly isPicklist: pulumi.Output<boolean>;
     /**
-     * Indicates whether this field is a suggested picklist. 
+     * Indicates whether this field is a suggested picklist.
      *
      * > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklistId`
      */
@@ -234,7 +234,7 @@ export interface WorkitemtrackingFieldState {
      */
     isPicklist?: pulumi.Input<boolean | undefined>;
     /**
-     * Indicates whether this field is a suggested picklist. 
+     * Indicates whether this field is a suggested picklist.
      *
      * > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklistId`
      */
@@ -295,7 +295,7 @@ export interface WorkitemtrackingFieldArgs {
      */
     isLocked?: pulumi.Input<boolean | undefined>;
     /**
-     * Indicates whether this field is a suggested picklist. 
+     * Indicates whether this field is a suggested picklist.
      *
      * > **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `picklistId`
      */

@@ -33,7 +33,7 @@ class WorkitemtrackingprocessFieldArgs:
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.str] work_item_type_id: The ID (reference name) of the work item type. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.bool] allow_groups: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Allow setting field value to a group identity. Only applies to identity fields.  
+               Allow setting field value to a group identity. Only applies to identity fields.\\
                **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
         :param pulumi.Input[_builtins.str] default_value: The default value of the field.
         :param pulumi.Input[_builtins.bool] read_only: If true, the field cannot be edited. Default: `false`.
@@ -92,7 +92,7 @@ class WorkitemtrackingprocessFieldArgs:
     def allow_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Allow setting field value to a group identity. Only applies to identity fields.  
+        Allow setting field value to a group identity. Only applies to identity fields.\\
         **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
         """
         return pulumi.get(self, "allow_groups")
@@ -155,7 +155,7 @@ class _WorkitemtrackingprocessFieldState:
         Input properties used for looking up and filtering WorkitemtrackingprocessField resources.
 
         :param pulumi.Input[_builtins.bool] allow_groups: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Allow setting field value to a group identity. Only applies to identity fields.  
+               Allow setting field value to a group identity. Only applies to identity fields.\\
                **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
         :param pulumi.Input[_builtins.str] customization: Indicates the type of customization on this work item. Possible values are `system`, `inherited`, or `custom`.
         :param pulumi.Input[_builtins.str] default_value: The default value of the field.
@@ -193,7 +193,7 @@ class _WorkitemtrackingprocessFieldState:
     def allow_groups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Allow setting field value to a group identity. Only applies to identity fields.  
+        Allow setting field value to a group identity. Only applies to identity fields.\\
         **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
         """
         return pulumi.get(self, "allow_groups")
@@ -369,7 +369,7 @@ class WorkitemtrackingprocessField(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_groups: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Allow setting field value to a group identity. Only applies to identity fields.  
+               Allow setting field value to a group identity. Only applies to identity fields.\\
                **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
         :param pulumi.Input[_builtins.str] default_value: The default value of the field.
         :param pulumi.Input[_builtins.str] field_id: The ID (reference name) of the field. Changing this forces a new field to be created.
@@ -502,7 +502,7 @@ class WorkitemtrackingprocessField(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_groups: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Allow setting field value to a group identity. Only applies to identity fields.  
+               Allow setting field value to a group identity. Only applies to identity fields.\\
                **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
         :param pulumi.Input[_builtins.str] customization: Indicates the type of customization on this work item. Possible values are `system`, `inherited`, or `custom`.
         :param pulumi.Input[_builtins.str] default_value: The default value of the field.
@@ -535,7 +535,7 @@ class WorkitemtrackingprocessField(pulumi.CustomResource):
     def allow_groups(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Allow setting field value to a group identity. Only applies to identity fields.  
+        Allow setting field value to a group identity. Only applies to identity fields.\\
         **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
         """
         return pulumi.get(self, "allow_groups")

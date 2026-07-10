@@ -47,7 +47,7 @@ class CheckRestApiArgs:
         :param pulumi.Input[_builtins.str] body: The Rest API request body.
         :param pulumi.Input[_builtins.str] completion_event: The completion event of the Rest API call. Possible values: `Callback`, `ApiResponse`. Defaults to `Callback`.
         :param pulumi.Input[_builtins.str] headers: The headers of the request in JSON format.
-        :param pulumi.Input[_builtins.int] retry_interval: The time between evaluations (minutes). 
+        :param pulumi.Input[_builtins.int] retry_interval: The time between evaluations (minutes).
                
                ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
                <br>2. `retry_interval` is not required when `completion_event=Callback`.
@@ -206,7 +206,7 @@ class CheckRestApiArgs:
     @pulumi.getter(name="retryInterval")
     def retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The time between evaluations (minutes). 
+        The time between evaluations (minutes).
 
         ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
         <br>2. `retry_interval` is not required when `completion_event=Callback`.
@@ -298,7 +298,7 @@ class _CheckRestApiState:
         :param pulumi.Input[_builtins.str] headers: The headers of the request in JSON format.
         :param pulumi.Input[_builtins.str] method: The HTTP method of the request. Possible values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] retry_interval: The time between evaluations (minutes). 
+        :param pulumi.Input[_builtins.int] retry_interval: The time between evaluations (minutes).
                
                ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
                <br>2. `retry_interval` is not required when `completion_event=Callback`.
@@ -445,7 +445,7 @@ class _CheckRestApiState:
     @pulumi.getter(name="retryInterval")
     def retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The time between evaluations (minutes). 
+        The time between evaluations (minutes).
 
         ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
         <br>2. `retry_interval` is not required when `completion_event=Callback`.
@@ -633,7 +633,7 @@ class CheckRestApi(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] headers: The headers of the request in JSON format.
         :param pulumi.Input[_builtins.str] method: The HTTP method of the request. Possible values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] retry_interval: The time between evaluations (minutes). 
+        :param pulumi.Input[_builtins.int] retry_interval: The time between evaluations (minutes).
                
                ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
                <br>2. `retry_interval` is not required when `completion_event=Callback`.
@@ -820,7 +820,7 @@ class CheckRestApi(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] headers: The headers of the request in JSON format.
         :param pulumi.Input[_builtins.str] method: The HTTP method of the request. Possible values: `OPTIONS`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `TRACE`, `PATCH`
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] retry_interval: The time between evaluations (minutes). 
+        :param pulumi.Input[_builtins.int] retry_interval: The time between evaluations (minutes).
                
                ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
                <br>2. `retry_interval` is not required when `completion_event=Callback`.
@@ -924,7 +924,7 @@ class CheckRestApi(pulumi.CustomResource):
     @pulumi.getter(name="retryInterval")
     def retry_interval(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The time between evaluations (minutes). 
+        The time between evaluations (minutes).
 
         ~>**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `timeout` is `4000` then `retry_interval` should be `0` or no less then `400`.
         <br>2. `retry_interval` is not required when `completion_event=Callback`.
