@@ -4,9 +4,10 @@
 package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetServicePrincipalPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -17,21 +18,41 @@ public final class GetServicePrincipalPlainArgs extends com.pulumi.resources.Inv
      * The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
      * 
      */
-    @Import(name="displayName", required=true)
-    private String displayName;
+    @Import(name="displayName")
+    private @Nullable String displayName;
 
     /**
      * @return The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
      * 
      */
-    public String displayName() {
-        return this.displayName;
+    public Optional<String> displayName() {
+        return Optional.ofNullable(this.displayName);
+    }
+
+    /**
+     * The origin ID of the Service Principal.
+     * 
+     * &gt; **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+     * 
+     */
+    @Import(name="originId")
+    private @Nullable String originId;
+
+    /**
+     * @return The origin ID of the Service Principal.
+     * 
+     * &gt; **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+     * 
+     */
+    public Optional<String> originId() {
+        return Optional.ofNullable(this.originId);
     }
 
     private GetServicePrincipalPlainArgs() {}
 
     private GetServicePrincipalPlainArgs(GetServicePrincipalPlainArgs $) {
         this.displayName = $.displayName;
+        this.originId = $.originId;
     }
 
     public static Builder builder() {
@@ -58,15 +79,25 @@ public final class GetServicePrincipalPlainArgs extends com.pulumi.resources.Inv
          * @return builder
          * 
          */
-        public Builder displayName(String displayName) {
+        public Builder displayName(@Nullable String displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param originId The origin ID of the Service Principal.
+         * 
+         * &gt; **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder originId(@Nullable String originId) {
+            $.originId = originId;
+            return this;
+        }
+
         public GetServicePrincipalPlainArgs build() {
-            if ($.displayName == null) {
-                throw new MissingRequiredPropertyException("GetServicePrincipalPlainArgs", "displayName");
-            }
             return $;
         }
     }

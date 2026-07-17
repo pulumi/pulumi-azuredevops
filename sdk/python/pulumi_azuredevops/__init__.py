@@ -6,6 +6,7 @@ import builtins as _builtins
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .area import *
 from .area_permissions import *
 from .branch_policy_auto_reviewers import *
 from .branch_policy_build_validation import *
@@ -67,6 +68,8 @@ from .get_serviceendpoint_dockerregistry import *
 from .get_serviceendpoint_generic_v2 import *
 from .get_serviceendpoint_npm import *
 from .get_serviceendpoint_sonarcloud import *
+from .get_serviceendpoint_type import *
+from .get_serviceendpoint_types import *
 from .get_storage_key import *
 from .get_team import *
 from .get_teams import *
@@ -194,6 +197,14 @@ else:
 _utilities.register(
     resource_modules="""
 [
+ {
+  "pkg": "azuredevops",
+  "mod": "index/area",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/area:Area": "Area"
+  }
+ },
  {
   "pkg": "azuredevops",
   "mod": "index/areaPermissions",

@@ -83,10 +83,18 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0&tabs=HTTP)
+//
+// ## Import
+//
+// Azure DevOps Security Role Assignments can be imported using the composite ID `scope/resource_id/identity_id`, e.g.
+//
+// ```sh
+// $ pulumi import azuredevops:index/securityroleAssignment:SecurityroleAssignment example distributedtask.environmentreferencerole/projectId_environmentId/00000000-0000-0000-0000-000000000000
+// ```
 type SecurityroleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The ID of the identity to authorize.
+	// The internal identity ID (storage key) of the identity to authorize.
 	IdentityId pulumi.StringOutput `pulumi:"identityId"`
 	// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
@@ -138,7 +146,7 @@ func GetSecurityroleAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityroleAssignment resources.
 type securityroleAssignmentState struct {
-	// The ID of the identity to authorize.
+	// The internal identity ID (storage key) of the identity to authorize.
 	IdentityId *string `pulumi:"identityId"`
 	// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 	ResourceId *string `pulumi:"resourceId"`
@@ -149,7 +157,7 @@ type securityroleAssignmentState struct {
 }
 
 type SecurityroleAssignmentState struct {
-	// The ID of the identity to authorize.
+	// The internal identity ID (storage key) of the identity to authorize.
 	IdentityId pulumi.StringPtrInput
 	// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 	ResourceId pulumi.StringPtrInput
@@ -164,7 +172,7 @@ func (SecurityroleAssignmentState) ElementType() reflect.Type {
 }
 
 type securityroleAssignmentArgs struct {
-	// The ID of the identity to authorize.
+	// The internal identity ID (storage key) of the identity to authorize.
 	IdentityId string `pulumi:"identityId"`
 	// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 	ResourceId string `pulumi:"resourceId"`
@@ -176,7 +184,7 @@ type securityroleAssignmentArgs struct {
 
 // The set of arguments for constructing a SecurityroleAssignment resource.
 type SecurityroleAssignmentArgs struct {
-	// The ID of the identity to authorize.
+	// The internal identity ID (storage key) of the identity to authorize.
 	IdentityId pulumi.StringInput
 	// The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
 	ResourceId pulumi.StringInput
@@ -273,7 +281,7 @@ func (o SecurityroleAssignmentOutput) ToSecurityroleAssignmentOutputWithContext(
 	return o
 }
 
-// The ID of the identity to authorize.
+// The internal identity ID (storage key) of the identity to authorize.
 func (o SecurityroleAssignmentOutput) IdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityroleAssignment) pulumi.StringOutput { return v.IdentityId }).(pulumi.StringOutput)
 }

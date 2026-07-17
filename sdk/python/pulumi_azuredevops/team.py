@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['TeamArgs', 'Team']
 
@@ -21,6 +23,7 @@ class TeamArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 areas: pulumi.Input[Optional[Sequence[pulumi.Input['TeamAreaArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
@@ -34,6 +37,9 @@ class TeamArgs:
                `Team` resource via the `administrators` block and by using the
                `TeamAdministrators` resource. However it's not possible to use
                both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input['TeamAreaArgs']]] areas: One or more `area` blocks as defined below. Configures the area paths associated with the team.
+               
+               > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
         :param pulumi.Input[_builtins.str] description: The description of the Team.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: List of subject descriptors to define members of the team.
                
@@ -46,6 +52,8 @@ class TeamArgs:
         pulumi.set(__self__, "project_id", project_id)
         if administrators is not None:
             pulumi.set(__self__, "administrators", administrators)
+        if areas is not None:
+            pulumi.set(__self__, "areas", areas)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if members is not None:
@@ -81,6 +89,20 @@ class TeamArgs:
     @administrators.setter
     def administrators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "administrators", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def areas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamAreaArgs']]]]:
+        """
+        One or more `area` blocks as defined below. Configures the area paths associated with the team.
+
+        > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+        """
+        return pulumi.get(self, "areas")
+
+    @areas.setter
+    def areas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TeamAreaArgs']]]]):
+        pulumi.set(self, "areas", value)
 
     @_builtins.property
     @pulumi.getter
@@ -128,6 +150,7 @@ class TeamArgs:
 class _TeamState:
     def __init__(__self__, *,
                  administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 areas: pulumi.Input[Optional[Sequence[pulumi.Input['TeamAreaArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  descriptor: pulumi.Input[Optional[_builtins.str]] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -142,6 +165,9 @@ class _TeamState:
                `Team` resource via the `administrators` block and by using the
                `TeamAdministrators` resource. However it's not possible to use
                both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input['TeamAreaArgs']]] areas: One or more `area` blocks as defined below. Configures the area paths associated with the team.
+               
+               > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
         :param pulumi.Input[_builtins.str] description: The description of the Team.
         :param pulumi.Input[_builtins.str] descriptor: The descriptor of the Team.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: List of subject descriptors to define members of the team.
@@ -155,6 +181,8 @@ class _TeamState:
         """
         if administrators is not None:
             pulumi.set(__self__, "administrators", administrators)
+        if areas is not None:
+            pulumi.set(__self__, "areas", areas)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if descriptor is not None:
@@ -182,6 +210,20 @@ class _TeamState:
     @administrators.setter
     def administrators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "administrators", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def areas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamAreaArgs']]]]:
+        """
+        One or more `area` blocks as defined below. Configures the area paths associated with the team.
+
+        > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+        """
+        return pulumi.get(self, "areas")
+
+    @areas.setter
+    def areas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TeamAreaArgs']]]]):
+        pulumi.set(self, "areas", value)
 
     @_builtins.property
     @pulumi.getter
@@ -256,6 +298,7 @@ class Team(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 areas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -287,6 +330,30 @@ class Team(pulumi.CustomResource):
             members=[example_project_readers.descriptor])
         ```
 
+        ### With Area Paths
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private")
+        example_area = azuredevops.Area("example",
+            project_id=example.id,
+            name="Frontend")
+        example_team = azuredevops.Team("example",
+            project_id=example.id,
+            name="Frontend Team",
+            areas=[{
+                "path": example_area.path,
+                "include_children": True,
+                "is_default": True,
+            }])
+        ```
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)
@@ -312,6 +379,9 @@ class Team(pulumi.CustomResource):
                `Team` resource via the `administrators` block and by using the
                `TeamAdministrators` resource. However it's not possible to use
                both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict']]]] areas: One or more `area` blocks as defined below. Configures the area paths associated with the team.
+               
+               > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
         :param pulumi.Input[_builtins.str] description: The description of the Team.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: List of subject descriptors to define members of the team.
                
@@ -354,6 +424,30 @@ class Team(pulumi.CustomResource):
             members=[example_project_readers.descriptor])
         ```
 
+        ### With Area Paths
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            name="Example Project",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private")
+        example_area = azuredevops.Area("example",
+            project_id=example.id,
+            name="Frontend")
+        example_team = azuredevops.Team("example",
+            project_id=example.id,
+            name="Frontend Team",
+            areas=[{
+                "path": example_area.path,
+                "include_children": True,
+                "is_default": True,
+            }])
+        ```
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)
@@ -387,6 +481,7 @@ class Team(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 areas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -401,6 +496,7 @@ class Team(pulumi.CustomResource):
             __props__ = TeamArgs.__new__(TeamArgs)
 
             __props__.__dict__["administrators"] = administrators
+            __props__.__dict__["areas"] = areas
             __props__.__dict__["description"] = description
             __props__.__dict__["members"] = members
             __props__.__dict__["name"] = name
@@ -419,6 +515,7 @@ class Team(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            areas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             descriptor: pulumi.Input[Optional[_builtins.str]] = None,
             members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -437,6 +534,9 @@ class Team(pulumi.CustomResource):
                `Team` resource via the `administrators` block and by using the
                `TeamAdministrators` resource. However it's not possible to use
                both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict']]]] areas: One or more `area` blocks as defined below. Configures the area paths associated with the team.
+               
+               > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
         :param pulumi.Input[_builtins.str] description: The description of the Team.
         :param pulumi.Input[_builtins.str] descriptor: The descriptor of the Team.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: List of subject descriptors to define members of the team.
@@ -453,6 +553,7 @@ class Team(pulumi.CustomResource):
         __props__ = _TeamState.__new__(_TeamState)
 
         __props__.__dict__["administrators"] = administrators
+        __props__.__dict__["areas"] = areas
         __props__.__dict__["description"] = description
         __props__.__dict__["descriptor"] = descriptor
         __props__.__dict__["members"] = members
@@ -472,6 +573,16 @@ class Team(pulumi.CustomResource):
         both methods to manage team administrators, since there'll be conflicts.
         """
         return pulumi.get(self, "administrators")
+
+    @_builtins.property
+    @pulumi.getter
+    def areas(self) -> pulumi.Output[Sequence['outputs.TeamArea']]:
+        """
+        One or more `area` blocks as defined below. Configures the area paths associated with the team.
+
+        > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+        """
+        return pulumi.get(self, "areas")
 
     @_builtins.property
     @pulumi.getter

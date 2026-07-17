@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -33,6 +35,33 @@ import * as utilities from "./utilities";
  *     name: "Example Team",
  *     administrators: [example_project_contributors.apply(example_project_contributors => example_project_contributors.descriptor)],
  *     members: [example_project_readers.apply(example_project_readers => example_project_readers.descriptor)],
+ * });
+ * ```
+ *
+ * ### With Area Paths
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     name: "Example Project",
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ * });
+ * const exampleArea = new azuredevops.Area("example", {
+ *     projectId: example.id,
+ *     name: "Frontend",
+ * });
+ * const exampleTeam = new azuredevops.Team("example", {
+ *     projectId: example.id,
+ *     name: "Frontend Team",
+ *     areas: [{
+ *         path: exampleArea.path,
+ *         includeChildren: true,
+ *         isDefault: true,
+ *     }],
  * });
  * ```
  *
@@ -90,6 +119,12 @@ export class Team extends pulumi.CustomResource {
      */
     declare public readonly administrators: pulumi.Output<string[]>;
     /**
+     * One or more `area` blocks as defined below. Configures the area paths associated with the team.
+     *
+     * > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+     */
+    declare public readonly areas: pulumi.Output<outputs.TeamArea[]>;
+    /**
      * The description of the Team.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -129,6 +164,7 @@ export class Team extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TeamState | undefined;
             resourceInputs["administrators"] = state?.administrators;
+            resourceInputs["areas"] = state?.areas;
             resourceInputs["description"] = state?.description;
             resourceInputs["descriptor"] = state?.descriptor;
             resourceInputs["members"] = state?.members;
@@ -140,6 +176,7 @@ export class Team extends pulumi.CustomResource {
                 throw new Error("Missing required property 'projectId'");
             }
             resourceInputs["administrators"] = args?.administrators;
+            resourceInputs["areas"] = args?.areas;
             resourceInputs["description"] = args?.description;
             resourceInputs["members"] = args?.members;
             resourceInputs["name"] = args?.name;
@@ -164,6 +201,12 @@ export interface TeamState {
      * both methods to manage team administrators, since there'll be conflicts.
      */
     administrators?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * One or more `area` blocks as defined below. Configures the area paths associated with the team.
+     *
+     * > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+     */
+    areas?: pulumi.Input<pulumi.Input<inputs.TeamArea>[] | undefined>;
     /**
      * The description of the Team.
      */
@@ -204,6 +247,12 @@ export interface TeamArgs {
      * both methods to manage team administrators, since there'll be conflicts.
      */
     administrators?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * One or more `area` blocks as defined below. Configures the area paths associated with the team.
+     *
+     * > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+     */
+    areas?: pulumi.Input<pulumi.Input<inputs.TeamArea>[] | undefined>;
     /**
      * The description of the Team.
      */

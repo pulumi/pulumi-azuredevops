@@ -80,6 +80,10 @@ export class WorkitemtrackingprocessInheritedControl extends pulumi.CustomResour
      */
     declare public readonly controlId: pulumi.Output<string>;
     /**
+     * Type of control.
+     */
+    declare public /*out*/ readonly controlType: pulumi.Output<string>;
+    /**
      * The ID of the group containing the control. Changing this forces a new resource to be created.
      */
     declare public readonly groupId: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class WorkitemtrackingprocessInheritedControl extends pulumi.CustomResour
         if (opts.id) {
             const state = argsOrState as WorkitemtrackingprocessInheritedControlState | undefined;
             resourceInputs["controlId"] = state?.controlId;
+            resourceInputs["controlType"] = state?.controlType;
             resourceInputs["groupId"] = state?.groupId;
             resourceInputs["label"] = state?.label;
             resourceInputs["processId"] = state?.processId;
@@ -139,6 +144,7 @@ export class WorkitemtrackingprocessInheritedControl extends pulumi.CustomResour
             resourceInputs["processId"] = args?.processId;
             resourceInputs["visible"] = args?.visible;
             resourceInputs["workItemTypeId"] = args?.workItemTypeId;
+            resourceInputs["controlType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkitemtrackingprocessInheritedControl.__pulumiType, name, resourceInputs, opts);
@@ -153,6 +159,10 @@ export interface WorkitemtrackingprocessInheritedControlState {
      * The ID of the inherited control to customize. Changing this forces a new resource to be created.
      */
     controlId?: pulumi.Input<string | undefined>;
+    /**
+     * Type of control.
+     */
+    controlType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the group containing the control. Changing this forces a new resource to be created.
      */

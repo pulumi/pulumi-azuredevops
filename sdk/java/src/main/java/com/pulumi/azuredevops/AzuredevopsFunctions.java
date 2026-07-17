@@ -66,6 +66,8 @@ import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointNpmPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudPlainArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointTypePlainArgs;
 import com.pulumi.azuredevops.inputs.GetStorageKeyArgs;
 import com.pulumi.azuredevops.inputs.GetStorageKeyPlainArgs;
 import com.pulumi.azuredevops.inputs.GetTeamArgs;
@@ -120,6 +122,8 @@ import com.pulumi.azuredevops.outputs.GetServiceendpointDockerregistryResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointGenericV2Result;
 import com.pulumi.azuredevops.outputs.GetServiceendpointNpmResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointSonarcloudResult;
+import com.pulumi.azuredevops.outputs.GetServiceendpointTypeResult;
+import com.pulumi.azuredevops.outputs.GetServiceendpointTypesResult;
 import com.pulumi.azuredevops.outputs.GetStorageKeyResult;
 import com.pulumi.azuredevops.outputs.GetTeamResult;
 import com.pulumi.azuredevops.outputs.GetTeamsResult;
@@ -10861,6 +10865,8 @@ public final class AzuredevopsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Display Name
+     * 
      * <pre>
      * {@code
      * package generated_program;
@@ -10885,6 +10891,194 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
      *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Origin ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .originId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServicePrincipalResult> getServicePrincipal() {
+        return getServicePrincipal(GetServicePrincipalArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Service Principal.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Display Name
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Origin ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .originId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServicePrincipalResult> getServicePrincipalPlain() {
+        return getServicePrincipalPlain(GetServicePrincipalPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Service Principal.
+     * 
+     * ## Example Usage
+     * 
+     * ### By Display Name
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Origin ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .originId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -10902,6 +11096,8 @@ public final class AzuredevopsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Display Name
+     * 
      * <pre>
      * {@code
      * package generated_program;
@@ -10926,6 +11122,40 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
      *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Origin ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .originId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -10943,6 +11173,8 @@ public final class AzuredevopsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Display Name
+     * 
      * <pre>
      * {@code
      * package generated_program;
@@ -10967,6 +11199,40 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
      *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Origin ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .originId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -10984,6 +11250,8 @@ public final class AzuredevopsFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Display Name
+     * 
      * <pre>
      * {@code
      * package generated_program;
@@ -11016,6 +11284,40 @@ public final class AzuredevopsFunctions {
      * }
      * </pre>
      * 
+     * ### By Origin ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .originId("00000000-0000-0000-0000-000000000000")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetServicePrincipalResult> getServicePrincipal(GetServicePrincipalArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azuredevops:index/getServicePrincipal:getServicePrincipal", TypeShape.of(GetServicePrincipalResult.class), args, Utilities.withVersion(options));
@@ -11024,6 +11326,8 @@ public final class AzuredevopsFunctions {
      * Use this data source to access information about an existing Service Principal.
      * 
      * ## Example Usage
+     * 
+     * ### By Display Name
      * 
      * <pre>
      * {@code
@@ -11049,6 +11353,40 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
      *             .displayName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### By Origin ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServicePrincipalArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .originId("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -12635,6 +12973,1038 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloudPlain(GetServiceendpointSonarcloudPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", TypeShape.of(GetServiceendpointSonarcloudResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to query a specific service endpoint type and retrieve its parameters and authorization schemes.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic usage - Get service endpoint type information
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var generic = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("generic")
+     *             .build());
+     * 
+     *         ctx.export("genericTypeInfo", Map.ofEntries(
+     *             Map.entry("displayName", generic.displayName()),
+     *             Map.entry("authSchemes", generic.authenticationSchemes()),
+     *             Map.entry("parameters", generic.parameters())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Get authorization parameters for a specific auth scheme
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var generic = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("generic")
+     *             .authorizationScheme("UsernamePassword")
+     *             .build());
+     * 
+     *         ctx.export("authParameters", generic.authorizationParameters());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Use in service endpoint resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.ServiceendpointGenericV2;
+     * import com.pulumi.azuredevops.ServiceendpointGenericV2Args;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var bitbucket = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("bitbucket")
+     *             .authorizationScheme("UsernamePassword")
+     *             .build());
+     * 
+     *         var example = new Project("example", ProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Use the data source to understand available parameters
+     *         var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2("exampleServiceendpointGenericV2", ServiceendpointGenericV2Args.builder()
+     *             .projectId(example.id())
+     *             .name("Example Bitbucket")
+     *             .description("Managed by Pulumi")
+     *             .type(bitbucket.name())
+     *             .serverUrl("https://bitbucket.org")
+     *             .authorizationScheme(bitbucket.authorizationScheme())
+     *             .authorizationParameters(Map.ofEntries(
+     *                 Map.entry("username", "my-username"),
+     *                 Map.entry("password", "my-password")
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static Output<GetServiceendpointTypeResult> getServiceendpointType(GetServiceendpointTypeArgs args) {
+        return getServiceendpointType(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to query a specific service endpoint type and retrieve its parameters and authorization schemes.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic usage - Get service endpoint type information
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var generic = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("generic")
+     *             .build());
+     * 
+     *         ctx.export("genericTypeInfo", Map.ofEntries(
+     *             Map.entry("displayName", generic.displayName()),
+     *             Map.entry("authSchemes", generic.authenticationSchemes()),
+     *             Map.entry("parameters", generic.parameters())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Get authorization parameters for a specific auth scheme
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var generic = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("generic")
+     *             .authorizationScheme("UsernamePassword")
+     *             .build());
+     * 
+     *         ctx.export("authParameters", generic.authorizationParameters());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Use in service endpoint resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.ServiceendpointGenericV2;
+     * import com.pulumi.azuredevops.ServiceendpointGenericV2Args;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var bitbucket = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("bitbucket")
+     *             .authorizationScheme("UsernamePassword")
+     *             .build());
+     * 
+     *         var example = new Project("example", ProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Use the data source to understand available parameters
+     *         var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2("exampleServiceendpointGenericV2", ServiceendpointGenericV2Args.builder()
+     *             .projectId(example.id())
+     *             .name("Example Bitbucket")
+     *             .description("Managed by Pulumi")
+     *             .type(bitbucket.name())
+     *             .serverUrl("https://bitbucket.org")
+     *             .authorizationScheme(bitbucket.authorizationScheme())
+     *             .authorizationParameters(Map.ofEntries(
+     *                 Map.entry("username", "my-username"),
+     *                 Map.entry("password", "my-password")
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointTypeResult> getServiceendpointTypePlain(GetServiceendpointTypePlainArgs args) {
+        return getServiceendpointTypePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to query a specific service endpoint type and retrieve its parameters and authorization schemes.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic usage - Get service endpoint type information
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var generic = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("generic")
+     *             .build());
+     * 
+     *         ctx.export("genericTypeInfo", Map.ofEntries(
+     *             Map.entry("displayName", generic.displayName()),
+     *             Map.entry("authSchemes", generic.authenticationSchemes()),
+     *             Map.entry("parameters", generic.parameters())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Get authorization parameters for a specific auth scheme
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var generic = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("generic")
+     *             .authorizationScheme("UsernamePassword")
+     *             .build());
+     * 
+     *         ctx.export("authParameters", generic.authorizationParameters());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Use in service endpoint resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.ServiceendpointGenericV2;
+     * import com.pulumi.azuredevops.ServiceendpointGenericV2Args;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var bitbucket = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("bitbucket")
+     *             .authorizationScheme("UsernamePassword")
+     *             .build());
+     * 
+     *         var example = new Project("example", ProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Use the data source to understand available parameters
+     *         var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2("exampleServiceendpointGenericV2", ServiceendpointGenericV2Args.builder()
+     *             .projectId(example.id())
+     *             .name("Example Bitbucket")
+     *             .description("Managed by Pulumi")
+     *             .type(bitbucket.name())
+     *             .serverUrl("https://bitbucket.org")
+     *             .authorizationScheme(bitbucket.authorizationScheme())
+     *             .authorizationParameters(Map.ofEntries(
+     *                 Map.entry("username", "my-username"),
+     *                 Map.entry("password", "my-password")
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static Output<GetServiceendpointTypeResult> getServiceendpointType(GetServiceendpointTypeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointType:getServiceendpointType", TypeShape.of(GetServiceendpointTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to query a specific service endpoint type and retrieve its parameters and authorization schemes.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic usage - Get service endpoint type information
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var generic = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("generic")
+     *             .build());
+     * 
+     *         ctx.export("genericTypeInfo", Map.ofEntries(
+     *             Map.entry("displayName", generic.displayName()),
+     *             Map.entry("authSchemes", generic.authenticationSchemes()),
+     *             Map.entry("parameters", generic.parameters())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Get authorization parameters for a specific auth scheme
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var generic = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("generic")
+     *             .authorizationScheme("UsernamePassword")
+     *             .build());
+     * 
+     *         ctx.export("authParameters", generic.authorizationParameters());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Use in service endpoint resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.ServiceendpointGenericV2;
+     * import com.pulumi.azuredevops.ServiceendpointGenericV2Args;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var bitbucket = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("bitbucket")
+     *             .authorizationScheme("UsernamePassword")
+     *             .build());
+     * 
+     *         var example = new Project("example", ProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Use the data source to understand available parameters
+     *         var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2("exampleServiceendpointGenericV2", ServiceendpointGenericV2Args.builder()
+     *             .projectId(example.id())
+     *             .name("Example Bitbucket")
+     *             .description("Managed by Pulumi")
+     *             .type(bitbucket.name())
+     *             .serverUrl("https://bitbucket.org")
+     *             .authorizationScheme(bitbucket.authorizationScheme())
+     *             .authorizationParameters(Map.ofEntries(
+     *                 Map.entry("username", "my-username"),
+     *                 Map.entry("password", "my-password")
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static Output<GetServiceendpointTypeResult> getServiceendpointType(GetServiceendpointTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointType:getServiceendpointType", TypeShape.of(GetServiceendpointTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to query a specific service endpoint type and retrieve its parameters and authorization schemes.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic usage - Get service endpoint type information
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var generic = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("generic")
+     *             .build());
+     * 
+     *         ctx.export("genericTypeInfo", Map.ofEntries(
+     *             Map.entry("displayName", generic.displayName()),
+     *             Map.entry("authSchemes", generic.authenticationSchemes()),
+     *             Map.entry("parameters", generic.parameters())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Get authorization parameters for a specific auth scheme
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var generic = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("generic")
+     *             .authorizationScheme("UsernamePassword")
+     *             .build());
+     * 
+     *         ctx.export("authParameters", generic.authorizationParameters());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Use in service endpoint resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointTypeArgs;
+     * import com.pulumi.azuredevops.Project;
+     * import com.pulumi.azuredevops.ProjectArgs;
+     * import com.pulumi.azuredevops.ServiceendpointGenericV2;
+     * import com.pulumi.azuredevops.ServiceendpointGenericV2Args;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var bitbucket = AzuredevopsFunctions.getServiceendpointType(GetServiceendpointTypeArgs.builder()
+     *             .name("bitbucket")
+     *             .authorizationScheme("UsernamePassword")
+     *             .build());
+     * 
+     *         var example = new Project("example", ProjectArgs.builder()
+     *             .name("Example Project")
+     *             .build());
+     * 
+     *         // Use the data source to understand available parameters
+     *         var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2("exampleServiceendpointGenericV2", ServiceendpointGenericV2Args.builder()
+     *             .projectId(example.id())
+     *             .name("Example Bitbucket")
+     *             .description("Managed by Pulumi")
+     *             .type(bitbucket.name())
+     *             .serverUrl("https://bitbucket.org")
+     *             .authorizationScheme(bitbucket.authorizationScheme())
+     *             .authorizationParameters(Map.ofEntries(
+     *                 Map.entry("username", "my-username"),
+     *                 Map.entry("password", "my-password")
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointTypeResult> getServiceendpointTypePlain(GetServiceendpointTypePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointType:getServiceendpointType", TypeShape.of(GetServiceendpointTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to query all available service endpoint types in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific service endpoint type by name, consider using the azuredevops.getServiceendpointType data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getServiceendpointTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("allTypes", all.types());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter service endpoint types
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static Output<GetServiceendpointTypesResult> getServiceendpointTypes() {
+        return getServiceendpointTypes(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to query all available service endpoint types in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific service endpoint type by name, consider using the azuredevops.getServiceendpointType data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getServiceendpointTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("allTypes", all.types());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter service endpoint types
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointTypesResult> getServiceendpointTypesPlain() {
+        return getServiceendpointTypesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to query all available service endpoint types in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific service endpoint type by name, consider using the azuredevops.getServiceendpointType data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getServiceendpointTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("allTypes", all.types());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter service endpoint types
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static Output<GetServiceendpointTypesResult> getServiceendpointTypes(InvokeArgs args) {
+        return getServiceendpointTypes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to query all available service endpoint types in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific service endpoint type by name, consider using the azuredevops.getServiceendpointType data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getServiceendpointTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("allTypes", all.types());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter service endpoint types
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointTypesResult> getServiceendpointTypesPlain(InvokeArgs args) {
+        return getServiceendpointTypesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to query all available service endpoint types in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific service endpoint type by name, consider using the azuredevops.getServiceendpointType data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getServiceendpointTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("allTypes", all.types());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter service endpoint types
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static Output<GetServiceendpointTypesResult> getServiceendpointTypes(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointTypes:getServiceendpointTypes", TypeShape.of(GetServiceendpointTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to query all available service endpoint types in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific service endpoint type by name, consider using the azuredevops.getServiceendpointType data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getServiceendpointTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("allTypes", all.types());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter service endpoint types
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static Output<GetServiceendpointTypesResult> getServiceendpointTypes(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointTypes:getServiceendpointTypes", TypeShape.of(GetServiceendpointTypesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to query all available service endpoint types in Azure DevOps.
+     * 
+     * &gt; **NOTE:** If you need to find a specific service endpoint type by name, consider using the azuredevops.getServiceendpointType data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = AzuredevopsFunctions.getServiceendpointTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("allTypes", all.types());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter service endpoint types
+     * 
+     * ## Relevant Links
+     * 
+     * - [Azure DevOps Service REST API 7.0 - Service Endpoint Types](https://learn.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/types/list)
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointTypesResult> getServiceendpointTypesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointTypes:getServiceendpointTypes", TypeShape.of(GetServiceendpointTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Storage Key.

@@ -103,6 +103,20 @@ public class WorkitemtrackingprocessInheritedControl extends com.pulumi.resource
         return this.controlId;
     }
     /**
+     * Type of control.
+     * 
+     */
+    @Export(name="controlType", refs={String.class}, tree="[0]")
+    private Output<String> controlType;
+
+    /**
+     * @return Type of control.
+     * 
+     */
+    public Output<String> controlType() {
+        return this.controlType;
+    }
+    /**
      * The ID of the group containing the control. Changing this forces a new resource to be created.
      * 
      */

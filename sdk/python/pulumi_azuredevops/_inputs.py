@@ -199,6 +199,8 @@ __all__ = [
     'ServicehookWebhookTfsWorkItemRestoredArgsDict',
     'ServicehookWebhookTfsWorkItemUpdatedArgs',
     'ServicehookWebhookTfsWorkItemUpdatedArgsDict',
+    'TeamAreaArgs',
+    'TeamAreaArgsDict',
     'VariableGroupKeyVaultArgs',
     'VariableGroupKeyVaultArgsDict',
     'VariableGroupVariableArgs',
@@ -6652,6 +6654,74 @@ class ServicehookWebhookTfsWorkItemUpdatedArgs:
     @work_item_type.setter
     def work_item_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "work_item_type", value)
+
+
+class TeamAreaArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    """
+    The area path to associate with the team (e.g., `Example Project\\Frontend`). Can reference `azuredevops_area.path`.
+    """
+    include_children: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether work items in child area paths are included? Defaults to `false`.
+    """
+    is_default: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether this area path is the team's default? Exactly one `area` block must have `is_default` set to `true`.
+    """
+
+@pulumi.input_type
+class TeamAreaArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str],
+                 include_children: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] path: The area path to associate with the team (e.g., `Example Project\\Frontend`). Can reference `azuredevops_area.path`.
+        :param pulumi.Input[_builtins.bool] include_children: Whether work items in child area paths are included? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] is_default: Whether this area path is the team's default? Exactly one `area` block must have `is_default` set to `true`.
+        """
+        pulumi.set(__self__, "path", path)
+        if include_children is not None:
+            pulumi.set(__self__, "include_children", include_children)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        """
+        The area path to associate with the team (e.g., `Example Project\\Frontend`). Can reference `azuredevops_area.path`.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildren")
+    def include_children(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether work items in child area paths are included? Defaults to `false`.
+        """
+        return pulumi.get(self, "include_children")
+
+    @include_children.setter
+    def include_children(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_children", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this area path is the team's default? Exactly one `area` block must have `is_default` set to `true`.
+        """
+        return pulumi.get(self, "is_default")
+
+    @is_default.setter
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_default", value)
 
 
 class VariableGroupKeyVaultArgsDict(TypedDict):

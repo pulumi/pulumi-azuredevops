@@ -1388,6 +1388,63 @@ export interface GetSecurityroleDefinitionsDefinition {
     scope: string;
 }
 
+export interface GetServiceendpointTypeAuthorizationParameter {
+    /**
+     * The default value for this parameter, if provided by the API.
+     */
+    defaultValue: string;
+    /**
+     * The name of the service endpoint type to query.
+     */
+    name: string;
+    /**
+     * A list of possible values for this parameter, if provided by the API.
+     */
+    possibleValues: string[];
+}
+
+export interface GetServiceendpointTypeParameter {
+    /**
+     * The default value for this parameter, if provided by the API.
+     */
+    defaultValue: string;
+    /**
+     * The name of the service endpoint type to query.
+     */
+    name: string;
+    /**
+     * A list of possible values for this parameter, if provided by the API.
+     */
+    possibleValues: string[];
+}
+
+export interface GetServiceendpointTypesType {
+    /**
+     * A list of available authentication schemes for this service endpoint type.
+     */
+    authenticationSchemes: string[];
+    /**
+     * The description of the service endpoint type.
+     */
+    description: string;
+    /**
+     * The display name of the service endpoint type.
+     */
+    displayName: string;
+    /**
+     * The ID of the service endpoint type (typically same as name).
+     */
+    id: string;
+    /**
+     * The name of the service endpoint type.
+     */
+    name: string;
+    /**
+     * The UI contribution ID for this service endpoint type.
+     */
+    uiContributionId: string;
+}
+
 export interface GetTeamsTeam {
     /**
      * List of subject descriptors for `administrators` of the team.
@@ -2288,6 +2345,21 @@ export interface ServicehookWebhookTfsWorkItemUpdated {
      * Include only events for work items of a specific type.
      */
     workItemType?: string;
+}
+
+export interface TeamArea {
+    /**
+     * Whether work items in child area paths are included? Defaults to `false`.
+     */
+    includeChildren?: boolean;
+    /**
+     * Whether this area path is the team's default? Exactly one `area` block must have `isDefault` set to `true`.
+     */
+    isDefault?: boolean;
+    /**
+     * The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+     */
+    path: string;
 }
 
 export interface VariableGroupKeyVault {

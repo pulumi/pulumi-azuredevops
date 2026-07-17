@@ -32,6 +32,21 @@ public final class WorkitemtrackingprocessInheritedControlState extends com.pulu
     }
 
     /**
+     * Type of control.
+     * 
+     */
+    @Import(name="controlType")
+    private @Nullable Output<String> controlType;
+
+    /**
+     * @return Type of control.
+     * 
+     */
+    public Optional<Output<String>> controlType() {
+        return Optional.ofNullable(this.controlType);
+    }
+
+    /**
      * The ID of the group containing the control. Changing this forces a new resource to be created.
      * 
      */
@@ -110,6 +125,7 @@ public final class WorkitemtrackingprocessInheritedControlState extends com.pulu
 
     private WorkitemtrackingprocessInheritedControlState(WorkitemtrackingprocessInheritedControlState $) {
         this.controlId = $.controlId;
+        this.controlType = $.controlType;
         this.groupId = $.groupId;
         this.label = $.label;
         this.processId = $.processId;
@@ -154,6 +170,27 @@ public final class WorkitemtrackingprocessInheritedControlState extends com.pulu
          */
         public Builder controlId(String controlId) {
             return controlId(Output.of(controlId));
+        }
+
+        /**
+         * @param controlType Type of control.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder controlType(@Nullable Output<String> controlType) {
+            $.controlType = controlType;
+            return this;
+        }
+
+        /**
+         * @param controlType Type of control.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder controlType(String controlType) {
+            return controlType(Output.of(controlType));
         }
 
         /**

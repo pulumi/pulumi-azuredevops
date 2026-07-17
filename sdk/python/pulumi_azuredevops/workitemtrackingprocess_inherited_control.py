@@ -121,6 +121,7 @@ class WorkitemtrackingprocessInheritedControlArgs:
 class _WorkitemtrackingprocessInheritedControlState:
     def __init__(__self__, *,
                  control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_type: pulumi.Input[Optional[_builtins.str]] = None,
                  group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  label: pulumi.Input[Optional[_builtins.str]] = None,
                  process_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -130,6 +131,7 @@ class _WorkitemtrackingprocessInheritedControlState:
         Input properties used for looking up and filtering WorkitemtrackingprocessInheritedControl resources.
 
         :param pulumi.Input[_builtins.str] control_id: The ID of the inherited control to customize. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] control_type: Type of control.
         :param pulumi.Input[_builtins.str] group_id: The ID of the group containing the control. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] label: Label for the control.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new resource to be created.
@@ -138,6 +140,8 @@ class _WorkitemtrackingprocessInheritedControlState:
         """
         if control_id is not None:
             pulumi.set(__self__, "control_id", control_id)
+        if control_type is not None:
+            pulumi.set(__self__, "control_type", control_type)
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
         if label is not None:
@@ -160,6 +164,18 @@ class _WorkitemtrackingprocessInheritedControlState:
     @control_id.setter
     def control_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="controlType")
+    def control_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of control.
+        """
+        return pulumi.get(self, "control_type")
+
+    @control_type.setter
+    def control_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "control_type", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
@@ -376,6 +392,7 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
             if work_item_type_id is None and not opts.urn:
                 raise TypeError("Missing required property 'work_item_type_id'")
             __props__.__dict__["work_item_type_id"] = work_item_type_id
+            __props__.__dict__["control_type"] = None
         super(WorkitemtrackingprocessInheritedControl, __self__).__init__(
             'azuredevops:index/workitemtrackingprocessInheritedControl:WorkitemtrackingprocessInheritedControl',
             resource_name,
@@ -387,6 +404,7 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             control_id: pulumi.Input[Optional[_builtins.str]] = None,
+            control_type: pulumi.Input[Optional[_builtins.str]] = None,
             group_id: pulumi.Input[Optional[_builtins.str]] = None,
             label: pulumi.Input[Optional[_builtins.str]] = None,
             process_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -400,6 +418,7 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] control_id: The ID of the inherited control to customize. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] control_type: Type of control.
         :param pulumi.Input[_builtins.str] group_id: The ID of the group containing the control. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] label: Label for the control.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new resource to be created.
@@ -411,6 +430,7 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
         __props__ = _WorkitemtrackingprocessInheritedControlState.__new__(_WorkitemtrackingprocessInheritedControlState)
 
         __props__.__dict__["control_id"] = control_id
+        __props__.__dict__["control_type"] = control_type
         __props__.__dict__["group_id"] = group_id
         __props__.__dict__["label"] = label
         __props__.__dict__["process_id"] = process_id
@@ -425,6 +445,14 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
         The ID of the inherited control to customize. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "control_id")
+
+    @_builtins.property
+    @pulumi.getter(name="controlType")
+    def control_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Type of control.
+        """
+        return pulumi.get(self, "control_type")
 
     @_builtins.property
     @pulumi.getter(name="groupId")

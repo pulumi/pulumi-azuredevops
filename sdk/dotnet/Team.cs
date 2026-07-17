@@ -60,6 +60,48 @@ namespace Pulumi.AzureDevOps
     /// });
     /// ```
     /// 
+    /// ### With Area Paths
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Name = "Example Project",
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///     });
+    /// 
+    ///     var exampleArea = new AzureDevOps.Area("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Frontend",
+    ///     });
+    /// 
+    ///     var exampleTeam = new AzureDevOps.Team("example", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Frontend Team",
+    ///         Areas = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.TeamAreaArgs
+    ///             {
+    ///                 Path = exampleArea.Path,
+    ///                 IncludeChildren = true,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)
@@ -89,6 +131,14 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("administrators")]
         public Output<ImmutableArray<string>> Administrators { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `Area` blocks as defined below. Configures the area paths associated with the team.
+        /// 
+        /// &gt; **NOTE:** If no `Area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `Area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+        /// </summary>
+        [Output("areas")]
+        public Output<ImmutableArray<Outputs.TeamArea>> Areas { get; private set; } = null!;
 
         /// <summary>
         /// The description of the Team.
@@ -188,6 +238,20 @@ namespace Pulumi.AzureDevOps
             set => _administrators = value;
         }
 
+        [Input("areas")]
+        private InputList<Inputs.TeamAreaArgs>? _areas;
+
+        /// <summary>
+        /// One or more `Area` blocks as defined below. Configures the area paths associated with the team.
+        /// 
+        /// &gt; **NOTE:** If no `Area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `Area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+        /// </summary>
+        public InputList<Inputs.TeamAreaArgs> Areas
+        {
+            get => _areas ?? (_areas = new InputList<Inputs.TeamAreaArgs>());
+            set => _areas = value;
+        }
+
         /// <summary>
         /// The description of the Team.
         /// </summary>
@@ -246,6 +310,20 @@ namespace Pulumi.AzureDevOps
         {
             get => _administrators ?? (_administrators = new InputList<string>());
             set => _administrators = value;
+        }
+
+        [Input("areas")]
+        private InputList<Inputs.TeamAreaGetArgs>? _areas;
+
+        /// <summary>
+        /// One or more `Area` blocks as defined below. Configures the area paths associated with the team.
+        /// 
+        /// &gt; **NOTE:** If no `Area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `Area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+        /// </summary>
+        public InputList<Inputs.TeamAreaGetArgs> Areas
+        {
+            get => _areas ?? (_areas = new InputList<Inputs.TeamAreaGetArgs>());
+            set => _areas = value;
         }
 
         /// <summary>

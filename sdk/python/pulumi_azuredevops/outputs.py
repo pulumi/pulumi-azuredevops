@@ -108,6 +108,7 @@ __all__ = [
     'ServicehookWebhookTfsWorkItemDeleted',
     'ServicehookWebhookTfsWorkItemRestored',
     'ServicehookWebhookTfsWorkItemUpdated',
+    'TeamArea',
     'VariableGroupKeyVault',
     'VariableGroupVariable',
     'WorkitemRelation',
@@ -150,6 +151,9 @@ __all__ = [
     'GetSecurityNamespacesNamespaceResult',
     'GetSecurityNamespacesNamespaceActionResult',
     'GetSecurityroleDefinitionsDefinitionResult',
+    'GetServiceendpointTypeAuthorizationParameterResult',
+    'GetServiceendpointTypeParameterResult',
+    'GetServiceendpointTypesTypeResult',
     'GetTeamsTeamResult',
     'GetUsersFeaturesResult',
     'GetUsersUserResult',
@@ -5415,6 +5419,67 @@ class ServicehookWebhookTfsWorkItemUpdated(dict):
 
 
 @pulumi.output_type
+class TeamArea(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeChildren":
+            suggest = "include_children"
+        elif key == "isDefault":
+            suggest = "is_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamArea. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamArea.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamArea.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 include_children: Optional[_builtins.bool] = None,
+                 is_default: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str path: The area path to associate with the team (e.g., `Example Project\\Frontend`). Can reference `azuredevops_area.path`.
+        :param _builtins.bool include_children: Whether work items in child area paths are included? Defaults to `false`.
+        :param _builtins.bool is_default: Whether this area path is the team's default? Exactly one `area` block must have `is_default` set to `true`.
+        """
+        pulumi.set(__self__, "path", path)
+        if include_children is not None:
+            pulumi.set(__self__, "include_children", include_children)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        The area path to associate with the team (e.g., `Example Project\\Frontend`). Can reference `azuredevops_area.path`.
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildren")
+    def include_children(self) -> Optional[_builtins.bool]:
+        """
+        Whether work items in child area paths are included? Defaults to `false`.
+        """
+        return pulumi.get(self, "include_children")
+
+    @_builtins.property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[_builtins.bool]:
+        """
+        Whether this area path is the team's default? Exactly one `area` block must have `is_default` set to `true`.
+        """
+        return pulumi.get(self, "is_default")
+
+
+@pulumi.output_type
 class VariableGroupKeyVault(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7826,6 +7891,159 @@ class GetSecurityroleDefinitionsDefinitionResult(dict):
         The mask of the denied permissions of the Security Role Definition.
         """
         return pulumi.get(self, "deny_permissions")
+
+
+@pulumi.output_type
+class GetServiceendpointTypeAuthorizationParameterResult(dict):
+    def __init__(__self__, *,
+                 default_value: _builtins.str,
+                 name: _builtins.str,
+                 possible_values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str default_value: The default value for this parameter, if provided by the API.
+        :param _builtins.str name: The name of the service endpoint type to query.
+        :param Sequence[_builtins.str] possible_values: A list of possible values for this parameter, if provided by the API.
+        """
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "possible_values", possible_values)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> _builtins.str:
+        """
+        The default value for this parameter, if provided by the API.
+        """
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the service endpoint type to query.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="possibleValues")
+    def possible_values(self) -> Sequence[_builtins.str]:
+        """
+        A list of possible values for this parameter, if provided by the API.
+        """
+        return pulumi.get(self, "possible_values")
+
+
+@pulumi.output_type
+class GetServiceendpointTypeParameterResult(dict):
+    def __init__(__self__, *,
+                 default_value: _builtins.str,
+                 name: _builtins.str,
+                 possible_values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str default_value: The default value for this parameter, if provided by the API.
+        :param _builtins.str name: The name of the service endpoint type to query.
+        :param Sequence[_builtins.str] possible_values: A list of possible values for this parameter, if provided by the API.
+        """
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "possible_values", possible_values)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> _builtins.str:
+        """
+        The default value for this parameter, if provided by the API.
+        """
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the service endpoint type to query.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="possibleValues")
+    def possible_values(self) -> Sequence[_builtins.str]:
+        """
+        A list of possible values for this parameter, if provided by the API.
+        """
+        return pulumi.get(self, "possible_values")
+
+
+@pulumi.output_type
+class GetServiceendpointTypesTypeResult(dict):
+    def __init__(__self__, *,
+                 authentication_schemes: Sequence[_builtins.str],
+                 description: _builtins.str,
+                 display_name: _builtins.str,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 ui_contribution_id: _builtins.str):
+        """
+        :param Sequence[_builtins.str] authentication_schemes: A list of available authentication schemes for this service endpoint type.
+        :param _builtins.str description: The description of the service endpoint type.
+        :param _builtins.str display_name: The display name of the service endpoint type.
+        :param _builtins.str id: The ID of the service endpoint type (typically same as name).
+        :param _builtins.str name: The name of the service endpoint type.
+        :param _builtins.str ui_contribution_id: The UI contribution ID for this service endpoint type.
+        """
+        pulumi.set(__self__, "authentication_schemes", authentication_schemes)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "ui_contribution_id", ui_contribution_id)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationSchemes")
+    def authentication_schemes(self) -> Sequence[_builtins.str]:
+        """
+        A list of available authentication schemes for this service endpoint type.
+        """
+        return pulumi.get(self, "authentication_schemes")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        The description of the service endpoint type.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        The display name of the service endpoint type.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the service endpoint type (typically same as name).
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the service endpoint type.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="uiContributionId")
+    def ui_contribution_id(self) -> _builtins.str:
+        """
+        The UI contribution ID for this service endpoint type.
+        """
+        return pulumi.get(self, "ui_contribution_id")
 
 
 @pulumi.output_type

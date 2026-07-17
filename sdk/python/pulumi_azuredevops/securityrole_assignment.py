@@ -26,7 +26,7 @@ class SecurityroleAssignmentArgs:
         """
         The set of arguments for constructing a SecurityroleAssignment resource.
 
-        :param pulumi.Input[_builtins.str] identity_id: The ID of the identity to authorize.
+        :param pulumi.Input[_builtins.str] identity_id: The internal identity ID (storage key) of the identity to authorize.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_name: Name of the role to assign.
         :param pulumi.Input[_builtins.str] scope: The scope in which this assignment should exist.
@@ -40,7 +40,7 @@ class SecurityroleAssignmentArgs:
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the identity to authorize.
+        The internal identity ID (storage key) of the identity to authorize.
         """
         return pulumi.get(self, "identity_id")
 
@@ -95,7 +95,7 @@ class _SecurityroleAssignmentState:
         """
         Input properties used for looking up and filtering SecurityroleAssignment resources.
 
-        :param pulumi.Input[_builtins.str] identity_id: The ID of the identity to authorize.
+        :param pulumi.Input[_builtins.str] identity_id: The internal identity ID (storage key) of the identity to authorize.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_name: Name of the role to assign.
         :param pulumi.Input[_builtins.str] scope: The scope in which this assignment should exist.
@@ -113,7 +113,7 @@ class _SecurityroleAssignmentState:
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the identity to authorize.
+        The internal identity ID (storage key) of the identity to authorize.
         """
         return pulumi.get(self, "identity_id")
 
@@ -208,10 +208,18 @@ class SecurityroleAssignment(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0&tabs=HTTP)
 
+        ## Import
+
+        Azure DevOps Security Role Assignments can be imported using the composite ID `scope/resource_id/identity_id`, e.g.
+
+        ```sh
+        $ pulumi import azuredevops:index/securityroleAssignment:SecurityroleAssignment example distributedtask.environmentreferencerole/projectId_environmentId/00000000-0000-0000-0000-000000000000
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identity_id: The ID of the identity to authorize.
+        :param pulumi.Input[_builtins.str] identity_id: The internal identity ID (storage key) of the identity to authorize.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_name: Name of the role to assign.
         :param pulumi.Input[_builtins.str] scope: The scope in which this assignment should exist.
@@ -260,6 +268,14 @@ class SecurityroleAssignment(pulumi.CustomResource):
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0&tabs=HTTP)
+
+        ## Import
+
+        Azure DevOps Security Role Assignments can be imported using the composite ID `scope/resource_id/identity_id`, e.g.
+
+        ```sh
+        $ pulumi import azuredevops:index/securityroleAssignment:SecurityroleAssignment example distributedtask.environmentreferencerole/projectId_environmentId/00000000-0000-0000-0000-000000000000
+        ```
 
 
         :param str resource_name: The name of the resource.
@@ -323,7 +339,7 @@ class SecurityroleAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identity_id: The ID of the identity to authorize.
+        :param pulumi.Input[_builtins.str] identity_id: The internal identity ID (storage key) of the identity to authorize.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the resource on which the role is to be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_name: Name of the role to assign.
         :param pulumi.Input[_builtins.str] scope: The scope in which this assignment should exist.
@@ -342,7 +358,7 @@ class SecurityroleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the identity to authorize.
+        The internal identity ID (storage key) of the identity to authorize.
         """
         return pulumi.get(self, "identity_id")
 

@@ -15,6 +15,8 @@ import (
 //
 // ## Example Usage
 //
+// ### By Display Name
+//
 // ```go
 // package main
 //
@@ -28,7 +30,34 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := azuredevops.GetServicePrincipal(ctx, &azuredevops.GetServicePrincipalArgs{
-//				DisplayName: "existing",
+//				DisplayName: pulumi.StringRef("existing"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### By Origin ID
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.GetServicePrincipal(ctx, &azuredevops.GetServicePrincipalArgs{
+//				OriginId: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -52,7 +81,11 @@ func GetServicePrincipal(ctx *pulumi.Context, args *GetServicePrincipalArgs, opt
 // A collection of arguments for invoking getServicePrincipal.
 type GetServicePrincipalArgs struct {
 	// The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
+	// The origin ID of the Service Principal.
+	//
+	// > **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+	OriginId *string `pulumi:"originId"`
 }
 
 // A collection of values returned by getServicePrincipal.
@@ -63,8 +96,7 @@ type GetServicePrincipalResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The origin of the Service Principal.
-	Origin string `pulumi:"origin"`
-	// The origin ID of the Service Principal..
+	Origin   string `pulumi:"origin"`
 	OriginId string `pulumi:"originId"`
 }
 
@@ -80,7 +112,11 @@ func GetServicePrincipalOutput(ctx *pulumi.Context, args GetServicePrincipalOutp
 // A collection of arguments for invoking getServicePrincipal.
 type GetServicePrincipalOutputArgs struct {
 	// The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The origin ID of the Service Principal.
+	//
+	// > **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+	OriginId pulumi.StringPtrInput `pulumi:"originId"`
 }
 
 func (GetServicePrincipalOutputArgs) ElementType() reflect.Type {
@@ -121,7 +157,6 @@ func (o GetServicePrincipalResultOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServicePrincipalResult) string { return v.Origin }).(pulumi.StringOutput)
 }
 
-// The origin ID of the Service Principal..
 func (o GetServicePrincipalResultOutput) OriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServicePrincipalResult) string { return v.OriginId }).(pulumi.StringOutput)
 }

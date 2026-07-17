@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azuredevops:index/area:Area":
+		r = &Area{}
 	case "azuredevops:index/areaPermissions:AreaPermissions":
 		r = &AreaPermissions{}
 	case "azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers":
@@ -312,6 +314,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/area",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/areaPermissions",

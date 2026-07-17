@@ -837,7 +837,11 @@ class CheckBusinessHours(pulumi.CustomResource):
 
         ## Import
 
-        Importing this resource is not supported.
+        Importing this resource is supported. The resource ID format is `<projectId>/<checkId>`.
+
+        ```sh
+        $ pulumi import azuredevops:index/checkBusinessHours:CheckBusinessHours example 00000000-0000-0000-0000-000000000000/0
+        ```
 
 
         :param str resource_name: The name of the resource.
@@ -1155,7 +1159,11 @@ class CheckBusinessHours(pulumi.CustomResource):
 
         ## Import
 
-        Importing this resource is not supported.
+        Importing this resource is supported. The resource ID format is `<projectId>/<checkId>`.
+
+        ```sh
+        $ pulumi import azuredevops:index/checkBusinessHours:CheckBusinessHours example 00000000-0000-0000-0000-000000000000/0
+        ```
 
 
         :param str resource_name: The name of the resource.

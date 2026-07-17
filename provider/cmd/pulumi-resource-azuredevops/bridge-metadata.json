@@ -9,6 +9,10 @@
                 "current": "azuredevops:index/queue:Queue",
                 "majorVersion": 3
             },
+            "azuredevops_area": {
+                "current": "azuredevops:index/area:Area",
+                "majorVersion": 3
+            },
             "azuredevops_area_permissions": {
                 "current": "azuredevops:index/areaPermissions:AreaPermissions",
                 "majorVersion": 3
@@ -983,6 +987,9 @@
                     "administrators": {
                         "maxItemsOne": false
                     },
+                    "area": {
+                        "maxItemsOne": false
+                    },
                     "members": {
                         "maxItemsOne": false
                     }
@@ -1540,6 +1547,51 @@
             "azuredevops_serviceendpoint_sonarcloud": {
                 "current": "azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud",
                 "majorVersion": 3
+            },
+            "azuredevops_serviceendpoint_type": {
+                "current": "azuredevops:index/getServiceendpointType:getServiceendpointType",
+                "majorVersion": 3,
+                "fields": {
+                    "authentication_schemes": {
+                        "maxItemsOne": false
+                    },
+                    "authorization_parameters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "possible_values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "parameters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "possible_values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azuredevops_serviceendpoint_types": {
+                "current": "azuredevops:index/getServiceendpointTypes:getServiceendpointTypes",
+                "majorVersion": 3,
+                "fields": {
+                    "types": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "authentication_schemes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azuredevops_storage_key": {
                 "current": "azuredevops:index/getStorageKey:getStorageKey",

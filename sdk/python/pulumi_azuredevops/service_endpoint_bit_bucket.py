@@ -21,7 +21,9 @@ class ServiceEndpointBitBucketArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[_builtins.str],
                  service_endpoint_name: pulumi.Input[_builtins.str],
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -29,16 +31,30 @@ class ServiceEndpointBitBucketArgs:
 
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input[_builtins.str] api_token: Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
-        :param pulumi.Input[_builtins.str] password: Bitbucket account password.
-        :param pulumi.Input[_builtins.str] username: Bitbucket account username.
+        :param pulumi.Input[_builtins.str] email: Bitbucket account email. Used together with `api_token` to authenticate using an Atlassian API token.
+        :param pulumi.Input[_builtins.str] password: Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
+               
+               > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `api_token` (recommended) or `username` + `password` (deprecated).
+        :param pulumi.Input[_builtins.str] username: Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
         """
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if password is not None:
+            warnings.warn("""Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""", DeprecationWarning)
+            pulumi.log.warn("""password is deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""")
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if username is not None:
+            warnings.warn("""Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""", DeprecationWarning)
+            pulumi.log.warn("""username is deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""")
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -67,6 +83,18 @@ class ServiceEndpointBitBucketArgs:
         pulumi.set(self, "service_endpoint_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+        """
+        return pulumi.get(self, "api_token")
+
+    @api_token.setter
+    def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_token", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -80,9 +108,24 @@ class ServiceEndpointBitBucketArgs:
 
     @_builtins.property
     @pulumi.getter
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Bitbucket account email. Used together with `api_token` to authenticate using an Atlassian API token.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "email", value)
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""")
     def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Bitbucket account password.
+        Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
+
+        > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `api_token` (recommended) or `username` + `password` (deprecated).
         """
         return pulumi.get(self, "password")
 
@@ -92,9 +135,10 @@ class ServiceEndpointBitBucketArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""")
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Bitbucket account username.
+        Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
         """
         return pulumi.get(self, "username")
 
@@ -106,8 +150,10 @@ class ServiceEndpointBitBucketArgs:
 @pulumi.input_type
 class _ServiceEndpointBitBucketState:
     def __init__(__self__, *,
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
                  authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -115,16 +161,27 @@ class _ServiceEndpointBitBucketState:
         """
         Input properties used for looking up and filtering ServiceEndpointBitBucket resources.
 
+        :param pulumi.Input[_builtins.str] api_token: Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
-        :param pulumi.Input[_builtins.str] password: Bitbucket account password.
+        :param pulumi.Input[_builtins.str] email: Bitbucket account email. Used together with `api_token` to authenticate using an Atlassian API token.
+        :param pulumi.Input[_builtins.str] password: Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
+               
+               > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `api_token` (recommended) or `username` + `password` (deprecated).
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[_builtins.str] username: Bitbucket account username.
+        :param pulumi.Input[_builtins.str] username: Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
         """
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if password is not None:
+            warnings.warn("""Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""", DeprecationWarning)
+            pulumi.log.warn("""password is deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""")
         if password is not None:
             pulumi.set(__self__, "password", password)
         if project_id is not None:
@@ -132,7 +189,22 @@ class _ServiceEndpointBitBucketState:
         if service_endpoint_name is not None:
             pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if username is not None:
+            warnings.warn("""Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""", DeprecationWarning)
+            pulumi.log.warn("""username is deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""")
+        if username is not None:
             pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+        """
+        return pulumi.get(self, "api_token")
+
+    @api_token.setter
+    def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_token", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,9 +229,24 @@ class _ServiceEndpointBitBucketState:
 
     @_builtins.property
     @pulumi.getter
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Bitbucket account email. Used together with `api_token` to authenticate using an Atlassian API token.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "email", value)
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""")
     def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Bitbucket account password.
+        Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
+
+        > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `api_token` (recommended) or `username` + `password` (deprecated).
         """
         return pulumi.get(self, "password")
 
@@ -193,9 +280,10 @@ class _ServiceEndpointBitBucketState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""")
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Bitbucket account username.
+        Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
         """
         return pulumi.get(self, "username")
 
@@ -210,7 +298,9 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -233,8 +323,8 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             description="Managed by Pulumi")
         example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("example",
             project_id=example.id,
-            username="username",
-            password="password",
+            email="email@example.com",
+            api_token="api_token",
             service_endpoint_name="Example Bitbucket",
             description="Managed by Pulumi")
         ```
@@ -254,11 +344,15 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] api_token: Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
-        :param pulumi.Input[_builtins.str] password: Bitbucket account password.
+        :param pulumi.Input[_builtins.str] email: Bitbucket account email. Used together with `api_token` to authenticate using an Atlassian API token.
+        :param pulumi.Input[_builtins.str] password: Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
+               
+               > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `api_token` (recommended) or `username` + `password` (deprecated).
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[_builtins.str] username: Bitbucket account username.
+        :param pulumi.Input[_builtins.str] username: Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
         """
         ...
     @overload
@@ -283,8 +377,8 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             description="Managed by Pulumi")
         example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("example",
             project_id=example.id,
-            username="username",
-            password="password",
+            email="email@example.com",
+            api_token="api_token",
             service_endpoint_name="Example Bitbucket",
             description="Managed by Pulumi")
         ```
@@ -317,7 +411,9 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -331,7 +427,9 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointBitBucketArgs.__new__(ServiceEndpointBitBucketArgs)
 
+            __props__.__dict__["api_token"] = None if api_token is None else pulumi.Output.secret(api_token)
             __props__.__dict__["description"] = description
+            __props__.__dict__["email"] = email
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
@@ -341,7 +439,7 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["username"] = username
             __props__.__dict__["authorization"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiToken", "password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointBitBucket, __self__).__init__(
             'azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket',
@@ -353,8 +451,10 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            api_token: pulumi.Input[Optional[_builtins.str]] = None,
             authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
             service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -366,23 +466,37 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] api_token: Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
-        :param pulumi.Input[_builtins.str] password: Bitbucket account password.
+        :param pulumi.Input[_builtins.str] email: Bitbucket account email. Used together with `api_token` to authenticate using an Atlassian API token.
+        :param pulumi.Input[_builtins.str] password: Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
+               
+               > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `api_token` (recommended) or `username` + `password` (deprecated).
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[_builtins.str] username: Bitbucket account username.
+        :param pulumi.Input[_builtins.str] username: Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ServiceEndpointBitBucketState.__new__(_ServiceEndpointBitBucketState)
 
+        __props__.__dict__["api_token"] = api_token
         __props__.__dict__["authorization"] = authorization
         __props__.__dict__["description"] = description
+        __props__.__dict__["email"] = email
         __props__.__dict__["password"] = password
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         __props__.__dict__["username"] = username
         return ServiceEndpointBitBucket(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+        """
+        return pulumi.get(self, "api_token")
 
     @_builtins.property
     @pulumi.getter
@@ -399,9 +513,20 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> pulumi.Output[_builtins.str]:
+    def email(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Bitbucket account password.
+        Bitbucket account email. Used together with `api_token` to authenticate using an Atlassian API token.
+        """
+        return pulumi.get(self, "email")
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""")
+    def password(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
+
+        > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `api_token` (recommended) or `username` + `password` (deprecated).
         """
         return pulumi.get(self, "password")
 
@@ -423,9 +548,10 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> pulumi.Output[_builtins.str]:
+    @_utilities.deprecated("""Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.""")
+    def username(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Bitbucket account username.
+        Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `api_token` instead.
         """
         return pulumi.get(self, "username")
 

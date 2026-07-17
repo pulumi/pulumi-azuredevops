@@ -3,6 +3,7 @@
 
 package com.pulumi.azuredevops.inputs;
 
+import com.pulumi.azuredevops.inputs.TeamAreaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -39,6 +40,25 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> administrators() {
         return Optional.ofNullable(this.administrators);
+    }
+
+    /**
+     * One or more `area` blocks as defined below. Configures the area paths associated with the team.
+     * 
+     * &gt; **NOTE:** If no `area` blocks are specified, the team&#39;s area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team&#39;s area paths without modifying them on the server.
+     * 
+     */
+    @Import(name="areas")
+    private @Nullable Output<List<TeamAreaArgs>> areas;
+
+    /**
+     * @return One or more `area` blocks as defined below. Configures the area paths associated with the team.
+     * 
+     * &gt; **NOTE:** If no `area` blocks are specified, the team&#39;s area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team&#39;s area paths without modifying them on the server.
+     * 
+     */
+    public Optional<Output<List<TeamAreaArgs>>> areas() {
+        return Optional.ofNullable(this.areas);
     }
 
     /**
@@ -130,6 +150,7 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
 
     private TeamState(TeamState $) {
         this.administrators = $.administrators;
+        this.areas = $.areas;
         this.description = $.description;
         this.descriptor = $.descriptor;
         this.members = $.members;
@@ -199,6 +220,43 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder administrators(String... administrators) {
             return administrators(List.of(administrators));
+        }
+
+        /**
+         * @param areas One or more `area` blocks as defined below. Configures the area paths associated with the team.
+         * 
+         * &gt; **NOTE:** If no `area` blocks are specified, the team&#39;s area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team&#39;s area paths without modifying them on the server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder areas(@Nullable Output<List<TeamAreaArgs>> areas) {
+            $.areas = areas;
+            return this;
+        }
+
+        /**
+         * @param areas One or more `area` blocks as defined below. Configures the area paths associated with the team.
+         * 
+         * &gt; **NOTE:** If no `area` blocks are specified, the team&#39;s area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team&#39;s area paths without modifying them on the server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder areas(List<TeamAreaArgs> areas) {
+            return areas(Output.of(areas));
+        }
+
+        /**
+         * @param areas One or more `area` blocks as defined below. Configures the area paths associated with the team.
+         * 
+         * &gt; **NOTE:** If no `area` blocks are specified, the team&#39;s area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team&#39;s area paths without modifying them on the server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder areas(TeamAreaArgs... areas) {
+            return areas(List.of(areas));
         }
 
         /**

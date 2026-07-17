@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.azuredevops.TeamArgs;
 import com.pulumi.azuredevops.Utilities;
 import com.pulumi.azuredevops.inputs.TeamState;
+import com.pulumi.azuredevops.outputs.TeamArea;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -76,6 +77,62 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With Area Paths
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.Area;
+ * import com.pulumi.azuredevops.AreaArgs;
+ * import com.pulumi.azuredevops.Team;
+ * import com.pulumi.azuredevops.TeamArgs;
+ * import com.pulumi.azuredevops.inputs.TeamAreaArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Project("example", ProjectArgs.builder()
+ *             .name("Example Project")
+ *             .workItemTemplate("Agile")
+ *             .versionControl("Git")
+ *             .visibility("private")
+ *             .build());
+ * 
+ *         var exampleArea = new Area("exampleArea", AreaArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Frontend")
+ *             .build());
+ * 
+ *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()
+ *             .projectId(example.id())
+ *             .name("Frontend Team")
+ *             .areas(TeamAreaArgs.builder()
+ *                 .path(exampleArea.path())
+ *                 .includeChildren(true)
+ *                 .isDefault(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Relevant Links
  * 
  * - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)
@@ -118,6 +175,24 @@ public class Team extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> administrators() {
         return this.administrators;
+    }
+    /**
+     * One or more `area` blocks as defined below. Configures the area paths associated with the team.
+     * 
+     * &gt; **NOTE:** If no `area` blocks are specified, the team&#39;s area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team&#39;s area paths without modifying them on the server.
+     * 
+     */
+    @Export(name="areas", refs={List.class,TeamArea.class}, tree="[0,1]")
+    private Output<List<TeamArea>> areas;
+
+    /**
+     * @return One or more `area` blocks as defined below. Configures the area paths associated with the team.
+     * 
+     * &gt; **NOTE:** If no `area` blocks are specified, the team&#39;s area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team&#39;s area paths without modifying them on the server.
+     * 
+     */
+    public Output<List<TeamArea>> areas() {
+        return this.areas;
     }
     /**
      * The description of the Team.

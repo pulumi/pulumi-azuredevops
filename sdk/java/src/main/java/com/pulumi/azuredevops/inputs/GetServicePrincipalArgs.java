@@ -5,9 +5,10 @@ package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetServicePrincipalArgs extends com.pulumi.resources.InvokeArgs {
@@ -18,21 +19,41 @@ public final class GetServicePrincipalArgs extends com.pulumi.resources.InvokeAr
      * The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
      * 
      */
-    @Import(name="displayName", required=true)
-    private Output<String> displayName;
+    @Import(name="displayName")
+    private @Nullable Output<String> displayName;
 
     /**
      * @return The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
      * 
      */
-    public Output<String> displayName() {
-        return this.displayName;
+    public Optional<Output<String>> displayName() {
+        return Optional.ofNullable(this.displayName);
+    }
+
+    /**
+     * The origin ID of the Service Principal.
+     * 
+     * &gt; **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+     * 
+     */
+    @Import(name="originId")
+    private @Nullable Output<String> originId;
+
+    /**
+     * @return The origin ID of the Service Principal.
+     * 
+     * &gt; **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+     * 
+     */
+    public Optional<Output<String>> originId() {
+        return Optional.ofNullable(this.originId);
     }
 
     private GetServicePrincipalArgs() {}
 
     private GetServicePrincipalArgs(GetServicePrincipalArgs $) {
         this.displayName = $.displayName;
+        this.originId = $.originId;
     }
 
     public static Builder builder() {
@@ -59,7 +80,7 @@ public final class GetServicePrincipalArgs extends com.pulumi.resources.InvokeAr
          * @return builder
          * 
          */
-        public Builder displayName(Output<String> displayName) {
+        public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
@@ -74,10 +95,32 @@ public final class GetServicePrincipalArgs extends com.pulumi.resources.InvokeAr
             return displayName(Output.of(displayName));
         }
 
+        /**
+         * @param originId The origin ID of the Service Principal.
+         * 
+         * &gt; **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder originId(@Nullable Output<String> originId) {
+            $.originId = originId;
+            return this;
+        }
+
+        /**
+         * @param originId The origin ID of the Service Principal.
+         * 
+         * &gt; **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder originId(String originId) {
+            return originId(Output.of(originId));
+        }
+
         public GetServicePrincipalArgs build() {
-            if ($.displayName == null) {
-                throw new MissingRequiredPropertyException("GetServicePrincipalArgs", "displayName");
-            }
             return $;
         }
     }
