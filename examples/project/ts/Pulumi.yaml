@@ -1,3 +1,0 @@
-name: ado-project-ts
-runtime: nodejs
-description: A minimal TypeScript Pulumi program to create an AzureDevOps Project
