@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
@@ -55,14 +55,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleServiceEndpointBitBucket = new ServiceEndpointBitBucket("exampleServiceEndpointBitBucket", ServiceEndpointBitBucketArgs.builder()
  *             .projectId(example.id())
- *             .username("username")
- *             .password("password")
+ *             .email("email}{@literal @}{@code example.com")
+ *             .apiToken("api_token")
  *             .serviceEndpointName("Example Bitbucket")
  *             .description("Managed by Pulumi")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -81,6 +81,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket")
 public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResource {
+    /**
+     * Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+     * 
+     */
+    @Export(name="apiToken", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> apiToken;
+
+    /**
+     * @return Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+     * 
+     */
+    public Output<Optional<String>> apiToken() {
+        return Codegen.optional(this.apiToken);
+    }
     @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
@@ -102,18 +116,40 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.description);
     }
     /**
-     * Bitbucket account password.
+     * Bitbucket account email. Used together with `apiToken` to authenticate using an Atlassian API token.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
-    private Output<String> password;
+    @Export(name="email", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> email;
 
     /**
-     * @return Bitbucket account password.
+     * @return Bitbucket account email. Used together with `apiToken` to authenticate using an Atlassian API token.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Output<Optional<String>> email() {
+        return Codegen.optional(this.email);
+    }
+    /**
+     * Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+     * 
+     * &gt; **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
+     * 
+     * @deprecated
+     * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+     * 
+     */
+    @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+    @Export(name="password", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> password;
+
+    /**
+     * @return Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+     * 
+     * &gt; **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
+     * 
+     */
+    public Output<Optional<String>> password() {
+        return Codegen.optional(this.password);
     }
     /**
      * The ID of the project.
@@ -144,18 +180,22 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
         return this.serviceEndpointName;
     }
     /**
-     * Bitbucket account username.
+     * Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+     * 
+     * @deprecated
+     * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
      */
+    @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
     @Export(name="username", refs={String.class}, tree="[0]")
-    private Output<String> username;
+    private Output</* @Nullable */ String> username;
 
     /**
-     * @return Bitbucket account username.
+     * @return Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Output<Optional<String>> username() {
+        return Codegen.optional(this.username);
     }
 
     /**
@@ -198,6 +238,7 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
+                "apiToken",
                 "password"
             ))
             .build();

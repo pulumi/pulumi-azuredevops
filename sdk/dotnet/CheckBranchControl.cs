@@ -220,7 +220,11 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Importing this resource is not supported.
+    /// Importing this resource is supported. The resource ID format is `&lt;projectId&gt;/&lt;checkId&gt;`.
+    /// 
+    /// ```sh
+    /// $ pulumi import azuredevops:index/checkBranchControl:CheckBranchControl example 00000000-0000-0000-0000-000000000000/0
+    /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/checkBranchControl:CheckBranchControl")]
     public partial class CheckBranchControl : global::Pulumi.CustomResource

@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ### By Display Name
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -18,11 +20,25 @@ import * as utilities from "./utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ### By Origin ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getServicePrincipal({
+ *     originId: "00000000-0000-0000-0000-000000000000",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
-export function getServicePrincipal(args: GetServicePrincipalArgs, opts?: pulumi.InvokeOptions): Promise<GetServicePrincipalResult> {
+export function getServicePrincipal(args?: GetServicePrincipalArgs, opts?: pulumi.InvokeOptions): Promise<GetServicePrincipalResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getServicePrincipal:getServicePrincipal", {
         "displayName": args.displayName,
+        "originId": args.originId,
     }, opts);
 }
 
@@ -33,7 +49,13 @@ export interface GetServicePrincipalArgs {
     /**
      * The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
      */
-    displayName: string;
+    displayName?: string;
+    /**
+     * The origin ID of the Service Principal.
+     *
+     * > **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+     */
+    originId?: string;
 }
 
 /**
@@ -53,15 +75,14 @@ export interface GetServicePrincipalResult {
      * The origin of the Service Principal.
      */
     readonly origin: string;
-    /**
-     * The origin ID of the Service Principal..
-     */
     readonly originId: string;
 }
 /**
  * Use this data source to access information about an existing Service Principal.
  *
  * ## Example Usage
+ *
+ * ### By Display Name
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -72,11 +93,25 @@ export interface GetServicePrincipalResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ### By Origin ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getServicePrincipal({
+ *     originId: "00000000-0000-0000-0000-000000000000",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  */
-export function getServicePrincipalOutput(args: GetServicePrincipalOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServicePrincipalResult> {
+export function getServicePrincipalOutput(args?: GetServicePrincipalOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServicePrincipalResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azuredevops:index/getServicePrincipal:getServicePrincipal", {
         "displayName": args.displayName,
+        "originId": args.originId,
     }, opts);
 }
 
@@ -87,5 +122,11 @@ export interface GetServicePrincipalOutputArgs {
     /**
      * The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
      */
-    displayName: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
+    /**
+     * The origin ID of the Service Principal.
+     *
+     * > **NOTE:** Exactly one of `displayName` or `originId` must be specified.
+     */
+    originId?: pulumi.Input<string | undefined>;
 }

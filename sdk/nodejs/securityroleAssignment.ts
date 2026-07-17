@@ -48,6 +48,14 @@ import * as utilities from "./utilities";
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://learn.microsoft.com/en-us/rest/api/azure/devops/securityroles/roleassignments/set-role-assignments?view=azure-devops-rest-7.0&tabs=HTTP)
+ *
+ * ## Import
+ *
+ * Azure DevOps Security Role Assignments can be imported using the composite ID `scope/resource_id/identity_id`, e.g.
+ *
+ * ```sh
+ * $ pulumi import azuredevops:index/securityroleAssignment:SecurityroleAssignment example distributedtask.environmentreferencerole/projectId_environmentId/00000000-0000-0000-0000-000000000000
+ * ```
  */
 export class SecurityroleAssignment extends pulumi.CustomResource {
     /**
@@ -78,7 +86,7 @@ export class SecurityroleAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the identity to authorize.
+     * The internal identity ID (storage key) of the identity to authorize.
      */
     declare public readonly identityId: pulumi.Output<string>;
     /**
@@ -140,7 +148,7 @@ export class SecurityroleAssignment extends pulumi.CustomResource {
  */
 export interface SecurityroleAssignmentState {
     /**
-     * The ID of the identity to authorize.
+     * The internal identity ID (storage key) of the identity to authorize.
      */
     identityId?: pulumi.Input<string | undefined>;
     /**
@@ -162,7 +170,7 @@ export interface SecurityroleAssignmentState {
  */
 export interface SecurityroleAssignmentArgs {
     /**
-     * The ID of the identity to authorize.
+     * The internal identity ID (storage key) of the identity to authorize.
      */
     identityId: pulumi.Input<string>;
     /**

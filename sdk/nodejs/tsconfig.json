@@ -19,6 +19,7 @@
         "skipLibCheck": true
     },
     "files": [
+        "area.ts",
         "areaPermissions.ts",
         "branchPolicyAutoReviewers.ts",
         "branchPolicyBuildValidation.ts",
@@ -82,6 +83,8 @@
         "getServiceendpointGenericV2.ts",
         "getServiceendpointNpm.ts",
         "getServiceendpointSonarcloud.ts",
+        "getServiceendpointType.ts",
+        "getServiceendpointTypes.ts",
         "getStorageKey.ts",
         "getTeam.ts",
         "getTeams.ts",

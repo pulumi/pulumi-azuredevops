@@ -55,9 +55,9 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
-func GetArea(ctx *pulumi.Context, args *GetAreaArgs, opts ...pulumi.InvokeOption) (*GetAreaResult, error) {
+func LookupArea(ctx *pulumi.Context, args *LookupAreaArgs, opts ...pulumi.InvokeOption) (*LookupAreaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetAreaResult
+	var rv LookupAreaResult
 	err := ctx.Invoke("azuredevops:index/getArea:getArea", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -66,7 +66,7 @@ func GetArea(ctx *pulumi.Context, args *GetAreaArgs, opts ...pulumi.InvokeOption
 }
 
 // A collection of arguments for invoking getArea.
-type GetAreaArgs struct {
+type LookupAreaArgs struct {
 	// Read children nodes, _Depth_: 1, _Default_: `true`
 	FetchChildren *bool `pulumi:"fetchChildren"`
 	// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
@@ -76,7 +76,7 @@ type GetAreaArgs struct {
 }
 
 // A collection of values returned by getArea.
-type GetAreaResult struct {
+type LookupAreaResult struct {
 	// A list of `children` blocks as defined below, empty if `hasChildren == false`
 	Childrens     []GetAreaChildren `pulumi:"childrens"`
 	FetchChildren *bool             `pulumi:"fetchChildren"`
@@ -92,17 +92,17 @@ type GetAreaResult struct {
 	ProjectId string `pulumi:"projectId"`
 }
 
-func GetAreaOutput(ctx *pulumi.Context, args GetAreaOutputArgs, opts ...pulumi.InvokeOption) GetAreaResultOutput {
+func LookupAreaOutput(ctx *pulumi.Context, args LookupAreaOutputArgs, opts ...pulumi.InvokeOption) LookupAreaResultOutput {
 	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAreaResultOutput, error) {
-			args := v.(GetAreaArgs)
+		ApplyT(func(v interface{}) (LookupAreaResultOutput, error) {
+			args := v.(LookupAreaArgs)
 			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getArea:getArea", args, GetAreaResultOutput{}, options).(GetAreaResultOutput), nil
-		}).(GetAreaResultOutput)
+			return ctx.InvokeOutput("azuredevops:index/getArea:getArea", args, LookupAreaResultOutput{}, options).(LookupAreaResultOutput), nil
+		}).(LookupAreaResultOutput)
 }
 
 // A collection of arguments for invoking getArea.
-type GetAreaOutputArgs struct {
+type LookupAreaOutputArgs struct {
 	// Read children nodes, _Depth_: 1, _Default_: `true`
 	FetchChildren pulumi.BoolPtrInput `pulumi:"fetchChildren"`
 	// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
@@ -111,59 +111,59 @@ type GetAreaOutputArgs struct {
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
 }
 
-func (GetAreaOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAreaArgs)(nil)).Elem()
+func (LookupAreaOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAreaArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getArea.
-type GetAreaResultOutput struct{ *pulumi.OutputState }
+type LookupAreaResultOutput struct{ *pulumi.OutputState }
 
-func (GetAreaResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAreaResult)(nil)).Elem()
+func (LookupAreaResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAreaResult)(nil)).Elem()
 }
 
-func (o GetAreaResultOutput) ToGetAreaResultOutput() GetAreaResultOutput {
+func (o LookupAreaResultOutput) ToLookupAreaResultOutput() LookupAreaResultOutput {
 	return o
 }
 
-func (o GetAreaResultOutput) ToGetAreaResultOutputWithContext(ctx context.Context) GetAreaResultOutput {
+func (o LookupAreaResultOutput) ToLookupAreaResultOutputWithContext(ctx context.Context) LookupAreaResultOutput {
 	return o
 }
 
 // A list of `children` blocks as defined below, empty if `hasChildren == false`
-func (o GetAreaResultOutput) Childrens() GetAreaChildrenArrayOutput {
-	return o.ApplyT(func(v GetAreaResult) []GetAreaChildren { return v.Childrens }).(GetAreaChildrenArrayOutput)
+func (o LookupAreaResultOutput) Childrens() GetAreaChildrenArrayOutput {
+	return o.ApplyT(func(v LookupAreaResult) []GetAreaChildren { return v.Childrens }).(GetAreaChildrenArrayOutput)
 }
 
-func (o GetAreaResultOutput) FetchChildren() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetAreaResult) *bool { return v.FetchChildren }).(pulumi.BoolPtrOutput)
+func (o LookupAreaResultOutput) FetchChildren() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAreaResult) *bool { return v.FetchChildren }).(pulumi.BoolPtrOutput)
 }
 
 // Indicator if the child Area node has child nodes
-func (o GetAreaResultOutput) HasChildren() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAreaResult) bool { return v.HasChildren }).(pulumi.BoolOutput)
+func (o LookupAreaResultOutput) HasChildren() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAreaResult) bool { return v.HasChildren }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetAreaResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAreaResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupAreaResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAreaResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The name of the child Area node
-func (o GetAreaResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAreaResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupAreaResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAreaResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The complete path (in relative URL format) of the child Area
-func (o GetAreaResultOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAreaResult) string { return v.Path }).(pulumi.StringOutput)
+func (o LookupAreaResultOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAreaResult) string { return v.Path }).(pulumi.StringOutput)
 }
 
 // The ID of project.
-func (o GetAreaResultOutput) ProjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAreaResult) string { return v.ProjectId }).(pulumi.StringOutput)
+func (o LookupAreaResultOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAreaResult) string { return v.ProjectId }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetAreaResultOutput{})
+	pulumi.RegisterOutputType(LookupAreaResultOutput{})
 }

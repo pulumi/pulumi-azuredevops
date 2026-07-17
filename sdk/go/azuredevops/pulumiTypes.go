@@ -14730,6 +14730,121 @@ func (o ServicehookWebhookTfsWorkItemUpdatedPtrOutput) WorkItemType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type TeamArea struct {
+	// Whether work items in child area paths are included? Defaults to `false`.
+	IncludeChildren *bool `pulumi:"includeChildren"`
+	// Whether this area path is the team's default? Exactly one `area` block must have `isDefault` set to `true`.
+	IsDefault *bool `pulumi:"isDefault"`
+	// The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+	Path string `pulumi:"path"`
+}
+
+// TeamAreaInput is an input type that accepts TeamAreaArgs and TeamAreaOutput values.
+// You can construct a concrete instance of `TeamAreaInput` via:
+//
+//	TeamAreaArgs{...}
+type TeamAreaInput interface {
+	pulumi.Input
+
+	ToTeamAreaOutput() TeamAreaOutput
+	ToTeamAreaOutputWithContext(context.Context) TeamAreaOutput
+}
+
+type TeamAreaArgs struct {
+	// Whether work items in child area paths are included? Defaults to `false`.
+	IncludeChildren pulumi.BoolPtrInput `pulumi:"includeChildren"`
+	// Whether this area path is the team's default? Exactly one `area` block must have `isDefault` set to `true`.
+	IsDefault pulumi.BoolPtrInput `pulumi:"isDefault"`
+	// The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (TeamAreaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamArea)(nil)).Elem()
+}
+
+func (i TeamAreaArgs) ToTeamAreaOutput() TeamAreaOutput {
+	return i.ToTeamAreaOutputWithContext(context.Background())
+}
+
+func (i TeamAreaArgs) ToTeamAreaOutputWithContext(ctx context.Context) TeamAreaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamAreaOutput)
+}
+
+// TeamAreaArrayInput is an input type that accepts TeamAreaArray and TeamAreaArrayOutput values.
+// You can construct a concrete instance of `TeamAreaArrayInput` via:
+//
+//	TeamAreaArray{ TeamAreaArgs{...} }
+type TeamAreaArrayInput interface {
+	pulumi.Input
+
+	ToTeamAreaArrayOutput() TeamAreaArrayOutput
+	ToTeamAreaArrayOutputWithContext(context.Context) TeamAreaArrayOutput
+}
+
+type TeamAreaArray []TeamAreaInput
+
+func (TeamAreaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamArea)(nil)).Elem()
+}
+
+func (i TeamAreaArray) ToTeamAreaArrayOutput() TeamAreaArrayOutput {
+	return i.ToTeamAreaArrayOutputWithContext(context.Background())
+}
+
+func (i TeamAreaArray) ToTeamAreaArrayOutputWithContext(ctx context.Context) TeamAreaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamAreaArrayOutput)
+}
+
+type TeamAreaOutput struct{ *pulumi.OutputState }
+
+func (TeamAreaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamArea)(nil)).Elem()
+}
+
+func (o TeamAreaOutput) ToTeamAreaOutput() TeamAreaOutput {
+	return o
+}
+
+func (o TeamAreaOutput) ToTeamAreaOutputWithContext(ctx context.Context) TeamAreaOutput {
+	return o
+}
+
+// Whether work items in child area paths are included? Defaults to `false`.
+func (o TeamAreaOutput) IncludeChildren() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TeamArea) *bool { return v.IncludeChildren }).(pulumi.BoolPtrOutput)
+}
+
+// Whether this area path is the team's default? Exactly one `area` block must have `isDefault` set to `true`.
+func (o TeamAreaOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TeamArea) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+// The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+func (o TeamAreaOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamArea) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type TeamAreaArrayOutput struct{ *pulumi.OutputState }
+
+func (TeamAreaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TeamArea)(nil)).Elem()
+}
+
+func (o TeamAreaArrayOutput) ToTeamAreaArrayOutput() TeamAreaArrayOutput {
+	return o
+}
+
+func (o TeamAreaArrayOutput) ToTeamAreaArrayOutputWithContext(ctx context.Context) TeamAreaArrayOutput {
+	return o
+}
+
+func (o TeamAreaArrayOutput) Index(i pulumi.IntInput) TeamAreaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamArea {
+		return vs[0].([]TeamArea)[vs[1].(int)]
+	}).(TeamAreaOutput)
+}
+
 type VariableGroupKeyVault struct {
 	// The name of the Azure key vault to link secrets from as variables.
 	Name string `pulumi:"name"`
@@ -20214,6 +20329,378 @@ func (o GetSecurityroleDefinitionsDefinitionArrayOutput) Index(i pulumi.IntInput
 	}).(GetSecurityroleDefinitionsDefinitionOutput)
 }
 
+type GetServiceendpointTypeAuthorizationParameter struct {
+	// The default value for this parameter, if provided by the API.
+	DefaultValue string `pulumi:"defaultValue"`
+	// The name of the service endpoint type to query.
+	Name string `pulumi:"name"`
+	// A list of possible values for this parameter, if provided by the API.
+	PossibleValues []string `pulumi:"possibleValues"`
+}
+
+// GetServiceendpointTypeAuthorizationParameterInput is an input type that accepts GetServiceendpointTypeAuthorizationParameterArgs and GetServiceendpointTypeAuthorizationParameterOutput values.
+// You can construct a concrete instance of `GetServiceendpointTypeAuthorizationParameterInput` via:
+//
+//	GetServiceendpointTypeAuthorizationParameterArgs{...}
+type GetServiceendpointTypeAuthorizationParameterInput interface {
+	pulumi.Input
+
+	ToGetServiceendpointTypeAuthorizationParameterOutput() GetServiceendpointTypeAuthorizationParameterOutput
+	ToGetServiceendpointTypeAuthorizationParameterOutputWithContext(context.Context) GetServiceendpointTypeAuthorizationParameterOutput
+}
+
+type GetServiceendpointTypeAuthorizationParameterArgs struct {
+	// The default value for this parameter, if provided by the API.
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// The name of the service endpoint type to query.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of possible values for this parameter, if provided by the API.
+	PossibleValues pulumi.StringArrayInput `pulumi:"possibleValues"`
+}
+
+func (GetServiceendpointTypeAuthorizationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceendpointTypeAuthorizationParameter)(nil)).Elem()
+}
+
+func (i GetServiceendpointTypeAuthorizationParameterArgs) ToGetServiceendpointTypeAuthorizationParameterOutput() GetServiceendpointTypeAuthorizationParameterOutput {
+	return i.ToGetServiceendpointTypeAuthorizationParameterOutputWithContext(context.Background())
+}
+
+func (i GetServiceendpointTypeAuthorizationParameterArgs) ToGetServiceendpointTypeAuthorizationParameterOutputWithContext(ctx context.Context) GetServiceendpointTypeAuthorizationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceendpointTypeAuthorizationParameterOutput)
+}
+
+// GetServiceendpointTypeAuthorizationParameterArrayInput is an input type that accepts GetServiceendpointTypeAuthorizationParameterArray and GetServiceendpointTypeAuthorizationParameterArrayOutput values.
+// You can construct a concrete instance of `GetServiceendpointTypeAuthorizationParameterArrayInput` via:
+//
+//	GetServiceendpointTypeAuthorizationParameterArray{ GetServiceendpointTypeAuthorizationParameterArgs{...} }
+type GetServiceendpointTypeAuthorizationParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceendpointTypeAuthorizationParameterArrayOutput() GetServiceendpointTypeAuthorizationParameterArrayOutput
+	ToGetServiceendpointTypeAuthorizationParameterArrayOutputWithContext(context.Context) GetServiceendpointTypeAuthorizationParameterArrayOutput
+}
+
+type GetServiceendpointTypeAuthorizationParameterArray []GetServiceendpointTypeAuthorizationParameterInput
+
+func (GetServiceendpointTypeAuthorizationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceendpointTypeAuthorizationParameter)(nil)).Elem()
+}
+
+func (i GetServiceendpointTypeAuthorizationParameterArray) ToGetServiceendpointTypeAuthorizationParameterArrayOutput() GetServiceendpointTypeAuthorizationParameterArrayOutput {
+	return i.ToGetServiceendpointTypeAuthorizationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceendpointTypeAuthorizationParameterArray) ToGetServiceendpointTypeAuthorizationParameterArrayOutputWithContext(ctx context.Context) GetServiceendpointTypeAuthorizationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceendpointTypeAuthorizationParameterArrayOutput)
+}
+
+type GetServiceendpointTypeAuthorizationParameterOutput struct{ *pulumi.OutputState }
+
+func (GetServiceendpointTypeAuthorizationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceendpointTypeAuthorizationParameter)(nil)).Elem()
+}
+
+func (o GetServiceendpointTypeAuthorizationParameterOutput) ToGetServiceendpointTypeAuthorizationParameterOutput() GetServiceendpointTypeAuthorizationParameterOutput {
+	return o
+}
+
+func (o GetServiceendpointTypeAuthorizationParameterOutput) ToGetServiceendpointTypeAuthorizationParameterOutputWithContext(ctx context.Context) GetServiceendpointTypeAuthorizationParameterOutput {
+	return o
+}
+
+// The default value for this parameter, if provided by the API.
+func (o GetServiceendpointTypeAuthorizationParameterOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceendpointTypeAuthorizationParameter) string { return v.DefaultValue }).(pulumi.StringOutput)
+}
+
+// The name of the service endpoint type to query.
+func (o GetServiceendpointTypeAuthorizationParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceendpointTypeAuthorizationParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of possible values for this parameter, if provided by the API.
+func (o GetServiceendpointTypeAuthorizationParameterOutput) PossibleValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceendpointTypeAuthorizationParameter) []string { return v.PossibleValues }).(pulumi.StringArrayOutput)
+}
+
+type GetServiceendpointTypeAuthorizationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceendpointTypeAuthorizationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceendpointTypeAuthorizationParameter)(nil)).Elem()
+}
+
+func (o GetServiceendpointTypeAuthorizationParameterArrayOutput) ToGetServiceendpointTypeAuthorizationParameterArrayOutput() GetServiceendpointTypeAuthorizationParameterArrayOutput {
+	return o
+}
+
+func (o GetServiceendpointTypeAuthorizationParameterArrayOutput) ToGetServiceendpointTypeAuthorizationParameterArrayOutputWithContext(ctx context.Context) GetServiceendpointTypeAuthorizationParameterArrayOutput {
+	return o
+}
+
+func (o GetServiceendpointTypeAuthorizationParameterArrayOutput) Index(i pulumi.IntInput) GetServiceendpointTypeAuthorizationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceendpointTypeAuthorizationParameter {
+		return vs[0].([]GetServiceendpointTypeAuthorizationParameter)[vs[1].(int)]
+	}).(GetServiceendpointTypeAuthorizationParameterOutput)
+}
+
+type GetServiceendpointTypeParameter struct {
+	// The default value for this parameter, if provided by the API.
+	DefaultValue string `pulumi:"defaultValue"`
+	// The name of the service endpoint type to query.
+	Name string `pulumi:"name"`
+	// A list of possible values for this parameter, if provided by the API.
+	PossibleValues []string `pulumi:"possibleValues"`
+}
+
+// GetServiceendpointTypeParameterInput is an input type that accepts GetServiceendpointTypeParameterArgs and GetServiceendpointTypeParameterOutput values.
+// You can construct a concrete instance of `GetServiceendpointTypeParameterInput` via:
+//
+//	GetServiceendpointTypeParameterArgs{...}
+type GetServiceendpointTypeParameterInput interface {
+	pulumi.Input
+
+	ToGetServiceendpointTypeParameterOutput() GetServiceendpointTypeParameterOutput
+	ToGetServiceendpointTypeParameterOutputWithContext(context.Context) GetServiceendpointTypeParameterOutput
+}
+
+type GetServiceendpointTypeParameterArgs struct {
+	// The default value for this parameter, if provided by the API.
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// The name of the service endpoint type to query.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of possible values for this parameter, if provided by the API.
+	PossibleValues pulumi.StringArrayInput `pulumi:"possibleValues"`
+}
+
+func (GetServiceendpointTypeParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceendpointTypeParameter)(nil)).Elem()
+}
+
+func (i GetServiceendpointTypeParameterArgs) ToGetServiceendpointTypeParameterOutput() GetServiceendpointTypeParameterOutput {
+	return i.ToGetServiceendpointTypeParameterOutputWithContext(context.Background())
+}
+
+func (i GetServiceendpointTypeParameterArgs) ToGetServiceendpointTypeParameterOutputWithContext(ctx context.Context) GetServiceendpointTypeParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceendpointTypeParameterOutput)
+}
+
+// GetServiceendpointTypeParameterArrayInput is an input type that accepts GetServiceendpointTypeParameterArray and GetServiceendpointTypeParameterArrayOutput values.
+// You can construct a concrete instance of `GetServiceendpointTypeParameterArrayInput` via:
+//
+//	GetServiceendpointTypeParameterArray{ GetServiceendpointTypeParameterArgs{...} }
+type GetServiceendpointTypeParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceendpointTypeParameterArrayOutput() GetServiceendpointTypeParameterArrayOutput
+	ToGetServiceendpointTypeParameterArrayOutputWithContext(context.Context) GetServiceendpointTypeParameterArrayOutput
+}
+
+type GetServiceendpointTypeParameterArray []GetServiceendpointTypeParameterInput
+
+func (GetServiceendpointTypeParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceendpointTypeParameter)(nil)).Elem()
+}
+
+func (i GetServiceendpointTypeParameterArray) ToGetServiceendpointTypeParameterArrayOutput() GetServiceendpointTypeParameterArrayOutput {
+	return i.ToGetServiceendpointTypeParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceendpointTypeParameterArray) ToGetServiceendpointTypeParameterArrayOutputWithContext(ctx context.Context) GetServiceendpointTypeParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceendpointTypeParameterArrayOutput)
+}
+
+type GetServiceendpointTypeParameterOutput struct{ *pulumi.OutputState }
+
+func (GetServiceendpointTypeParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceendpointTypeParameter)(nil)).Elem()
+}
+
+func (o GetServiceendpointTypeParameterOutput) ToGetServiceendpointTypeParameterOutput() GetServiceendpointTypeParameterOutput {
+	return o
+}
+
+func (o GetServiceendpointTypeParameterOutput) ToGetServiceendpointTypeParameterOutputWithContext(ctx context.Context) GetServiceendpointTypeParameterOutput {
+	return o
+}
+
+// The default value for this parameter, if provided by the API.
+func (o GetServiceendpointTypeParameterOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceendpointTypeParameter) string { return v.DefaultValue }).(pulumi.StringOutput)
+}
+
+// The name of the service endpoint type to query.
+func (o GetServiceendpointTypeParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceendpointTypeParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of possible values for this parameter, if provided by the API.
+func (o GetServiceendpointTypeParameterOutput) PossibleValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceendpointTypeParameter) []string { return v.PossibleValues }).(pulumi.StringArrayOutput)
+}
+
+type GetServiceendpointTypeParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceendpointTypeParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceendpointTypeParameter)(nil)).Elem()
+}
+
+func (o GetServiceendpointTypeParameterArrayOutput) ToGetServiceendpointTypeParameterArrayOutput() GetServiceendpointTypeParameterArrayOutput {
+	return o
+}
+
+func (o GetServiceendpointTypeParameterArrayOutput) ToGetServiceendpointTypeParameterArrayOutputWithContext(ctx context.Context) GetServiceendpointTypeParameterArrayOutput {
+	return o
+}
+
+func (o GetServiceendpointTypeParameterArrayOutput) Index(i pulumi.IntInput) GetServiceendpointTypeParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceendpointTypeParameter {
+		return vs[0].([]GetServiceendpointTypeParameter)[vs[1].(int)]
+	}).(GetServiceendpointTypeParameterOutput)
+}
+
+type GetServiceendpointTypesType struct {
+	// A list of available authentication schemes for this service endpoint type.
+	AuthenticationSchemes []string `pulumi:"authenticationSchemes"`
+	// The description of the service endpoint type.
+	Description string `pulumi:"description"`
+	// The display name of the service endpoint type.
+	DisplayName string `pulumi:"displayName"`
+	// The ID of the service endpoint type (typically same as name).
+	Id string `pulumi:"id"`
+	// The name of the service endpoint type.
+	Name string `pulumi:"name"`
+	// The UI contribution ID for this service endpoint type.
+	UiContributionId string `pulumi:"uiContributionId"`
+}
+
+// GetServiceendpointTypesTypeInput is an input type that accepts GetServiceendpointTypesTypeArgs and GetServiceendpointTypesTypeOutput values.
+// You can construct a concrete instance of `GetServiceendpointTypesTypeInput` via:
+//
+//	GetServiceendpointTypesTypeArgs{...}
+type GetServiceendpointTypesTypeInput interface {
+	pulumi.Input
+
+	ToGetServiceendpointTypesTypeOutput() GetServiceendpointTypesTypeOutput
+	ToGetServiceendpointTypesTypeOutputWithContext(context.Context) GetServiceendpointTypesTypeOutput
+}
+
+type GetServiceendpointTypesTypeArgs struct {
+	// A list of available authentication schemes for this service endpoint type.
+	AuthenticationSchemes pulumi.StringArrayInput `pulumi:"authenticationSchemes"`
+	// The description of the service endpoint type.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The display name of the service endpoint type.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The ID of the service endpoint type (typically same as name).
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the service endpoint type.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The UI contribution ID for this service endpoint type.
+	UiContributionId pulumi.StringInput `pulumi:"uiContributionId"`
+}
+
+func (GetServiceendpointTypesTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceendpointTypesType)(nil)).Elem()
+}
+
+func (i GetServiceendpointTypesTypeArgs) ToGetServiceendpointTypesTypeOutput() GetServiceendpointTypesTypeOutput {
+	return i.ToGetServiceendpointTypesTypeOutputWithContext(context.Background())
+}
+
+func (i GetServiceendpointTypesTypeArgs) ToGetServiceendpointTypesTypeOutputWithContext(ctx context.Context) GetServiceendpointTypesTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceendpointTypesTypeOutput)
+}
+
+// GetServiceendpointTypesTypeArrayInput is an input type that accepts GetServiceendpointTypesTypeArray and GetServiceendpointTypesTypeArrayOutput values.
+// You can construct a concrete instance of `GetServiceendpointTypesTypeArrayInput` via:
+//
+//	GetServiceendpointTypesTypeArray{ GetServiceendpointTypesTypeArgs{...} }
+type GetServiceendpointTypesTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceendpointTypesTypeArrayOutput() GetServiceendpointTypesTypeArrayOutput
+	ToGetServiceendpointTypesTypeArrayOutputWithContext(context.Context) GetServiceendpointTypesTypeArrayOutput
+}
+
+type GetServiceendpointTypesTypeArray []GetServiceendpointTypesTypeInput
+
+func (GetServiceendpointTypesTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceendpointTypesType)(nil)).Elem()
+}
+
+func (i GetServiceendpointTypesTypeArray) ToGetServiceendpointTypesTypeArrayOutput() GetServiceendpointTypesTypeArrayOutput {
+	return i.ToGetServiceendpointTypesTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceendpointTypesTypeArray) ToGetServiceendpointTypesTypeArrayOutputWithContext(ctx context.Context) GetServiceendpointTypesTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceendpointTypesTypeArrayOutput)
+}
+
+type GetServiceendpointTypesTypeOutput struct{ *pulumi.OutputState }
+
+func (GetServiceendpointTypesTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceendpointTypesType)(nil)).Elem()
+}
+
+func (o GetServiceendpointTypesTypeOutput) ToGetServiceendpointTypesTypeOutput() GetServiceendpointTypesTypeOutput {
+	return o
+}
+
+func (o GetServiceendpointTypesTypeOutput) ToGetServiceendpointTypesTypeOutputWithContext(ctx context.Context) GetServiceendpointTypesTypeOutput {
+	return o
+}
+
+// A list of available authentication schemes for this service endpoint type.
+func (o GetServiceendpointTypesTypeOutput) AuthenticationSchemes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceendpointTypesType) []string { return v.AuthenticationSchemes }).(pulumi.StringArrayOutput)
+}
+
+// The description of the service endpoint type.
+func (o GetServiceendpointTypesTypeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceendpointTypesType) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the service endpoint type.
+func (o GetServiceendpointTypesTypeOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceendpointTypesType) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The ID of the service endpoint type (typically same as name).
+func (o GetServiceendpointTypesTypeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceendpointTypesType) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the service endpoint type.
+func (o GetServiceendpointTypesTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceendpointTypesType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The UI contribution ID for this service endpoint type.
+func (o GetServiceendpointTypesTypeOutput) UiContributionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceendpointTypesType) string { return v.UiContributionId }).(pulumi.StringOutput)
+}
+
+type GetServiceendpointTypesTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceendpointTypesTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceendpointTypesType)(nil)).Elem()
+}
+
+func (o GetServiceendpointTypesTypeArrayOutput) ToGetServiceendpointTypesTypeArrayOutput() GetServiceendpointTypesTypeArrayOutput {
+	return o
+}
+
+func (o GetServiceendpointTypesTypeArrayOutput) ToGetServiceendpointTypesTypeArrayOutputWithContext(ctx context.Context) GetServiceendpointTypesTypeArrayOutput {
+	return o
+}
+
+func (o GetServiceendpointTypesTypeArrayOutput) Index(i pulumi.IntInput) GetServiceendpointTypesTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceendpointTypesType {
+		return vs[0].([]GetServiceendpointTypesType)[vs[1].(int)]
+	}).(GetServiceendpointTypesTypeOutput)
+}
+
 type GetTeamsTeam struct {
 	// List of subject descriptors for `administrators` of the team.
 	Administrators []string `pulumi:"administrators"`
@@ -21700,6 +22187,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemRestoredPtrInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemRestoredArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemUpdatedInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemUpdatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicehookWebhookTfsWorkItemUpdatedPtrInput)(nil)).Elem(), ServicehookWebhookTfsWorkItemUpdatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamAreaInput)(nil)).Elem(), TeamAreaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamAreaArrayInput)(nil)).Elem(), TeamAreaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableTypeInput)(nil)).Elem(), VariableGroupVariableTypeArgs{})
@@ -21784,6 +22273,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityNamespacesNamespaceActionArrayInput)(nil)).Elem(), GetSecurityNamespacesNamespaceActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityroleDefinitionsDefinitionInput)(nil)).Elem(), GetSecurityroleDefinitionsDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityroleDefinitionsDefinitionArrayInput)(nil)).Elem(), GetSecurityroleDefinitionsDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceendpointTypeAuthorizationParameterInput)(nil)).Elem(), GetServiceendpointTypeAuthorizationParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceendpointTypeAuthorizationParameterArrayInput)(nil)).Elem(), GetServiceendpointTypeAuthorizationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceendpointTypeParameterInput)(nil)).Elem(), GetServiceendpointTypeParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceendpointTypeParameterArrayInput)(nil)).Elem(), GetServiceendpointTypeParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceendpointTypesTypeInput)(nil)).Elem(), GetServiceendpointTypesTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceendpointTypesTypeArrayInput)(nil)).Elem(), GetServiceendpointTypesTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamInput)(nil)).Elem(), GetTeamsTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersFeaturesInput)(nil)).Elem(), GetUsersFeaturesArgs{})
@@ -21984,6 +22479,8 @@ func init() {
 	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemRestoredPtrOutput{})
 	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemUpdatedOutput{})
 	pulumi.RegisterOutputType(ServicehookWebhookTfsWorkItemUpdatedPtrOutput{})
+	pulumi.RegisterOutputType(TeamAreaOutput{})
+	pulumi.RegisterOutputType(TeamAreaArrayOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableTypeOutput{})
@@ -22068,6 +22565,12 @@ func init() {
 	pulumi.RegisterOutputType(GetSecurityNamespacesNamespaceActionArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityroleDefinitionsDefinitionOutput{})
 	pulumi.RegisterOutputType(GetSecurityroleDefinitionsDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceendpointTypeAuthorizationParameterOutput{})
+	pulumi.RegisterOutputType(GetServiceendpointTypeAuthorizationParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceendpointTypeParameterOutput{})
+	pulumi.RegisterOutputType(GetServiceendpointTypeParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceendpointTypesTypeOutput{})
+	pulumi.RegisterOutputType(GetServiceendpointTypesTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetTeamsTeamOutput{})
 	pulumi.RegisterOutputType(GetTeamsTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersFeaturesOutput{})

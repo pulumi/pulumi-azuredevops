@@ -16,6 +16,8 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Example Usage
         /// 
+        /// ### By Display Name
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +37,30 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
+        /// 
+        /// ### By Origin ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetServicePrincipal.Invoke(new()
+        ///     {
+        ///         OriginId = "00000000-0000-0000-0000-000000000000",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
-        public static Task<GetServicePrincipalResult> InvokeAsync(GetServicePrincipalArgs args, InvokeOptions? options = null)
+        public static Task<GetServicePrincipalResult> InvokeAsync(GetServicePrincipalArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServicePrincipalResult>("azuredevops:index/getServicePrincipal:getServicePrincipal", args ?? new GetServicePrincipalArgs(), options.WithDefaults());
 
         /// <summary>
@@ -44,6 +68,8 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ## Example Usage
         /// 
+        /// ### By Display Name
+        /// 
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,14 +89,38 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
+        /// 
+        /// ### By Origin ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetServicePrincipal.Invoke(new()
+        ///     {
+        ///         OriginId = "00000000-0000-0000-0000-000000000000",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
-        public static Output<GetServicePrincipalResult> Invoke(GetServicePrincipalInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetServicePrincipalResult> Invoke(GetServicePrincipalInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServicePrincipalResult>("azuredevops:index/getServicePrincipal:getServicePrincipal", args ?? new GetServicePrincipalInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Service Principal.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### By Display Name
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -83,6 +133,28 @@ namespace Pulumi.AzureDevOps
         ///     var example = AzureDevOps.GetServicePrincipal.Invoke(new()
         ///     {
         ///         DisplayName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### By Origin ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetServicePrincipal.Invoke(new()
+        ///     {
+        ///         OriginId = "00000000-0000-0000-0000-000000000000",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -102,8 +174,16 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
         /// </summary>
-        [Input("displayName", required: true)]
-        public string DisplayName { get; set; } = null!;
+        [Input("displayName")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
+        /// The origin ID of the Service Principal.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `DisplayName` or `OriginId` must be specified.
+        /// </summary>
+        [Input("originId")]
+        public string? OriginId { get; set; }
 
         public GetServicePrincipalArgs()
         {
@@ -116,8 +196,16 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
         /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The origin ID of the Service Principal.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `DisplayName` or `OriginId` must be specified.
+        /// </summary>
+        [Input("originId")]
+        public Input<string>? OriginId { get; set; }
 
         public GetServicePrincipalInvokeArgs()
         {
@@ -142,9 +230,6 @@ namespace Pulumi.AzureDevOps
         /// The origin of the Service Principal.
         /// </summary>
         public readonly string Origin;
-        /// <summary>
-        /// The origin ID of the Service Principal..
-        /// </summary>
         public readonly string OriginId;
 
         [OutputConstructor]

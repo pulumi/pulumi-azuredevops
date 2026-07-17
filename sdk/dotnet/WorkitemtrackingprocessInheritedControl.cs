@@ -73,6 +73,12 @@ namespace Pulumi.AzureDevOps
         public Output<string> ControlId { get; private set; } = null!;
 
         /// <summary>
+        /// Type of control.
+        /// </summary>
+        [Output("controlType")]
+        public Output<string> ControlType { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the group containing the control. Changing this forces a new resource to be created.
         /// </summary>
         [Output("groupId")]
@@ -197,6 +203,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("controlId")]
         public Input<string>? ControlId { get; set; }
+
+        /// <summary>
+        /// Type of control.
+        /// </summary>
+        [Input("controlType")]
+        public Input<string>? ControlType { get; set; }
 
         /// <summary>
         /// The ID of the group containing the control. Changing this forces a new resource to be created.

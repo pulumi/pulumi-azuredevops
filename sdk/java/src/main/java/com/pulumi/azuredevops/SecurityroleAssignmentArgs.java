@@ -15,14 +15,14 @@ public final class SecurityroleAssignmentArgs extends com.pulumi.resources.Resou
     public static final SecurityroleAssignmentArgs Empty = new SecurityroleAssignmentArgs();
 
     /**
-     * The ID of the identity to authorize.
+     * The internal identity ID (storage key) of the identity to authorize.
      * 
      */
     @Import(name="identityId", required=true)
     private Output<String> identityId;
 
     /**
-     * @return The ID of the identity to authorize.
+     * @return The internal identity ID (storage key) of the identity to authorize.
      * 
      */
     public Output<String> identityId() {
@@ -102,7 +102,7 @@ public final class SecurityroleAssignmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityId The ID of the identity to authorize.
+         * @param identityId The internal identity ID (storage key) of the identity to authorize.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class SecurityroleAssignmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityId The ID of the identity to authorize.
+         * @param identityId The internal identity ID (storage key) of the identity to authorize.
          * 
          * @return builder
          * 

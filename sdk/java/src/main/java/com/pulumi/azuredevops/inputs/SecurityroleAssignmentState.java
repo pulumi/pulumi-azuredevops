@@ -16,14 +16,14 @@ public final class SecurityroleAssignmentState extends com.pulumi.resources.Reso
     public static final SecurityroleAssignmentState Empty = new SecurityroleAssignmentState();
 
     /**
-     * The ID of the identity to authorize.
+     * The internal identity ID (storage key) of the identity to authorize.
      * 
      */
     @Import(name="identityId")
     private @Nullable Output<String> identityId;
 
     /**
-     * @return The ID of the identity to authorize.
+     * @return The internal identity ID (storage key) of the identity to authorize.
      * 
      */
     public Optional<Output<String>> identityId() {
@@ -103,7 +103,7 @@ public final class SecurityroleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param identityId The ID of the identity to authorize.
+         * @param identityId The internal identity ID (storage key) of the identity to authorize.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class SecurityroleAssignmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param identityId The ID of the identity to authorize.
+         * @param identityId The internal identity ID (storage key) of the identity to authorize.
          * 
          * @return builder
          * 

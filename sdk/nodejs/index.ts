@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export { AreaArgs, AreaState } from "./area";
+export type Area = import("./area").Area;
+export const Area: typeof import("./area").Area = null as any;
+utilities.lazyLoad(exports, ["Area"], () => require("./area"));
+
 export { AreaPermissionsArgs, AreaPermissionsState } from "./areaPermissions";
 export type AreaPermissions = import("./areaPermissions").AreaPermissions;
 export const AreaPermissions: typeof import("./areaPermissions").AreaPermissions = null as any;
@@ -309,6 +314,16 @@ export { GetServiceendpointSonarcloudArgs, GetServiceendpointSonarcloudResult, G
 export const getServiceendpointSonarcloud: typeof import("./getServiceendpointSonarcloud").getServiceendpointSonarcloud = null as any;
 export const getServiceendpointSonarcloudOutput: typeof import("./getServiceendpointSonarcloud").getServiceendpointSonarcloudOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceendpointSonarcloud","getServiceendpointSonarcloudOutput"], () => require("./getServiceendpointSonarcloud"));
+
+export { GetServiceendpointTypeArgs, GetServiceendpointTypeResult, GetServiceendpointTypeOutputArgs } from "./getServiceendpointType";
+export const getServiceendpointType: typeof import("./getServiceendpointType").getServiceendpointType = null as any;
+export const getServiceendpointTypeOutput: typeof import("./getServiceendpointType").getServiceendpointTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceendpointType","getServiceendpointTypeOutput"], () => require("./getServiceendpointType"));
+
+export { GetServiceendpointTypesResult } from "./getServiceendpointTypes";
+export const getServiceendpointTypes: typeof import("./getServiceendpointTypes").getServiceendpointTypes = null as any;
+export const getServiceendpointTypesOutput: typeof import("./getServiceendpointTypes").getServiceendpointTypesOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceendpointTypes","getServiceendpointTypesOutput"], () => require("./getServiceendpointTypes"));
 
 export { GetStorageKeyArgs, GetStorageKeyResult, GetStorageKeyOutputArgs } from "./getStorageKey";
 export const getStorageKey: typeof import("./getStorageKey").getStorageKey = null as any;
@@ -892,6 +907,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azuredevops:index/area:Area":
+                return new Area(name, <any>undefined, { urn })
             case "azuredevops:index/areaPermissions:AreaPermissions":
                 return new AreaPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers":
@@ -1157,6 +1174,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azuredevops", "index/area", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/areaPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyAutoReviewers", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyBuildValidation", _module)

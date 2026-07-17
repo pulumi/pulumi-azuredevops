@@ -75,9 +75,6 @@ class GetServicePrincipalResult:
     @_builtins.property
     @pulumi.getter(name="originId")
     def origin_id(self) -> _builtins.str:
-        """
-        The origin ID of the Service Principal..
-        """
         return pulumi.get(self, "origin_id")
 
 
@@ -95,11 +92,14 @@ class AwaitableGetServicePrincipalResult(GetServicePrincipalResult):
 
 
 def get_service_principal(display_name: Optional[_builtins.str] = None,
+                          origin_id: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServicePrincipalResult:
     """
     Use this data source to access information about an existing Service Principal.
 
     ## Example Usage
+
+    ### By Display Name
 
     ```python
     import pulumi
@@ -109,11 +109,25 @@ def get_service_principal(display_name: Optional[_builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ### By Origin ID
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_service_principal(origin_id="00000000-0000-0000-0000-000000000000")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param _builtins.str display_name: The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
+    :param _builtins.str origin_id: The origin ID of the Service Principal.
+           
+           > **NOTE:** Exactly one of `display_name` or `origin_id` must be specified.
     """
     __args__ = dict()
     __args__['displayName'] = display_name
+    __args__['originId'] = origin_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getServicePrincipal:getServicePrincipal', __args__, opts=opts, typ=GetServicePrincipalResult).value
 
@@ -123,12 +137,15 @@ def get_service_principal(display_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         origin=pulumi.get(__ret__, 'origin'),
         origin_id=pulumi.get(__ret__, 'origin_id'))
-def get_service_principal_output(display_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_service_principal_output(display_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 origin_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServicePrincipalResult]:
     """
     Use this data source to access information about an existing Service Principal.
 
     ## Example Usage
+
+    ### By Display Name
 
     ```python
     import pulumi
@@ -138,11 +155,25 @@ def get_service_principal_output(display_name: pulumi.Input[Optional[_builtins.s
     pulumi.export("id", example.id)
     ```
 
+    ### By Origin ID
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_service_principal(origin_id="00000000-0000-0000-0000-000000000000")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param _builtins.str display_name: The Display Name of the Service Principal. Changing this forces a new Service Principal to be created.
+    :param _builtins.str origin_id: The origin ID of the Service Principal.
+           
+           > **NOTE:** Exactly one of `display_name` or `origin_id` must be specified.
     """
     __args__ = dict()
     __args__['displayName'] = display_name
+    __args__['originId'] = origin_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azuredevops:index/getServicePrincipal:getServicePrincipal', __args__, opts=opts, typ=GetServicePrincipalResult)
     return __ret__.apply(lambda __response__: GetServicePrincipalResult(

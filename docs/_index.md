@@ -171,12 +171,12 @@ The following configuration inputs are supported in the provider configuration:
 - `clientIdFilePath` - The path to a file containing a client id to authenticate. It can also be sourced from the `ARM_CLIENT_ID_FILE_PATH` environment variable.
 
 - `tenantId` - The tenant id used when authenticating to a service principal.
-  It can also be sourced from the `ARM_TENANT_ID` environment variable.
+  It can also be sourced from the `ARM_TENANT_ID` or `AZURE_TENANT_ID` environment variable.
 
 - `auxiliaryTenantIds` - List of auxiliary Tenant IDs required for multi-tenancy and cross-tenant scenarios. This can also be sourced from the `ARM_AUXILIARY_TENANT_IDS` environment variable.
 
 - `clientSecret` - The client secret used to authenticate to a service principal.
-  It can also be sourced from the `ARM_CLIENT_SECRET` environment variable.
+  It can also be sourced from the `ARM_CLIENT_SECRET` or `AZURE_CLIENT_SECRET` environment variable.
 
 - `clientSecretPath` - The path to a file containing a client secret to authenticate to a service principal.
   It can also be sourced from the `ARM_CLIENT_SECRET_PATH` or `ARM_CLIENT_SECRET_FILE_PATH` environment variable.

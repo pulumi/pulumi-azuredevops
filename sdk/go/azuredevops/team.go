@@ -69,6 +69,56 @@ import (
 //
 // ```
 //
+// ### With Area Paths
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Name:             pulumi.String("Example Project"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleArea, err := azuredevops.NewArea(ctx, "example", &azuredevops.AreaArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Frontend"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewTeam(ctx, "example", &azuredevops.TeamArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Frontend Team"),
+//				Areas: azuredevops.TeamAreaArray{
+//					&azuredevops.TeamAreaArgs{
+//						Path:            exampleArea.Path,
+//						IncludeChildren: pulumi.Bool(true),
+//						IsDefault:       pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)
@@ -94,6 +144,10 @@ type Team struct {
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators pulumi.StringArrayOutput `pulumi:"administrators"`
+	// One or more `area` blocks as defined below. Configures the area paths associated with the team.
+	//
+	// > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+	Areas TeamAreaArrayOutput `pulumi:"areas"`
 	// The description of the Team.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The descriptor of the Team.
@@ -151,6 +205,10 @@ type teamState struct {
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators []string `pulumi:"administrators"`
+	// One or more `area` blocks as defined below. Configures the area paths associated with the team.
+	//
+	// > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+	Areas []TeamArea `pulumi:"areas"`
 	// The description of the Team.
 	Description *string `pulumi:"description"`
 	// The descriptor of the Team.
@@ -176,6 +234,10 @@ type TeamState struct {
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators pulumi.StringArrayInput
+	// One or more `area` blocks as defined below. Configures the area paths associated with the team.
+	//
+	// > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+	Areas TeamAreaArrayInput
 	// The description of the Team.
 	Description pulumi.StringPtrInput
 	// The descriptor of the Team.
@@ -205,6 +267,10 @@ type teamArgs struct {
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators []string `pulumi:"administrators"`
+	// One or more `area` blocks as defined below. Configures the area paths associated with the team.
+	//
+	// > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+	Areas []TeamArea `pulumi:"areas"`
 	// The description of the Team.
 	Description *string `pulumi:"description"`
 	// List of subject descriptors to define members of the team.
@@ -229,6 +295,10 @@ type TeamArgs struct {
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators pulumi.StringArrayInput
+	// One or more `area` blocks as defined below. Configures the area paths associated with the team.
+	//
+	// > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+	Areas TeamAreaArrayInput
 	// The description of the Team.
 	Description pulumi.StringPtrInput
 	// List of subject descriptors to define members of the team.
@@ -339,6 +409,13 @@ func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 // both methods to manage team administrators, since there'll be conflicts.
 func (o TeamOutput) Administrators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringArrayOutput { return v.Administrators }).(pulumi.StringArrayOutput)
+}
+
+// One or more `area` blocks as defined below. Configures the area paths associated with the team.
+//
+// > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
+func (o TeamOutput) Areas() TeamAreaArrayOutput {
+	return o.ApplyT(func(v *Team) TeamAreaArrayOutput { return v.Areas }).(TeamAreaArrayOutput)
 }
 
 // The description of the Team.

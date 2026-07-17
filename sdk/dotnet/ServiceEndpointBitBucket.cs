@@ -34,8 +34,8 @@ namespace Pulumi.AzureDevOps
     ///     var exampleServiceEndpointBitBucket = new AzureDevOps.ServiceEndpointBitBucket("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         Username = "username",
-    ///         Password = "password",
+    ///         Email = "email@example.com",
+    ///         ApiToken = "api_token",
     ///         ServiceEndpointName = "Example Bitbucket",
     ///         Description = "Managed by Pulumi",
     ///     });
@@ -58,6 +58,12 @@ namespace Pulumi.AzureDevOps
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket")]
     public partial class ServiceEndpointBitBucket : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Bitbucket account API token. Used together with `Email` to authenticate using an Atlassian API token.
+        /// </summary>
+        [Output("apiToken")]
+        public Output<string?> ApiToken { get; private set; } = null!;
+
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
@@ -68,10 +74,18 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Bitbucket account password.
+        /// Bitbucket account email. Used together with `ApiToken` to authenticate using an Atlassian API token.
+        /// </summary>
+        [Output("email")]
+        public Output<string?> Email { get; private set; } = null!;
+
+        /// <summary>
+        /// Bitbucket account password. Used together with `Username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `Email` and `ApiToken` instead.
+        /// 
+        /// &gt; **NOTE:** Exactly one authentication method must be configured. Provide either `Email` + `ApiToken` (recommended) or `Username` + `Password` (deprecated).
         /// </summary>
         [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
+        public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the project.
@@ -86,10 +100,10 @@ namespace Pulumi.AzureDevOps
         public Output<string> ServiceEndpointName { get; private set; } = null!;
 
         /// <summary>
-        /// Bitbucket account username.
+        /// Bitbucket account username. Used together with `Password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `Email` and `ApiToken` instead.
         /// </summary>
         [Output("username")]
-        public Output<string> Username { get; private set; } = null!;
+        public Output<string?> Username { get; private set; } = null!;
 
 
         /// <summary>
@@ -116,6 +130,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "apiToken",
                     "password",
                 },
             };
@@ -141,18 +156,43 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceEndpointBitBucketArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiToken")]
+        private Input<string>? _apiToken;
+
+        /// <summary>
+        /// Bitbucket account API token. Used together with `Email` to authenticate using an Atlassian API token.
+        /// </summary>
+        public Input<string>? ApiToken
+        {
+            get => _apiToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         /// <summary>
         /// The Service Endpoint description. Defaults to `Managed by Terraform`.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Bitbucket account email. Used together with `ApiToken` to authenticate using an Atlassian API token.
+        /// </summary>
+        [Input("email")]
+        public Input<string>? Email { get; set; }
+
         [Input("password")]
         private Input<string>? _password;
 
         /// <summary>
-        /// Bitbucket account password.
+        /// Bitbucket account password. Used together with `Username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `Email` and `ApiToken` instead.
+        /// 
+        /// &gt; **NOTE:** Exactly one authentication method must be configured. Provide either `Email` + `ApiToken` (recommended) or `Username` + `Password` (deprecated).
         /// </summary>
+        [Obsolete(@"Bitbucket Cloud has deprecated app password (username and password) authentication. Use `Email` and `ApiToken` instead.")]
         public Input<string>? Password
         {
             get => _password;
@@ -176,7 +216,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ServiceEndpointName { get; set; } = null!;
 
         /// <summary>
-        /// Bitbucket account username.
+        /// Bitbucket account username. Used together with `Password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `Email` and `ApiToken` instead.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
@@ -189,6 +229,22 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceEndpointBitBucketState : global::Pulumi.ResourceArgs
     {
+        [Input("apiToken")]
+        private Input<string>? _apiToken;
+
+        /// <summary>
+        /// Bitbucket account API token. Used together with `Email` to authenticate using an Atlassian API token.
+        /// </summary>
+        public Input<string>? ApiToken
+        {
+            get => _apiToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         [Input("authorization")]
         private InputMap<string>? _authorization;
         public InputMap<string> Authorization
@@ -203,12 +259,21 @@ namespace Pulumi.AzureDevOps
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Bitbucket account email. Used together with `ApiToken` to authenticate using an Atlassian API token.
+        /// </summary>
+        [Input("email")]
+        public Input<string>? Email { get; set; }
+
         [Input("password")]
         private Input<string>? _password;
 
         /// <summary>
-        /// Bitbucket account password.
+        /// Bitbucket account password. Used together with `Username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `Email` and `ApiToken` instead.
+        /// 
+        /// &gt; **NOTE:** Exactly one authentication method must be configured. Provide either `Email` + `ApiToken` (recommended) or `Username` + `Password` (deprecated).
         /// </summary>
+        [Obsolete(@"Bitbucket Cloud has deprecated app password (username and password) authentication. Use `Email` and `ApiToken` instead.")]
         public Input<string>? Password
         {
             get => _password;
@@ -232,7 +297,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ServiceEndpointName { get; set; }
 
         /// <summary>
-        /// Bitbucket account username.
+        /// Bitbucket account username. Used together with `Password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `Email` and `ApiToken` instead.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

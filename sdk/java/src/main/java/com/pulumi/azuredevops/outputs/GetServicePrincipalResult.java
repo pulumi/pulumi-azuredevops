@@ -26,10 +26,6 @@ public final class GetServicePrincipalResult {
      * 
      */
     private String origin;
-    /**
-     * @return The origin ID of the Service Principal..
-     * 
-     */
     private String originId;
 
     private GetServicePrincipalResult() {}
@@ -57,10 +53,6 @@ public final class GetServicePrincipalResult {
     public String origin() {
         return this.origin;
     }
-    /**
-     * @return The origin ID of the Service Principal..
-     * 
-     */
     public String originId() {
         return this.originId;
     }

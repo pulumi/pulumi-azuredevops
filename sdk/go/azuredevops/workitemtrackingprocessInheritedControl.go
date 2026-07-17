@@ -83,6 +83,8 @@ type WorkitemtrackingprocessInheritedControl struct {
 
 	// The ID of the inherited control to customize. Changing this forces a new resource to be created.
 	ControlId pulumi.StringOutput `pulumi:"controlId"`
+	// Type of control.
+	ControlType pulumi.StringOutput `pulumi:"controlType"`
 	// The ID of the group containing the control. Changing this forces a new resource to be created.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// Label for the control.
@@ -139,6 +141,8 @@ func GetWorkitemtrackingprocessInheritedControl(ctx *pulumi.Context,
 type workitemtrackingprocessInheritedControlState struct {
 	// The ID of the inherited control to customize. Changing this forces a new resource to be created.
 	ControlId *string `pulumi:"controlId"`
+	// Type of control.
+	ControlType *string `pulumi:"controlType"`
 	// The ID of the group containing the control. Changing this forces a new resource to be created.
 	GroupId *string `pulumi:"groupId"`
 	// Label for the control.
@@ -154,6 +158,8 @@ type workitemtrackingprocessInheritedControlState struct {
 type WorkitemtrackingprocessInheritedControlState struct {
 	// The ID of the inherited control to customize. Changing this forces a new resource to be created.
 	ControlId pulumi.StringPtrInput
+	// Type of control.
+	ControlType pulumi.StringPtrInput
 	// The ID of the group containing the control. Changing this forces a new resource to be created.
 	GroupId pulumi.StringPtrInput
 	// Label for the control.
@@ -291,6 +297,11 @@ func (o WorkitemtrackingprocessInheritedControlOutput) ToWorkitemtrackingprocess
 // The ID of the inherited control to customize. Changing this forces a new resource to be created.
 func (o WorkitemtrackingprocessInheritedControlOutput) ControlId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkitemtrackingprocessInheritedControl) pulumi.StringOutput { return v.ControlId }).(pulumi.StringOutput)
+}
+
+// Type of control.
+func (o WorkitemtrackingprocessInheritedControlOutput) ControlType() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkitemtrackingprocessInheritedControl) pulumi.StringOutput { return v.ControlType }).(pulumi.StringOutput)
 }
 
 // The ID of the group containing the control. Changing this forces a new resource to be created.

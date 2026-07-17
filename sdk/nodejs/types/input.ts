@@ -1498,6 +1498,21 @@ export interface ServicehookWebhookTfsWorkItemUpdated {
     workItemType?: pulumi.Input<string | undefined>;
 }
 
+export interface TeamArea {
+    /**
+     * Whether work items in child area paths are included? Defaults to `false`.
+     */
+    includeChildren?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether this area path is the team's default? Exactly one `area` block must have `isDefault` set to `true`.
+     */
+    isDefault?: pulumi.Input<boolean | undefined>;
+    /**
+     * The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+     */
+    path: pulumi.Input<string>;
+}
+
 export interface VariableGroupKeyVault {
     /**
      * The name of the Azure key vault to link secrets from as variables.

@@ -384,7 +384,11 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Import
     /// 
-    /// Importing this resource is not supported.
+    /// Importing this resource is supported. The resource ID format is `&lt;projectId&gt;/&lt;checkId&gt;`.
+    /// 
+    /// ```sh
+    /// $ pulumi import azuredevops:index/checkBusinessHours:CheckBusinessHours example 00000000-0000-0000-0000-000000000000/0
+    /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/checkBusinessHours:CheckBusinessHours")]
     public partial class CheckBusinessHours : global::Pulumi.CustomResource

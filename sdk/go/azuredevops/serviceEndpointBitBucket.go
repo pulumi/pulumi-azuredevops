@@ -40,8 +40,8 @@ import (
 //			}
 //			_, err = azuredevops.NewServiceEndpointBitBucket(ctx, "example", &azuredevops.ServiceEndpointBitBucketArgs{
 //				ProjectId:           example.ID(),
-//				Username:            pulumi.String("username"),
-//				Password:            pulumi.String("password"),
+//				Email:               pulumi.String("email@example.com"),
+//				ApiToken:            pulumi.String("api_token"),
 //				ServiceEndpointName: pulumi.String("Example Bitbucket"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //			})
@@ -68,17 +68,27 @@ import (
 type ServiceEndpointBitBucket struct {
 	pulumi.CustomResourceState
 
+	// Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+	ApiToken      pulumi.StringPtrOutput `pulumi:"apiToken"`
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
 	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Bitbucket account password.
-	Password pulumi.StringOutput `pulumi:"password"`
+	// Bitbucket account email. Used together with `apiToken` to authenticate using an Atlassian API token.
+	Email pulumi.StringPtrOutput `pulumi:"email"`
+	// Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	//
+	// > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
+	//
+	// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
-	// Bitbucket account username.
-	Username pulumi.StringOutput `pulumi:"username"`
+	// Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	//
+	// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
 // NewServiceEndpointBitBucket registers a new resource with the given unique name, arguments, and options.
@@ -94,10 +104,14 @@ func NewServiceEndpointBitBucket(ctx *pulumi.Context,
 	if args.ServiceEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
+	if args.ApiToken != nil {
+		args.ApiToken = pulumi.ToSecret(args.ApiToken).(pulumi.StringPtrInput)
+	}
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiToken",
 		"password",
 	})
 	opts = append(opts, secrets)
@@ -124,30 +138,50 @@ func GetServiceEndpointBitBucket(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceEndpointBitBucket resources.
 type serviceEndpointBitBucketState struct {
+	// Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+	ApiToken      *string           `pulumi:"apiToken"`
 	Authorization map[string]string `pulumi:"authorization"`
 	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
-	// Bitbucket account password.
+	// Bitbucket account email. Used together with `apiToken` to authenticate using an Atlassian API token.
+	Email *string `pulumi:"email"`
+	// Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	//
+	// > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
+	//
+	// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
 	Password *string `pulumi:"password"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
-	// Bitbucket account username.
+	// Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	//
+	// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
 	Username *string `pulumi:"username"`
 }
 
 type ServiceEndpointBitBucketState struct {
+	// Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+	ApiToken      pulumi.StringPtrInput
 	Authorization pulumi.StringMapInput
 	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
-	// Bitbucket account password.
+	// Bitbucket account email. Used together with `apiToken` to authenticate using an Atlassian API token.
+	Email pulumi.StringPtrInput
+	// Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	//
+	// > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
+	//
+	// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
 	Password pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
-	// Bitbucket account username.
+	// Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	//
+	// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
 	Username pulumi.StringPtrInput
 }
 
@@ -156,29 +190,49 @@ func (ServiceEndpointBitBucketState) ElementType() reflect.Type {
 }
 
 type serviceEndpointBitBucketArgs struct {
+	// Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+	ApiToken *string `pulumi:"apiToken"`
 	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`
-	// Bitbucket account password.
+	// Bitbucket account email. Used together with `apiToken` to authenticate using an Atlassian API token.
+	Email *string `pulumi:"email"`
+	// Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	//
+	// > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
+	//
+	// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
 	Password *string `pulumi:"password"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
-	// Bitbucket account username.
+	// Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	//
+	// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
 	Username *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a ServiceEndpointBitBucket resource.
 type ServiceEndpointBitBucketArgs struct {
+	// Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+	ApiToken pulumi.StringPtrInput
 	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description pulumi.StringPtrInput
-	// Bitbucket account password.
+	// Bitbucket account email. Used together with `apiToken` to authenticate using an Atlassian API token.
+	Email pulumi.StringPtrInput
+	// Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	//
+	// > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
+	//
+	// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
 	Password pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput
-	// Bitbucket account username.
+	// Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+	//
+	// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
 	Username pulumi.StringPtrInput
 }
 
@@ -269,6 +323,11 @@ func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketOutputWithCont
 	return o
 }
 
+// Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
+func (o ServiceEndpointBitBucketOutput) ApiToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringPtrOutput { return v.ApiToken }).(pulumi.StringPtrOutput)
+}
+
 func (o ServiceEndpointBitBucketOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
@@ -278,9 +337,18 @@ func (o ServiceEndpointBitBucketOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Bitbucket account password.
-func (o ServiceEndpointBitBucketOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+// Bitbucket account email. Used together with `apiToken` to authenticate using an Atlassian API token.
+func (o ServiceEndpointBitBucketOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// Bitbucket account password. Used together with `username` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+//
+// > **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
+//
+// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+func (o ServiceEndpointBitBucketOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the project.
@@ -293,9 +361,11 @@ func (o ServiceEndpointBitBucketOutput) ServiceEndpointName() pulumi.StringOutpu
 	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringOutput { return v.ServiceEndpointName }).(pulumi.StringOutput)
 }
 
-// Bitbucket account username.
-func (o ServiceEndpointBitBucketOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+// Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+//
+// Deprecated: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+func (o ServiceEndpointBitBucketOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ServiceEndpointBitBucketArrayOutput struct{ *pulumi.OutputState }
