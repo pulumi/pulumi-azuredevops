@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessWorkitemtype, err := azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId:                   example.ID(),
+//				ProcessId:                   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:                        pulumi.String("Bug"),
 //				ParentWorkItemReferenceName: pulumi.String("Microsoft.VSTS.WorkItemTypes.Bug"),
 //			})
@@ -49,7 +49,7 @@ import (
 //			}
 //			// Hide an inherited state
 //			_, err = azuredevops.NewWorkitemtrackingprocessInheritedState(ctx, "example", &azuredevops.WorkitemtrackingprocessInheritedStateArgs{
-//				ProcessId:      example.ID(),
+//				ProcessId:      example.ID().ToIDOutput().ToStringOutput(),
 //				WorkItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
 //				Name:           pulumi.String("New"),
 //				Visible:        pulumi.Bool(false),

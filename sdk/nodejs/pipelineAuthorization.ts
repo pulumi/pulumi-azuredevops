@@ -73,7 +73,7 @@ import * as utilities from "./utilities";
  *     name: "Example Pipeline",
  *     repository: {
  *         repoType: "TfsGit",
- *         repoId: example.apply(example => example.id),
+ *         repoId: example.id,
  *         ymlPath: "azure-pipelines.yml",
  *     },
  * });

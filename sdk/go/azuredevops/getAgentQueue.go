@@ -38,15 +38,11 @@ import (
 //				return err
 //			}
 //			example := azuredevops.GetAgentQueueOutput(ctx, azuredevops.GetAgentQueueOutputArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Agent Queue"),
 //			}, nil)
-//			ctx.Export("name", example.ApplyT(func(example azuredevops.GetAgentQueueResult) (*string, error) {
-//				return example.Name, nil
-//			}).(pulumi.StringPtrOutput))
-//			ctx.Export("poolId", example.ApplyT(func(example azuredevops.GetAgentQueueResult) (*int, error) {
-//				return example.AgentPoolId, nil
-//			}).(pulumi.IntPtrOutput))
+//			ctx.Export("name", example.Name())
+//			ctx.Export("poolId", example.AgentPoolId())
 //			return nil
 //		})
 //	}

@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointAzureServiceBus(ctx, "example", &azuredevops.ServiceendpointAzureServiceBusArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Azure Service Bus"),
 //				QueueName:           pulumi.String("queue"),
 //				ConnectionString:    pulumi.String("connection string"),

@@ -41,11 +41,11 @@ import (
 //				return err
 //			}
 //			example_project_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			exampleTeam, err := azuredevops.NewTeam(ctx, "example", &azuredevops.TeamArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name: example.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("%v Team 2", name), nil
 //				}).(pulumi.StringOutput),
@@ -55,12 +55,10 @@ import (
 //			}
 //			_, err = azuredevops.NewTeamMembers(ctx, "example-team-members", &azuredevops.TeamMembersArgs{
 //				ProjectId: exampleTeam.ProjectId,
-//				TeamId:    exampleTeam.ID(),
+//				TeamId:    exampleTeam.ID().ToIDOutput().ToStringOutput(),
 //				Mode:      pulumi.String("overwrite"),
 //				Members: pulumi.StringArray{
-//					pulumi.String(example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
-//						return example_project_readers.Descriptor, nil
-//					}).(pulumi.StringPtrOutput)),
+//					example_project_readers.Descriptor(),
 //				},
 //			})
 //			if err != nil {

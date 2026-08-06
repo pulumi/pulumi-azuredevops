@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  * });
  * const example_root_permissions = new azuredevops.ServiceendpointPermissions("example-root-permissions", {
  *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         Use: "allow",
  *         Administer: "allow",
@@ -52,7 +52,7 @@ import * as utilities from "./utilities";
  * });
  * const example_permissions = new azuredevops.ServiceendpointPermissions("example-permissions", {
  *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     serviceendpointId: exampleServiceEndpointDockerRegistry.id,
  *     permissions: {
  *         Use: "allow",

@@ -34,24 +34,20 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			example_contributors := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)
 //			_, err = azuredevops.NewGroup(ctx, "example", &azuredevops.GroupArgs{
-//				Scope:       example.ID(),
+//				Scope:       example.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName: pulumi.String("Example group"),
 //				Description: pulumi.String("Example description"),
 //				Members: pulumi.StringArray{
-//					pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//						return example_readers.Descriptor, nil
-//					}).(pulumi.StringPtrOutput)),
-//					pulumi.String(example_contributors.ApplyT(func(example_contributors azuredevops.GetGroupResult) (*string, error) {
-//						return example_contributors.Descriptor, nil
-//					}).(pulumi.StringPtrOutput)),
+//					example_readers.Descriptor(),
+//					example_contributors.Descriptor(),
 //				},
 //			})
 //			if err != nil {

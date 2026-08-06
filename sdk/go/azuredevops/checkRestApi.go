@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointGeneric, err := azuredevops.NewServiceEndpointGeneric(ctx, "example", &azuredevops.ServiceEndpointGenericArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServerUrl:           pulumi.String("https://some-server.example.com"),
 //				ServiceEndpointName: pulumi.String("Example Generic"),
 //				Username:            pulumi.String("username"),
@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			exampleAzure, err := azuredevops.NewServiceEndpointGeneric(ctx, "example_azure", &azuredevops.ServiceEndpointGenericArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServerUrl:           pulumi.String("https://dev.azure.com/"),
 //				ServiceEndpointName: pulumi.String("Example Generic Azure"),
 //				Username:            pulumi.String("username"),
@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			exampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, "example", &azuredevops.VariableGroupArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("Example Variable Group"),
 //				AllowAccess: pulumi.Bool(true),
 //				Variables: azuredevops.VariableGroupVariableTypeArray{
@@ -70,8 +70,8 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckRestApi(ctx, "example", &azuredevops.CheckRestApiArgs{
-//				ProjectId:                    example.ID(),
-//				TargetResourceId:             exampleServiceEndpointGeneric.ID(),
+//				ProjectId:                    example.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:             exampleServiceEndpointGeneric.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceType:           pulumi.String("endpoint"),
 //				DisplayName:                  pulumi.String("Example REST API Check"),
 //				ConnectedServiceNameSelector: pulumi.String("connectedServiceName"),

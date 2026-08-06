@@ -39,7 +39,7 @@ import (
 //			}
 //			// Basic username/password authentication
 //			_, err = azuredevops.NewServiceendpointGenericV2(ctx, "example", &azuredevops.ServiceendpointGenericV2Args{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				Name:                pulumi.String("Example Generic Service Endpoint"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				ServiceEndpointType: "generic",
@@ -55,7 +55,7 @@ import (
 //			}
 //			// Token-based authentication
 //			_, err = azuredevops.NewServiceendpointGenericV2(ctx, "token_example", &azuredevops.ServiceendpointGenericV2Args{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				Name:                pulumi.String("Token-based Service Endpoint"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				ServiceEndpointType: "generic",

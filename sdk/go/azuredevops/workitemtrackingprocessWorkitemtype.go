@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId:   example.ID(),
+//				ProcessId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("example"),
 //				Description: pulumi.String("Example work item type"),
 //				Color:       pulumi.String("#FF5733"),

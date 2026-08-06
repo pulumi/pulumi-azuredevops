@@ -27,8 +27,8 @@ import * as utilities from "./utilities";
  *     displayName: "Example group",
  *     description: "Example description",
  *     members: [
- *         example_readers.apply(example_readers => example_readers.descriptor),
- *         example_contributors.apply(example_contributors => example_contributors.descriptor),
+ *         example_readers.descriptor,
+ *         example_contributors.descriptor,
  *     ],
  * });
  * ```

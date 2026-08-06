@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -35,7 +37,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -45,11 +47,11 @@ import (
 //				return err
 //			}
 //			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Build Definition"),
 //				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 //					RepoType: pulumi.String("TfsGit"),
-//					RepoId:   exampleGit.ID(),
+//					RepoId:   exampleGit.ID().ToIDOutput().ToStringOutput(),
 //					YmlPath:  pulumi.String("azure-pipelines.yml"),
 //				},
 //			})
@@ -57,12 +59,12 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBranchPolicyBuildValidation(ctx, "example", &azuredevops.BranchPolicyBuildValidationArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
 //				Settings: &azuredevops.BranchPolicyBuildValidationSettingsArgs{
 //					DisplayName:             pulumi.String("Example build validation policy"),
-//					BuildDefinitionId:       exampleBuildDefinition.ID(),
+//					BuildDefinitionId:       exampleBuildDefinition.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //					QueueOnSourceUpdateOnly: pulumi.Bool(true),
 //					ValidDuration:           pulumi.Int(720),
 //					FilenamePatterns: pulumi.StringArray{
@@ -72,12 +74,12 @@ import (
 //					},
 //					Scopes: azuredevops.BranchPolicyBuildValidationSettingsScopeArray{
 //						&azuredevops.BranchPolicyBuildValidationSettingsScopeArgs{
-//							RepositoryId:  exampleGit.ID(),
+//							RepositoryId:  exampleGit.ID().ToIDOutput().ToStringOutput(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),
 //						},
 //						&azuredevops.BranchPolicyBuildValidationSettingsScopeArgs{
-//							RepositoryId:  exampleGit.ID(),
+//							RepositoryId:  exampleGit.ID().ToIDOutput().ToStringOutput(),
 //							RepositoryRef: pulumi.String("refs/heads/releases"),
 //							MatchType:     pulumi.String("Prefix"),
 //						},

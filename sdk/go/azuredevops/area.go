@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewArea(ctx, "example", &azuredevops.AreaArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Frontend"),
 //			})
 //			if err != nil {
@@ -62,6 +62,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -79,7 +81,7 @@ import (
 //			_, err = azuredevops.NewArea(ctx, "child", &azuredevops.AreaArgs{
 //				ProjectId:    pulumi.Any(example.Id),
 //				Name:         pulumi.String("Frontend"),
-//				ParentAreaId: parent.ID(),
+//				ParentAreaId: parent.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err

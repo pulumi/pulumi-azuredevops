@@ -46,14 +46,12 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-root-permissions", &azuredevops.ServiceendpointPermissionsArgs{
-//				ProjectId: example.ID(),
-//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"Use":               pulumi.String("allow"),
 //					"Administer":        pulumi.String("allow"),
@@ -66,7 +64,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointDockerRegistry, err := azuredevops.NewServiceEndpointDockerRegistry(ctx, "example", &azuredevops.ServiceEndpointDockerRegistryArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Docker Hub"),
 //				DockerUsername:      pulumi.String("username"),
 //				DockerEmail:         pulumi.String("email@example.com"),
@@ -77,11 +75,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-permissions", &azuredevops.ServiceendpointPermissionsArgs{
-//				ProjectId: example.ID(),
-//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ServiceendpointId: exampleServiceEndpointDockerRegistry.ID(),
+//				ProjectId:         example.ID().ToIDOutput().ToStringOutput(),
+//				Principal:         example_readers.Id(),
+//				ServiceendpointId: exampleServiceEndpointDockerRegistry.ID().ToIDOutput().ToStringOutput(),
 //				Permissions: pulumi.StringMap{
 //					"Use":               pulumi.String("allow"),
 //					"Administer":        pulumi.String("deny"),

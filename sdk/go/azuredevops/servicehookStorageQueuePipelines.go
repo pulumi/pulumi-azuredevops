@@ -60,7 +60,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServicehookStorageQueuePipelines(ctx, "example", &azuredevops.ServicehookStorageQueuePipelinesArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				AccountName: exampleStorageAccount.Name,
 //				AccountKey:  exampleStorageAccount.PrimaryAccessKey,
 //				QueueName:   exampleStorageQueue.Name,

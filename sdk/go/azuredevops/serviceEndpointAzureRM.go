@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
-//				ProjectId:                           example.ID(),
+//				ProjectId:                           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName:                 pulumi.String("Example AzureRM"),
 //				Description:                         pulumi.String("Managed by Pulumi"),
 //				ServiceEndpointAuthenticationScheme: pulumi.String("ServicePrincipal"),
@@ -97,7 +97,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
-//				ProjectId:                           example.ID(),
+//				ProjectId:                           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName:                 pulumi.String("Example AzureRM"),
 //				Description:                         pulumi.String("Managed by Pulumi"),
 //				ServiceEndpointAuthenticationScheme: pulumi.String("ServicePrincipal"),
@@ -142,7 +142,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
-//				ProjectId:                           example.ID(),
+//				ProjectId:                           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName:                 pulumi.String("Example AzureRM"),
 //				ServiceEndpointAuthenticationScheme: pulumi.String("ServicePrincipal"),
 //				AzurermSpnTenantid:                  pulumi.String("00000000-0000-0000-0000-000000000000"),
@@ -200,7 +200,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
-//				ProjectId:                           example.ID(),
+//				ProjectId:                           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName:                 pulumi.String(serviceConnectionName),
 //				Description:                         pulumi.String("Managed by Pulumi"),
 //				ServiceEndpointAuthenticationScheme: pulumi.String("WorkloadIdentityFederation"),
@@ -257,7 +257,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
-//				ProjectId:                           example.ID(),
+//				ProjectId:                           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName:                 pulumi.String("Example AzureRM"),
 //				ServiceEndpointAuthenticationScheme: pulumi.String("WorkloadIdentityFederation"),
 //				AzurermSpnTenantid:                  pulumi.String("00000000-0000-0000-0000-000000000000"),
@@ -297,7 +297,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
-//				ProjectId:                           example.ID(),
+//				ProjectId:                           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName:                 pulumi.String("Example AzureRM"),
 //				ServiceEndpointAuthenticationScheme: pulumi.String("ManagedServiceIdentity"),
 //				AzurermSpnTenantid:                  pulumi.String("00000000-0000-0000-0000-000000000000"),

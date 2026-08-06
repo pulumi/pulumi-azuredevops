@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointJenkins(ctx, "example", &azuredevops.ServiceendpointJenkinsArgs{
-//				ProjectId:            example.ID(),
+//				ProjectId:            example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName:  pulumi.String("jenkins-example"),
 //				Description:          pulumi.String("Service Endpoint for 'Jenkins' (Managed by Terraform)"),
 //				Url:                  pulumi.String("https://example.com"),

@@ -103,7 +103,7 @@ import (
 //			}
 //			// Use the data source to understand available parameters
 //			_, err = azuredevops.NewServiceendpointGenericV2(ctx, "example", &azuredevops.ServiceendpointGenericV2Args{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				Name:                pulumi.String("Example Bitbucket"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				Type:                pulumi.String(bitbucket.Name),

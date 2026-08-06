@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  * });
  * const example_permissions = new azuredevops.ServicehookPermissions("example-permissions", {
  *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         ViewSubscriptions: "allow",
  *         EditSubscriptions: "allow",

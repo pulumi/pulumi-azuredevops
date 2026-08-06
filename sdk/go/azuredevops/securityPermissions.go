@@ -103,7 +103,7 @@ import (
 //			}
 //			gitRepo, err := azuredevops.GetSecurityNamespaceToken(ctx, &azuredevops.GetSecurityNamespaceTokenArgs{
 //				NamespaceName: pulumi.StringRef("Git Repositories"),
-//				Identifiers: pulumi.StringMap{
+//				Identifiers: map[string]pulumi.String{
 //					"project_id":    example.Id,
 //					"repository_id": exampleGetGitRepository.Id,
 //				},
@@ -174,7 +174,7 @@ import (
 //			}
 //			mainBranch, err := azuredevops.GetSecurityNamespaceToken(ctx, &azuredevops.GetSecurityNamespaceTokenArgs{
 //				NamespaceName: pulumi.StringRef("Git Repositories"),
-//				Identifiers: pulumi.StringMap{
+//				Identifiers: map[string]pulumi.String{
 //					"project_id":    example.Id,
 //					"repository_id": exampleGetGitRepository.Id,
 //					"ref_name":      "refs/heads/main",

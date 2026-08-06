@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Environment"),
 //			})
 //			if err != nil {
@@ -50,8 +50,8 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckApproval(ctx, "example", &azuredevops.CheckApprovalArgs{
-//				ProjectId:           example.ID(),
-//				TargetResourceId:    exampleEnvironment.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:    exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceType:  pulumi.String("environment"),
 //				RequesterCanApprove: pulumi.Bool(true),
 //				Approvers: pulumi.StringArray{

@@ -110,7 +110,7 @@ import * as utilities from "./utilities";
  *             myTeamBugs.name,
  *         ],
  *     }).result,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         Read: "Allow",
  *         Contribute: "Deny",

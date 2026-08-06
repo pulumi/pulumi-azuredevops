@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointArgocd(ctx, "example", &azuredevops.ServiceendpointArgocdArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example ArgoCD"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://argocd.my.com"),
@@ -79,7 +79,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointArgocd(ctx, "example", &azuredevops.ServiceendpointArgocdArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example ArgoCD"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://argocd.my.com"),

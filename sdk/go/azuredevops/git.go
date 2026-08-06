@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId:     example.ID(),
+//				ProjectId:     example.ID().ToIDOutput().ToStringOutput(),
 //				Name:          pulumi.String("Example Git Repository"),
 //				DefaultBranch: pulumi.String("refs/heads/main"),
 //				Initialization: &azuredevops.GitInitializationArgs{
@@ -84,7 +84,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Empty Git Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -123,7 +123,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId:     example.ID(),
+//				ProjectId:     example.ID().ToIDOutput().ToStringOutput(),
 //				Name:          pulumi.String("Example Git Repository"),
 //				DefaultBranch: pulumi.String("refs/heads/main"),
 //				Initialization: &azuredevops.GitInitializationArgs{
@@ -163,7 +163,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId:     example.ID(),
+//				ProjectId:     example.ID().ToIDOutput().ToStringOutput(),
 //				Name:          pulumi.String("Example Git Repository"),
 //				DefaultBranch: pulumi.String("refs/heads/main"),
 //				Initialization: &azuredevops.GitInitializationArgs{
@@ -174,9 +174,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewGit(ctx, "example-fork", &azuredevops.GitArgs{
-//				ProjectId:          example.ID(),
+//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
 //				Name:               pulumi.String("Example Fork Repository"),
-//				ParentRepositoryId: exampleGit.ID(),
+//				ParentRepositoryId: exampleGit.ID().ToIDOutput().ToStringOutput(),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Fork"),
 //				},
@@ -214,7 +214,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId:     example.ID(),
+//				ProjectId:     example.ID().ToIDOutput().ToStringOutput(),
 //				Name:          pulumi.String("Example Git Repository"),
 //				DefaultBranch: pulumi.String("refs/heads/main"),
 //				Initialization: &azuredevops.GitInitializationArgs{
@@ -225,7 +225,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewGit(ctx, "example-import", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Import Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType:   pulumi.String("Import"),
@@ -266,7 +266,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId:     example.ID(),
+//				ProjectId:     example.ID().ToIDOutput().ToStringOutput(),
 //				Name:          pulumi.String("Example Git Repository"),
 //				DefaultBranch: pulumi.String("refs/heads/main"),
 //				Initialization: &azuredevops.GitInitializationArgs{
@@ -277,7 +277,7 @@ import (
 //				return err
 //			}
 //			example_serviceendpoint, err := azuredevops.NewServiceEndpointGenericGit(ctx, "example-serviceendpoint", &azuredevops.ServiceEndpointGenericGitArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				RepositoryUrl:       pulumi.String("https://dev.azure.com/org/project/_git/repository"),
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("<password>/<PAT>"),
@@ -289,13 +289,13 @@ import (
 //			}
 //			// with service connection
 //			_, err = azuredevops.NewGit(ctx, "example-import", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Import Existing Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType:            pulumi.String("Import"),
 //					SourceType:          pulumi.String("Git"),
 //					SourceUrl:           pulumi.String("https://dev.azure.com/example-org/private-repository.git"),
-//					ServiceConnectionId: example_serviceendpoint.ID(),
+//					ServiceConnectionId: example_serviceendpoint.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -303,7 +303,7 @@ import (
 //			}
 //			// with username/password
 //			_, err = azuredevops.NewGit(ctx, "example-import2", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Import Existing Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType:   pulumi.String("Import"),
@@ -346,7 +346,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Empty Git Repository"),
 //				Disabled:  pulumi.Bool(true),
 //				Initialization: &azuredevops.GitInitializationArgs{

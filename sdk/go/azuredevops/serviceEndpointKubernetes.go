@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointKubernetes(ctx, "example-azure", &azuredevops.ServiceEndpointKubernetesArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Kubernetes"),
 //				ApiserverUrl:        pulumi.String("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io"),
 //				AuthorizationType:   pulumi.String("AzureSubscription"),
@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointKubernetes(ctx, "example-kubeconfig", &azuredevops.ServiceEndpointKubernetesArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Kubernetes"),
 //				ApiserverUrl:        pulumi.String("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io"),
 //				AuthorizationType:   pulumi.String("Kubeconfig"),
@@ -94,7 +94,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointKubernetes(ctx, "example-service-account", &azuredevops.ServiceEndpointKubernetesArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Kubernetes"),
 //				ApiserverUrl:        pulumi.String("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io"),
 //				AuthorizationType:   pulumi.String("ServiceAccount"),

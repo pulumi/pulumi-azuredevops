@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemqueryFolder(ctx, "team_folder", &azuredevops.WorkitemqueryFolderArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Team"),
 //				Area:      pulumi.String("Shared Queries"),
 //			})
@@ -82,7 +82,7 @@ import (
 //			_, err = azuredevops.NewWorkitemqueryFolder(ctx, "child", &azuredevops.WorkitemqueryFolderArgs{
 //				ProjectId: pulumi.Any(example.Id),
 //				Name:      pulumi.String("Child"),
-//				ParentId:  parent.ID(),
+//				ParentId:  parent.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

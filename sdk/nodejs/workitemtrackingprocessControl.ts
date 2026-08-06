@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * const exampleWorkitemtrackingprocessGroup = new azuredevops.WorkitemtrackingprocessGroup("example", {
  *     processId: example.id,
  *     workItemTypeReferenceName: exampleWorkitemtrackingprocessWorkitemtype.referenceName,
- *     pageId: exampleWorkitemtrackingprocessWorkitemtype.pages.apply(pages => pages[0].id),
+ *     pageId: exampleWorkitemtrackingprocessWorkitemtype.pages[0].id,
  *     sectionId: exampleWorkitemtrackingprocessWorkitemtype.pages.apply(pages => pages[0].sections?.[0]?.id),
  *     label: "Custom Group",
  * });
@@ -58,7 +58,7 @@ import * as utilities from "./utilities";
  * const exampleWorkitemtrackingprocessGroup = new azuredevops.WorkitemtrackingprocessGroup("example", {
  *     processId: example.id,
  *     workItemTypeReferenceName: exampleWorkitemtrackingprocessWorkitemtype.referenceName,
- *     pageId: exampleWorkitemtrackingprocessWorkitemtype.pages.apply(pages => pages[0].id),
+ *     pageId: exampleWorkitemtrackingprocessWorkitemtype.pages[0].id,
  *     sectionId: exampleWorkitemtrackingprocessWorkitemtype.pages.apply(pages => pages[0].sections?.[0]?.id),
  *     label: "Custom Group",
  * });

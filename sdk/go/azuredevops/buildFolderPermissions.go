@@ -43,11 +43,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewBuildFolder(ctx, "example", &azuredevops.BuildFolderArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Path:        pulumi.String("\\ExampleFolder"),
 //				Description: pulumi.String("ExampleFolder description"),
 //			})
@@ -55,11 +55,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBuildFolderPermissions(ctx, "example", &azuredevops.BuildFolderPermissionsArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Path:      pulumi.String("\\ExampleFolder"),
-//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"ViewBuilds":                 pulumi.String("Allow"),
 //					"EditBuildQuality":           pulumi.String("Allow"),
@@ -109,15 +107,13 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewBuildFolderPermissions(ctx, "example", &azuredevops.BuildFolderPermissionsArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Path:      pulumi.String("\\"),
-//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"RetainIndefinitely": pulumi.String("Allow"),
 //				},

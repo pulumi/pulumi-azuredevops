@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointPipeline(ctx, "example", &azuredevops.ServiceEndpointPipelineArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Pipeline Runner"),
 //				OrganizationName:    pulumi.String("Organization Name"),
 //				AuthPersonal: &azuredevops.ServiceEndpointPipelineAuthPersonalArgs{

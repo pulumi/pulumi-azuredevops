@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointGenericGit(ctx, "example", &azuredevops.ServiceEndpointGenericGitArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				RepositoryUrl:       pulumi.String("https://dev.azure.com/org/project/_git/repository"),
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),

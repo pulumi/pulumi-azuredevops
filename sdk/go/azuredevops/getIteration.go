@@ -38,12 +38,12 @@ import (
 //				return err
 //			}
 //			_ = azuredevops.GetIterationOutput(ctx, azuredevops.GetIterationOutputArgs{
-//				ProjectId:     example.ID(),
+//				ProjectId:     example.ID().ToIDOutput().ToStringOutput(),
 //				Path:          pulumi.String("/"),
 //				FetchChildren: pulumi.Bool(true),
 //			}, nil)
 //			_ = azuredevops.GetIterationOutput(ctx, azuredevops.GetIterationOutputArgs{
-//				ProjectId:     example.ID(),
+//				ProjectId:     example.ID().ToIDOutput().ToStringOutput(),
 //				Path:          pulumi.String("/Iteration 1"),
 //				FetchChildren: pulumi.Bool(true),
 //			}, nil)

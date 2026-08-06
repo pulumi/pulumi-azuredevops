@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointDynamicsLifecycleServices(ctx, "example", &azuredevops.ServiceendpointDynamicsLifecycleServicesArgs{
-//				ProjectId:                    example.ID(),
+//				ProjectId:                    example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName:          pulumi.String("Example Service connection"),
 //				AuthorizationEndpoint:        pulumi.String("https://login.microsoftonline.com/organization"),
 //				LifecycleServicesApiEndpoint: pulumi.String("https://lcsapi.lcs.dynamics.com"),

@@ -49,7 +49,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleBuildDefinitionPermissions = new azuredevops.BuildDefinitionPermissions("example", {
  *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     buildDefinitionId: exampleBuildDefinition.id,
  *     permissions: {
  *         ViewBuilds: "Allow",

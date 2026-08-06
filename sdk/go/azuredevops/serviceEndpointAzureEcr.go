@@ -41,7 +41,7 @@ import (
 //			}
 //			// azure container registry service connection
 //			_, err = azuredevops.NewServiceEndpointAzureEcr(ctx, "example", &azuredevops.ServiceEndpointAzureEcrArgs{
-//				ProjectId:               example.ID(),
+//				ProjectId:               example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName:     pulumi.String("Example AzureCR"),
 //				ResourceGroup:           pulumi.String("example-rg"),
 //				AzurecrSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
@@ -100,7 +100,7 @@ import (
 //			}
 //			// azure container registry service connection
 //			exampleServiceEndpointAzureEcr, err := azuredevops.NewServiceEndpointAzureEcr(ctx, "example", &azuredevops.ServiceEndpointAzureEcrArgs{
-//				ProjectId:                           example.ID(),
+//				ProjectId:                           example.ID().ToIDOutput().ToStringOutput(),
 //				ResourceGroup:                       pulumi.String("Example AzureCR ResourceGroup"),
 //				ServiceEndpointName:                 pulumi.String("Example AzureCR"),
 //				ServiceEndpointAuthenticationScheme: pulumi.String("WorkloadIdentityFederation"),

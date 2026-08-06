@@ -37,7 +37,7 @@ import * as utilities from "./utilities";
  * });
  * const project_wiq_root_permissions = new azuredevops.WorkItemQueryPermissions("project-wiq-root-permissions", {
  *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         CreateRepository: "Deny",
  *         DeleteRepository: "Deny",
@@ -72,7 +72,7 @@ import * as utilities from "./utilities";
  * const example_permissions = new azuredevops.WorkItemQueryPermissions("example-permissions", {
  *     projectId: example.id,
  *     path: "/Team",
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         Contribute: "Allow",
  *         Delete: "Deny",
@@ -104,7 +104,7 @@ import * as utilities from "./utilities";
  * });
  * const example_project_permissions = new azuredevops.WorkItemQueryPermissions("example-project-permissions", {
  *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         Read: "Allow",
  *         Delete: "Deny",
@@ -115,7 +115,7 @@ import * as utilities from "./utilities";
  * const example_sharedqueries_permissions = new azuredevops.WorkItemQueryPermissions("example-sharedqueries-permissions", {
  *     projectId: example.id,
  *     path: "/",
- *     principal: example_contributors.apply(example_contributors => example_contributors.id),
+ *     principal: example_contributors.id,
  *     permissions: {
  *         Read: "Allow",
  *         Delete: "Deny",

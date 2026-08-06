@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -45,18 +45,18 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBranchPolicyWorkItemLinking(ctx, "example", &azuredevops.BranchPolicyWorkItemLinkingArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
 //				Settings: &azuredevops.BranchPolicyWorkItemLinkingSettingsArgs{
 //					Scopes: azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArray{
 //						&azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs{
-//							RepositoryId:  exampleGit.ID(),
+//							RepositoryId:  exampleGit.ID().ToIDOutput().ToStringOutput(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),
 //						},
 //						&azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs{
-//							RepositoryId:  exampleGit.ID(),
+//							RepositoryId:  exampleGit.ID().ToIDOutput().ToStringOutput(),
 //							RepositoryRef: pulumi.String("refs/heads/releases"),
 //							MatchType:     pulumi.String("Prefix"),
 //						},

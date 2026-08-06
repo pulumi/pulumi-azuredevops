@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -60,18 +60,18 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBranchPolicyStatusCheck(ctx, "example", &azuredevops.BranchPolicyStatusCheckArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
 //				Settings: &azuredevops.BranchPolicyStatusCheckSettingsArgs{
 //					Name:               pulumi.String("Release"),
-//					AuthorId:           exampleUser.ID(),
+//					AuthorId:           exampleUser.ID().ToIDOutput().ToStringOutput(),
 //					InvalidateOnUpdate: pulumi.Bool(true),
 //					Applicability:      pulumi.String("conditional"),
 //					DisplayName:        pulumi.String("PreCheck"),
 //					Scopes: azuredevops.BranchPolicyStatusCheckSettingsScopeArray{
 //						&azuredevops.BranchPolicyStatusCheckSettingsScopeArgs{
-//							RepositoryId:  exampleGit.ID(),
+//							RepositoryId:  exampleGit.ID().ToIDOutput().ToStringOutput(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),
 //						},

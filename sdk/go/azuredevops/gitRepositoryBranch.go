@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Git Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			exampleGitRepositoryBranch, err := azuredevops.NewGitRepositoryBranch(ctx, "example", &azuredevops.GitRepositoryBranchArgs{
-//				RepositoryId: exampleGit.ID(),
+//				RepositoryId: exampleGit.ID().ToIDOutput().ToStringOutput(),
 //				Name:         pulumi.String("example-branch-name"),
 //				RefBranch:    exampleGit.DefaultBranch,
 //			})
@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewGitRepositoryBranch(ctx, "example_from_commit_id", &azuredevops.GitRepositoryBranchArgs{
-//				RepositoryId: exampleGit.ID(),
+//				RepositoryId: exampleGit.ID().ToIDOutput().ToStringOutput(),
 //				Name:         pulumi.String("example-from-commit-id"),
 //				RefCommitId:  exampleGitRepositoryBranch.LastCommitId,
 //			})

@@ -24,8 +24,8 @@ import * as utilities from "./utilities";
  *     projectId: exampleProject.id,
  *     name: "Example Agent Queue",
  * });
- * export const name = example.apply(example => example.name);
- * export const poolId = example.apply(example => example.agentPoolId);
+ * export const name = example.name;
+ * export const poolId = example.agentPoolId;
  * ```
  *
  * ## Relevant Links
@@ -95,8 +95,8 @@ export interface GetAgentQueueResult {
  *     projectId: exampleProject.id,
  *     name: "Example Agent Queue",
  * });
- * export const name = example.apply(example => example.name);
- * export const poolId = example.apply(example => example.agentPoolId);
+ * export const name = example.name;
+ * export const poolId = example.agentPoolId;
  * ```
  *
  * ## Relevant Links

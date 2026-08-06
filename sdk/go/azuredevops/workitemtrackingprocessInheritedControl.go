@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessWorkitemtype, err := azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId: example.ID(),
+//				ProcessId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -48,14 +48,14 @@ import (
 //			}
 //			// Customize the first control in the first group
 //			_, err = azuredevops.NewWorkitemtrackingprocessInheritedControl(ctx, "example", &azuredevops.WorkitemtrackingprocessInheritedControlArgs{
-//				ProcessId:      example.ID(),
+//				ProcessId:      example.ID().ToIDOutput().ToStringOutput(),
 //				WorkItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
-//				GroupId: pulumi.String(exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
+//				GroupId: exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
 //					return pages[0].Sections[0].Groups[0].Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ControlId: pulumi.String(exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
+//				}).(pulumi.StringPtrOutput),
+//				ControlId: exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
 //					return pages[0].Sections[0].Groups[0].Controls[0].Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //				Visible: pulumi.Bool(false),
 //			})
 //			if err != nil {

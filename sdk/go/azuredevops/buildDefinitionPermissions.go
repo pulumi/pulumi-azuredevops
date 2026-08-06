@@ -41,11 +41,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Build Definition"),
 //				Path:      pulumi.String("\\ExampleFolder"),
 //				CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
@@ -63,7 +63,7 @@ import (
 //				},
 //				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 //					RepoType:   pulumi.String("TfsGit"),
-//					RepoId:     exampleGit.ID(),
+//					RepoId:     exampleGit.ID().ToIDOutput().ToStringOutput(),
 //					BranchName: exampleGit.DefaultBranch,
 //					YmlPath:    pulumi.String("azure-pipelines.yml"),
 //				},
@@ -72,11 +72,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "example", &azuredevops.BuildDefinitionPermissionsArgs{
-//				ProjectId: example.ID(),
-//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				BuildDefinitionId: exampleBuildDefinition.ID(),
+//				ProjectId:         example.ID().ToIDOutput().ToStringOutput(),
+//				Principal:         example_readers.Id(),
+//				BuildDefinitionId: exampleBuildDefinition.ID().ToIDOutput().ToStringOutput(),
 //				Permissions: pulumi.StringMap{
 //					"ViewBuilds":       pulumi.String("Allow"),
 //					"EditBuildQuality": pulumi.String("Deny"),

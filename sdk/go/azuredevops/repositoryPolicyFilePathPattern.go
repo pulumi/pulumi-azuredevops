@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -49,7 +49,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewRepositoryPolicyFilePathPattern(ctx, "example", &azuredevops.RepositoryPolicyFilePathPatternArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
 //				FilepathPatterns: pulumi.StringArray{
@@ -57,7 +57,7 @@ import (
 //					pulumi.String("/home/test/*.ts"),
 //				},
 //				RepositoryIds: pulumi.StringArray{
-//					exampleGit.ID(),
+//					exampleGit.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -93,7 +93,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewRepositoryPolicyFilePathPattern(ctx, "examplep", &azuredevops.RepositoryPolicyFilePathPatternArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
 //				FilepathPatterns: pulumi.StringArray{

@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointNpm(ctx, "example", &azuredevops.ServiceEndpointNpmArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example npm"),
 //				Url:                 pulumi.String("https://registry.npmjs.org"),
 //				AccessToken:         pulumi.String("00000000-0000-0000-0000-000000000000"),

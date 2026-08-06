@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewVariableGroup(ctx, "example", &azuredevops.VariableGroupArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("Example Variable Group"),
 //				Description: pulumi.String("Example Variable Group Description"),
 //				AllowAccess: pulumi.Bool(true),
@@ -94,7 +94,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example AzureRM"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
@@ -109,13 +109,13 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewVariableGroup(ctx, "example", &azuredevops.VariableGroupArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("Example Variable Group"),
 //				Description: pulumi.String("Example Variable Group Description"),
 //				AllowAccess: pulumi.Bool(true),
 //				KeyVault: &azuredevops.VariableGroupKeyVaultArgs{
 //					Name:              pulumi.String("example-kv"),
-//					ServiceEndpointId: exampleServiceEndpointAzureRM.ID(),
+//					ServiceEndpointId: exampleServiceEndpointAzureRM.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Variables: azuredevops.VariableGroupVariableTypeArray{
 //					&azuredevops.VariableGroupVariableTypeArgs{

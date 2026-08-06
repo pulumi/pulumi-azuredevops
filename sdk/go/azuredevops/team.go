@@ -39,25 +39,21 @@ import (
 //				return err
 //			}
 //			example_project_contributors := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)
 //			example_project_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewTeam(ctx, "example", &azuredevops.TeamArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Team"),
 //				Administrators: pulumi.StringArray{
-//					pulumi.String(example_project_contributors.ApplyT(func(example_project_contributors azuredevops.GetGroupResult) (*string, error) {
-//						return example_project_contributors.Descriptor, nil
-//					}).(pulumi.StringPtrOutput)),
+//					example_project_contributors.Descriptor(),
 //				},
 //				Members: pulumi.StringArray{
-//					pulumi.String(example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
-//						return example_project_readers.Descriptor, nil
-//					}).(pulumi.StringPtrOutput)),
+//					example_project_readers.Descriptor(),
 //				},
 //			})
 //			if err != nil {
@@ -93,14 +89,14 @@ import (
 //				return err
 //			}
 //			exampleArea, err := azuredevops.NewArea(ctx, "example", &azuredevops.AreaArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Frontend"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewTeam(ctx, "example", &azuredevops.TeamArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Frontend Team"),
 //				Areas: azuredevops.TeamAreaArray{
 //					&azuredevops.TeamAreaArgs{

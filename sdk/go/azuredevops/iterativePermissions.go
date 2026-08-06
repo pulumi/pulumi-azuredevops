@@ -46,14 +46,12 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewIterativePermissions(ctx, "example-root-permissions", &azuredevops.IterativePermissionsArgs{
-//				ProjectId: example.ID(),
-//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"CREATE_CHILDREN": pulumi.String("Deny"),
 //					"GENERIC_READ":    pulumi.String("NotSet"),
@@ -64,11 +62,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewIterativePermissions(ctx, "example-iteration-permissions", &azuredevops.IterativePermissionsArgs{
-//				ProjectId: example.ID(),
-//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Path: pulumi.String("Iteration 1"),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				Principal: example_readers.Id(),
+//				Path:      pulumi.String("Iteration 1"),
 //				Permissions: pulumi.StringMap{
 //					"CREATE_CHILDREN": pulumi.String("Allow"),
 //					"GENERIC_READ":    pulumi.String("NotSet"),

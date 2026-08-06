@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointAws(ctx, "example", &azuredevops.ServiceEndpointAwsArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example AWS"),
 //				AccessKeyId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				SecretAccessKey:     pulumi.String("accesskey"),
