@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointExternaltfs(ctx, "example", &azuredevops.ServiceendpointExternaltfsArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example External TFS Name"),
 //				ConnectionUrl:       pulumi.String("https://dev.azure.com/myorganization"),
 //				Description:         pulumi.String("Managed by Pulumi"),

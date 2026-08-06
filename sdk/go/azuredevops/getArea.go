@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_ = azuredevops.GetAreaOutput(ctx, azuredevops.GetAreaOutputArgs{
-//				ProjectId:     exampleProject.ID(),
+//				ProjectId:     exampleProject.ID().ToIDOutput().ToStringOutput(),
 //				Path:          pulumi.String("/"),
 //				FetchChildren: pulumi.Bool(false),
 //			}, nil)

@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewDeploymentGroup(ctx, "example", &azuredevops.DeploymentGroupArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("Example Deployment Group"),
 //				Description: pulumi.String("Managed by Pulumi"),
 //			})

@@ -38,14 +38,14 @@ import (
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessWorkitemtype, err := azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId: example.ID(),
+//				ProcessId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemtrackingprocessRule(ctx, "example", &azuredevops.WorkitemtrackingprocessRuleArgs{
-//				ProcessId:      example.ID(),
+//				ProcessId:      example.ID().ToIDOutput().ToStringOutput(),
 //				WorkItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
 //				Name:           pulumi.String("Require Title When New"),
 //				Conditions: azuredevops.WorkitemtrackingprocessRuleConditionArray{
@@ -100,7 +100,7 @@ import (
 //				Conditions: azuredevops.WorkitemtrackingprocessRuleConditionArray{
 //					&azuredevops.WorkitemtrackingprocessRuleConditionArgs{
 //						ConditionType: pulumi.String("whenCurrentUserIsMemberOfGroup"),
-//						Value:         example.ID(),
+//						Value:         example.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Actions: azuredevops.WorkitemtrackingprocessRuleActionArray{
@@ -196,7 +196,7 @@ import (
 //			customWorkitemtrackingprocessField, err := azuredevops.NewWorkitemtrackingprocessField(ctx, "custom", &azuredevops.WorkitemtrackingprocessFieldArgs{
 //				ProcessId:      pulumi.Any(exampleAzuredevopsWorkitemtrackingprocessProcess.Id),
 //				WorkItemTypeId: pulumi.Any(exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.Id),
-//				FieldId:        custom.ID(),
+//				FieldId:        custom.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -208,7 +208,7 @@ import (
 //				Conditions: azuredevops.WorkitemtrackingprocessRuleConditionArray{
 //					&azuredevops.WorkitemtrackingprocessRuleConditionArgs{
 //						ConditionType: pulumi.String("whenCurrentUserIsNotMemberOfGroup"),
-//						Value:         example.ID(),
+//						Value:         example.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Actions: azuredevops.WorkitemtrackingprocessRuleActionArray{

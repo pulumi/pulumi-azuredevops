@@ -93,7 +93,7 @@ import (
 //			}
 //			project, err := azuredevops.GetSecurityNamespaceToken(ctx, &azuredevops.GetSecurityNamespaceTokenArgs{
 //				NamespaceName: pulumi.StringRef("Project"),
-//				Identifiers: pulumi.StringMap{
+//				Identifiers: map[string]pulumi.String{
 //					"project_id": example.Id,
 //				},
 //			}, nil)
@@ -136,7 +136,7 @@ import (
 //			}
 //			gitRepo, err := azuredevops.GetSecurityNamespaceToken(ctx, &azuredevops.GetSecurityNamespaceTokenArgs{
 //				NamespaceName: pulumi.StringRef("Git Repositories"),
-//				Identifiers: pulumi.StringMap{
+//				Identifiers: map[string]pulumi.String{
 //					"project_id":    example.Id,
 //					"repository_id": exampleGetGitRepository.Id,
 //				},
@@ -180,7 +180,7 @@ import (
 //			}
 //			gitBranch, err := azuredevops.GetSecurityNamespaceToken(ctx, &azuredevops.GetSecurityNamespaceTokenArgs{
 //				NamespaceName: pulumi.StringRef("Git Repositories"),
-//				Identifiers: pulumi.StringMap{
+//				Identifiers: map[string]pulumi.String{
 //					"project_id":    example.Id,
 //					"repository_id": exampleGetGitRepository.Id,
 //					"ref_name":      "refs/heads/main",
@@ -225,7 +225,7 @@ import (
 //			}
 //			buildDef, err := azuredevops.GetSecurityNamespaceToken(ctx, &azuredevops.GetSecurityNamespaceTokenArgs{
 //				NamespaceName: pulumi.StringRef("Build"),
-//				Identifiers: pulumi.StringMap{
+//				Identifiers: map[string]pulumi.String{
 //					"project_id":    example.Id,
 //					"definition_id": exampleGetBuildDefinition.Id,
 //				},
@@ -256,7 +256,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := azuredevops.GetSecurityNamespaceToken(ctx, &azuredevops.GetSecurityNamespaceTokenArgs{
 //				NamespaceId: pulumi.StringRef("58450c49-b02d-465a-ab12-59ae512d6531"),
-//				Identifiers: pulumi.StringMap{
+//				Identifiers: map[string]pulumi.String{
 //					"project_id": example.Id,
 //				},
 //			}, nil)

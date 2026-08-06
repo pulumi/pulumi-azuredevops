@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  * const exampleWorkitemtrackingprocessInheritedPage = new azuredevops.WorkitemtrackingprocessInheritedPage("example", {
  *     processId: example.id,
  *     workItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.referenceName,
- *     pageId: exampleWorkitemtrackingprocessWorkitemtype.pages.apply(pages => pages[0].id),
+ *     pageId: exampleWorkitemtrackingprocessWorkitemtype.pages[0].id,
  *     label: "Custom Details",
  * });
  * ```

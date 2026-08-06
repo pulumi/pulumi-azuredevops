@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointGeneric, err := azuredevops.NewServiceEndpointGeneric(ctx, "example", &azuredevops.ServiceEndpointGenericArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServerUrl:           pulumi.String("https://some-server.example.com"),
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),
@@ -48,9 +48,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBranchControl(ctx, "example", &azuredevops.CheckBranchControlArgs{
-//				ProjectId:          example.ID(),
+//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:        pulumi.String("Managed by Pulumi"),
-//				TargetResourceId:   exampleServiceEndpointGeneric.ID(),
+//				TargetResourceId:   exampleServiceEndpointGeneric.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceType: pulumi.String("endpoint"),
 //				AllowedBranches:    pulumi.String("refs/heads/main, refs/heads/features/*"),
 //				Timeout:            pulumi.Int(1440),
@@ -85,16 +85,16 @@ import (
 //				return err
 //			}
 //			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Environment"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBranchControl(ctx, "example", &azuredevops.CheckBranchControlArgs{
-//				ProjectId:          example.ID(),
+//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:        pulumi.String("Managed by Pulumi"),
-//				TargetResourceId:   exampleEnvironment.ID(),
+//				TargetResourceId:   exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceType: pulumi.String("environment"),
 //				AllowedBranches:    pulumi.String("refs/heads/main, refs/heads/features/*"),
 //			})
@@ -113,6 +113,8 @@ import (
 // package main
 //
 // import (
+//
+//	"strconv"
 //
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -134,16 +136,16 @@ import (
 //				return err
 //			}
 //			exampleQueue, err := azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
-//				ProjectId:   example.ID(),
-//				AgentPoolId: examplePool.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
+//				AgentPoolId: examplePool.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBranchControl(ctx, "example", &azuredevops.CheckBranchControlArgs{
-//				ProjectId:          example.ID(),
+//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:        pulumi.String("Managed by Pulumi"),
-//				TargetResourceId:   exampleQueue.ID(),
+//				TargetResourceId:   exampleQueue.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceType: pulumi.String("queue"),
 //				AllowedBranches:    pulumi.String("refs/heads/main, refs/heads/features/*"),
 //			})
@@ -179,7 +181,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Empty Git Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -189,11 +191,11 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBranchControl(ctx, "example", &azuredevops.CheckBranchControlArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName: pulumi.String("Managed by Pulumi"),
 //				TargetResourceId: pulumi.All(example.ID(), exampleGit.ID()).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleId := _args[0].(string)
-//					exampleGitId := _args[1].(string)
+//					exampleId := _args[0].(pulumi.ID)
+//					exampleGitId := _args[1].(pulumi.ID)
 //					return fmt.Sprintf("%v.%v", exampleId, exampleGitId), nil
 //				}).(pulumi.StringOutput),
 //				TargetResourceType: pulumi.String("repository"),
@@ -229,7 +231,7 @@ import (
 //				return err
 //			}
 //			exampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, "example", &azuredevops.VariableGroupArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("Example Variable Group"),
 //				Description: pulumi.String("Example Variable Group Description"),
 //				AllowAccess: pulumi.Bool(true),
@@ -249,9 +251,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBranchControl(ctx, "example", &azuredevops.CheckBranchControlArgs{
-//				ProjectId:          example.ID(),
+//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:        pulumi.String("Managed by Pulumi"),
-//				TargetResourceId:   exampleVariableGroup.ID(),
+//				TargetResourceId:   exampleVariableGroup.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceType: pulumi.String("variablegroup"),
 //				AllowedBranches:    pulumi.String("refs/heads/main, refs/heads/features/*"),
 //			})

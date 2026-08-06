@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * });
  * const example_permission = new azuredevops.ProjectPermissions("example-permission", {
  *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         DELETE: "Deny",
  *         EDIT_BUILD_STATUS: "NotSet",

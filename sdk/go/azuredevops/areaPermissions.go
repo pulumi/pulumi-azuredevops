@@ -46,15 +46,13 @@ import (
 //				return err
 //			}
 //			example_project_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewAreaPermissions(ctx, "example-root-permissions", &azuredevops.AreaPermissionsArgs{
-//				ProjectId: example.ID(),
-//				Principal: pulumi.String(example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
-//					return example_project_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Path: pulumi.String("/"),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				Principal: example_project_readers.Id(),
+//				Path:      pulumi.String("/"),
 //				Permissions: pulumi.StringMap{
 //					"CREATE_CHILDREN": pulumi.String("Deny"),
 //					"GENERIC_READ":    pulumi.String("Allow"),

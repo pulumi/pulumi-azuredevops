@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Environment"),
 //			})
 //			if err != nil {

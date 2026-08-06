@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  *     projectId: exampleTeam.projectId,
  *     teamId: exampleTeam.id,
  *     mode: "overwrite",
- *     administrators: [example_project_contributors.apply(example_project_contributors => example_project_contributors.descriptor)],
+ *     administrators: [example_project_contributors.descriptor],
  * });
  * ```
  *

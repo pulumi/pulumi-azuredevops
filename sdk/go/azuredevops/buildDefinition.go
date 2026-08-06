@@ -22,6 +22,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -39,7 +41,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -49,7 +51,7 @@ import (
 //				return err
 //			}
 //			exampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, "example", &azuredevops.VariableGroupArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("Example Pipeline Variables"),
 //				Description: pulumi.String("Managed by Pulumi"),
 //				AllowAccess: pulumi.Bool(true),
@@ -64,7 +66,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Build Definition"),
 //				Path:      pulumi.String("\\ExampleFolder"),
 //				CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
@@ -95,12 +97,12 @@ import (
 //				},
 //				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 //					RepoType:   pulumi.String("TfsGit"),
-//					RepoId:     exampleGit.ID(),
+//					RepoId:     exampleGit.ID().ToIDOutput().ToStringOutput(),
 //					BranchName: exampleGit.DefaultBranch,
 //					YmlPath:    pulumi.String("azure-pipelines.yml"),
 //				},
 //				VariableGroups: pulumi.IntArray{
-//					exampleVariableGroup.ID(),
+//					exampleVariableGroup.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //				},
 //				Variables: azuredevops.BuildDefinitionVariableArray{
 //					&azuredevops.BuildDefinitionVariableArgs{
@@ -146,7 +148,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointGitHubEnterprise, err := azuredevops.NewServiceEndpointGitHubEnterprise(ctx, "example", &azuredevops.ServiceEndpointGitHubEnterpriseArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
 //				Url:                 pulumi.String("https://github.contoso.com"),
 //				Description:         pulumi.String("Managed by Pulumi"),
@@ -158,7 +160,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Build Definition"),
 //				Path:      pulumi.String("\\ExampleFolder"),
 //				CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
@@ -170,7 +172,7 @@ import (
 //					GithubEnterpriseUrl: pulumi.String("https://github.company.com"),
 //					BranchName:          pulumi.String("master"),
 //					YmlPath:             pulumi.String("azure-pipelines.yml"),
-//					ServiceConnectionId: exampleServiceEndpointGitHubEnterprise.ID(),
+//					ServiceConnectionId: exampleServiceEndpointGitHubEnterprise.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Schedules: azuredevops.BuildDefinitionScheduleArray{
 //					&azuredevops.BuildDefinitionScheduleArgs{
@@ -351,7 +353,7 @@ import (
 //					RepoId:              example.RepositoryUrl,
 //					BranchName:          pulumi.String("refs/heads/main"),
 //					Url:                 example.RepositoryUrl,
-//					ServiceConnectionId: example.ID(),
+//					ServiceConnectionId: example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Jobs: azuredevops.BuildDefinitionJobArray{
 //					&azuredevops.BuildDefinitionJobArgs{

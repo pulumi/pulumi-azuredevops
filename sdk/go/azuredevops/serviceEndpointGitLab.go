@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointGitLab(ctx, "example", &azuredevops.ServiceEndpointGitLabArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example GitLab"),
 //				Url:                 pulumi.String("https://gitlab.com"),
 //				Username:            pulumi.String("username"),

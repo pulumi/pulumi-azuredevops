@@ -36,7 +36,7 @@ import * as utilities from "./utilities";
  * const exampleBuildFolderPermissions = new azuredevops.BuildFolderPermissions("example", {
  *     projectId: example.id,
  *     path: "\\ExampleFolder",
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         ViewBuilds: "Allow",
  *         EditBuildQuality: "Allow",
@@ -74,7 +74,7 @@ import * as utilities from "./utilities";
  * const exampleBuildFolderPermissions = new azuredevops.BuildFolderPermissions("example", {
  *     projectId: example.id,
  *     path: "\\",
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         RetainIndefinitely: "Allow",
  *     },

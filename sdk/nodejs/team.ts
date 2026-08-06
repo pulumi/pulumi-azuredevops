@@ -33,8 +33,8 @@ import * as utilities from "./utilities";
  * const exampleTeam = new azuredevops.Team("example", {
  *     projectId: example.id,
  *     name: "Example Team",
- *     administrators: [example_project_contributors.apply(example_project_contributors => example_project_contributors.descriptor)],
- *     members: [example_project_readers.apply(example_project_readers => example_project_readers.descriptor)],
+ *     administrators: [example_project_contributors.descriptor],
+ *     members: [example_project_readers.descriptor],
  * });
  * ```
  *

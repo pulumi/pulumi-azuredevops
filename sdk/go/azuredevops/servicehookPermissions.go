@@ -44,14 +44,12 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewServicehookPermissions(ctx, "example-permissions", &azuredevops.ServicehookPermissionsArgs{
-//				ProjectId: example.ID(),
-//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"ViewSubscriptions":   pulumi.String("allow"),
 //					"EditSubscriptions":   pulumi.String("allow"),

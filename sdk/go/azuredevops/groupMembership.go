@@ -41,13 +41,11 @@ import (
 //				return err
 //			}
 //			example := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
+//				ProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Build Administrators"),
 //			}, nil)
 //			_, err = azuredevops.NewGroupMembership(ctx, "example", &azuredevops.GroupMembershipArgs{
-//				Group: pulumi.String(example.ApplyT(func(example azuredevops.GetGroupResult) (*string, error) {
-//					return example.Descriptor, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Group: example.Descriptor(),
 //				Members: pulumi.StringArray{
 //					exampleUser.Descriptor,
 //				},

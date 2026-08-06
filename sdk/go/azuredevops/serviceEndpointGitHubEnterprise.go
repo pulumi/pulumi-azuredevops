@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointGitHubEnterprise(ctx, "example", &azuredevops.ServiceEndpointGitHubEnterpriseArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
 //				Url:                 pulumi.String("https://github.contoso.com"),
 //				Description:         pulumi.String("Managed by Pulumi"),
@@ -83,7 +83,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointGitHubEnterprise(ctx, "example", &azuredevops.ServiceEndpointGitHubEnterpriseArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				AuthOauth: &azuredevops.ServiceEndpointGitHubEnterpriseAuthOauthArgs{

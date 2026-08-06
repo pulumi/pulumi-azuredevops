@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("Example Environment"),
 //				Description: pulumi.String("Example pipeline deployment environment"),
 //			})
@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			exampleGroup, err := azuredevops.NewGroup(ctx, "example", &azuredevops.GroupArgs{
-//				Scope:       example.ID(),
+//				Scope:       example.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName: pulumi.String("Example group"),
 //				Description: pulumi.String("Description of example group"),
 //			})
@@ -57,7 +57,7 @@ import (
 //			}
 //			invokeFormat, err := std.Format(ctx, map[string]interface{}{
 //				"input": "%s_%s",
-//				"args": pulumi.StringArray{
+//				"args": pulumi.IDArray{
 //					example.ID(),
 //					exampleEnvironment.ID(),
 //				},

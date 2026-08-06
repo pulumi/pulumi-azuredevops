@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			example, err := azuredevops.NewVariableGroup(ctx, "example", &azuredevops.VariableGroupArgs{
-//				ProjectId:   project.ID(),
+//				ProjectId:   project.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("test"),
 //				Description: pulumi.String("Test Description"),
 //				AllowAccess: pulumi.Bool(true),
@@ -54,15 +54,13 @@ import (
 //				return err
 //			}
 //			tf_project_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: project.ID(),
+//				ProjectId: project.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewVariableGroupPermissions(ctx, "permissions", &azuredevops.VariableGroupPermissionsArgs{
-//				ProjectId:       project.ID(),
-//				VariableGroupId: example.ID(),
-//				Principal: pulumi.String(tf_project_readers.ApplyT(func(tf_project_readers azuredevops.GetGroupResult) (*string, error) {
-//					return tf_project_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				ProjectId:       project.ID().ToIDOutput().ToStringOutput(),
+//				VariableGroupId: example.ID().ToIDOutput().ToStringOutput(),
+//				Principal:       tf_project_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"View":       pulumi.String("allow"),
 //					"Administer": pulumi.String("allow"),

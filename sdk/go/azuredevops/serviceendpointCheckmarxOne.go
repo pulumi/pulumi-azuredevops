@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointCheckmarxOne(ctx, "example", &azuredevops.ServiceendpointCheckmarxOneArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Checkmarx One"),
 //				ServerUrl:           pulumi.String("https://server.com"),
 //				ApiKey:              pulumi.String("apikey"),
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointCheckmarxOne(ctx, "example", &azuredevops.ServiceendpointCheckmarxOneArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Checkmarx One"),
 //				ServerUrl:           pulumi.String("https://server.com"),
 //				ClientId:            pulumi.String("clientid"),

@@ -39,14 +39,12 @@ import (
 //				return err
 //			}
 //			tf_project_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: project.ID(),
+//				ProjectId: project.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewLibraryPermissions(ctx, "permissions", &azuredevops.LibraryPermissionsArgs{
-//				ProjectId: project.ID(),
-//				Principal: pulumi.String(tf_project_readers.ApplyT(func(tf_project_readers azuredevops.GetGroupResult) (*string, error) {
-//					return tf_project_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				ProjectId: project.ID().ToIDOutput().ToStringOutput(),
+//				Principal: tf_project_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"View":       pulumi.String("allow"),
 //					"Administer": pulumi.String("allow"),

@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			exampleWiki, err := azuredevops.NewWiki(ctx, "example", &azuredevops.WikiArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example project wiki "),
 //				Type:      pulumi.String("projectWiki"),
 //			})
@@ -44,8 +44,8 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWikiPage(ctx, "example", &azuredevops.WikiPageArgs{
-//				ProjectId: example.ID(),
-//				WikiId:    exampleWiki.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				WikiId:    exampleWiki.ID().ToIDOutput().ToStringOutput(),
 //				Path:      pulumi.String("/page"),
 //				Content:   pulumi.String("content"),
 //			})

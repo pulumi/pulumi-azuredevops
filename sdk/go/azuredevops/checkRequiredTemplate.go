@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointGeneric, err := azuredevops.NewServiceEndpointGeneric(ctx, "example", &azuredevops.ServiceEndpointGenericArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServerUrl:           pulumi.String("https://some-server.example.com"),
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),
@@ -48,8 +48,8 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckRequiredTemplate(ctx, "example", &azuredevops.CheckRequiredTemplateArgs{
-//				ProjectId:          example.ID(),
-//				TargetResourceId:   exampleServiceEndpointGeneric.ID(),
+//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:   exampleServiceEndpointGeneric.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceType: pulumi.String("endpoint"),
 //				RequiredTemplates: azuredevops.CheckRequiredTemplateRequiredTemplateArray{
 //					&azuredevops.CheckRequiredTemplateRequiredTemplateArgs{
@@ -90,15 +90,15 @@ import (
 //				return err
 //			}
 //			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Environment"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckRequiredTemplate(ctx, "example", &azuredevops.CheckRequiredTemplateArgs{
-//				ProjectId:          example.ID(),
-//				TargetResourceId:   exampleEnvironment.ID(),
+//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:   exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceType: pulumi.String("environment"),
 //				RequiredTemplates: azuredevops.CheckRequiredTemplateRequiredTemplateArray{
 //					&azuredevops.CheckRequiredTemplateRequiredTemplateArgs{

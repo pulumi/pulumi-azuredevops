@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointIncomingwebhook(ctx, "example", &azuredevops.ServiceendpointIncomingwebhookArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				WebhookName:         pulumi.String("example_webhook"),
 //				Secret:              pulumi.String("secret"),
 //				HttpHeader:          pulumi.String("X-Hub-Signature"),

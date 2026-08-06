@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessWorkitemtype, err := azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId:   example.ID(),
+//				ProcessId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("example"),
 //				Description: pulumi.String("Example work item type"),
 //				Color:       pulumi.String("#FF5733"),
@@ -48,14 +48,14 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemtrackingprocessGroup(ctx, "example", &azuredevops.WorkitemtrackingprocessGroupArgs{
-//				ProcessId:                 example.ID(),
+//				ProcessId:                 example.ID().ToIDOutput().ToStringOutput(),
 //				WorkItemTypeReferenceName: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
-//				PageId: pulumi.String(exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
+//				PageId: exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
 //					return pages[0].Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				SectionId: pulumi.String(exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
+//				}).(pulumi.StringPtrOutput),
+//				SectionId: exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
 //					return pages[0].Sections[0].Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //				Label: pulumi.String("Custom Group"),
 //			})
 //			if err != nil {

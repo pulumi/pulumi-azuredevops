@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -45,7 +45,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBranchPolicyMinReviewers(ctx, "example", &azuredevops.BranchPolicyMinReviewersArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
 //				Settings: &azuredevops.BranchPolicyMinReviewersSettingsArgs{
@@ -57,7 +57,7 @@ import (
 //					OnLastIterationRequireVote:        pulumi.Bool(false),
 //					Scopes: azuredevops.BranchPolicyMinReviewersSettingsScopeArray{
 //						&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
-//							RepositoryId:  exampleGit.ID(),
+//							RepositoryId:  exampleGit.ID().ToIDOutput().ToStringOutput(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),
 //						},

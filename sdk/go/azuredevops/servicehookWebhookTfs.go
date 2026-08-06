@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServicehookWebhookTfs(ctx, "example", &azuredevops.ServicehookWebhookTfsArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Url:       pulumi.String("https://example.com/webhook"),
 //				GitPush: &azuredevops.ServicehookWebhookTfsGitPushArgs{
 //					Branch:       pulumi.String("refs/heads/main"),

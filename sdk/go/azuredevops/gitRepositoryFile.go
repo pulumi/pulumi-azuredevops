@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Git Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewGitRepositoryFile(ctx, "example", &azuredevops.GitRepositoryFileArgs{
-//				RepositoryId:      exampleGit.ID(),
+//				RepositoryId:      exampleGit.ID().ToIDOutput().ToStringOutput(),
 //				File:              pulumi.String(".gitignore"),
 //				Content:           pulumi.String("**/*.tfstate"),
 //				Branch:            pulumi.String("refs/heads/master"),
@@ -87,7 +87,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Git Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -97,21 +97,21 @@ import (
 //				return err
 //			}
 //			exampleRepositoryPolicyAuthorEmailPattern, err := azuredevops.NewRepositoryPolicyAuthorEmailPattern(ctx, "example", &azuredevops.RepositoryPolicyAuthorEmailPatternArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
 //				AuthorEmailPatterns: pulumi.StringArray{
 //					pulumi.String("auhtor@test.com"),
 //				},
 //				RepositoryIds: pulumi.StringArray{
-//					exampleGit.ID(),
+//					exampleGit.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewGitRepositoryFile(ctx, "example", &azuredevops.GitRepositoryFileArgs{
-//				RepositoryId:      exampleGit.ID(),
+//				RepositoryId:      exampleGit.ID().ToIDOutput().ToStringOutput(),
 //				File:              pulumi.String(".gitignore"),
 //				Content:           pulumi.String("**/*.tfstate"),
 //				Branch:            pulumi.String("refs/heads/master"),

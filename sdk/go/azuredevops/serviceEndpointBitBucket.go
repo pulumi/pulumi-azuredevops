@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointBitBucket(ctx, "example", &azuredevops.ServiceEndpointBitBucketArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				Email:               pulumi.String("email@example.com"),
 //				ApiToken:            pulumi.String("api_token"),
 //				ServiceEndpointName: pulumi.String("Example Bitbucket"),

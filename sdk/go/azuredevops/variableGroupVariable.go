@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			exampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, "example", &azuredevops.VariableGroupArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("Example Variable Group"),
 //				Description: pulumi.String("Example Variable Group Description"),
 //				AllowAccess: pulumi.Bool(true),
@@ -58,8 +58,8 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewVariableGroupVariable(ctx, "example", &azuredevops.VariableGroupVariableArgs{
-//				ProjectId:       example.ID(),
-//				VariableGroupId: exampleVariableGroup.ID(),
+//				ProjectId:       example.ID().ToIDOutput().ToStringOutput(),
+//				VariableGroupId: exampleVariableGroup.ID().ToIDOutput().ToStringOutput(),
 //				Name:            pulumi.String("key2"),
 //				Value:           pulumi.String("val2"),
 //			})

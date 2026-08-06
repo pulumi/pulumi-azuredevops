@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointJfrogXrayV2(ctx, "example", &azuredevops.ServiceendpointJfrogXrayV2Args{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Artifactory"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),
@@ -82,7 +82,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointJfrogXrayV2(ctx, "example", &azuredevops.ServiceendpointJfrogXrayV2Args{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Artifactory"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),

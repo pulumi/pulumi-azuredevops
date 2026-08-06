@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointSonarQube(ctx, "example", &azuredevops.ServiceEndpointSonarQubeArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example SonarQube"),
 //				Url:                 pulumi.String("https://sonarqube.my.com"),
 //				Token:               pulumi.String("0000000000000000000000000000000000000000"),

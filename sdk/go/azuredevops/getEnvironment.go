@@ -20,6 +20,8 @@ import (
 //
 // import (
 //
+//	"strconv"
+//
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v3/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -38,7 +40,7 @@ import (
 //				return err
 //			}
 //			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
-//				ProjectId:   exampleProject.ID(),
+//				ProjectId:   exampleProject.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("Example Environment"),
 //				Description: pulumi.String("Managed by Pulumi"),
 //			})
@@ -46,8 +48,8 @@ import (
 //				return err
 //			}
 //			_ = azuredevops.GetEnvironmentOutput(ctx, azuredevops.GetEnvironmentOutputArgs{
-//				ProjectId:     exampleProject.ID(),
-//				EnvironmentId: exampleEnvironment.ID(),
+//				ProjectId:     exampleProject.ID().ToIDOutput().ToStringOutput(),
+//				EnvironmentId: exampleEnvironment.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
 //			}, nil)
 //			return nil
 //		})

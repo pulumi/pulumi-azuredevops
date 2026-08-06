@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointGcpTerraform(ctx, "example", &azuredevops.ServiceendpointGcpTerraformArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				TokenUri:            pulumi.String("https://oauth2.example.com/token"),
 //				ClientEmail:         pulumi.String("gcp-sa-example@example.iam.gserviceaccount.com"),
 //				PrivateKey:          pulumi.String("0000000000000000000000000000000000000"),

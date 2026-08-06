@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBuildFolder(ctx, "example", &azuredevops.BuildFolderArgs{
-//				ProjectId:   example.ID(),
+//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Path:        pulumi.String("\\ExampleFolder"),
 //				Description: pulumi.String("ExampleFolder description"),
 //			})

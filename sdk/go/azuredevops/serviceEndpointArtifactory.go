@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointArtifactory(ctx, "example", &azuredevops.ServiceEndpointArtifactoryArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Artifactory"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointArtifactory(ctx, "example", &azuredevops.ServiceEndpointArtifactoryArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Artifactory"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),

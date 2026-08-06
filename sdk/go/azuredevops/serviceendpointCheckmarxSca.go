@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointCheckmarxSca(ctx, "example", &azuredevops.ServiceendpointCheckmarxScaArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Checkmarx SCA"),
 //				AccessControlUrl:    pulumi.String("https://accesscontrol.com"),
 //				ServerUrl:           pulumi.String("https://server.com"),

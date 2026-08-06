@@ -41,14 +41,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, map[string]interface{}{
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
 //				"input": "certificate.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "example", &azuredevops.ServiceEndpointServiceFabricArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Service Fabric"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),
@@ -92,7 +92,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
-//				ProjectId:           project.ID(),
+//				ProjectId:           project.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Sample Service Fabric"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),
@@ -136,7 +136,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
-//				ProjectId:           project.ID(),
+//				ProjectId:           project.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Sample Service Fabric"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),

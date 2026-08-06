@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointJfrogDistributionV2(ctx, "example", &azuredevops.ServiceendpointJfrogDistributionV2Args{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example JFrog Distribution V2"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),
@@ -82,7 +82,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointJfrogDistributionV2(ctx, "example", &azuredevops.ServiceendpointJfrogDistributionV2Args{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example JFrog Distribution V2"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),

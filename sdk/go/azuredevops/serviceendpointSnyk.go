@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointSnyk(ctx, "example", &azuredevops.ServiceendpointSnykArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServerUrl:           pulumi.String("https://snyk.io/"),
 //				ApiToken:            pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				ServiceEndpointName: pulumi.String("Example Snyk"),

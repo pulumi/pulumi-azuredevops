@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemtrackingprocessProcessPermissions(ctx, "example", &azuredevops.WorkitemtrackingprocessProcessPermissionsArgs{
-//				ProcessId: example.ID(),
+//				ProcessId: example.ID().ToIDOutput().ToStringOutput(),
 //				Principal: pulumi.String(example_group.Id),
 //				Permissions: pulumi.StringMap{
 //					"Edit":                         pulumi.String("Allow"),

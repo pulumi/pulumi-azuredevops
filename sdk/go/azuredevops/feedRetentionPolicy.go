@@ -41,14 +41,14 @@ import (
 //			}
 //			exampleFeed, err := azuredevops.NewFeed(ctx, "example", &azuredevops.FeedArgs{
 //				Name:      pulumi.String("ExampleFeed"),
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewFeedRetentionPolicy(ctx, "example", &azuredevops.FeedRetentionPolicyArgs{
-//				ProjectId:                            example.ID(),
-//				FeedId:                               exampleFeed.ID(),
+//				ProjectId:                            example.ID().ToIDOutput().ToStringOutput(),
+//				FeedId:                               exampleFeed.ID().ToIDOutput().ToStringOutput(),
 //				CountLimit:                           pulumi.Int(20),
 //				DaysToKeepRecentlyDownloadedPackages: pulumi.Int(30),
 //			})
@@ -81,7 +81,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewFeedRetentionPolicy(ctx, "example", &azuredevops.FeedRetentionPolicyArgs{
-//				FeedId:                               example.ID(),
+//				FeedId:                               example.ID().ToIDOutput().ToStringOutput(),
 //				CountLimit:                           pulumi.Int(20),
 //				DaysToKeepRecentlyDownloadedPackages: pulumi.Int(30),
 //			})

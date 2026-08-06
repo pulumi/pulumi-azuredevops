@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointVisualstudiomarketplace(ctx, "example", &azuredevops.ServiceendpointVisualstudiomarketplaceArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Marketplace"),
 //				Url:                 pulumi.String("https://markpetplace.com"),
 //				AuthenticationToken: &azuredevops.ServiceendpointVisualstudiomarketplaceAuthenticationTokenArgs{
@@ -82,7 +82,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointVisualstudiomarketplace(ctx, "example", &azuredevops.ServiceendpointVisualstudiomarketplaceArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Marketplace"),
 //				Url:                 pulumi.String("https://markpetplace.com"),
 //				AuthenticationBasic: &azuredevops.ServiceendpointVisualstudiomarketplaceAuthenticationBasicArgs{

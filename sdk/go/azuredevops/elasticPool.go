@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "example", &azuredevops.ServiceEndpointAzureRMArgs{
-//				ProjectId:                           example.ID(),
+//				ProjectId:                           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName:                 pulumi.String("Example Azure Connection"),
 //				Description:                         pulumi.String("Managed by Pulumi"),
 //				ServiceEndpointAuthenticationScheme: pulumi.String("ServicePrincipal"),
@@ -56,8 +56,8 @@ import (
 //			}
 //			_, err = azuredevops.NewElasticPool(ctx, "example", &azuredevops.ElasticPoolArgs{
 //				Name:                 pulumi.String("Example Elastic Pool"),
-//				ServiceEndpointId:    exampleServiceEndpointAzureRM.ID(),
-//				ServiceEndpointScope: example.ID(),
+//				ServiceEndpointId:    exampleServiceEndpointAzureRM.ID().ToIDOutput().ToStringOutput(),
+//				ServiceEndpointScope: example.ID().ToIDOutput().ToStringOutput(),
 //				DesiredIdle:          pulumi.Int(2),
 //				MaxCapacity:          pulumi.Int(3),
 //				AzureResourceId:      pulumi.String("/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>"),

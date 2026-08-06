@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointNexus(ctx, "example", &azuredevops.ServiceendpointNexusArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("nexus-example"),
 //				Description:         pulumi.String("Service Endpoint for 'Nexus IQ' (Managed by Terraform)"),
 //				Url:                 pulumi.String("https://example.com"),

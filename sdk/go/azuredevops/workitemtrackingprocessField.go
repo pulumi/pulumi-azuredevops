@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessWorkitemtype, err := azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId:   example.ID(),
+//				ProcessId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("example"),
 //				Description: pulumi.String("Example work item type"),
 //			})
@@ -52,9 +52,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemtrackingprocessField(ctx, "example", &azuredevops.WorkitemtrackingprocessFieldArgs{
-//				ProcessId:      example.ID(),
-//				WorkItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.ID(),
-//				FieldId:        exampleWorkitemtrackingField.ID(),
+//				ProcessId:      example.ID().ToIDOutput().ToStringOutput(),
+//				WorkItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.ID().ToIDOutput().ToStringOutput(),
+//				FieldId:        exampleWorkitemtrackingField.ID().ToIDOutput().ToStringOutput(),
 //				Required:       pulumi.Bool(true),
 //				DefaultValue:   pulumi.String("Medium"),
 //			})

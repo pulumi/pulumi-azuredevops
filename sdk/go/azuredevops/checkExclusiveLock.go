@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointGeneric, err := azuredevops.NewServiceEndpointGeneric(ctx, "example", &azuredevops.ServiceEndpointGenericArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServerUrl:           pulumi.String("https://some-server.example.com"),
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),
@@ -50,8 +50,8 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckExclusiveLock(ctx, "example", &azuredevops.CheckExclusiveLockArgs{
-//				ProjectId:          example.ID(),
-//				TargetResourceId:   exampleServiceEndpointGeneric.ID(),
+//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:   exampleServiceEndpointGeneric.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceType: pulumi.String("endpoint"),
 //				Timeout:            pulumi.Int(43200),
 //			})
@@ -85,15 +85,15 @@ import (
 //				return err
 //			}
 //			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Environment"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckExclusiveLock(ctx, "example", &azuredevops.CheckExclusiveLockArgs{
-//				ProjectId:          example.ID(),
-//				TargetResourceId:   exampleEnvironment.ID(),
+//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:   exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceType: pulumi.String("environment"),
 //				Timeout:            pulumi.Int(43200),
 //			})
@@ -129,7 +129,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -139,10 +139,10 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckExclusiveLock(ctx, "example", &azuredevops.CheckExclusiveLockArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				TargetResourceId: pulumi.All(example.ID(), exampleGit.ID()).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleId := _args[0].(string)
-//					exampleGitId := _args[1].(string)
+//					exampleId := _args[0].(pulumi.ID)
+//					exampleGitId := _args[1].(pulumi.ID)
 //					return fmt.Sprintf("%v.%v", exampleId, exampleGitId), nil
 //				}).(pulumi.StringOutput),
 //				TargetResourceType: pulumi.String("repository"),

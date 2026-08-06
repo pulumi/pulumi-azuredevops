@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointMaven(ctx, "example", &azuredevops.ServiceendpointMavenArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("maven-example"),
 //				Description:         pulumi.String("Service Endpoint for 'Maven' (Managed by Terraform)"),
 //				Url:                 pulumi.String("https://example.com"),
@@ -82,7 +82,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointMaven(ctx, "example", &azuredevops.ServiceendpointMavenArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("maven-example"),
 //				Description:         pulumi.String("Service Endpoint for 'Maven' (Managed by Terraform)"),
 //				Url:                 pulumi.String("https://example.com"),

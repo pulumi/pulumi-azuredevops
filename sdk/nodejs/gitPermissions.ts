@@ -37,7 +37,7 @@ import * as utilities from "./utilities";
  * });
  * const example_permissions = new azuredevops.GitPermissions("example-permissions", {
  *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         CreateRepository: "Deny",
  *         DeleteRepository: "Deny",
@@ -152,7 +152,7 @@ import * as utilities from "./utilities";
  * });
  * const example_permissions = new azuredevops.GitPermissions("example-permissions", {
  *     projectId: example.id,
- *     principal: example_project_readers.apply(example_project_readers => example_project_readers.id),
+ *     principal: example_project_readers.id,
  *     permissions: {
  *         CreateRepository: "Deny",
  *         DeleteRepository: "Deny",
@@ -170,7 +170,7 @@ import * as utilities from "./utilities";
  * const example_repo_permissions = new azuredevops.GitPermissions("example-repo-permissions", {
  *     projectId: exampleGit.projectId,
  *     repositoryId: exampleGit.id,
- *     principal: example_project_administrators.apply(example_project_administrators => example_project_administrators.id),
+ *     principal: example_project_administrators.id,
  *     permissions: {
  *         RemoveOthersLocks: "Allow",
  *         ManagePermissions: "Deny",
@@ -182,7 +182,7 @@ import * as utilities from "./utilities";
  *     projectId: exampleGit.projectId,
  *     repositoryId: exampleGit.id,
  *     branchName: "master",
- *     principal: example_project_contributors.apply(example_project_contributors => example_project_contributors.id),
+ *     principal: example_project_contributors.id,
  *     permissions: {
  *         RemoveOthersLocks: "Allow",
  *         ForcePush: "Deny",

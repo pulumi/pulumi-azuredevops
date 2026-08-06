@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointBlackDuck(ctx, "example", &azuredevops.ServiceendpointBlackDuckArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServerUrl:           pulumi.String("https://blackduck.com/"),
 //				ApiToken:            pulumi.String("token"),
 //				ServiceEndpointName: pulumi.String("Example Black Duck"),

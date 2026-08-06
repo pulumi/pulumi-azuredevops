@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  * });
  * const example_root_permissions = new azuredevops.IterativePermissions("example-root-permissions", {
  *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     permissions: {
  *         CREATE_CHILDREN: "Deny",
  *         GENERIC_READ: "NotSet",
@@ -42,7 +42,7 @@ import * as utilities from "./utilities";
  * });
  * const example_iteration_permissions = new azuredevops.IterativePermissions("example-iteration-permissions", {
  *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     principal: example_readers.id,
  *     path: "Iteration 1",
  *     permissions: {
  *         CREATE_CHILDREN: "Allow",

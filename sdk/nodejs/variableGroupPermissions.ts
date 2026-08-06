@@ -37,7 +37,7 @@ import * as utilities from "./utilities";
  * const permissions = new azuredevops.VariableGroupPermissions("permissions", {
  *     projectId: project.id,
  *     variableGroupId: example.id,
- *     principal: tf_project_readers.apply(tf_project_readers => tf_project_readers.id),
+ *     principal: tf_project_readers.id,
  *     permissions: {
  *         View: "allow",
  *         Administer: "allow",

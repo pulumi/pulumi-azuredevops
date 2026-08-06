@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointAzureDevOps(ctx, "example", &azuredevops.ServiceEndpointAzureDevOpsArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Azure DevOps"),
 //				OrgUrl:              pulumi.String("https://dev.azure.com/testorganization"),
 //				ReleaseApiUrl:       pulumi.String("https://vsrm.dev.azure.com/testorganization"),

@@ -41,14 +41,12 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID(),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewProjectPermissions(ctx, "example-permission", &azuredevops.ProjectPermissionsArgs{
-//				ProjectId: example.ID(),
-//				Principal: pulumi.String(example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"DELETE":              pulumi.String("Deny"),
 //					"EDIT_BUILD_STATUS":   pulumi.String("NotSet"),

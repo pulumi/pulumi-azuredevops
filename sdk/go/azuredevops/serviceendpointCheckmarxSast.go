@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointCheckmarxSast(ctx, "example", &azuredevops.ServiceendpointCheckmarxSastArgs{
-//				ProjectId:           example.ID(),
+//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				ServiceEndpointName: pulumi.String("Example Checkmarx SAST"),
 //				ServerUrl:           pulumi.String("https://server.com"),
 //				Username:            pulumi.String("username"),
