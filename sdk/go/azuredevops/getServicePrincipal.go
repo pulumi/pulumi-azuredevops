@@ -101,12 +101,8 @@ type GetServicePrincipalResult struct {
 }
 
 func GetServicePrincipalOutput(ctx *pulumi.Context, args GetServicePrincipalOutputArgs, opts ...pulumi.InvokeOption) GetServicePrincipalResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServicePrincipalResultOutput, error) {
-			args := v.(GetServicePrincipalArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getServicePrincipal:getServicePrincipal", args, GetServicePrincipalResultOutput{}, options).(GetServicePrincipalResultOutput), nil
-		}).(GetServicePrincipalResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getServicePrincipal:getServicePrincipal", args, GetServicePrincipalResultOutput{}, options).(GetServicePrincipalResultOutput)
 }
 
 // A collection of arguments for invoking getServicePrincipal.

@@ -107,12 +107,8 @@ type GetSecurityNamespaceResult struct {
 }
 
 func GetSecurityNamespaceOutput(ctx *pulumi.Context, args GetSecurityNamespaceOutputArgs, opts ...pulumi.InvokeOption) GetSecurityNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSecurityNamespaceResultOutput, error) {
-			args := v.(GetSecurityNamespaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getSecurityNamespace:getSecurityNamespace", args, GetSecurityNamespaceResultOutput{}, options).(GetSecurityNamespaceResultOutput), nil
-		}).(GetSecurityNamespaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getSecurityNamespace:getSecurityNamespace", args, GetSecurityNamespaceResultOutput{}, options).(GetSecurityNamespaceResultOutput)
 }
 
 // A collection of arguments for invoking getSecurityNamespace.

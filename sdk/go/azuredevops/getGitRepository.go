@@ -95,12 +95,8 @@ type GetGitRepositoryResult struct {
 }
 
 func GetGitRepositoryOutput(ctx *pulumi.Context, args GetGitRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetGitRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetGitRepositoryResultOutput, error) {
-			args := v.(GetGitRepositoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getGitRepository:getGitRepository", args, GetGitRepositoryResultOutput{}, options).(GetGitRepositoryResultOutput), nil
-		}).(GetGitRepositoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getGitRepository:getGitRepository", args, GetGitRepositoryResultOutput{}, options).(GetGitRepositoryResultOutput)
 }
 
 // A collection of arguments for invoking getGitRepository.

@@ -69,12 +69,8 @@ type GetDescriptorResult struct {
 }
 
 func GetDescriptorOutput(ctx *pulumi.Context, args GetDescriptorOutputArgs, opts ...pulumi.InvokeOption) GetDescriptorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDescriptorResultOutput, error) {
-			args := v.(GetDescriptorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getDescriptor:getDescriptor", args, GetDescriptorResultOutput{}, options).(GetDescriptorResultOutput), nil
-		}).(GetDescriptorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getDescriptor:getDescriptor", args, GetDescriptorResultOutput{}, options).(GetDescriptorResultOutput)
 }
 
 // A collection of arguments for invoking getDescriptor.

@@ -93,12 +93,8 @@ type LookupAreaResult struct {
 }
 
 func LookupAreaOutput(ctx *pulumi.Context, args LookupAreaOutputArgs, opts ...pulumi.InvokeOption) LookupAreaResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAreaResultOutput, error) {
-			args := v.(LookupAreaArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getArea:getArea", args, LookupAreaResultOutput{}, options).(LookupAreaResultOutput), nil
-		}).(LookupAreaResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getArea:getArea", args, LookupAreaResultOutput{}, options).(LookupAreaResultOutput)
 }
 
 // A collection of arguments for invoking getArea.

@@ -88,12 +88,8 @@ type LookupVariableGroupResult struct {
 }
 
 func LookupVariableGroupOutput(ctx *pulumi.Context, args LookupVariableGroupOutputArgs, opts ...pulumi.InvokeOption) LookupVariableGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVariableGroupResultOutput, error) {
-			args := v.(LookupVariableGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getVariableGroup:getVariableGroup", args, LookupVariableGroupResultOutput{}, options).(LookupVariableGroupResultOutput), nil
-		}).(LookupVariableGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getVariableGroup:getVariableGroup", args, LookupVariableGroupResultOutput{}, options).(LookupVariableGroupResultOutput)
 }
 
 // A collection of arguments for invoking getVariableGroup.

@@ -69,12 +69,8 @@ type GetWorkitemtrackingprocessWorkitemtypesResult struct {
 }
 
 func GetWorkitemtrackingprocessWorkitemtypesOutput(ctx *pulumi.Context, args GetWorkitemtrackingprocessWorkitemtypesOutputArgs, opts ...pulumi.InvokeOption) GetWorkitemtrackingprocessWorkitemtypesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetWorkitemtrackingprocessWorkitemtypesResultOutput, error) {
-			args := v.(GetWorkitemtrackingprocessWorkitemtypesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getWorkitemtrackingprocessWorkitemtypes:getWorkitemtrackingprocessWorkitemtypes", args, GetWorkitemtrackingprocessWorkitemtypesResultOutput{}, options).(GetWorkitemtrackingprocessWorkitemtypesResultOutput), nil
-		}).(GetWorkitemtrackingprocessWorkitemtypesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getWorkitemtrackingprocessWorkitemtypes:getWorkitemtrackingprocessWorkitemtypes", args, GetWorkitemtrackingprocessWorkitemtypesResultOutput{}, options).(GetWorkitemtrackingprocessWorkitemtypesResultOutput)
 }
 
 // A collection of arguments for invoking getWorkitemtrackingprocessWorkitemtypes.

@@ -64,10 +64,8 @@ type GetServiceendpointTypesResult struct {
 }
 
 func GetServiceendpointTypesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetServiceendpointTypesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetServiceendpointTypesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("azuredevops:index/getServiceendpointTypes:getServiceendpointTypes", nil, GetServiceendpointTypesResultOutput{}, options).(GetServiceendpointTypesResultOutput), nil
-	}).(GetServiceendpointTypesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getServiceendpointTypes:getServiceendpointTypes", nil, GetServiceendpointTypesResultOutput{}, options).(GetServiceendpointTypesResultOutput)
 }
 
 // A collection of values returned by getServiceendpointTypes.

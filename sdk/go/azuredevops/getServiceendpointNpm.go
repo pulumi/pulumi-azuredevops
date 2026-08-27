@@ -78,12 +78,8 @@ type GetServiceendpointNpmResult struct {
 }
 
 func GetServiceendpointNpmOutput(ctx *pulumi.Context, args GetServiceendpointNpmOutputArgs, opts ...pulumi.InvokeOption) GetServiceendpointNpmResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceendpointNpmResultOutput, error) {
-			args := v.(GetServiceendpointNpmArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", args, GetServiceendpointNpmResultOutput{}, options).(GetServiceendpointNpmResultOutput), nil
-		}).(GetServiceendpointNpmResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", args, GetServiceendpointNpmResultOutput{}, options).(GetServiceendpointNpmResultOutput)
 }
 
 // A collection of arguments for invoking getServiceendpointNpm.

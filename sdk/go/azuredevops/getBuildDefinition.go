@@ -101,12 +101,8 @@ type LookupBuildDefinitionResult struct {
 }
 
 func LookupBuildDefinitionOutput(ctx *pulumi.Context, args LookupBuildDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupBuildDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBuildDefinitionResultOutput, error) {
-			args := v.(LookupBuildDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getBuildDefinition:getBuildDefinition", args, LookupBuildDefinitionResultOutput{}, options).(LookupBuildDefinitionResultOutput), nil
-		}).(LookupBuildDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getBuildDefinition:getBuildDefinition", args, LookupBuildDefinitionResultOutput{}, options).(LookupBuildDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getBuildDefinition.

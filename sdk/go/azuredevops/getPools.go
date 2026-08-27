@@ -62,10 +62,8 @@ type GetPoolsResult struct {
 }
 
 func GetPoolsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetPoolsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetPoolsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("azuredevops:index/getPools:getPools", nil, GetPoolsResultOutput{}, options).(GetPoolsResultOutput), nil
-	}).(GetPoolsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getPools:getPools", nil, GetPoolsResultOutput{}, options).(GetPoolsResultOutput)
 }
 
 // A collection of values returned by getPools.
