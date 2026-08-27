@@ -143,12 +143,8 @@ type LookupServiceEndpointAzureRMResult struct {
 }
 
 func LookupServiceEndpointAzureRMOutput(ctx *pulumi.Context, args LookupServiceEndpointAzureRMOutputArgs, opts ...pulumi.InvokeOption) LookupServiceEndpointAzureRMResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServiceEndpointAzureRMResultOutput, error) {
-			args := v.(LookupServiceEndpointAzureRMArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM", args, LookupServiceEndpointAzureRMResultOutput{}, options).(LookupServiceEndpointAzureRMResultOutput), nil
-		}).(LookupServiceEndpointAzureRMResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM", args, LookupServiceEndpointAzureRMResultOutput{}, options).(LookupServiceEndpointAzureRMResultOutput)
 }
 
 // A collection of arguments for invoking getServiceEndpointAzureRM.

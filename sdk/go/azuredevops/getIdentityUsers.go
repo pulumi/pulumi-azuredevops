@@ -43,12 +43,8 @@ type GetIdentityUsersResult struct {
 }
 
 func GetIdentityUsersOutput(ctx *pulumi.Context, args GetIdentityUsersOutputArgs, opts ...pulumi.InvokeOption) GetIdentityUsersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIdentityUsersResultOutput, error) {
-			args := v.(GetIdentityUsersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getIdentityUsers:getIdentityUsers", args, GetIdentityUsersResultOutput{}, options).(GetIdentityUsersResultOutput), nil
-		}).(GetIdentityUsersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getIdentityUsers:getIdentityUsers", args, GetIdentityUsersResultOutput{}, options).(GetIdentityUsersResultOutput)
 }
 
 // A collection of arguments for invoking getIdentityUsers.

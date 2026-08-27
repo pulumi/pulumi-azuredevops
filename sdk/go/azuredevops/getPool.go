@@ -77,12 +77,8 @@ type LookupPoolResult struct {
 }
 
 func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pulumi.InvokeOption) LookupPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPoolResultOutput, error) {
-			args := v.(LookupPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getPool:getPool", args, LookupPoolResultOutput{}, options).(LookupPoolResultOutput), nil
-		}).(LookupPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getPool:getPool", args, LookupPoolResultOutput{}, options).(LookupPoolResultOutput)
 }
 
 // A collection of arguments for invoking getPool.

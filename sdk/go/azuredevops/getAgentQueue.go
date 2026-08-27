@@ -83,12 +83,8 @@ type GetAgentQueueResult struct {
 }
 
 func GetAgentQueueOutput(ctx *pulumi.Context, args GetAgentQueueOutputArgs, opts ...pulumi.InvokeOption) GetAgentQueueResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAgentQueueResultOutput, error) {
-			args := v.(GetAgentQueueArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getAgentQueue:getAgentQueue", args, GetAgentQueueResultOutput{}, options).(GetAgentQueueResultOutput), nil
-		}).(GetAgentQueueResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getAgentQueue:getAgentQueue", args, GetAgentQueueResultOutput{}, options).(GetAgentQueueResultOutput)
 }
 
 // A collection of arguments for invoking getAgentQueue.

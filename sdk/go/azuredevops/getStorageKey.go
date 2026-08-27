@@ -69,12 +69,8 @@ type GetStorageKeyResult struct {
 }
 
 func GetStorageKeyOutput(ctx *pulumi.Context, args GetStorageKeyOutputArgs, opts ...pulumi.InvokeOption) GetStorageKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetStorageKeyResultOutput, error) {
-			args := v.(GetStorageKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getStorageKey:getStorageKey", args, GetStorageKeyResultOutput{}, options).(GetStorageKeyResultOutput), nil
-		}).(GetStorageKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getStorageKey:getStorageKey", args, GetStorageKeyResultOutput{}, options).(GetStorageKeyResultOutput)
 }
 
 // A collection of arguments for invoking getStorageKey.

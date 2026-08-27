@@ -55,12 +55,8 @@ type LookupServiceendpointGenericV2Result struct {
 }
 
 func LookupServiceendpointGenericV2Output(ctx *pulumi.Context, args LookupServiceendpointGenericV2OutputArgs, opts ...pulumi.InvokeOption) LookupServiceendpointGenericV2ResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServiceendpointGenericV2ResultOutput, error) {
-			args := v.(LookupServiceendpointGenericV2Args)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getServiceendpointGenericV2:getServiceendpointGenericV2", args, LookupServiceendpointGenericV2ResultOutput{}, options).(LookupServiceendpointGenericV2ResultOutput), nil
-		}).(LookupServiceendpointGenericV2ResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getServiceendpointGenericV2:getServiceendpointGenericV2", args, LookupServiceendpointGenericV2ResultOutput{}, options).(LookupServiceendpointGenericV2ResultOutput)
 }
 
 // A collection of arguments for invoking getServiceendpointGenericV2.

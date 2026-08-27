@@ -129,12 +129,8 @@ type GetServiceendpointDockerregistryResult struct {
 }
 
 func GetServiceendpointDockerregistryOutput(ctx *pulumi.Context, args GetServiceendpointDockerregistryOutputArgs, opts ...pulumi.InvokeOption) GetServiceendpointDockerregistryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceendpointDockerregistryResultOutput, error) {
-			args := v.(GetServiceendpointDockerregistryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getServiceendpointDockerregistry:getServiceendpointDockerregistry", args, GetServiceendpointDockerregistryResultOutput{}, options).(GetServiceendpointDockerregistryResultOutput), nil
-		}).(GetServiceendpointDockerregistryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getServiceendpointDockerregistry:getServiceendpointDockerregistry", args, GetServiceendpointDockerregistryResultOutput{}, options).(GetServiceendpointDockerregistryResultOutput)
 }
 
 // A collection of arguments for invoking getServiceendpointDockerregistry.

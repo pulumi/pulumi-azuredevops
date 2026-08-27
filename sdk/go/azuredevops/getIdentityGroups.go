@@ -80,12 +80,8 @@ type GetIdentityGroupsResult struct {
 }
 
 func GetIdentityGroupsOutput(ctx *pulumi.Context, args GetIdentityGroupsOutputArgs, opts ...pulumi.InvokeOption) GetIdentityGroupsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIdentityGroupsResultOutput, error) {
-			args := v.(GetIdentityGroupsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getIdentityGroups:getIdentityGroups", args, GetIdentityGroupsResultOutput{}, options).(GetIdentityGroupsResultOutput), nil
-		}).(GetIdentityGroupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getIdentityGroups:getIdentityGroups", args, GetIdentityGroupsResultOutput{}, options).(GetIdentityGroupsResultOutput)
 }
 
 // A collection of arguments for invoking getIdentityGroups.

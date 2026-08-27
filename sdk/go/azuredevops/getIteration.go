@@ -98,12 +98,8 @@ type GetIterationResult struct {
 }
 
 func GetIterationOutput(ctx *pulumi.Context, args GetIterationOutputArgs, opts ...pulumi.InvokeOption) GetIterationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIterationResultOutput, error) {
-			args := v.(GetIterationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getIteration:getIteration", args, GetIterationResultOutput{}, options).(GetIterationResultOutput), nil
-		}).(GetIterationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getIteration:getIteration", args, GetIterationResultOutput{}, options).(GetIterationResultOutput)
 }
 
 // A collection of arguments for invoking getIteration.

@@ -91,12 +91,8 @@ type LookupGitRepositoryFileResult struct {
 }
 
 func LookupGitRepositoryFileOutput(ctx *pulumi.Context, args LookupGitRepositoryFileOutputArgs, opts ...pulumi.InvokeOption) LookupGitRepositoryFileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGitRepositoryFileResultOutput, error) {
-			args := v.(LookupGitRepositoryFileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getGitRepositoryFile:getGitRepositoryFile", args, LookupGitRepositoryFileResultOutput{}, options).(LookupGitRepositoryFileResultOutput), nil
-		}).(LookupGitRepositoryFileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getGitRepositoryFile:getGitRepositoryFile", args, LookupGitRepositoryFileResultOutput{}, options).(LookupGitRepositoryFileResultOutput)
 }
 
 // A collection of arguments for invoking getGitRepositoryFile.

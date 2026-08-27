@@ -119,12 +119,8 @@ type GetServiceEndpointGithubResult struct {
 }
 
 func GetServiceEndpointGithubOutput(ctx *pulumi.Context, args GetServiceEndpointGithubOutputArgs, opts ...pulumi.InvokeOption) GetServiceEndpointGithubResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceEndpointGithubResultOutput, error) {
-			args := v.(GetServiceEndpointGithubArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", args, GetServiceEndpointGithubResultOutput{}, options).(GetServiceEndpointGithubResultOutput), nil
-		}).(GetServiceEndpointGithubResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", args, GetServiceEndpointGithubResultOutput{}, options).(GetServiceEndpointGithubResultOutput)
 }
 
 // A collection of arguments for invoking getServiceEndpointGithub.

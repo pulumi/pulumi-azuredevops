@@ -96,12 +96,8 @@ type GetServiceendpointAzurecrResult struct {
 }
 
 func GetServiceendpointAzurecrOutput(ctx *pulumi.Context, args GetServiceendpointAzurecrOutputArgs, opts ...pulumi.InvokeOption) GetServiceendpointAzurecrResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceendpointAzurecrResultOutput, error) {
-			args := v.(GetServiceendpointAzurecrArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", args, GetServiceendpointAzurecrResultOutput{}, options).(GetServiceendpointAzurecrResultOutput), nil
-		}).(GetServiceendpointAzurecrResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", args, GetServiceendpointAzurecrResultOutput{}, options).(GetServiceendpointAzurecrResultOutput)
 }
 
 // A collection of arguments for invoking getServiceendpointAzurecr.

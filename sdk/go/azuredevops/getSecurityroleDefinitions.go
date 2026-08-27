@@ -72,12 +72,8 @@ type GetSecurityroleDefinitionsResult struct {
 }
 
 func GetSecurityroleDefinitionsOutput(ctx *pulumi.Context, args GetSecurityroleDefinitionsOutputArgs, opts ...pulumi.InvokeOption) GetSecurityroleDefinitionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSecurityroleDefinitionsResultOutput, error) {
-			args := v.(GetSecurityroleDefinitionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", args, GetSecurityroleDefinitionsResultOutput{}, options).(GetSecurityroleDefinitionsResultOutput), nil
-		}).(GetSecurityroleDefinitionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azuredevops:index/getSecurityroleDefinitions:getSecurityroleDefinitions", args, GetSecurityroleDefinitionsResultOutput{}, options).(GetSecurityroleDefinitionsResultOutput)
 }
 
 // A collection of arguments for invoking getSecurityroleDefinitions.
