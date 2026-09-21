@@ -243,8 +243,8 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationBasicArgs', 'ServiceEndpointArtifactoryAuthenticationBasicArgsDict']]] = None,
-                 authentication_token: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationBasicArgs', 'ServiceEndpointArtifactoryAuthenticationBasicArgsDict', 'outputs.ServiceEndpointArtifactoryAuthenticationBasic']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict', 'outputs.ServiceEndpointArtifactoryAuthenticationToken']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -313,7 +313,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']] authentication_token: A `authentication_basic` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict', 'outputs.ServiceEndpointArtifactoryAuthenticationToken']] authentication_token: A `authentication_basic` block as defined below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -403,8 +403,8 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationBasicArgs', 'ServiceEndpointArtifactoryAuthenticationBasicArgsDict']]] = None,
-                 authentication_token: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationBasicArgs', 'ServiceEndpointArtifactoryAuthenticationBasicArgsDict', 'outputs.ServiceEndpointArtifactoryAuthenticationBasic']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict', 'outputs.ServiceEndpointArtifactoryAuthenticationToken']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -441,8 +441,8 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_basic: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationBasicArgs', 'ServiceEndpointArtifactoryAuthenticationBasicArgsDict']]] = None,
-            authentication_token: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']]] = None,
+            authentication_basic: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationBasicArgs', 'ServiceEndpointArtifactoryAuthenticationBasicArgsDict', 'outputs.ServiceEndpointArtifactoryAuthenticationBasic']]] = None,
+            authentication_token: pulumi.Input[Optional[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict', 'outputs.ServiceEndpointArtifactoryAuthenticationToken']]] = None,
             authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -455,7 +455,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict']] authentication_token: A `authentication_basic` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointArtifactoryAuthenticationTokenArgs', 'ServiceEndpointArtifactoryAuthenticationTokenArgsDict', 'outputs.ServiceEndpointArtifactoryAuthenticationToken']] authentication_token: A `authentication_basic` block as defined below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.

@@ -472,7 +472,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
                  azurecr_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
                  azurecr_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  azurecr_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict', 'outputs.ServiceEndpointAzureEcrCredentials']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group: pulumi.Input[Optional[_builtins.str]] = None,
@@ -568,7 +568,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[_builtins.str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[_builtins.str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']] credentials: A `credentials` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict', 'outputs.ServiceEndpointAzureEcrCredentials']] credentials: A `credentials` block as defined below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] resource_group: The resource group to which the container registry belongs.
@@ -683,7 +683,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
                  azurecr_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
                  azurecr_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  azurecr_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict', 'outputs.ServiceEndpointAzureEcrCredentials']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group: pulumi.Input[Optional[_builtins.str]] = None,
@@ -738,7 +738,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             azurecr_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
             azurecr_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
             azurecr_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-            credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict', 'outputs.ServiceEndpointAzureEcrCredentials']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group: pulumi.Input[Optional[_builtins.str]] = None,
@@ -759,7 +759,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[_builtins.str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[_builtins.str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict']] credentials: A `credentials` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict', 'outputs.ServiceEndpointAzureEcrCredentials']] credentials: A `credentials` block as defined below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] resource_group: The resource group to which the container registry belongs.

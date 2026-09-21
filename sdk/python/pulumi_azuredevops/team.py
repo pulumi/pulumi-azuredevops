@@ -298,7 +298,7 @@ class Team(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 areas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict']]]]] = None,
+                 areas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict', 'outputs.TeamArea']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -379,7 +379,7 @@ class Team(pulumi.CustomResource):
                `Team` resource via the `administrators` block and by using the
                `TeamAdministrators` resource. However it's not possible to use
                both methods to manage team administrators, since there'll be conflicts.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict']]]] areas: One or more `area` blocks as defined below. Configures the area paths associated with the team.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict', 'outputs.TeamArea']]]] areas: One or more `area` blocks as defined below. Configures the area paths associated with the team.
                
                > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
         :param pulumi.Input[_builtins.str] description: The description of the Team.
@@ -481,7 +481,7 @@ class Team(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 areas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict']]]]] = None,
+                 areas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict', 'outputs.TeamArea']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -515,7 +515,7 @@ class Team(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            areas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict']]]]] = None,
+            areas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict', 'outputs.TeamArea']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             descriptor: pulumi.Input[Optional[_builtins.str]] = None,
             members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -534,7 +534,7 @@ class Team(pulumi.CustomResource):
                `Team` resource via the `administrators` block and by using the
                `TeamAdministrators` resource. However it's not possible to use
                both methods to manage team administrators, since there'll be conflicts.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict']]]] areas: One or more `area` blocks as defined below. Configures the area paths associated with the team.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamAreaArgs', 'TeamAreaArgsDict', 'outputs.TeamArea']]]] areas: One or more `area` blocks as defined below. Configures the area paths associated with the team.
                
                > **NOTE:** If no `area` blocks are specified, the team's area path configuration will not be managed by Terraform and any existing area paths will be left unchanged. Removing all `area` blocks from a configuration that previously had them will cause Terraform to stop managing the team's area paths without modifying them on the server.
         :param pulumi.Input[_builtins.str] description: The description of the Team.

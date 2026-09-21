@@ -171,7 +171,7 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
                  blocking: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['BranchPolicyAutoReviewersSettingsArgs', 'BranchPolicyAutoReviewersSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['BranchPolicyAutoReviewersSettingsArgs', 'BranchPolicyAutoReviewersSettingsArgsDict', 'outputs.BranchPolicyAutoReviewersSettings']]] = None,
                  __props__=None):
         """
         Manages required reviewer policy branch policy within Azure DevOps.
@@ -227,7 +227,7 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[Union['BranchPolicyAutoReviewersSettingsArgs', 'BranchPolicyAutoReviewersSettingsArgsDict']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyAutoReviewersSettingsArgs', 'BranchPolicyAutoReviewersSettingsArgsDict', 'outputs.BranchPolicyAutoReviewersSettings']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         ...
     @overload
@@ -302,7 +302,7 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
                  blocking: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['BranchPolicyAutoReviewersSettingsArgs', 'BranchPolicyAutoReviewersSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['BranchPolicyAutoReviewersSettingsArgs', 'BranchPolicyAutoReviewersSettingsArgsDict', 'outputs.BranchPolicyAutoReviewersSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,7 +333,7 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
             blocking: pulumi.Input[Optional[_builtins.bool]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Union['BranchPolicyAutoReviewersSettingsArgs', 'BranchPolicyAutoReviewersSettingsArgsDict']]] = None) -> 'BranchPolicyAutoReviewers':
+            settings: pulumi.Input[Optional[Union['BranchPolicyAutoReviewersSettingsArgs', 'BranchPolicyAutoReviewersSettingsArgsDict', 'outputs.BranchPolicyAutoReviewersSettings']]] = None) -> 'BranchPolicyAutoReviewers':
         """
         Get an existing BranchPolicyAutoReviewers resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -344,7 +344,7 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[Union['BranchPolicyAutoReviewersSettingsArgs', 'BranchPolicyAutoReviewersSettingsArgsDict']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyAutoReviewersSettingsArgs', 'BranchPolicyAutoReviewersSettingsArgsDict', 'outputs.BranchPolicyAutoReviewersSettings']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

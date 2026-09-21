@@ -341,9 +341,9 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
-                 auth_basic: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']]] = None,
-                 auth_none: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']]] = None,
-                 auth_token: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']]] = None,
+                 auth_basic: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict', 'outputs.ServiceendpointOpenshiftAuthBasic']]] = None,
+                 auth_none: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict', 'outputs.ServiceendpointOpenshiftAuthNone']]] = None,
+                 auth_token: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict', 'outputs.ServiceendpointOpenshiftAuthToken']]] = None,
                  certificate_authority_file: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -432,9 +432,9 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
-        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']] auth_basic: An `auth_basic` block as documented below.
-        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']] auth_none: An `auth_none` block as documented below.
-        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']] auth_token: An `auth_token` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict', 'outputs.ServiceendpointOpenshiftAuthBasic']] auth_basic: An `auth_basic` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict', 'outputs.ServiceendpointOpenshiftAuthNone']] auth_none: An `auth_none` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict', 'outputs.ServiceendpointOpenshiftAuthToken']] auth_token: An `auth_token` block as documented below.
         :param pulumi.Input[_builtins.str] certificate_authority_file: The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -542,9 +542,9 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
-                 auth_basic: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']]] = None,
-                 auth_none: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']]] = None,
-                 auth_token: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']]] = None,
+                 auth_basic: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict', 'outputs.ServiceendpointOpenshiftAuthBasic']]] = None,
+                 auth_none: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict', 'outputs.ServiceendpointOpenshiftAuthNone']]] = None,
+                 auth_token: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict', 'outputs.ServiceendpointOpenshiftAuthToken']]] = None,
                  certificate_authority_file: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -584,9 +584,9 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
-            auth_basic: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']]] = None,
-            auth_none: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']]] = None,
-            auth_token: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']]] = None,
+            auth_basic: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict', 'outputs.ServiceendpointOpenshiftAuthBasic']]] = None,
+            auth_none: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict', 'outputs.ServiceendpointOpenshiftAuthNone']]] = None,
+            auth_token: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict', 'outputs.ServiceendpointOpenshiftAuthToken']]] = None,
             authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             certificate_authority_file: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -601,9 +601,9 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate. Available when using `auth_basic` or `auth_token` authorization.
-        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict']] auth_basic: An `auth_basic` block as documented below.
-        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict']] auth_none: An `auth_none` block as documented below.
-        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict']] auth_token: An `auth_token` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict', 'outputs.ServiceendpointOpenshiftAuthBasic']] auth_basic: An `auth_basic` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict', 'outputs.ServiceendpointOpenshiftAuthNone']] auth_none: An `auth_none` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict', 'outputs.ServiceendpointOpenshiftAuthToken']] auth_token: An `auth_token` block as documented below.
         :param pulumi.Input[_builtins.str] certificate_authority_file: The path to a certificate authority file to correctly and securely authenticates with an OpenShift server that uses HTTPS. Available when using `auth_basic` or `auth_token` authorization.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.

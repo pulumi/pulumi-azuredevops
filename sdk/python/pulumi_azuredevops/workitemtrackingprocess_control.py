@@ -470,7 +470,7 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contribution: pulumi.Input[Optional[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']]] = None,
+                 contribution: pulumi.Input[Optional[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict', 'outputs.WorkitemtrackingprocessControlContribution']]] = None,
                  control_id: pulumi.Input[Optional[_builtins.str]] = None,
                  group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  is_contribution: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -563,7 +563,7 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']] contribution: Contribution configuration for extension controls. A `contribution` block as defined below.
+        :param pulumi.Input[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict', 'outputs.WorkitemtrackingprocessControlContribution']] contribution: Contribution configuration for extension controls. A `contribution` block as defined below.
         :param pulumi.Input[_builtins.str] control_id: The ID for the control. For field controls, this is the field reference name. Changing this forces a new control to be created.
         :param pulumi.Input[_builtins.str] group_id: The ID of the group to add the control to. Changing this moves the control to the new group.
         :param pulumi.Input[_builtins.bool] is_contribution: A value indicating if the control is a contribution (extension) control. Default: `false`
@@ -675,7 +675,7 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contribution: pulumi.Input[Optional[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']]] = None,
+                 contribution: pulumi.Input[Optional[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict', 'outputs.WorkitemtrackingprocessControlContribution']]] = None,
                  control_id: pulumi.Input[Optional[_builtins.str]] = None,
                  group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  is_contribution: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -729,7 +729,7 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contribution: pulumi.Input[Optional[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']]] = None,
+            contribution: pulumi.Input[Optional[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict', 'outputs.WorkitemtrackingprocessControlContribution']]] = None,
             control_id: pulumi.Input[Optional[_builtins.str]] = None,
             control_type: pulumi.Input[Optional[_builtins.str]] = None,
             group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -751,7 +751,7 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict']] contribution: Contribution configuration for extension controls. A `contribution` block as defined below.
+        :param pulumi.Input[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict', 'outputs.WorkitemtrackingprocessControlContribution']] contribution: Contribution configuration for extension controls. A `contribution` block as defined below.
         :param pulumi.Input[_builtins.str] control_id: The ID for the control. For field controls, this is the field reference name. Changing this forces a new control to be created.
         :param pulumi.Input[_builtins.str] control_type: The type of the control (e.g., FieldControl, HtmlFieldControl, DateTimeControl).
         :param pulumi.Input[_builtins.str] group_id: The ID of the group to add the control to. Changing this moves the control to the new group.

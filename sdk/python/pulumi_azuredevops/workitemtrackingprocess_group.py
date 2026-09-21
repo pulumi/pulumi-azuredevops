@@ -293,7 +293,7 @@ class WorkitemtrackingprocessGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]]] = None,
+                 controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict', 'outputs.WorkitemtrackingprocessGroupControl']]]]] = None,
                  label: pulumi.Input[Optional[_builtins.str]] = None,
                  order: pulumi.Input[Optional[_builtins.int]] = None,
                  page_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -401,7 +401,7 @@ class WorkitemtrackingprocessGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]] controls: Controls to be created with the group. Required for HTML controls which cannot be added to existing groups. This is mutally exclusive with 'azuredevops_workitemtrackingprocess_control' resources. A `control` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict', 'outputs.WorkitemtrackingprocessGroupControl']]]] controls: Controls to be created with the group. Required for HTML controls which cannot be added to existing groups. This is mutally exclusive with 'azuredevops_workitemtrackingprocess_control' resources. A `control` block as defined below.
         :param pulumi.Input[_builtins.str] label: Label for the group.
         :param pulumi.Input[_builtins.int] order: Order in which the group should appear in the section.
         :param pulumi.Input[_builtins.str] page_id: The ID of the page to add the group to. Changing this moves the group to the new page.
@@ -528,7 +528,7 @@ class WorkitemtrackingprocessGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]]] = None,
+                 controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict', 'outputs.WorkitemtrackingprocessGroupControl']]]]] = None,
                  label: pulumi.Input[Optional[_builtins.str]] = None,
                  order: pulumi.Input[Optional[_builtins.int]] = None,
                  page_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -573,7 +573,7 @@ class WorkitemtrackingprocessGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]]] = None,
+            controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict', 'outputs.WorkitemtrackingprocessGroupControl']]]]] = None,
             label: pulumi.Input[Optional[_builtins.str]] = None,
             order: pulumi.Input[Optional[_builtins.int]] = None,
             page_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -588,7 +588,7 @@ class WorkitemtrackingprocessGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict']]]] controls: Controls to be created with the group. Required for HTML controls which cannot be added to existing groups. This is mutally exclusive with 'azuredevops_workitemtrackingprocess_control' resources. A `control` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict', 'outputs.WorkitemtrackingprocessGroupControl']]]] controls: Controls to be created with the group. Required for HTML controls which cannot be added to existing groups. This is mutally exclusive with 'azuredevops_workitemtrackingprocess_control' resources. A `control` block as defined below.
         :param pulumi.Input[_builtins.str] label: Label for the group.
         :param pulumi.Input[_builtins.int] order: Order in which the group should appear in the section.
         :param pulumi.Input[_builtins.str] page_id: The ID of the page to add the group to. Changing this moves the group to the new page.

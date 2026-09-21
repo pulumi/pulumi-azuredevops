@@ -274,8 +274,8 @@ class ServiceendpointMaven(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
-                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict', 'outputs.ServiceendpointMavenAuthenticationBasic']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict', 'outputs.ServiceendpointMavenAuthenticationToken']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -343,8 +343,8 @@ class ServiceendpointMaven(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']] authentication_basic: A `authentication_basic` block as documented below.
-        :param pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']] authentication_token: A `authentication_token` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict', 'outputs.ServiceendpointMavenAuthenticationBasic']] authentication_basic: A `authentication_basic` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict', 'outputs.ServiceendpointMavenAuthenticationToken']] authentication_token: A `authentication_token` block as documented below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Maven to be created.
         :param pulumi.Input[_builtins.str] repository_id: The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
@@ -431,8 +431,8 @@ class ServiceendpointMaven(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
-                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict', 'outputs.ServiceendpointMavenAuthenticationBasic']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict', 'outputs.ServiceendpointMavenAuthenticationToken']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -473,8 +473,8 @@ class ServiceendpointMaven(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_basic: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']]] = None,
-            authentication_token: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']]] = None,
+            authentication_basic: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict', 'outputs.ServiceendpointMavenAuthenticationBasic']]] = None,
+            authentication_token: pulumi.Input[Optional[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict', 'outputs.ServiceendpointMavenAuthenticationToken']]] = None,
             authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -488,8 +488,8 @@ class ServiceendpointMaven(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict']] authentication_basic: A `authentication_basic` block as documented below.
-        :param pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict']] authentication_token: A `authentication_token` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointMavenAuthenticationBasicArgs', 'ServiceendpointMavenAuthenticationBasicArgsDict', 'outputs.ServiceendpointMavenAuthenticationBasic']] authentication_basic: A `authentication_basic` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointMavenAuthenticationTokenArgs', 'ServiceendpointMavenAuthenticationTokenArgsDict', 'outputs.ServiceendpointMavenAuthenticationToken']] authentication_token: A `authentication_token` block as documented below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to Managed by Terraform.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project. Changing this forces a new Service Connection Maven to be created.
         :param pulumi.Input[_builtins.str] repository_id: The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.

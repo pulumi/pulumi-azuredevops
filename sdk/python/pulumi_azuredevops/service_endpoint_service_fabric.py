@@ -275,11 +275,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_active_directory: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']]] = None,
-                 certificate: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']]] = None,
+                 azure_active_directory: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict', 'outputs.ServiceEndpointServiceFabricAzureActiveDirectory']]] = None,
+                 certificate: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict', 'outputs.ServiceEndpointServiceFabricCertificate']]] = None,
                  cluster_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 none: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']]] = None,
+                 none: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict', 'outputs.ServiceEndpointServiceFabricNone']]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -375,11 +375,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']] azure_active_directory: An `azure_active_directory` block as documented below.
-        :param pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']] certificate: A `certificate` block as documented below.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict', 'outputs.ServiceEndpointServiceFabricAzureActiveDirectory']] azure_active_directory: An `azure_active_directory` block as documented below.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict', 'outputs.ServiceEndpointServiceFabricCertificate']] certificate: A `certificate` block as documented below.
         :param pulumi.Input[_builtins.str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
-        :param pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']] none: A `none` block as documented below.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict', 'outputs.ServiceEndpointServiceFabricNone']] none: A `none` block as documented below.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         """
@@ -494,11 +494,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_active_directory: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']]] = None,
-                 certificate: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']]] = None,
+                 azure_active_directory: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict', 'outputs.ServiceEndpointServiceFabricAzureActiveDirectory']]] = None,
+                 certificate: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict', 'outputs.ServiceEndpointServiceFabricCertificate']]] = None,
                  cluster_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 none: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']]] = None,
+                 none: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict', 'outputs.ServiceEndpointServiceFabricNone']]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -535,11 +535,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            azure_active_directory: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']]] = None,
-            certificate: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']]] = None,
+            azure_active_directory: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict', 'outputs.ServiceEndpointServiceFabricAzureActiveDirectory']]] = None,
+            certificate: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict', 'outputs.ServiceEndpointServiceFabricCertificate']]] = None,
             cluster_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            none: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']]] = None,
+            none: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict', 'outputs.ServiceEndpointServiceFabricNone']]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
             service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceEndpointServiceFabric':
         """
@@ -549,11 +549,11 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict']] azure_active_directory: An `azure_active_directory` block as documented below.
-        :param pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict']] certificate: A `certificate` block as documented below.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict', 'outputs.ServiceEndpointServiceFabricAzureActiveDirectory']] azure_active_directory: An `azure_active_directory` block as documented below.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict', 'outputs.ServiceEndpointServiceFabricCertificate']] certificate: A `certificate` block as documented below.
         :param pulumi.Input[_builtins.str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with `tcp://`;. This value overrides the publish profile.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
-        :param pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict']] none: A `none` block as documented below.
+        :param pulumi.Input[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict', 'outputs.ServiceEndpointServiceFabricNone']] none: A `none` block as documented below.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         """

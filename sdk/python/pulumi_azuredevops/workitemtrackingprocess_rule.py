@@ -246,8 +246,8 @@ class WorkitemtrackingprocessRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict']]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict', 'outputs.WorkitemtrackingprocessRuleAction']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict', 'outputs.WorkitemtrackingprocessRuleCondition']]]]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  process_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -378,8 +378,8 @@ class WorkitemtrackingprocessRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict']]]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict']]]] conditions: One or more `condition` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict', 'outputs.WorkitemtrackingprocessRuleAction']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict', 'outputs.WorkitemtrackingprocessRuleCondition']]]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[_builtins.bool] is_enabled: Indicates if the rule is enabled. Default: `true`
         :param pulumi.Input[_builtins.str] name: Name of the rule.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new rule to be created.
@@ -529,8 +529,8 @@ class WorkitemtrackingprocessRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict']]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict', 'outputs.WorkitemtrackingprocessRuleAction']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict', 'outputs.WorkitemtrackingprocessRuleCondition']]]]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  process_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -569,8 +569,8 @@ class WorkitemtrackingprocessRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict']]]]] = None,
-            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict']]]]] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict', 'outputs.WorkitemtrackingprocessRuleAction']]]]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict', 'outputs.WorkitemtrackingprocessRuleCondition']]]]] = None,
             is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             process_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -583,8 +583,8 @@ class WorkitemtrackingprocessRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict']]]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict']]]] conditions: One or more `condition` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict', 'outputs.WorkitemtrackingprocessRuleAction']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict', 'outputs.WorkitemtrackingprocessRuleCondition']]]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[_builtins.bool] is_enabled: Indicates if the rule is enabled. Default: `true`
         :param pulumi.Input[_builtins.str] name: Name of the rule.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new rule to be created.

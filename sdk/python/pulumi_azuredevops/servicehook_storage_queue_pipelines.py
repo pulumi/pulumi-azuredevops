@@ -306,8 +306,8 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  queue_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 run_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']]] = None,
-                 stage_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']]] = None,
+                 run_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesRunStateChangedEvent']]] = None,
+                 stage_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesStageStateChangedEvent']]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  visi_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -376,8 +376,8 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_name: The queue's storage account name.
         :param pulumi.Input[_builtins.str] project_id: The ID of the associated project. Changing this forces a new Service Hook Storage Queue Pipelines to be created.
         :param pulumi.Input[_builtins.str] queue_name: The name of the queue that will store the events.
-        :param pulumi.Input[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']] run_state_changed_event: A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
-        :param pulumi.Input[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']] stage_state_changed_event: A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+        :param pulumi.Input[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesRunStateChangedEvent']] run_state_changed_event: A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+        :param pulumi.Input[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesStageStateChangedEvent']] stage_state_changed_event: A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
                
                > **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
         :param pulumi.Input[_builtins.int] ttl: event time-to-live - the duration a message can remain in the queue before it's automatically removed. Defaults to `604800`.
@@ -467,8 +467,8 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  queue_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 run_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']]] = None,
-                 stage_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']]] = None,
+                 run_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesRunStateChangedEvent']]] = None,
+                 stage_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesStageStateChangedEvent']]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  visi_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -512,8 +512,8 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
             account_name: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
             queue_name: pulumi.Input[Optional[_builtins.str]] = None,
-            run_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']]] = None,
-            stage_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']]] = None,
+            run_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesRunStateChangedEvent']]] = None,
+            stage_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesStageStateChangedEvent']]] = None,
             ttl: pulumi.Input[Optional[_builtins.int]] = None,
             visi_timeout: pulumi.Input[Optional[_builtins.int]] = None) -> 'ServicehookStorageQueuePipelines':
         """
@@ -527,8 +527,8 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_name: The queue's storage account name.
         :param pulumi.Input[_builtins.str] project_id: The ID of the associated project. Changing this forces a new Service Hook Storage Queue Pipelines to be created.
         :param pulumi.Input[_builtins.str] queue_name: The name of the queue that will store the events.
-        :param pulumi.Input[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict']] run_state_changed_event: A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
-        :param pulumi.Input[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict']] stage_state_changed_event: A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
+        :param pulumi.Input[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesRunStateChangedEvent']] run_state_changed_event: A `run_state_changed_event` block as defined below. Conflicts with `stage_state_changed_event`
+        :param pulumi.Input[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesStageStateChangedEvent']] stage_state_changed_event: A `stage_state_changed_event` block as defined below. Conflicts with `run_state_changed_event`
                
                > **Note** At least one of `run_state_changed_event` and `stage_state_changed_event` has to be set.
         :param pulumi.Input[_builtins.int] ttl: event time-to-live - the duration a message can remain in the queue before it's automatically removed. Defaults to `604800`.

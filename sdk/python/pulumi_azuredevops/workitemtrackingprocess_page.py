@@ -357,7 +357,7 @@ class WorkitemtrackingprocessPage(pulumi.CustomResource):
             label: pulumi.Input[Optional[_builtins.str]] = None,
             order: pulumi.Input[Optional[_builtins.int]] = None,
             process_id: pulumi.Input[Optional[_builtins.str]] = None,
-            sections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessPageSectionArgs', 'WorkitemtrackingprocessPageSectionArgsDict']]]]] = None,
+            sections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessPageSectionArgs', 'WorkitemtrackingprocessPageSectionArgsDict', 'outputs.WorkitemtrackingprocessPageSection']]]]] = None,
             visible: pulumi.Input[Optional[_builtins.bool]] = None,
             work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingprocessPage':
         """
@@ -370,7 +370,7 @@ class WorkitemtrackingprocessPage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] label: The label for the page.
         :param pulumi.Input[_builtins.int] order: Order in which the page should appear in the layout.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process. Changing this forces a new page to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessPageSectionArgs', 'WorkitemtrackingprocessPageSectionArgsDict']]]] sections: The sections of the page. A `sections` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessPageSectionArgs', 'WorkitemtrackingprocessPageSectionArgsDict', 'outputs.WorkitemtrackingprocessPageSection']]]] sections: The sections of the page. A `sections` block as defined below.
         :param pulumi.Input[_builtins.bool] visible: A value indicating if the page should be visible or not. Default: `true`
         :param pulumi.Input[_builtins.str] work_item_type_id: The ID (reference name) of the work item type. Changing this forces a new page to be created.
         """

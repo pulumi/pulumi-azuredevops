@@ -117,7 +117,7 @@ class AwaitableGetUsersResult(GetUsersResult):
             users=self.users)
 
 
-def get_users(features: Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict']] = None,
+def get_users(features: Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict', 'outputs.GetUsersFeaturesResult']] = None,
               origin: Optional[_builtins.str] = None,
               origin_id: Optional[_builtins.str] = None,
               principal_name: Optional[_builtins.str] = None,
@@ -129,7 +129,7 @@ def get_users(features: Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeatures
     > **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `get_identity_users`, `get_user` can be used to replace this resource.
 
 
-    :param Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict'] features: A `features` block as defined below.
+    :param Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict', 'outputs.GetUsersFeaturesResult'] features: A `features` block as defined below.
     :param _builtins.str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
            <pre>List of possible origins
            ```hcl
@@ -185,7 +185,7 @@ def get_users(features: Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeatures
         principal_name=pulumi.get(__ret__, 'principal_name'),
         subject_types=pulumi.get(__ret__, 'subject_types'),
         users=pulumi.get(__ret__, 'users'))
-def get_users_output(features: pulumi.Input[Optional[Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict']]]] = None,
+def get_users_output(features: pulumi.Input[Optional[Optional[Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict', 'outputs.GetUsersFeaturesResult']]]] = None,
                      origin: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      origin_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      principal_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -197,7 +197,7 @@ def get_users_output(features: pulumi.Input[Optional[Optional[Union['GetUsersFea
     > **NOTE:** This resource will try to get all the users within the organization which may result in poor performance. `get_identity_users`, `get_user` can be used to replace this resource.
 
 
-    :param Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict'] features: A `features` block as defined below.
+    :param Union['GetUsersFeaturesArgs', 'GetUsersFeaturesArgsDict', 'outputs.GetUsersFeaturesResult'] features: A `features` block as defined below.
     :param _builtins.str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
            <pre>List of possible origins
            ```hcl
