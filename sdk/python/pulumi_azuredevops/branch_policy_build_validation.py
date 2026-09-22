@@ -171,7 +171,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
                  blocking: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict', 'outputs.BranchPolicyBuildValidationSettings']]] = None,
                  __props__=None):
         """
         Manages a build validation branch policy within Azure DevOps.
@@ -247,7 +247,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict', 'outputs.BranchPolicyBuildValidationSettings']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         ...
     @overload
@@ -342,7 +342,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
                  blocking: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict', 'outputs.BranchPolicyBuildValidationSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,7 +375,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
             blocking: pulumi.Input[Optional[_builtins.bool]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']]] = None) -> 'BranchPolicyBuildValidation':
+            settings: pulumi.Input[Optional[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict', 'outputs.BranchPolicyBuildValidationSettings']]] = None) -> 'BranchPolicyBuildValidation':
         """
         Get an existing BranchPolicyBuildValidation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -386,7 +386,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyBuildValidationSettingsArgs', 'BranchPolicyBuildValidationSettingsArgsDict', 'outputs.BranchPolicyBuildValidationSettings']] settings: A `settings` block as defined below. Configuration for the policy. This block must be defined exactly once.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

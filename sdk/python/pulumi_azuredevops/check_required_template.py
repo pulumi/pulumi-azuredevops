@@ -183,7 +183,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 required_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict']]]]] = None,
+                 required_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict', 'outputs.CheckRequiredTemplateRequiredTemplate']]]]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -258,7 +258,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] project_id: The project ID. Changing this forces a new Required Template Check to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict']]]] required_templates: One or more `required_template` blocks documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict', 'outputs.CheckRequiredTemplateRequiredTemplate']]]] required_templates: One or more `required_template` blocks documented below.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[_builtins.str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
         """
@@ -352,7 +352,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 required_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict']]]]] = None,
+                 required_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict', 'outputs.CheckRequiredTemplateRequiredTemplate']]]]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -388,7 +388,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
-            required_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict']]]]] = None,
+            required_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict', 'outputs.CheckRequiredTemplateRequiredTemplate']]]]] = None,
             target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
             version: pulumi.Input[Optional[_builtins.int]] = None) -> 'CheckRequiredTemplate':
@@ -400,7 +400,7 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] project_id: The project ID. Changing this forces a new Required Template Check to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict']]]] required_templates: One or more `required_template` blocks documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict', 'outputs.CheckRequiredTemplateRequiredTemplate']]]] required_templates: One or more `required_template` blocks documented below.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[_builtins.str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[_builtins.int] version: The version of the check.

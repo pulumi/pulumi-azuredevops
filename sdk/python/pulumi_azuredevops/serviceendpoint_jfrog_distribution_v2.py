@@ -251,8 +251,8 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict']]] = None,
-                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs', 'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict']]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict', 'outputs.ServiceendpointJfrogDistributionV2AuthenticationBasic']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs', 'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict', 'outputs.ServiceendpointJfrogDistributionV2AuthenticationToken']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -323,8 +323,8 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict']] authentication_basic: An `authentication_basic` block as documented below.
-        :param pulumi.Input[Union['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs', 'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict']] authentication_token: An `authentication_token` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict', 'outputs.ServiceendpointJfrogDistributionV2AuthenticationBasic']] authentication_basic: An `authentication_basic` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs', 'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict', 'outputs.ServiceendpointJfrogDistributionV2AuthenticationToken']] authentication_token: An `authentication_token` block as documented below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -416,8 +416,8 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict']]] = None,
-                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs', 'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict']]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict', 'outputs.ServiceendpointJfrogDistributionV2AuthenticationBasic']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs', 'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict', 'outputs.ServiceendpointJfrogDistributionV2AuthenticationToken']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -454,8 +454,8 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_basic: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict']]] = None,
-            authentication_token: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs', 'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict']]] = None,
+            authentication_basic: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict', 'outputs.ServiceendpointJfrogDistributionV2AuthenticationBasic']]] = None,
+            authentication_token: pulumi.Input[Optional[Union['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs', 'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict', 'outputs.ServiceendpointJfrogDistributionV2AuthenticationToken']]] = None,
             authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -468,8 +468,8 @@ class ServiceendpointJfrogDistributionV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict']] authentication_basic: An `authentication_basic` block as documented below.
-        :param pulumi.Input[Union['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs', 'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict']] authentication_token: An `authentication_token` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointJfrogDistributionV2AuthenticationBasicArgs', 'ServiceendpointJfrogDistributionV2AuthenticationBasicArgsDict', 'outputs.ServiceendpointJfrogDistributionV2AuthenticationBasic']] authentication_basic: An `authentication_basic` block as documented below.
+        :param pulumi.Input[Union['ServiceendpointJfrogDistributionV2AuthenticationTokenArgs', 'ServiceendpointJfrogDistributionV2AuthenticationTokenArgsDict', 'outputs.ServiceendpointJfrogDistributionV2AuthenticationToken']] authentication_token: An `authentication_token` block as documented below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.

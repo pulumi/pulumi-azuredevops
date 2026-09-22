@@ -461,7 +461,7 @@ class WorkitemtrackingprocessWorkitemtype(pulumi.CustomResource):
             icon: pulumi.Input[Optional[_builtins.str]] = None,
             is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessWorkitemtypePageArgs', 'WorkitemtrackingprocessWorkitemtypePageArgsDict']]]]] = None,
+            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessWorkitemtypePageArgs', 'WorkitemtrackingprocessWorkitemtypePageArgsDict', 'outputs.WorkitemtrackingprocessWorkitemtypePage']]]]] = None,
             parent_work_item_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
             process_id: pulumi.Input[Optional[_builtins.str]] = None,
             reference_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -478,7 +478,7 @@ class WorkitemtrackingprocessWorkitemtype(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] icon: Icon to represent the work item type. Default: "icon_clipboard"
         :param pulumi.Input[_builtins.bool] is_enabled: True if the work item type is enabled. Default: true
         :param pulumi.Input[_builtins.str] name: Name of work item type. Changing this forces a new work item type to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessWorkitemtypePageArgs', 'WorkitemtrackingprocessWorkitemtypePageArgsDict']]]] pages: A `pages` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingprocessWorkitemtypePageArgs', 'WorkitemtrackingprocessWorkitemtypePageArgsDict', 'outputs.WorkitemtrackingprocessWorkitemtypePage']]]] pages: A `pages` block as defined below.
         :param pulumi.Input[_builtins.str] parent_work_item_reference_name: Reference name of the parent work item type. Changing this forces a new work item type to be created.
         :param pulumi.Input[_builtins.str] process_id: The ID of the process the work item type belongs to. Changing this forces a new work item type to be created.
         :param pulumi.Input[_builtins.str] reference_name: Reference name of the work item type.

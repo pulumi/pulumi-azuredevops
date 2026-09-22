@@ -252,8 +252,8 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_oauth: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']]] = None,
-                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']]] = None,
+                 auth_oauth: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthOauth']]] = None,
+                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthPersonal']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -322,8 +322,8 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthOauth']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthPersonal']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
                
                > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.
@@ -413,8 +413,8 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_oauth: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']]] = None,
-                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']]] = None,
+                 auth_oauth: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthOauth']]] = None,
+                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthPersonal']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -449,8 +449,8 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_oauth: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']]] = None,
-            auth_personal: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']]] = None,
+            auth_oauth: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthOauth']]] = None,
+            auth_personal: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthPersonal']]] = None,
             authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -463,8 +463,8 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthOauth']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        :param pulumi.Input[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthPersonal']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
                
                > **NOTE:** GitHub Apps can not be created or updated via terraform. You must install and configure the app on GitHub and then import it. You must also set the `description` to "" explicitly.

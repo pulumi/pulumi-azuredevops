@@ -234,10 +234,10 @@ class VariableGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault: pulumi.Input[Optional[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
+                 key_vault: pulumi.Input[Optional[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict', 'outputs.VariableGroupKeyVault']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict', 'outputs.VariableGroupVariable']]]]] = None,
                  __props__=None):
         """
         Manages variable groups within Azure DevOps.
@@ -356,10 +356,10 @@ class VariableGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
         :param pulumi.Input[_builtins.str] description: The description of the Variable Group.
-        :param pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']] key_vault: A list of `key_vault` blocks as documented below.
+        :param pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict', 'outputs.VariableGroupKeyVault']] key_vault: A list of `key_vault` blocks as documented below.
         :param pulumi.Input[_builtins.str] name: The name of the Variable Group.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]] variables: One or more `variable` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict', 'outputs.VariableGroupVariable']]]] variables: One or more `variable` blocks as documented below.
         """
         ...
     @overload
@@ -497,10 +497,10 @@ class VariableGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault: pulumi.Input[Optional[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
+                 key_vault: pulumi.Input[Optional[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict', 'outputs.VariableGroupKeyVault']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict', 'outputs.VariableGroupVariable']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -532,10 +532,10 @@ class VariableGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_access: pulumi.Input[Optional[_builtins.bool]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            key_vault: pulumi.Input[Optional[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']]] = None,
+            key_vault: pulumi.Input[Optional[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict', 'outputs.VariableGroupKeyVault']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
-            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]]] = None) -> 'VariableGroup':
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict', 'outputs.VariableGroupVariable']]]]] = None) -> 'VariableGroup':
         """
         Get an existing VariableGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -545,10 +545,10 @@ class VariableGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
         :param pulumi.Input[_builtins.str] description: The description of the Variable Group.
-        :param pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict']] key_vault: A list of `key_vault` blocks as documented below.
+        :param pulumi.Input[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict', 'outputs.VariableGroupKeyVault']] key_vault: A list of `key_vault` blocks as documented below.
         :param pulumi.Input[_builtins.str] name: The name of the Variable Group.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict']]]] variables: One or more `variable` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict', 'outputs.VariableGroupVariable']]]] variables: One or more `variable` blocks as documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

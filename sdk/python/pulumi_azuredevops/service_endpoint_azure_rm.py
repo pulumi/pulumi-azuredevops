@@ -569,10 +569,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                  azurerm_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
                  azurerm_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  azurerm_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict', 'outputs.ServiceEndpointAzureRMCredentials']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 features: pulumi.Input[Optional[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']]] = None,
+                 features: pulumi.Input[Optional[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict', 'outputs.ServiceEndpointAzureRMFeatures']]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  server_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -767,10 +767,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[_builtins.str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[_builtins.str] azurerm_subscription_name: The Subscription Name of the targets.
-        :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']] credentials: A `credentials` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict', 'outputs.ServiceEndpointAzureRMCredentials']] credentials: A `credentials` block as defined below.
         :param pulumi.Input[_builtins.str] description: Service connection description.
         :param pulumi.Input[_builtins.str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']] features: A `features` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict', 'outputs.ServiceEndpointAzureRMFeatures']] features: A `features` block as defined below.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[_builtins.str] server_url: The server URL of the service endpoint. Changing this forces a new resource to be created.
@@ -988,10 +988,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
                  azurerm_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
                  azurerm_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  azurerm_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict', 'outputs.ServiceEndpointAzureRMCredentials']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 features: pulumi.Input[Optional[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']]] = None,
+                 features: pulumi.Input[Optional[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict', 'outputs.ServiceEndpointAzureRMFeatures']]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  server_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1044,10 +1044,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
             azurerm_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
             azurerm_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-            credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict', 'outputs.ServiceEndpointAzureRMCredentials']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             environment: pulumi.Input[Optional[_builtins.str]] = None,
-            features: pulumi.Input[Optional[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']]] = None,
+            features: pulumi.Input[Optional[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict', 'outputs.ServiceEndpointAzureRMFeatures']]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group: pulumi.Input[Optional[_builtins.str]] = None,
             server_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1068,10 +1068,10 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] azurerm_spn_tenantid: The Tenant ID of the service principal.
         :param pulumi.Input[_builtins.str] azurerm_subscription_id: The Subscription ID of the Azure targets.
         :param pulumi.Input[_builtins.str] azurerm_subscription_name: The Subscription Name of the targets.
-        :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict']] credentials: A `credentials` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict', 'outputs.ServiceEndpointAzureRMCredentials']] credentials: A `credentials` block as defined below.
         :param pulumi.Input[_builtins.str] description: Service connection description.
         :param pulumi.Input[_builtins.str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`, `AzureUSGovernment`, `AzureGermanCloud` and `AzureStack`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict']] features: A `features` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict', 'outputs.ServiceEndpointAzureRMFeatures']] features: A `features` block as defined below.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[_builtins.str] server_url: The server URL of the service endpoint. Changing this forces a new resource to be created.

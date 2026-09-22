@@ -210,7 +210,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']]] = None,
+                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict', 'outputs.ServiceEndpointPipelineAuthPersonal']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -256,7 +256,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict', 'outputs.ServiceEndpointPipelineAuthPersonal']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
@@ -321,7 +321,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']]] = None,
+                 auth_personal: pulumi.Input[Optional[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict', 'outputs.ServiceEndpointPipelineAuthPersonal']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -359,7 +359,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_personal: pulumi.Input[Optional[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']]] = None,
+            auth_personal: pulumi.Input[Optional[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict', 'outputs.ServiceEndpointPipelineAuthPersonal']]] = None,
             authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             organization_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -372,7 +372,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[Union['ServiceEndpointPipelineAuthPersonalArgs', 'ServiceEndpointPipelineAuthPersonalArgsDict', 'outputs.ServiceEndpointPipelineAuthPersonal']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description. Defaults to `Managed by Terraform`.
         :param pulumi.Input[_builtins.str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.

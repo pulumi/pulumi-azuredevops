@@ -300,11 +300,11 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apiserver_url: pulumi.Input[Optional[_builtins.str]] = None,
                  authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict']]]]] = None,
+                 azure_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict', 'outputs.ServiceEndpointKubernetesAzureSubscription']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 kubeconfig: pulumi.Input[Optional[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict']]] = None,
+                 kubeconfig: pulumi.Input[Optional[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict', 'outputs.ServiceEndpointKubernetesKubeconfig']]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_account: pulumi.Input[Optional[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict']]] = None,
+                 service_account: pulumi.Input[Optional[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict', 'outputs.ServiceEndpointKubernetesServiceAccount']]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -393,10 +393,10 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] apiserver_url: The hostname (in form of URI) of the Kubernetes API.
         :param pulumi.Input[_builtins.str] authorization_type: The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict']]]] azure_subscriptions: An `azure_subscription` block as defined below.
-        :param pulumi.Input[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict']] kubeconfig: A `kubeconfig` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict', 'outputs.ServiceEndpointKubernetesAzureSubscription']]]] azure_subscriptions: An `azure_subscription` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict', 'outputs.ServiceEndpointKubernetesKubeconfig']] kubeconfig: A `kubeconfig` block as defined below.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
-        :param pulumi.Input[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict']] service_account: A `service_account` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict', 'outputs.ServiceEndpointKubernetesServiceAccount']] service_account: A `service_account` block as defined below.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         """
         ...
@@ -504,11 +504,11 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apiserver_url: pulumi.Input[Optional[_builtins.str]] = None,
                  authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict']]]]] = None,
+                 azure_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict', 'outputs.ServiceEndpointKubernetesAzureSubscription']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 kubeconfig: pulumi.Input[Optional[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict']]] = None,
+                 kubeconfig: pulumi.Input[Optional[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict', 'outputs.ServiceEndpointKubernetesKubeconfig']]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_account: pulumi.Input[Optional[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict']]] = None,
+                 service_account: pulumi.Input[Optional[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict', 'outputs.ServiceEndpointKubernetesServiceAccount']]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -549,11 +549,11 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
             apiserver_url: pulumi.Input[Optional[_builtins.str]] = None,
             authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
-            azure_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict']]]]] = None,
+            azure_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict', 'outputs.ServiceEndpointKubernetesAzureSubscription']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            kubeconfig: pulumi.Input[Optional[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict']]] = None,
+            kubeconfig: pulumi.Input[Optional[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict', 'outputs.ServiceEndpointKubernetesKubeconfig']]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
-            service_account: pulumi.Input[Optional[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict']]] = None,
+            service_account: pulumi.Input[Optional[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict', 'outputs.ServiceEndpointKubernetesServiceAccount']]] = None,
             service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceEndpointKubernetes':
         """
         Get an existing ServiceEndpointKubernetes resource's state with the given name, id, and optional extra
@@ -564,10 +564,10 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] apiserver_url: The hostname (in form of URI) of the Kubernetes API.
         :param pulumi.Input[_builtins.str] authorization_type: The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict']]]] azure_subscriptions: An `azure_subscription` block as defined below.
-        :param pulumi.Input[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict']] kubeconfig: A `kubeconfig` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict', 'outputs.ServiceEndpointKubernetesAzureSubscription']]]] azure_subscriptions: An `azure_subscription` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict', 'outputs.ServiceEndpointKubernetesKubeconfig']] kubeconfig: A `kubeconfig` block as defined below.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
-        :param pulumi.Input[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict']] service_account: A `service_account` block as defined below.
+        :param pulumi.Input[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict', 'outputs.ServiceEndpointKubernetesServiceAccount']] service_account: A `service_account` block as defined below.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

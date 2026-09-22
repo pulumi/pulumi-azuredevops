@@ -752,7 +752,7 @@ class Workitem(pulumi.CustomResource):
             iteration_path: pulumi.Input[Optional[_builtins.str]] = None,
             parent_id: pulumi.Input[Optional[_builtins.int]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
-            relations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemRelationArgs', 'WorkitemRelationArgsDict']]]]] = None,
+            relations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemRelationArgs', 'WorkitemRelationArgsDict', 'outputs.WorkitemRelation']]]]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             title: pulumi.Input[Optional[_builtins.str]] = None,
@@ -772,7 +772,7 @@ class Workitem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] iteration_path: Specifies the iteration in which the Work Item is used.
         :param pulumi.Input[_builtins.int] parent_id: The parent work item.
         :param pulumi.Input[_builtins.str] project_id: The ID of the Project.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemRelationArgs', 'WorkitemRelationArgsDict']]]] relations: A `relations` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemRelationArgs', 'WorkitemRelationArgsDict', 'outputs.WorkitemRelation']]]] relations: A `relations` blocks as documented below.
         :param pulumi.Input[_builtins.str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Specifies a list of Tags.
         :param pulumi.Input[_builtins.str] title: The Title of the Work Item.

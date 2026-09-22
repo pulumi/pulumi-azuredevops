@@ -146,7 +146,7 @@ class Feed(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict', 'outputs.FeedFeature']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -212,7 +212,7 @@ class Feed(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]] features: A `features` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict', 'outputs.FeedFeature']]]] features: A `features` blocks as documented below.
                
                > **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
         :param pulumi.Input[_builtins.str] name: The name of the Feed.
@@ -299,7 +299,7 @@ class Feed(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict', 'outputs.FeedFeature']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -324,7 +324,7 @@ class Feed(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]]] = None,
+            features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict', 'outputs.FeedFeature']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Feed':
         """
@@ -334,7 +334,7 @@ class Feed(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict']]]] features: A `features` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeedFeatureArgs', 'FeedFeatureArgsDict', 'outputs.FeedFeature']]]] features: A `features` blocks as documented below.
                
                > **Note** *Because of ADO limitations feed name can be **reserved** for up to 15 minutes after permanent delete of the feed*
         :param pulumi.Input[_builtins.str] name: The name of the Feed.

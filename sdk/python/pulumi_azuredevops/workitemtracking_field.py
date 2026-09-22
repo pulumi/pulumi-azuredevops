@@ -669,7 +669,7 @@ class WorkitemtrackingField(pulumi.CustomResource):
             read_only: pulumi.Input[Optional[_builtins.bool]] = None,
             reference_name: pulumi.Input[Optional[_builtins.str]] = None,
             restore: pulumi.Input[Optional[_builtins.bool]] = None,
-            supported_operations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingFieldSupportedOperationArgs', 'WorkitemtrackingFieldSupportedOperationArgsDict']]]]] = None,
+            supported_operations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingFieldSupportedOperationArgs', 'WorkitemtrackingFieldSupportedOperationArgsDict', 'outputs.WorkitemtrackingFieldSupportedOperation']]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None,
             usage: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkitemtrackingField':
@@ -695,7 +695,7 @@ class WorkitemtrackingField(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] reference_name: The reference name of the field (e.g., `Custom.MyField`). Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.bool] restore: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Set to `true` to restore a previously deleted field instead of creating a new one. When set to `true`, the resource will attempt to restore the field with the specified `reference_name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingFieldSupportedOperationArgs', 'WorkitemtrackingFieldSupportedOperationArgsDict']]]] supported_operations: The supported operations on this field. A `supported_operations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkitemtrackingFieldSupportedOperationArgs', 'WorkitemtrackingFieldSupportedOperationArgsDict', 'outputs.WorkitemtrackingFieldSupportedOperation']]]] supported_operations: The supported operations on this field. A `supported_operations` block as defined below.
         :param pulumi.Input[_builtins.str] type: The type of the field. Possible values: `string`, `integer`, `dateTime`, `plainText`, `html`, `treePath`, `history`, `double`, `guid`, `boolean`, `identity`. Changing this forces a new field to be created.
         :param pulumi.Input[_builtins.str] url: The URL of the field resource.
         :param pulumi.Input[_builtins.str] usage: The usage of the field. Possible values: `none`, `workItem`, `workItemLink`, `tree`, `workItemTypeExtension`. Default: `workItem`. Changing this forces a new field to be created.

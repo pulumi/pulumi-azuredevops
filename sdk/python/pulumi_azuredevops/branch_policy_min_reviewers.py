@@ -171,7 +171,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
                  blocking: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict', 'outputs.BranchPolicyMinReviewersSettings']]] = None,
                  __props__=None):
         """
         Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
@@ -236,7 +236,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict']] settings: A `settings` block as defined below.. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict', 'outputs.BranchPolicyMinReviewersSettings']] settings: A `settings` block as defined below.. This block must be defined exactly once.
         """
         ...
     @overload
@@ -320,7 +320,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
                  blocking: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict', 'outputs.BranchPolicyMinReviewersSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -351,7 +351,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
             blocking: pulumi.Input[Optional[_builtins.bool]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict']]] = None) -> 'BranchPolicyMinReviewers':
+            settings: pulumi.Input[Optional[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict', 'outputs.BranchPolicyMinReviewersSettings']]] = None) -> 'BranchPolicyMinReviewers':
         """
         Get an existing BranchPolicyMinReviewers resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -362,7 +362,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict']] settings: A `settings` block as defined below.. This block must be defined exactly once.
+        :param pulumi.Input[Union['BranchPolicyMinReviewersSettingsArgs', 'BranchPolicyMinReviewersSettingsArgsDict', 'outputs.BranchPolicyMinReviewersSettings']] settings: A `settings` block as defined below.. This block must be defined exactly once.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

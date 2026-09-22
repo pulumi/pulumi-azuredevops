@@ -330,7 +330,7 @@ class Git(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_branch: pulumi.Input[Optional[_builtins.str]] = None,
                  disabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 initialization: pulumi.Input[Optional[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
+                 initialization: pulumi.Input[Optional[Union['GitInitializationArgs', 'GitInitializationArgsDict', 'outputs.GitInitialization']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_repository_id: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -553,7 +553,7 @@ class Git(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
         :param pulumi.Input[_builtins.bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
-        :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']] initialization: A `initialization` block as documented below.
+        :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict', 'outputs.GitInitialization']] initialization: A `initialization` block as documented below.
         :param pulumi.Input[_builtins.str] name: The name of the git repository.
         :param pulumi.Input[_builtins.str] parent_repository_id: The ID of a Git project from which a fork is to be created.
         :param pulumi.Input[_builtins.str] project_id: The project ID or project name.
@@ -795,7 +795,7 @@ class Git(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_branch: pulumi.Input[Optional[_builtins.str]] = None,
                  disabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 initialization: pulumi.Input[Optional[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
+                 initialization: pulumi.Input[Optional[Union['GitInitializationArgs', 'GitInitializationArgsDict', 'outputs.GitInitialization']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_repository_id: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -836,7 +836,7 @@ class Git(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             default_branch: pulumi.Input[Optional[_builtins.str]] = None,
             disabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            initialization: pulumi.Input[Optional[Union['GitInitializationArgs', 'GitInitializationArgsDict']]] = None,
+            initialization: pulumi.Input[Optional[Union['GitInitializationArgs', 'GitInitializationArgsDict', 'outputs.GitInitialization']]] = None,
             is_fork: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parent_repository_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -855,7 +855,7 @@ class Git(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
         :param pulumi.Input[_builtins.bool] disabled: The ability to disable or enable the repository. Defaults to `false`.
-        :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict']] initialization: A `initialization` block as documented below.
+        :param pulumi.Input[Union['GitInitializationArgs', 'GitInitializationArgsDict', 'outputs.GitInitialization']] initialization: A `initialization` block as documented below.
         :param pulumi.Input[_builtins.bool] is_fork: True if the repository was created as a fork.
         :param pulumi.Input[_builtins.str] name: The name of the git repository.
         :param pulumi.Input[_builtins.str] parent_repository_id: The ID of a Git project from which a fork is to be created.

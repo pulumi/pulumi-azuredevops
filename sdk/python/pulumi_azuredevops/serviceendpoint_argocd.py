@@ -251,8 +251,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']]] = None,
-                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict']]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict', 'outputs.ServiceendpointArgocdAuthenticationBasic']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict', 'outputs.ServiceendpointArgocdAuthenticationToken']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -320,10 +320,10 @@ class ServiceendpointArgocd(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
+        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict', 'outputs.ServiceendpointArgocdAuthenticationBasic']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
                
                > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
-        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict']] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
+        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict', 'outputs.ServiceendpointArgocdAuthenticationToken']] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
@@ -410,8 +410,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']]] = None,
-                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict']]] = None,
+                 authentication_basic: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict', 'outputs.ServiceendpointArgocdAuthenticationBasic']]] = None,
+                 authentication_token: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict', 'outputs.ServiceendpointArgocdAuthenticationToken']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -448,8 +448,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_basic: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']]] = None,
-            authentication_token: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict']]] = None,
+            authentication_basic: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict', 'outputs.ServiceendpointArgocdAuthenticationBasic']]] = None,
+            authentication_token: pulumi.Input[Optional[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict', 'outputs.ServiceendpointArgocdAuthenticationToken']]] = None,
             authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -462,10 +462,10 @@ class ServiceendpointArgocd(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
+        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationBasicArgs', 'ServiceendpointArgocdAuthenticationBasicArgsDict', 'outputs.ServiceendpointArgocdAuthenticationBasic']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
                
                > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
-        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict']] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
+        :param pulumi.Input[Union['ServiceendpointArgocdAuthenticationTokenArgs', 'ServiceendpointArgocdAuthenticationTokenArgsDict', 'outputs.ServiceendpointArgocdAuthenticationToken']] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
         :param pulumi.Input[_builtins.str] description: The Service Endpoint description.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] service_endpoint_name: The Service Endpoint name.
