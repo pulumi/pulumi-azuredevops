@@ -64,7 +64,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = example.Id,
     ///         Name = "Frontend",
-    ///         ParentAreaId = parent.Id,
+    ///         ParentAreaId = parent.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     /// });

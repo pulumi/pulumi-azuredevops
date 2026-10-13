@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .certificate(ServiceEndpointServiceFabricCertificateArgs.builder()
  *                 .serverCertificateLookup("Thumbprint")
  *                 .serverCertificateThumbprint("0000000000000000000000000000000000000000")
- *                 .clientCertificate(StdFunctions.filebase64(Map.of("input", "certificate.pfx")).result())
+ *                 .clientCertificate(StdFunctions.filebase64(Map.of("input", "certificate.pfx")).get("result"))
  *                 .clientCertificatePassword("password")
  *                 .build())
  *             .build());

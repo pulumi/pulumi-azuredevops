@@ -83,7 +83,7 @@ namespace Pulumi.AzureDevOps
     ///         AccountKey = exampleAzurermStorageAccount.PrimaryAccessKey,
     ///         QueueName = exampleAzurermStorageQueue.Name,
     ///         VisiTimeout = 30,
-    ///         RunStateChangedEvent = null,
+    ///         RunStateChangedEvent = new() { },
     ///     });
     /// 
     /// });

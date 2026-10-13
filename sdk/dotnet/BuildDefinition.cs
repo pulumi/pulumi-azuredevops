@@ -105,7 +105,7 @@ namespace Pulumi.AzureDevOps
     ///         },
     ///         VariableGroups = new[]
     ///         {
-    ///             exampleVariableGroup.Id,
+    ///             exampleVariableGroup.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         },
     ///         Variables = new[]
     ///         {

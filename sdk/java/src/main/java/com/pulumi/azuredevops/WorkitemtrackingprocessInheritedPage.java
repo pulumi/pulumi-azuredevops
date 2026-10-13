@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *         var exampleWorkitemtrackingprocessInheritedPage = new WorkitemtrackingprocessInheritedPage("exampleWorkitemtrackingprocessInheritedPage", WorkitemtrackingprocessInheritedPageArgs.builder()
  *             .processId(example.id())
  *             .workItemTypeId(exampleWorkitemtrackingprocessWorkitemtype.referenceName())
- *             .pageId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages[0].id()))
+ *             .pageId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages.get(0).id()))
  *             .label("Custom Details")
  *             .build());
  * 

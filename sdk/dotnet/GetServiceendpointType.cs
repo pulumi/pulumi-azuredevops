@@ -33,11 +33,11 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["genericTypeInfo"] = 
+        ///         ["genericTypeInfo"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "displayName", generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.DisplayName) },
-        ///             { "authSchemes", generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.AuthenticationSchemes) },
-        ///             { "parameters", generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.Parameters) },
+        ///             ["displayName"] = generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.DisplayName),
+        ///             ["authSchemes"] = generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.AuthenticationSchemes),
+        ///             ["parameters"] = generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.Parameters),
         ///         },
         ///     };
         /// });
@@ -87,7 +87,7 @@ namespace Pulumi.AzureDevOps
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     // Use the data source to understand available parameters
+        ///     // Use the function to understand available parameters
         ///     var exampleServiceendpointGenericV2 = new AzureDevOps.ServiceendpointGenericV2("example", new()
         ///     {
         ///         ProjectId = example.Id,
@@ -135,11 +135,11 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["genericTypeInfo"] = 
+        ///         ["genericTypeInfo"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "displayName", generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.DisplayName) },
-        ///             { "authSchemes", generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.AuthenticationSchemes) },
-        ///             { "parameters", generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.Parameters) },
+        ///             ["displayName"] = generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.DisplayName),
+        ///             ["authSchemes"] = generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.AuthenticationSchemes),
+        ///             ["parameters"] = generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.Parameters),
         ///         },
         ///     };
         /// });
@@ -189,7 +189,7 @@ namespace Pulumi.AzureDevOps
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     // Use the data source to understand available parameters
+        ///     // Use the function to understand available parameters
         ///     var exampleServiceendpointGenericV2 = new AzureDevOps.ServiceendpointGenericV2("example", new()
         ///     {
         ///         ProjectId = example.Id,
@@ -237,11 +237,11 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["genericTypeInfo"] = 
+        ///         ["genericTypeInfo"] = new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             { "displayName", generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.DisplayName) },
-        ///             { "authSchemes", generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.AuthenticationSchemes) },
-        ///             { "parameters", generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.Parameters) },
+        ///             ["displayName"] = generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.DisplayName),
+        ///             ["authSchemes"] = generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.AuthenticationSchemes),
+        ///             ["parameters"] = generic.Apply(getServiceendpointTypeResult =&gt; getServiceendpointTypeResult.Parameters),
         ///         },
         ///     };
         /// });
@@ -291,7 +291,7 @@ namespace Pulumi.AzureDevOps
         ///         Name = "Example Project",
         ///     });
         /// 
-        ///     // Use the data source to understand available parameters
+        ///     // Use the function to understand available parameters
         ///     var exampleServiceendpointGenericV2 = new AzureDevOps.ServiceendpointGenericV2("example", new()
         ///     {
         ///         ProjectId = example.Id,

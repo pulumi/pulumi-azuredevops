@@ -251,7 +251,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BuildDefinition("example", BuildDefinitionArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .name("Example Build Definition")
  *             .path("\\ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
@@ -263,7 +263,7 @@ import javax.annotation.Nullable;
  *                 .githubEnterpriseUrl("https://github.company.com")
  *                 .branchName("main")
  *                 .ymlPath("azure-pipelines.yml")
- *                 .serviceConnectionId(exampleAzuredevopsServiceendpointGithubEnterprise.id())
+ *                 .serviceConnectionId(exampleAzuredevopsServiceendpointGithubEnterprise.get("id"))
  *                 .build())
  *             .buildCompletionTriggers(BuildDefinitionBuildCompletionTriggerArgs.builder()
  *                 .buildDefinitionId(10)
@@ -311,12 +311,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
  *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
- *             .projectId(exampleAzuredevopsProject2.id())
+ *             .projectId(exampleAzuredevopsProject2.get("id"))
  *             .name("Example Build Definition")
  *             .path("\\ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
@@ -379,14 +379,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServiceEndpointGenericGit("example", ServiceEndpointGenericGitArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .repositoryUrl("https://gitlab.com/example/example.git")
  *             .password("token")
  *             .serviceEndpointName("Example Generic Git")
  *             .build());
  * 
  *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
- *             .projectId(exampleAzuredevopsProject2.id())
+ *             .projectId(exampleAzuredevopsProject2.get("id"))
  *             .name("Example Build Definition")
  *             .path("\\ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()

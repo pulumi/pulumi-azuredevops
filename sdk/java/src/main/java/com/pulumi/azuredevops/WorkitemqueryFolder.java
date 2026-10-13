@@ -92,13 +92,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var parent = new WorkitemqueryFolder("parent", WorkitemqueryFolderArgs.builder()
- *             .projectId(example.id())
+ *             .projectId(example.get("id"))
  *             .name("Parent")
  *             .area("Shared Queries")
  *             .build());
  * 
  *         var child = new WorkitemqueryFolder("child", WorkitemqueryFolderArgs.builder()
- *             .projectId(example.id())
+ *             .projectId(example.get("id"))
  *             .name("Child")
  *             .parentId(parent.id())
  *             .build());

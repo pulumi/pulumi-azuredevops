@@ -3822,7 +3822,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         // load existing group with specific name
      *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
-     *             .projectId(example.id())
+     *             .projectId(example.get("id"))
      *             .name("[Project-Name]\\Group-Name")
      *             .build());
      * 
@@ -3868,7 +3868,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         // load existing group with specific name
      *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
-     *             .projectId(example.id())
+     *             .projectId(example.get("id"))
      *             .name("[Project-Name]\\Group-Name")
      *             .build());
      * 
@@ -3914,7 +3914,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         // load existing group with specific name
      *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
-     *             .projectId(example.id())
+     *             .projectId(example.get("id"))
      *             .name("[Project-Name]\\Group-Name")
      *             .build());
      * 
@@ -3960,7 +3960,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         // load existing group with specific name
      *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
-     *             .projectId(example.id())
+     *             .projectId(example.get("id"))
      *             .name("[Project-Name]\\Group-Name")
      *             .build());
      * 
@@ -4006,7 +4006,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         // load existing group with specific name
      *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
-     *             .projectId(example.id())
+     *             .projectId(example.get("id"))
      *             .name("[Project-Name]\\Group-Name")
      *             .build());
      * 
@@ -7290,7 +7290,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
      *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
-     *             .identifiers(Map.of("project_id", example.id()))
+     *             .identifiers(Map.of("project_id", example.get("id")))
      *             .build());
      * 
      *     }
@@ -7604,7 +7604,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
      *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
-     *             .identifiers(Map.of("project_id", example.id()))
+     *             .identifiers(Map.of("project_id", example.get("id")))
      *             .build());
      * 
      *     }
@@ -7918,7 +7918,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
      *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
-     *             .identifiers(Map.of("project_id", example.id()))
+     *             .identifiers(Map.of("project_id", example.get("id")))
      *             .build());
      * 
      *     }
@@ -8232,7 +8232,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
      *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
-     *             .identifiers(Map.of("project_id", example.id()))
+     *             .identifiers(Map.of("project_id", example.get("id")))
      *             .build());
      * 
      *     }
@@ -8546,7 +8546,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
      *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
-     *             .identifiers(Map.of("project_id", example.id()))
+     *             .identifiers(Map.of("project_id", example.get("id")))
      *             .build());
      * 
      *     }
@@ -8860,7 +8860,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
      *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
-     *             .identifiers(Map.of("project_id", example.id()))
+     *             .identifiers(Map.of("project_id", example.get("id")))
      *             .build());
      * 
      *     }
@@ -9174,7 +9174,7 @@ public final class AzuredevopsFunctions {
      *     public static void stack(Context ctx) {
      *         final var analytics = AzuredevopsFunctions.getSecurityNamespaceToken(GetSecurityNamespaceTokenArgs.builder()
      *             .namespaceId("58450c49-b02d-465a-ab12-59ae512d6531")
-     *             .identifiers(Map.of("project_id", example.id()))
+     *             .identifiers(Map.of("project_id", example.get("id")))
      *             .build());
      * 
      *     }
@@ -9776,7 +9776,7 @@ public final class AzuredevopsFunctions {
      *             .scope("distributedtask.environmentreferencerole")
      *             .build());
      * 
-     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.definitions());
+     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.get("definitions"));
      *     }
      * }
      * }
@@ -9821,7 +9821,7 @@ public final class AzuredevopsFunctions {
      *             .scope("distributedtask.environmentreferencerole")
      *             .build());
      * 
-     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.definitions());
+     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.get("definitions"));
      *     }
      * }
      * }
@@ -9866,7 +9866,7 @@ public final class AzuredevopsFunctions {
      *             .scope("distributedtask.environmentreferencerole")
      *             .build());
      * 
-     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.definitions());
+     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.get("definitions"));
      *     }
      * }
      * }
@@ -9911,7 +9911,7 @@ public final class AzuredevopsFunctions {
      *             .scope("distributedtask.environmentreferencerole")
      *             .build());
      * 
-     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.definitions());
+     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.get("definitions"));
      *     }
      * }
      * }
@@ -9956,7 +9956,7 @@ public final class AzuredevopsFunctions {
      *             .scope("distributedtask.environmentreferencerole")
      *             .build());
      * 
-     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.definitions());
+     *         ctx.export("securityroleDefinitions", exampleAazuredevopsSecurityroleDefinitions.get("definitions"));
      *     }
      * }
      * }
@@ -11427,7 +11427,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
@@ -11469,7 +11469,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
@@ -11511,7 +11511,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
@@ -11553,7 +11553,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
@@ -11595,7 +11595,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example Azure Container Registry")
      *             .build());
      * 
@@ -12153,7 +12153,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.id());
+     *         ctx.export("serviceEndpointId", serviceendpoint.get("id"));
      *     }
      * }
      * }
@@ -12242,7 +12242,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.id());
+     *         ctx.export("serviceEndpointId", serviceendpoint.get("id"));
      *     }
      * }
      * }
@@ -12331,7 +12331,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.id());
+     *         ctx.export("serviceEndpointId", serviceendpoint.get("id"));
      *     }
      * }
      * }
@@ -12420,7 +12420,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.id());
+     *         ctx.export("serviceEndpointId", serviceendpoint.get("id"));
      *     }
      * }
      * }
@@ -12509,7 +12509,7 @@ public final class AzuredevopsFunctions {
      *             .serviceEndpointName("Example-Service-Endpoint")
      *             .build());
      * 
-     *         ctx.export("serviceEndpointId", serviceendpoint.id());
+     *         ctx.export("serviceEndpointId", serviceendpoint.get("id"));
      *     }
      * }
      * }
@@ -12582,7 +12582,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example npm")
      *             .build());
      * 
@@ -12624,7 +12624,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example npm")
      *             .build());
      * 
@@ -12666,7 +12666,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example npm")
      *             .build());
      * 
@@ -12708,7 +12708,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example npm")
      *             .build());
      * 
@@ -12750,7 +12750,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example npm")
      *             .build());
      * 
@@ -12792,7 +12792,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
@@ -12834,7 +12834,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
@@ -12876,7 +12876,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
@@ -12918,7 +12918,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
@@ -12960,7 +12960,7 @@ public final class AzuredevopsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
-     *             .projectId(exampleAzuredevopsProject.id())
+     *             .projectId(exampleAzuredevopsProject.get("id"))
      *             .serviceEndpointName("Example Sonar Cloud")
      *             .build());
      * 
@@ -13089,7 +13089,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         // Use the data source to understand available parameters
+     *         // Use the function to understand available parameters
      *         var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2("exampleServiceendpointGenericV2", ServiceendpointGenericV2Args.builder()
      *             .projectId(example.id())
      *             .name("Example Bitbucket")
@@ -13231,7 +13231,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         // Use the data source to understand available parameters
+     *         // Use the function to understand available parameters
      *         var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2("exampleServiceendpointGenericV2", ServiceendpointGenericV2Args.builder()
      *             .projectId(example.id())
      *             .name("Example Bitbucket")
@@ -13373,7 +13373,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         // Use the data source to understand available parameters
+     *         // Use the function to understand available parameters
      *         var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2("exampleServiceendpointGenericV2", ServiceendpointGenericV2Args.builder()
      *             .projectId(example.id())
      *             .name("Example Bitbucket")
@@ -13515,7 +13515,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         // Use the data source to understand available parameters
+     *         // Use the function to understand available parameters
      *         var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2("exampleServiceendpointGenericV2", ServiceendpointGenericV2Args.builder()
      *             .projectId(example.id())
      *             .name("Example Bitbucket")
@@ -13657,7 +13657,7 @@ public final class AzuredevopsFunctions {
      *             .name("Example Project")
      *             .build());
      * 
-     *         // Use the data source to understand available parameters
+     *         // Use the function to understand available parameters
      *         var exampleServiceendpointGenericV2 = new ServiceendpointGenericV2("exampleServiceendpointGenericV2", ServiceendpointGenericV2Args.builder()
      *             .projectId(example.id())
      *             .name("Example Bitbucket")

@@ -65,8 +65,8 @@ import javax.annotation.Nullable;
  *         var exampleWorkitemtrackingprocessGroup = new WorkitemtrackingprocessGroup("exampleWorkitemtrackingprocessGroup", WorkitemtrackingprocessGroupArgs.builder()
  *             .processId(example.id())
  *             .workItemTypeReferenceName(exampleWorkitemtrackingprocessWorkitemtype.referenceName())
- *             .pageId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages[0].id()))
- *             .sectionId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages[0].sections()[0].id()))
+ *             .pageId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages.get(0).id()))
+ *             .sectionId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages.get(0).sections().get(0).id()))
  *             .label("Custom Group")
  *             .build());
  * 
@@ -127,8 +127,8 @@ import javax.annotation.Nullable;
  *         var exampleWorkitemtrackingprocessGroup = new WorkitemtrackingprocessGroup("exampleWorkitemtrackingprocessGroup", WorkitemtrackingprocessGroupArgs.builder()
  *             .processId(example.id())
  *             .workItemTypeReferenceName(exampleWorkitemtrackingprocessWorkitemtype.referenceName())
- *             .pageId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages[0].id()))
- *             .sectionId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages[0].sections()[0].id()))
+ *             .pageId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages.get(0).id()))
+ *             .sectionId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages.get(0).sections().get(0).id()))
  *             .label("Custom Group")
  *             .build());
  * 

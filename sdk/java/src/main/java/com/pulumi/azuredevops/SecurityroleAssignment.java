@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *                 Map.entry("args", Arrays.asList(                
  *                     example.id(),
  *                     exampleEnvironment.id()))
- *             )).result())
+ *             )).get("result"))
  *             .identityId(exampleGroup.groupId())
  *             .roleName("Administrator")
  *             .build());

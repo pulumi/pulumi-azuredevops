@@ -51,7 +51,7 @@ import * as utilities from "./utilities";
  *     authorizationScheme: "UsernamePassword",
  * });
  * const example = new azuredevops.Project("example", {name: "Example Project"});
- * // Use the data source to understand available parameters
+ * // Use the function to understand available parameters
  * const exampleServiceendpointGenericV2 = new azuredevops.ServiceendpointGenericV2("example", {
  *     projectId: example.id,
  *     name: "Example Bitbucket",
@@ -175,7 +175,7 @@ export interface GetServiceendpointTypeResult {
  *     authorizationScheme: "UsernamePassword",
  * });
  * const example = new azuredevops.Project("example", {name: "Example Project"});
- * // Use the data source to understand available parameters
+ * // Use the function to understand available parameters
  * const exampleServiceendpointGenericV2 = new azuredevops.ServiceendpointGenericV2("example", {
  *     projectId: example.id,
  *     name: "Example Bitbucket",

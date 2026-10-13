@@ -60,7 +60,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleEnvironmentResourceKubernetes = new AzureDevOps.EnvironmentResourceKubernetes("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         EnvironmentId = exampleEnvironment.Id,
+    ///         EnvironmentId = exampleEnvironment.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///         ServiceEndpointId = exampleServiceEndpointKubernetes.Id,
     ///         Name = "Example",
     ///         Namespace = "default",

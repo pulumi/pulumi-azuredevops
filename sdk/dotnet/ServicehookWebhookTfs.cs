@@ -141,7 +141,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = exampleAzuredevopsProject.Id,
     ///         Url = "https://example.com/webhook",
-    ///         GitPush = null,
+    ///         GitPush = new() { },
     ///     });
     /// 
     /// });

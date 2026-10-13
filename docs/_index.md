@@ -137,7 +137,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     azuredevops = {
       source = "pulumi/azuredevops"
@@ -146,6 +146,9 @@ pulumi {
 }
 
 resource "azuredevops_project" "project" {
+  lifecycle {
+    create_before_destroy = true
+  }
   name        = "Project Name"
   description = "Project Description"
 }

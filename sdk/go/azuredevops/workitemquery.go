@@ -188,7 +188,7 @@ import (
 //			}
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "query_permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 //				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
-//				Path:      invokeFormat.Result,
+//				Path:      invokeFormat.Result.(pulumi.String),
 //				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"Read":              pulumi.String("Allow"),

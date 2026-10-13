@@ -185,7 +185,7 @@ def get_serviceendpoint_type(authorization_scheme: Optional[_builtins.str] = Non
     bitbucket = azuredevops.get_serviceendpoint_type(name="bitbucket",
         authorization_scheme="UsernamePassword")
     example = azuredevops.Project("example", name="Example Project")
-    # Use the data source to understand available parameters
+    # Use the function to understand available parameters
     example_serviceendpoint_generic_v2 = azuredevops.ServiceendpointGenericV2("example",
         project_id=example.id,
         name="Example Bitbucket",
@@ -265,7 +265,7 @@ def get_serviceendpoint_type_output(authorization_scheme: pulumi.Input[Optional[
     bitbucket = azuredevops.get_serviceendpoint_type(name="bitbucket",
         authorization_scheme="UsernamePassword")
     example = azuredevops.Project("example", name="Example Project")
-    # Use the data source to understand available parameters
+    # Use the function to understand available parameters
     example_serviceendpoint_generic_v2 = azuredevops.ServiceendpointGenericV2("example",
         project_id=example.id,
         name="Example Bitbucket",

@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps
     ///         Settings = new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsArgs
     ///         {
     ///             DisplayName = "Example build validation policy",
-    ///             BuildDefinitionId = exampleBuildDefinition.Id,
+    ///             BuildDefinitionId = exampleBuildDefinition.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///             QueueOnSourceUpdateOnly = true,
     ///             ValidDuration = 720,
     ///             FilenamePatterns = new[]
