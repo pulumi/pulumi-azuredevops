@@ -47,7 +47,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleQueue = new AzureDevOps.Queue("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         AgentPoolId = examplePool.Id,
+    ///         AgentPoolId = examplePool.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     ///     var examplePipelineAuthorization = new AzureDevOps.PipelineAuthorization("example", new()
@@ -89,7 +89,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleQueue = new AzureDevOps.Queue("example", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
-    ///         AgentPoolId = examplePool.Id,
+    ///         AgentPoolId = examplePool.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     ///     var example = AzureDevOps.GetGitRepository.Invoke(new()
@@ -115,7 +115,7 @@ namespace Pulumi.AzureDevOps
     ///         ProjectId = exampleProject.Id,
     ///         ResourceId = exampleQueue.Id,
     ///         Type = "queue",
-    ///         PipelineId = exampleBuildDefinition.Id,
+    ///         PipelineId = exampleBuildDefinition.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     /// });

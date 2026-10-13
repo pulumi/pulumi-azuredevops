@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .title("Example Work Item")
  *             .description("Managed by Pulumi")
  *             .type("Issue")
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .title("Example Work Item")
  *             .type("Issue")
  *             .state("Active")
@@ -208,7 +208,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkitem = new Workitem("exampleWorkitem", WorkitemArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .title("Example Work Item")
  *             .type("User Story")
  *             .state("New")

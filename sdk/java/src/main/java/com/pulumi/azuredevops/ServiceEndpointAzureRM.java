@@ -236,7 +236,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
- *             .location(identity.location())
+ *             .location(identity.get("location"))
  *             .name("example-identity")
  *             .resourceGroupName("azurerm_resource_group.identity.name")
  *             .build());
@@ -247,7 +247,7 @@ import javax.annotation.Nullable;
  *             .description("Managed by Pulumi")
  *             .serviceEndpointAuthenticationScheme("WorkloadIdentityFederation")
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
- *                 .serviceprincipalid(exampleUserAssignedIdentity.clientId())
+ *                 .serviceprincipalid(exampleUserAssignedIdentity.get("clientId"))
  *                 .build())
  *             .azurermSpnTenantid("00000000-0000-0000-0000-000000000000")
  *             .azurermSubscriptionId("00000000-0000-0000-0000-000000000000")
@@ -256,8 +256,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleFederatedIdentityCredential = new FederatedIdentityCredential("exampleFederatedIdentityCredential", FederatedIdentityCredentialArgs.builder()
  *             .name("example-federated-credential")
- *             .resourceGroupName(identity.name())
- *             .parentId(exampleUserAssignedIdentity.id())
+ *             .resourceGroupName(identity.get("name"))
+ *             .parentId(exampleUserAssignedIdentity.get("id"))
  *             .audience(Arrays.asList("api://AzureADTokenExchange"))
  *             .issuer(exampleServiceEndpointAzureRM.workloadIdentityFederationIssuer())
  *             .subject(exampleServiceEndpointAzureRM.workloadIdentityFederationSubject())

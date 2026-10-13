@@ -101,7 +101,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Use the data source to understand available parameters
+//			// Use the function to understand available parameters
 //			_, err = azuredevops.NewServiceendpointGenericV2(ctx, "example", &azuredevops.ServiceendpointGenericV2Args{
 //				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
 //				Name:                pulumi.String("Example Bitbucket"),

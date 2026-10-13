@@ -55,7 +55,7 @@ import (
 //				Certificate: &azuredevops.ServiceEndpointServiceFabricCertificateArgs{
 //					ServerCertificateLookup:     pulumi.String("Thumbprint"),
 //					ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
-//					ClientCertificate:           invokeFilebase64.Result,
+//					ClientCertificate:           invokeFilebase64.Result.(pulumi.String),
 //					ClientCertificatePassword:   pulumi.String("password"),
 //				},
 //			})

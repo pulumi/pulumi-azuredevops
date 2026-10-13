@@ -118,8 +118,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var groupMembership = new WorkitemtrackingprocessRule("groupMembership", WorkitemtrackingprocessRuleArgs.builder()
- *             .processId(exampleAzuredevopsWorkitemtrackingprocessProcess.id())
- *             .workItemTypeId(exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.referenceName())
+ *             .processId(exampleAzuredevopsWorkitemtrackingprocessProcess.get("id"))
+ *             .workItemTypeId(exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.get("referenceName"))
  *             .name("Require Title for Group Members")
  *             .conditions(WorkitemtrackingprocessRuleConditionArgs.builder()
  *                 .conditionType("whenCurrentUserIsMemberOfGroup")
@@ -165,8 +165,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var disallowValue = new WorkitemtrackingprocessRule("disallowValue", WorkitemtrackingprocessRuleArgs.builder()
- *             .processId(example.id())
- *             .workItemTypeId(exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.referenceName())
+ *             .processId(example.get("id"))
+ *             .workItemTypeId(exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.get("referenceName"))
  *             .name("Prevent Closing from New")
  *             .conditions(WorkitemtrackingprocessRuleConditionArgs.builder()
  *                 .conditionType("whenWas")
@@ -230,14 +230,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var customWorkitemtrackingprocessField = new WorkitemtrackingprocessField("customWorkitemtrackingprocessField", WorkitemtrackingprocessFieldArgs.builder()
- *             .processId(exampleAzuredevopsWorkitemtrackingprocessProcess.id())
- *             .workItemTypeId(exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.id())
+ *             .processId(exampleAzuredevopsWorkitemtrackingprocessProcess.get("id"))
+ *             .workItemTypeId(exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.get("id"))
  *             .fieldId(custom.id())
  *             .build());
  * 
  *         var hideField = new WorkitemtrackingprocessRule("hideField", WorkitemtrackingprocessRuleArgs.builder()
- *             .processId(exampleAzuredevopsWorkitemtrackingprocessProcess.id())
- *             .workItemTypeId(exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.referenceName())
+ *             .processId(exampleAzuredevopsWorkitemtrackingprocessProcess.get("id"))
+ *             .workItemTypeId(exampleAzuredevopsWorkitemtrackingprocessWorkitemtype.get("referenceName"))
  *             .name("Hide Custom Field for Non-Members")
  *             .conditions(WorkitemtrackingprocessRuleConditionArgs.builder()
  *                 .conditionType("whenCurrentUserIsNotMemberOfGroup")

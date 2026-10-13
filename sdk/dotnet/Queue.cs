@@ -41,7 +41,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleQueue = new AzureDevOps.Queue("example", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
-    ///         AgentPoolId = example.Apply(getPoolResult =&gt; getPoolResult.Id),
+    ///         AgentPoolId = Output.Create(example.Apply(getPoolResult =&gt; getPoolResult.Id)).Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     ///     // Grant access to queue to all pipelines in the project

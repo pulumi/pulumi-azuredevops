@@ -122,7 +122,7 @@ namespace Pulumi.AzureDevOps
     ///         {
     ///             "Tag",
     ///         },
-    ///         ParentId = epic.Id,
+    ///         ParentId = epic.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     /// });

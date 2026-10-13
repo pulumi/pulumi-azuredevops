@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .url("https://example.com/webhook")
  *             .gitPush(ServicehookWebhookTfsGitPushArgs.builder()
  *                 .branch("refs/heads/main")
- *                 .repositoryId(exampleAzuredevopsGitRepository.id())
+ *                 .repositoryId(exampleAzuredevopsGitRepository.get("id"))
  *                 .build())
  *             .build());
  * 
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServicehookWebhookTfs("example", ServicehookWebhookTfsArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .url("https://example.com/webhook")
  *             .basicAuthUsername("webhook_user")
  *             .basicAuthPassword(webhookPassword)
@@ -154,14 +154,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServicehookWebhookTfs("example", ServicehookWebhookTfsArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .url("https://example.com/webhook")
  *             .httpHeaders(Map.ofEntries(
  *                 Map.entry("X-Custom-Header", "my-value"),
  *                 Map.entry("Authorization", String.format("Bearer %s", apiToken))
  *             ))
  *             .gitPullRequestCreated(ServicehookWebhookTfsGitPullRequestCreatedArgs.builder()
- *                 .repositoryId(exampleAzuredevopsGitRepository.id())
+ *                 .repositoryId(exampleAzuredevopsGitRepository.get("id"))
  *                 .branch("refs/heads/develop")
  *                 .build())
  *             .build());
@@ -197,7 +197,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServicehookWebhookTfs("example", ServicehookWebhookTfsArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .url("https://example.com/webhook")
  *             .resourceDetailsToSend("all")
  *             .messagesToSend("text")
@@ -240,7 +240,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServicehookWebhookTfs("example", ServicehookWebhookTfsArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .url("https://example.com/webhook")
  *             .gitPush(ServicehookWebhookTfsGitPushArgs.builder()
  *                 .build())

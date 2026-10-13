@@ -65,22 +65,22 @@ import javax.annotation.Nullable;
  * 
  *         var exampleStorageAccount = new StorageAccount("exampleStorageAccount", StorageAccountArgs.builder()
  *             .name("servicehookexamplestacc")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.get("name"))
+ *             .location(exampleResourceGroup.get("location"))
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
  *             .build());
  * 
  *         var exampleStorageQueue = new StorageQueue("exampleStorageQueue", StorageQueueArgs.builder()
  *             .name("examplequeue")
- *             .storageAccountName(exampleStorageAccount.name())
+ *             .storageAccountName(exampleStorageAccount.get("name"))
  *             .build());
  * 
  *         var exampleServicehookStorageQueuePipelines = new ServicehookStorageQueuePipelines("exampleServicehookStorageQueuePipelines", ServicehookStorageQueuePipelinesArgs.builder()
  *             .projectId(example.id())
- *             .accountName(exampleStorageAccount.name())
- *             .accountKey(exampleStorageAccount.primaryAccessKey())
- *             .queueName(exampleStorageQueue.name())
+ *             .accountName(exampleStorageAccount.get("name"))
+ *             .accountKey(exampleStorageAccount.get("primaryAccessKey"))
+ *             .queueName(exampleStorageQueue.get("name"))
  *             .visiTimeout(30)
  *             .runStateChangedEvent(ServicehookStorageQueuePipelinesRunStateChangedEventArgs.builder()
  *                 .runStateFilter("Completed")
@@ -119,10 +119,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServicehookStorageQueuePipelines("example", ServicehookStorageQueuePipelinesArgs.builder()
- *             .projectId(exampleAzuredevopsProject.id())
- *             .accountName(exampleAzurermStorageAccount.name())
- *             .accountKey(exampleAzurermStorageAccount.primaryAccessKey())
- *             .queueName(exampleAzurermStorageQueue.name())
+ *             .projectId(exampleAzuredevopsProject.get("id"))
+ *             .accountName(exampleAzurermStorageAccount.get("name"))
+ *             .accountKey(exampleAzurermStorageAccount.get("primaryAccessKey"))
+ *             .queueName(exampleAzurermStorageQueue.get("name"))
  *             .visiTimeout(30)
  *             .runStateChangedEvent(ServicehookStorageQueuePipelinesRunStateChangedEventArgs.builder()
  *                 .build())

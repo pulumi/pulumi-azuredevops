@@ -43,7 +43,7 @@ namespace Pulumi.AzureDevOps
         ///     var example = AzureDevOps.GetEnvironment.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
-        ///         EnvironmentId = exampleEnvironment.Id,
+        ///         EnvironmentId = exampleEnvironment.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
         ///     });
         /// 
         /// });
@@ -88,7 +88,7 @@ namespace Pulumi.AzureDevOps
         ///     var example = AzureDevOps.GetEnvironment.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
-        ///         EnvironmentId = exampleEnvironment.Id,
+        ///         EnvironmentId = exampleEnvironment.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
         ///     });
         /// 
         /// });
@@ -133,7 +133,7 @@ namespace Pulumi.AzureDevOps
         ///     var example = AzureDevOps.GetEnvironment.Invoke(new()
         ///     {
         ///         ProjectId = exampleProject.Id,
-        ///         EnvironmentId = exampleEnvironment.Id,
+        ///         EnvironmentId = exampleEnvironment.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
         ///     });
         /// 
         /// });

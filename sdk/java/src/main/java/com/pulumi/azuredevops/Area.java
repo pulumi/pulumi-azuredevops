@@ -91,12 +91,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var parent = new Area("parent", AreaArgs.builder()
- *             .projectId(example.id())
+ *             .projectId(example.get("id"))
  *             .name("Engineering")
  *             .build());
  * 
  *         var child = new Area("child", AreaArgs.builder()
- *             .projectId(example.id())
+ *             .projectId(example.get("id"))
  *             .name("Frontend")
  *             .parentAreaId(parent.id())
  *             .build());

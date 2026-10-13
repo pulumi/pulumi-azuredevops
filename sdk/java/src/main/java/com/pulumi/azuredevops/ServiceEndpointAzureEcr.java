@@ -117,9 +117,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
- *             .location(identity.location())
+ *             .location(identity.get("location"))
  *             .name("example-identity")
- *             .resourceGroupName(identity.name())
+ *             .resourceGroupName(identity.get("name"))
  *             .build());
  * 
  *         // azure container registry service connection
@@ -133,14 +133,14 @@ import javax.annotation.Nullable;
  *             .azurecrSubscriptionId("00000000-0000-0000-0000-000000000000")
  *             .azurecrSubscriptionName("subscription name")
  *             .credentials(ServiceEndpointAzureEcrCredentialsArgs.builder()
- *                 .serviceprincipalid(exampleUserAssignedIdentity.clientId())
+ *                 .serviceprincipalid(exampleUserAssignedIdentity.get("clientId"))
  *                 .build())
  *             .build());
  * 
  *         var exampleFederatedIdentityCredential = new FederatedIdentityCredential("exampleFederatedIdentityCredential", FederatedIdentityCredentialArgs.builder()
  *             .name("example-federated-credential")
- *             .resourceGroupName(identity.name())
- *             .parentId(exampleUserAssignedIdentity.id())
+ *             .resourceGroupName(identity.get("name"))
+ *             .parentId(exampleUserAssignedIdentity.get("id"))
  *             .audience(Arrays.asList("api://AzureADTokenExchange"))
  *             .issuer(exampleServiceEndpointAzureEcr.workloadIdentityFederationIssuer())
  *             .subject(exampleServiceEndpointAzureEcr.workloadIdentityFederationSubject())

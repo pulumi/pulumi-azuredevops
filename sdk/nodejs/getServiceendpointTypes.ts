@@ -29,12 +29,12 @@ import * as utilities from "./utilities";
  * import * as std from "@pulumi/std";
  *
  * const all = azuredevops.getServiceendpointTypes({});
- * const gitTypes = all.then(all => .filter(type => std.regexall({
+ * const gitTypes = all.then(all => .filter(type => Object.keys(std.regexall({
  *     pattern: "git",
  *     string: std.lower({
  *         input: type.name,
  *     }).result,
- * }).result.length > 0).map(type => (type)));
+ * }).result).length > 0).map(type => (type)));
  * export const gitRelatedTypes = gitTypes;
  * ```
  *
@@ -84,12 +84,12 @@ export interface GetServiceendpointTypesResult {
  * import * as std from "@pulumi/std";
  *
  * const all = azuredevops.getServiceendpointTypes({});
- * const gitTypes = all.then(all => .filter(type => std.regexall({
+ * const gitTypes = all.then(all => .filter(type => Object.keys(std.regexall({
  *     pattern: "git",
  *     string: std.lower({
  *         input: type.name,
  *     }).result,
- * }).result.length > 0).map(type => (type)));
+ * }).result).length > 0).map(type => (type)));
  * export const gitRelatedTypes = gitTypes;
  * ```
  *

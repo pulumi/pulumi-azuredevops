@@ -204,7 +204,7 @@ import javax.annotation.Nullable;
  *                 Map.entry("args", Arrays.asList(                
  *                     teamFolder.name(),
  *                     myTeamBugs.name()))
- *             )).result())
+ *             )).get("result"))
  *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("Read", "Allow"),

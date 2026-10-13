@@ -116,7 +116,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleQueue = new AzureDevOps.Queue("example", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         AgentPoolId = examplePool.Id,
+    ///         AgentPoolId = examplePool.Id.Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
     ///     });
     /// 
     ///     var exampleCheckBusinessHours = new AzureDevOps.CheckBusinessHours("example", new()

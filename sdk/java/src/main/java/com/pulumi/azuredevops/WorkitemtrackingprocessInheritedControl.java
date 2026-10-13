@@ -63,8 +63,8 @@ import javax.annotation.Nullable;
  *         var exampleWorkitemtrackingprocessInheritedControl = new WorkitemtrackingprocessInheritedControl("exampleWorkitemtrackingprocessInheritedControl", WorkitemtrackingprocessInheritedControlArgs.builder()
  *             .processId(example.id())
  *             .workItemTypeId(exampleWorkitemtrackingprocessWorkitemtype.referenceName())
- *             .groupId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages[0].sections()[0].groups()[0].id()))
- *             .controlId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages[0].sections()[0].groups()[0].controls()[0].id()))
+ *             .groupId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages.get(0).sections().get(0).groups().get(0).id()))
+ *             .controlId(exampleWorkitemtrackingprocessWorkitemtype.pages().applyValue(_pages -> _pages.get(0).sections().get(0).groups().get(0).controls().get(0).id()))
  *             .visible(false)
  *             .build());
  * 

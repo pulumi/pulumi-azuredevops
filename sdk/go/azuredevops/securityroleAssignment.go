@@ -67,7 +67,7 @@ import (
 //			}
 //			_, err = azuredevops.NewSecurityroleAssignment(ctx, "example", &azuredevops.SecurityroleAssignmentArgs{
 //				Scope:      pulumi.String("distributedtask.environmentreferencerole"),
-//				ResourceId: invokeFormat.Result,
+//				ResourceId: invokeFormat.Result.(pulumi.String),
 //				IdentityId: exampleGroup.GroupId,
 //				RoleName:   pulumi.String("Administrator"),
 //			})
