@@ -129,7 +129,7 @@ import (
 //				return err
 //			}
 //			epic, err := azuredevops.NewWorkitem(ctx, "epic", &azuredevops.WorkitemArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Title:     pulumi.String("Example EPIC Title"),
 //				Type:      pulumi.String("Epic"),
 //				State:     pulumi.String("New"),
@@ -138,14 +138,14 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitem(ctx, "example", &azuredevops.WorkitemArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Title:     pulumi.String("Example Work Item"),
 //				Type:      pulumi.String("Issue"),
 //				State:     pulumi.String("Active"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("Tag"),
 //				},
-//				ParentId: epic.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				ParentId: epic.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err

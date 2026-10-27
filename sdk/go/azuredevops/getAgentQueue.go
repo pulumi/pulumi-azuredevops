@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			example := azuredevops.GetAgentQueueOutput(ctx, azuredevops.GetAgentQueueOutputArgs{
-//				ProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Example Agent Queue"),
 //			}, nil)
 //			ctx.Export("name", example.Name())

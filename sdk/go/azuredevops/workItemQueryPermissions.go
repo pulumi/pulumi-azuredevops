@@ -50,11 +50,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "project-wiq-root-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"CreateRepository": pulumi.String("Deny"),
@@ -102,11 +102,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Path:      pulumi.String("/Team"),
 //				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
@@ -149,15 +149,15 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			example_contributors := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-project-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"Read":              pulumi.String("Allow"),
@@ -170,7 +170,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-sharedqueries-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Path:      pulumi.String("/"),
 //				Principal: example_contributors.Id(),
 //				Permissions: pulumi.StringMap{

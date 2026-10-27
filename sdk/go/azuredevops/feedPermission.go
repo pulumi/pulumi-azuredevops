@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			exampleGroup, err := azuredevops.NewGroup(ctx, "example", &azuredevops.GroupArgs{
-//				Scope:       example.ID().ToIDOutput().ToStringOutput(),
+//				Scope:       example.ID(),
 //				DisplayName: pulumi.String("Example group"),
 //				Description: pulumi.String("Example description"),
 //			})
@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewFeedPermission(ctx, "permission", &azuredevops.FeedPermissionArgs{
-//				FeedId:             exampleFeed.ID().ToIDOutput().ToStringOutput(),
+//				FeedId:             exampleFeed.ID(),
 //				Role:               pulumi.String("reader"),
 //				IdentityDescriptor: exampleGroup.Descriptor,
 //			})

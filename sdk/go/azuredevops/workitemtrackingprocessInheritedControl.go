@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessWorkitemtype, err := azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId: example.ID(),
 //				Name:      pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -48,7 +48,7 @@ import (
 //			}
 //			// Customize the first control in the first group
 //			_, err = azuredevops.NewWorkitemtrackingprocessInheritedControl(ctx, "example", &azuredevops.WorkitemtrackingprocessInheritedControlArgs{
-//				ProcessId:      example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId:      example.ID(),
 //				WorkItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
 //				GroupId: exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
 //					return pages[0].Sections[0].Groups[0].Id, nil

@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
-//				ProjectId:   exampleProject.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:   exampleProject.ID(),
 //				Name:        pulumi.String("Example Environment"),
 //				Description: pulumi.String("Managed by Pulumi"),
 //			})
@@ -48,8 +48,8 @@ import (
 //				return err
 //			}
 //			_ = azuredevops.GetEnvironmentOutput(ctx, azuredevops.GetEnvironmentOutputArgs{
-//				ProjectId:     exampleProject.ID().ToIDOutput().ToStringOutput(),
-//				EnvironmentId: exampleEnvironment.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				ProjectId:     exampleProject.ID(),
+//				EnvironmentId: exampleEnvironment.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			}, nil)
 //			return nil
 //		})

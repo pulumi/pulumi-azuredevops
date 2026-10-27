@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointSsh(ctx, "example", &azuredevops.ServiceEndpointSshArgs{
-//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example SSH"),
 //				Host:                pulumi.String("1.2.3.4"),
 //				Username:            pulumi.String("username"),

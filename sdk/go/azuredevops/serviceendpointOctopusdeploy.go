@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointOctopusdeploy(ctx, "example", &azuredevops.ServiceendpointOctopusdeployArgs{
-//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           example.ID(),
 //				Url:                 pulumi.String("https://octopus.com"),
 //				ApiKey:              pulumi.String("000000000000000000000000000000000000"),
 //				ServiceEndpointName: pulumi.String("Example Octopus Deploy"),

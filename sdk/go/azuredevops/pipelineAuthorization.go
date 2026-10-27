@@ -55,15 +55,15 @@ import (
 //				return err
 //			}
 //			exampleQueue, err := azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
-//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
-//				AgentPoolId: examplePool.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				ProjectId:   example.ID(),
+//				AgentPoolId: examplePool.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewPipelineAuthorization(ctx, "example", &azuredevops.PipelineAuthorizationArgs{
-//				ProjectId:  example.ID().ToIDOutput().ToStringOutput(),
-//				ResourceId: exampleQueue.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:  example.ID(),
+//				ResourceId: exampleQueue.ID(),
 //				Type:       pulumi.String("queue"),
 //			})
 //			if err != nil {
@@ -110,18 +110,18 @@ import (
 //				return err
 //			}
 //			exampleQueue, err := azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
-//				ProjectId:   exampleProject.ID().ToIDOutput().ToStringOutput(),
-//				AgentPoolId: examplePool.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				ProjectId:   exampleProject.ID(),
+//				AgentPoolId: examplePool.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example := azuredevops.GetGitRepositoryOutput(ctx, azuredevops.GetGitRepositoryOutputArgs{
-//				ProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Example Project"),
 //			}, nil)
 //			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
-//				ProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Example Pipeline"),
 //				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 //					RepoType: pulumi.String("TfsGit"),
@@ -133,10 +133,10 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewPipelineAuthorization(ctx, "example", &azuredevops.PipelineAuthorizationArgs{
-//				ProjectId:  exampleProject.ID().ToIDOutput().ToStringOutput(),
-//				ResourceId: exampleQueue.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:  exampleProject.ID(),
+//				ResourceId: exampleQueue.ID(),
 //				Type:       pulumi.String("queue"),
-//				PipelineId: exampleBuildDefinition.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				PipelineId: exampleBuildDefinition.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err

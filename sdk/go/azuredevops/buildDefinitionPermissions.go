@@ -41,11 +41,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "example", &azuredevops.BuildDefinitionArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example Build Definition"),
 //				Path:      pulumi.String("\\ExampleFolder"),
 //				CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
@@ -63,7 +63,7 @@ import (
 //				},
 //				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 //					RepoType:   pulumi.String("TfsGit"),
-//					RepoId:     exampleGit.ID().ToIDOutput().ToStringOutput(),
+//					RepoId:     exampleGit.ID(),
 //					BranchName: exampleGit.DefaultBranch,
 //					YmlPath:    pulumi.String("azure-pipelines.yml"),
 //				},
@@ -72,9 +72,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "example", &azuredevops.BuildDefinitionPermissionsArgs{
-//				ProjectId:         example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:         example.ID(),
 //				Principal:         example_readers.Id(),
-//				BuildDefinitionId: exampleBuildDefinition.ID().ToIDOutput().ToStringOutput(),
+//				BuildDefinitionId: exampleBuildDefinition.ID(),
 //				Permissions: pulumi.StringMap{
 //					"ViewBuilds":       pulumi.String("Allow"),
 //					"EditBuildQuality": pulumi.String("Deny"),

@@ -39,15 +39,15 @@ import (
 //				return err
 //			}
 //			example_project_contributors := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)
 //			example_project_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewTeam(ctx, "example", &azuredevops.TeamArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example Team"),
 //				Administrators: pulumi.StringArray{
 //					example_project_contributors.Descriptor(),
@@ -89,14 +89,14 @@ import (
 //				return err
 //			}
 //			exampleArea, err := azuredevops.NewArea(ctx, "example", &azuredevops.AreaArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Frontend"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewTeam(ctx, "example", &azuredevops.TeamArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Frontend Team"),
 //				Areas: azuredevops.TeamAreaArray{
 //					&azuredevops.TeamAreaArgs{

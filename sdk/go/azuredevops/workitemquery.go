@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemquery(ctx, "all_issues", &azuredevops.WorkitemqueryArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("All Active Issues"),
 //				Area:      pulumi.String("Shared Queries"),
 //				Wiql: pulumi.String(`SELECT [System.Id], [System.Title], [System.State]
@@ -91,7 +91,7 @@ import (
 //				return err
 //			}
 //			teamFolder, err := azuredevops.NewWorkitemqueryFolder(ctx, "team_folder", &azuredevops.WorkitemqueryFolderArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Team"),
 //				Area:      pulumi.String("Shared Queries"),
 //			})
@@ -99,9 +99,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemquery(ctx, "my_team_bugs", &azuredevops.WorkitemqueryArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Team Bugs"),
-//				ParentId:  teamFolder.ID().ToIDOutput().ToStringOutput(),
+//				ParentId:  teamFolder.ID(),
 //				Wiql: pulumi.String(`SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]
 //
 // FROM WorkItems
@@ -147,7 +147,7 @@ import (
 //				return err
 //			}
 //			teamFolder, err := azuredevops.NewWorkitemqueryFolder(ctx, "team_folder", &azuredevops.WorkitemqueryFolderArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Team"),
 //				Area:      pulumi.String("Shared Queries"),
 //			})
@@ -155,9 +155,9 @@ import (
 //				return err
 //			}
 //			myTeamBugs, err := azuredevops.NewWorkitemquery(ctx, "my_team_bugs", &azuredevops.WorkitemqueryArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Team Bugs"),
-//				ParentId:  teamFolder.ID().ToIDOutput().ToStringOutput(),
+//				ParentId:  teamFolder.ID(),
 //				Wiql: pulumi.String(`SELECT [System.Id], [System.Title], [System.State], [System.AssignedTo]
 //
 // FROM WorkItems
@@ -173,7 +173,7 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			invokeFormat, err := std.Format(ctx, map[string]interface{}{
@@ -187,7 +187,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "query_permissions", &azuredevops.WorkItemQueryPermissionsArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Path:      invokeFormat.Result.(pulumi.String),
 //				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{

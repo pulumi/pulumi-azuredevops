@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Sample Repo"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -51,12 +51,12 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewRepositoryPolicyMaxPathLength(ctx, "example", &azuredevops.RepositoryPolicyMaxPathLengthArgs{
-//				ProjectId:     example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:     example.ID(),
 //				Enabled:       pulumi.Bool(true),
 //				Blocking:      pulumi.Bool(true),
 //				MaxPathLength: pulumi.Int(500),
 //				RepositoryIds: pulumi.StringArray{
-//					exampleGit.ID().ToIDOutput().ToStringOutput(),
+//					exampleGit.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -92,7 +92,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewRepositoryPolicyMaxPathLength(ctx, "example", &azuredevops.RepositoryPolicyMaxPathLengthArgs{
-//				ProjectId:     example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:     example.ID(),
 //				Enabled:       pulumi.Bool(true),
 //				Blocking:      pulumi.Bool(true),
 //				MaxPathLength: pulumi.Int(1000),

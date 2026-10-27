@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewProjectFeatures(ctx, "example-features", &azuredevops.ProjectFeaturesArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Features: pulumi.StringMap{
 //					"testplans": pulumi.String("disabled"),
 //					"artifacts": pulumi.String("enabled"),

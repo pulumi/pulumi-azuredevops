@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewDashboard(ctx, "example", &azuredevops.DashboardArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example dashboard"),
 //			})
 //			if err != nil {
@@ -74,16 +74,16 @@ import (
 //				return err
 //			}
 //			exampleTeam, err := azuredevops.NewTeam(ctx, "example", &azuredevops.TeamArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example team"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewDashboard(ctx, "example", &azuredevops.DashboardArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example dashboard"),
-//				TeamId:    exampleTeam.ID().ToIDOutput().ToStringOutput(),
+//				TeamId:    exampleTeam.ID(),
 //			})
 //			if err != nil {
 //				return err

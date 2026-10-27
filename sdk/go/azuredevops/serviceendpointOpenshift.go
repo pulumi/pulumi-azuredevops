@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointOpenshift(ctx, "example", &azuredevops.ServiceendpointOpenshiftArgs{
-//				ProjectId:                example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:                example.ID(),
 //				ServiceEndpointName:      pulumi.String("Example Openshift"),
 //				ServerUrl:                pulumi.String("https://example.server"),
 //				CertificateAuthorityFile: pulumi.String("/opt/file"),
@@ -81,7 +81,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointOpenshift(ctx, "example", &azuredevops.ServiceendpointOpenshiftArgs{
-//				ProjectId:                example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:                example.ID(),
 //				ServiceEndpointName:      pulumi.String("Example Openshift"),
 //				ServerUrl:                pulumi.String("https://example.server"),
 //				CertificateAuthorityFile: pulumi.String("/opt/file"),
@@ -121,7 +121,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointOpenshift(ctx, "example", &azuredevops.ServiceendpointOpenshiftArgs{
-//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example Openshift"),
 //				ServerUrl:           pulumi.String("https://example.server"),
 //				AuthNone: &azuredevops.ServiceendpointOpenshiftAuthNoneArgs{

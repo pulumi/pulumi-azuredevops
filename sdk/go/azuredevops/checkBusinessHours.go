@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointGeneric, err := azuredevops.NewServiceEndpointGeneric(ctx, "example", &azuredevops.ServiceEndpointGenericArgs{
-//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           example.ID(),
 //				ServerUrl:           pulumi.String("https://some-server.example.com"),
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),
@@ -48,9 +48,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
-//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:          example.ID(),
 //				DisplayName:        pulumi.String("Managed by Pulumi"),
-//				TargetResourceId:   exampleServiceEndpointGeneric.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:   exampleServiceEndpointGeneric.ID(),
 //				TargetResourceType: pulumi.String("endpoint"),
 //				StartTime:          pulumi.String("07:00"),
 //				EndTime:            pulumi.String("15:30"),
@@ -89,16 +89,16 @@ import (
 //				return err
 //			}
 //			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example Environment"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
-//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:          example.ID(),
 //				DisplayName:        pulumi.String("Managed by Pulumi"),
-//				TargetResourceId:   exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:   exampleEnvironment.ID(),
 //				TargetResourceType: pulumi.String("environment"),
 //				StartTime:          pulumi.String("07:00"),
 //				EndTime:            pulumi.String("15:30"),
@@ -144,16 +144,16 @@ import (
 //				return err
 //			}
 //			exampleQueue, err := azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
-//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
-//				AgentPoolId: examplePool.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				ProjectId:   example.ID(),
+//				AgentPoolId: examplePool.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
-//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:          example.ID(),
 //				DisplayName:        pulumi.String("Managed by Pulumi"),
-//				TargetResourceId:   exampleQueue.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:   exampleQueue.ID(),
 //				TargetResourceType: pulumi.String("queue"),
 //				StartTime:          pulumi.String("07:00"),
 //				EndTime:            pulumi.String("15:30"),
@@ -193,7 +193,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example Empty Git Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -203,7 +203,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
-//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:   example.ID(),
 //				DisplayName: pulumi.String("Managed by Pulumi"),
 //				TargetResourceId: pulumi.All(example.ID(), exampleGit.ID()).ApplyT(func(_args []interface{}) (string, error) {
 //					exampleId := _args[0].(pulumi.ID)
@@ -247,7 +247,7 @@ import (
 //				return err
 //			}
 //			exampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, "example", &azuredevops.VariableGroupArgs{
-//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:   example.ID(),
 //				Name:        pulumi.String("Example Variable Group"),
 //				Description: pulumi.String("Example Variable Group Description"),
 //				AllowAccess: pulumi.Bool(true),
@@ -267,9 +267,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewCheckBusinessHours(ctx, "example", &azuredevops.CheckBusinessHoursArgs{
-//				ProjectId:          example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:          example.ID(),
 //				DisplayName:        pulumi.String("Managed by Pulumi"),
-//				TargetResourceId:   exampleVariableGroup.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:   exampleVariableGroup.ID(),
 //				TargetResourceType: pulumi.String("variablegroup"),
 //				StartTime:          pulumi.String("07:00"),
 //				EndTime:            pulumi.String("15:30"),

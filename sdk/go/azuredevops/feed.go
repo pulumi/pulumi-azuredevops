@@ -65,7 +65,7 @@ import (
 //			}
 //			_, err = azuredevops.NewFeed(ctx, "example", &azuredevops.FeedArgs{
 //				Name:      pulumi.String("examplefeed"),
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

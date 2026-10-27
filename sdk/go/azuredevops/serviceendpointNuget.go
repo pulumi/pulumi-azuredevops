@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointNuget(ctx, "example", &azuredevops.ServiceendpointNugetArgs{
-//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           example.ID(),
 //				ApiKey:              pulumi.String("apikey"),
 //				ServiceEndpointName: pulumi.String("Example NuGet"),
 //				Description:         pulumi.String("Managed by Pulumi"),

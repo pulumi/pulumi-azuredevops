@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewArea(ctx, "example", &azuredevops.AreaArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Frontend"),
 //			})
 //			if err != nil {
@@ -81,7 +81,7 @@ import (
 //			_, err = azuredevops.NewArea(ctx, "child", &azuredevops.AreaArgs{
 //				ProjectId:    pulumi.Any(example.Id),
 //				Name:         pulumi.String("Frontend"),
-//				ParentAreaId: parent.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
+//				ParentAreaId: parent.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
 //			})
 //			if err != nil {
 //				return err

@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointSonarCloud(ctx, "example", &azuredevops.ServiceEndpointSonarCloudArgs{
-//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example SonarCloud"),
 //				Token:               pulumi.String("0000000000000000000000000000000000000000"),
 //				Description:         pulumi.String("Managed by Pulumi"),
