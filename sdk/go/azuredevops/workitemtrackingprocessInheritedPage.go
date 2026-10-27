@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessWorkitemtype, err := azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId: example.ID(),
 //				Name:      pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -48,7 +48,7 @@ import (
 //			}
 //			// Relabel the Details page
 //			_, err = azuredevops.NewWorkitemtrackingprocessInheritedPage(ctx, "example", &azuredevops.WorkitemtrackingprocessInheritedPageArgs{
-//				ProcessId:      example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId:      example.ID(),
 //				WorkItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
 //				PageId: exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
 //					return pages[0].Id, nil

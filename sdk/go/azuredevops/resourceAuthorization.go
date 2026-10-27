@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointBitBucket, err := azuredevops.NewServiceEndpointBitBucket(ctx, "example", &azuredevops.ServiceEndpointBitBucketArgs{
-//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           example.ID(),
 //				Username:            pulumi.String("username"),
 //				Password:            pulumi.String("password"),
 //				ServiceEndpointName: pulumi.String("example-bitbucket"),
@@ -51,8 +51,8 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewResourceAuthorization(ctx, "example", &azuredevops.ResourceAuthorizationArgs{
-//				ProjectId:  example.ID().ToIDOutput().ToStringOutput(),
-//				ResourceId: exampleServiceEndpointBitBucket.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:  example.ID(),
+//				ResourceId: exampleServiceEndpointBitBucket.ID(),
 //				Authorized: pulumi.Bool(true),
 //			})
 //			if err != nil {

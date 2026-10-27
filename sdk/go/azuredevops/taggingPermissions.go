@@ -44,11 +44,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewTaggingPermissions(ctx, "example-permissions", &azuredevops.TaggingPermissionsArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"Enumerate": pulumi.String("allow"),

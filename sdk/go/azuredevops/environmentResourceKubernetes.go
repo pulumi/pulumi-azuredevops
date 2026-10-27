@@ -41,14 +41,14 @@ import (
 //				return err
 //			}
 //			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "example", &azuredevops.EnvironmentArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example Environment"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleServiceEndpointKubernetes, err := azuredevops.NewServiceEndpointKubernetes(ctx, "example", &azuredevops.ServiceEndpointKubernetesArgs{
-//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example Kubernetes"),
 //				ApiserverUrl:        pulumi.String("https://sample-kubernetes-cluster.hcp.westeurope.azmk8s.io"),
 //				AuthorizationType:   pulumi.String("AzureSubscription"),
@@ -67,9 +67,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewEnvironmentResourceKubernetes(ctx, "example", &azuredevops.EnvironmentResourceKubernetesArgs{
-//				ProjectId:         example.ID().ToIDOutput().ToStringOutput(),
-//				EnvironmentId:     exampleEnvironment.ID().ToIDOutput().ApplyT(func(id pulumi.ID) (int, error) { return strconv.Atoi(string(id)) }).(pulumi.IntOutput),
-//				ServiceEndpointId: exampleServiceEndpointKubernetes.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:         example.ID(),
+//				EnvironmentId:     exampleEnvironment.ID().ToStringOutput().ApplyT(strconv.Atoi).(pulumi.IntOutput),
+//				ServiceEndpointId: exampleServiceEndpointKubernetes.ID(),
 //				Name:              pulumi.String("Example"),
 //				Namespace:         pulumi.String("default"),
 //				ClusterName:       pulumi.String("example-aks"),

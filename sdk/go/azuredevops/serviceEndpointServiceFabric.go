@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "example", &azuredevops.ServiceEndpointServiceFabricArgs{
-//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example Service Fabric"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),
@@ -92,7 +92,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
-//				ProjectId:           project.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           project.ID(),
 //				ServiceEndpointName: pulumi.String("Sample Service Fabric"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),
@@ -136,7 +136,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
-//				ProjectId:           project.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           project.ID(),
 //				ServiceEndpointName: pulumi.String("Sample Service Fabric"),
 //				Description:         pulumi.String("Managed by Pulumi"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),

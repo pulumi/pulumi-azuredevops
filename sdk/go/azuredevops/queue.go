@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			exampleQueue, err := azuredevops.NewQueue(ctx, "example", &azuredevops.QueueArgs{
-//				ProjectId:   exampleProject.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:   exampleProject.ID(),
 //				AgentPoolId: pulumi.String(example.Id),
 //			})
 //			if err != nil {
@@ -55,8 +55,8 @@ import (
 //			}
 //			// Grant access to queue to all pipelines in the project
 //			_, err = azuredevops.NewResourceAuthorization(ctx, "example", &azuredevops.ResourceAuthorizationArgs{
-//				ProjectId:  exampleProject.ID().ToIDOutput().ToStringOutput(),
-//				ResourceId: exampleQueue.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:  exampleProject.ID(),
+//				ResourceId: exampleQueue.ID(),
 //				Type:       pulumi.String("queue"),
 //				Authorized: pulumi.Bool(true),
 //			})

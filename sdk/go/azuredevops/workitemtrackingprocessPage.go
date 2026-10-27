@@ -36,15 +36,15 @@ import (
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessWorkitemtype, err := azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId: example.ID(),
 //				Name:      pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemtrackingprocessPage(ctx, "example", &azuredevops.WorkitemtrackingprocessPageArgs{
-//				ProcessId:      example.ID().ToIDOutput().ToStringOutput(),
-//				WorkItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId:      example.ID(),
+//				WorkItemTypeId: exampleWorkitemtrackingprocessWorkitemtype.ID(),
 //				Label:          pulumi.String("Custom Page"),
 //			})
 //			if err != nil {

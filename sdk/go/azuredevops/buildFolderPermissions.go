@@ -43,11 +43,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewBuildFolder(ctx, "example", &azuredevops.BuildFolderArgs{
-//				ProjectId:   example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:   example.ID(),
 //				Path:        pulumi.String("\\ExampleFolder"),
 //				Description: pulumi.String("ExampleFolder description"),
 //			})
@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewBuildFolderPermissions(ctx, "example", &azuredevops.BuildFolderPermissionsArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Path:      pulumi.String("\\ExampleFolder"),
 //				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
@@ -107,11 +107,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewBuildFolderPermissions(ctx, "example", &azuredevops.BuildFolderPermissionsArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Path:      pulumi.String("\\"),
 //				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{

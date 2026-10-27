@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewProjectPipelineSettings(ctx, "example", &azuredevops.ProjectPipelineSettingsArgs{
-//				ProjectId:                        example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:                        example.ID(),
 //				EnforceJobScope:                  pulumi.Bool(true),
 //				EnforceReferencedRepoScopedToken: pulumi.Bool(false),
 //				EnforceSettableVar:               pulumi.Bool(true),

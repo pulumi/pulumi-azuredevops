@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -51,12 +51,12 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewRepositoryPolicyCaseEnforcement(ctx, "example", &azuredevops.RepositoryPolicyCaseEnforcementArgs{
-//				ProjectId:             example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:             example.ID(),
 //				Enabled:               pulumi.Bool(true),
 //				Blocking:              pulumi.Bool(true),
 //				EnforceConsistentCase: pulumi.Bool(true),
 //				RepositoryIds: pulumi.StringArray{
-//					exampleGit.ID().ToIDOutput().ToStringOutput(),
+//					exampleGit.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -92,7 +92,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewRepositoryPolicyCaseEnforcement(ctx, "example", &azuredevops.RepositoryPolicyCaseEnforcementArgs{
-//				ProjectId:             example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:             example.ID(),
 //				Enabled:               pulumi.Bool(true),
 //				Blocking:              pulumi.Bool(true),
 //				EnforceConsistentCase: pulumi.Bool(true),

@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "example", &azuredevops.GitArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Example Repository"),
 //				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = azuredevops.NewWiki(ctx, "example", &azuredevops.WikiArgs{
 //				Name:      pulumi.String("Example project wiki "),
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Type:      pulumi.String("projectWiki"),
 //			})
 //			if err != nil {
@@ -55,8 +55,8 @@ import (
 //			}
 //			_, err = azuredevops.NewWiki(ctx, "example2", &azuredevops.WikiArgs{
 //				Name:         pulumi.String("Example wiki in repository"),
-//				ProjectId:    example.ID().ToIDOutput().ToStringOutput(),
-//				RepositoryId: exampleGit.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:    example.ID(),
+//				RepositoryId: exampleGit.ID(),
 //				Version:      pulumi.String("main"),
 //				Type:         pulumi.String("codeWiki"),
 //				MappedPath:   pulumi.String("/"),

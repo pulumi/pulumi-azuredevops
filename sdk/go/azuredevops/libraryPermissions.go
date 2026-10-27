@@ -39,11 +39,11 @@ import (
 //				return err
 //			}
 //			tf_project_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: project.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: project.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewLibraryPermissions(ctx, "permissions", &azuredevops.LibraryPermissionsArgs{
-//				ProjectId: project.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: project.ID(),
 //				Principal: tf_project_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"View":       pulumi.String("allow"),

@@ -46,11 +46,11 @@ import (
 //				return err
 //			}
 //			example_readers := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-root-permissions", &azuredevops.ServiceendpointPermissionsArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Principal: example_readers.Id(),
 //				Permissions: pulumi.StringMap{
 //					"Use":               pulumi.String("allow"),
@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			exampleServiceEndpointDockerRegistry, err := azuredevops.NewServiceEndpointDockerRegistry(ctx, "example", &azuredevops.ServiceEndpointDockerRegistryArgs{
-//				ProjectId:           example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:           example.ID(),
 //				ServiceEndpointName: pulumi.String("Example Docker Hub"),
 //				DockerUsername:      pulumi.String("username"),
 //				DockerEmail:         pulumi.String("email@example.com"),
@@ -75,9 +75,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-permissions", &azuredevops.ServiceendpointPermissionsArgs{
-//				ProjectId:         example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId:         example.ID(),
 //				Principal:         example_readers.Id(),
-//				ServiceendpointId: exampleServiceEndpointDockerRegistry.ID().ToIDOutput().ToStringOutput(),
+//				ServiceendpointId: exampleServiceEndpointDockerRegistry.ID(),
 //				Permissions: pulumi.StringMap{
 //					"Use":               pulumi.String("allow"),
 //					"Administer":        pulumi.String("deny"),

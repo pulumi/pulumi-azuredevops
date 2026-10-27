@@ -38,14 +38,14 @@ import (
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessWorkitemtype, err := azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId: example.ID(),
 //				Name:      pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessGroup, err := azuredevops.NewWorkitemtrackingprocessGroup(ctx, "example", &azuredevops.WorkitemtrackingprocessGroupArgs{
-//				ProcessId:                 example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId:                 example.ID(),
 //				WorkItemTypeReferenceName: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
 //				PageId: exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
 //					return pages[0].Id, nil
@@ -59,9 +59,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemtrackingprocessControl(ctx, "example", &azuredevops.WorkitemtrackingprocessControlArgs{
-//				ProcessId:                 example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId:                 example.ID(),
 //				WorkItemTypeReferenceName: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
-//				GroupId:                   exampleWorkitemtrackingprocessGroup.ID().ToIDOutput().ToStringOutput(),
+//				GroupId:                   exampleWorkitemtrackingprocessGroup.ID(),
 //				ControlId:                 pulumi.String("System.Title"),
 //				Label:                     pulumi.String("Title"),
 //			})
@@ -96,14 +96,14 @@ import (
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessWorkitemtype, err := azuredevops.NewWorkitemtrackingprocessWorkitemtype(ctx, "example", &azuredevops.WorkitemtrackingprocessWorkitemtypeArgs{
-//				ProcessId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId: example.ID(),
 //				Name:      pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleWorkitemtrackingprocessGroup, err := azuredevops.NewWorkitemtrackingprocessGroup(ctx, "example", &azuredevops.WorkitemtrackingprocessGroupArgs{
-//				ProcessId:                 example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId:                 example.ID(),
 //				WorkItemTypeReferenceName: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
 //				PageId: exampleWorkitemtrackingprocessWorkitemtype.Pages.ApplyT(func(pages []azuredevops.WorkitemtrackingprocessWorkitemtypePage) (*string, error) {
 //					return pages[0].Id, nil
@@ -117,9 +117,9 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewWorkitemtrackingprocessControl(ctx, "example", &azuredevops.WorkitemtrackingprocessControlArgs{
-//				ProcessId:                 example.ID().ToIDOutput().ToStringOutput(),
+//				ProcessId:                 example.ID(),
 //				WorkItemTypeReferenceName: exampleWorkitemtrackingprocessWorkitemtype.ReferenceName,
-//				GroupId:                   exampleWorkitemtrackingprocessGroup.ID().ToIDOutput().ToStringOutput(),
+//				GroupId:                   exampleWorkitemtrackingprocessGroup.ID(),
 //				ControlId:                 pulumi.String("MultiValueControl"),
 //				IsContribution:            pulumi.Bool(true),
 //				Contribution: &azuredevops.WorkitemtrackingprocessControlContributionArgs{

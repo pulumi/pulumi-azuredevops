@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = azuredevops.NewProjectTags(ctx, "example", &azuredevops.ProjectTagsArgs{
-//				ProjectId: example.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: example.ID(),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("tag1"),
 //					pulumi.String("tag2"),

@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			example := azuredevops.GetGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
+//				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Build Administrators"),
 //			}, nil)
 //			_, err = azuredevops.NewGroupMembership(ctx, "example", &azuredevops.GroupMembershipArgs{
