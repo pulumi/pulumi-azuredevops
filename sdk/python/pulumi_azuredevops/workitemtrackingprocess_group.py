@@ -611,6 +611,28 @@ class WorkitemtrackingprocessGroup(pulumi.CustomResource):
         __props__.__dict__["work_item_type_reference_name"] = work_item_type_reference_name
         return WorkitemtrackingprocessGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessGroupControlArgs', 'WorkitemtrackingprocessGroupControlArgsDict', 'outputs.WorkitemtrackingprocessGroupControl']]]]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            page_id: pulumi.Input[Optional[_builtins.str]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            section_id: pulumi.Input[Optional[_builtins.str]] = None,
+            visible: pulumi.Input[Optional[_builtins.bool]] = None,
+            work_item_type_reference_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["controls"] = controls
+        __props__["label"] = label
+        __props__["order"] = order
+        __props__["pageId"] = page_id
+        __props__["processId"] = process_id
+        __props__["sectionId"] = section_id
+        __props__["visible"] = visible
+        __props__["workItemTypeReferenceName"] = work_item_type_reference_name
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitemtrackingprocessGroup:WorkitemtrackingprocessGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def controls(self) -> pulumi.Output[Sequence['outputs.WorkitemtrackingprocessGroupControl']]:

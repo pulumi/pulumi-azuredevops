@@ -24,7 +24,7 @@ public final class TeamArea {
      */
     private @Nullable Boolean isDefault;
     /**
-     * @return The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+     * @return The area path to associate with the team (e.g., `Example Project&#92;Frontend`). Can reference `azuredevops_area.path`.
      * 
      */
     private String path;
@@ -45,7 +45,7 @@ public final class TeamArea {
         return Optional.ofNullable(this.isDefault);
     }
     /**
-     * @return The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+     * @return The area path to associate with the team (e.g., `Example Project&#92;Frontend`). Can reference `azuredevops_area.path`.
      * 
      */
     public String path() {

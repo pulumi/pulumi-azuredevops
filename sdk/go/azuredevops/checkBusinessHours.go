@@ -599,6 +599,12 @@ func (CheckBusinessHoursState) ElementType() reflect.Type {
 	return reflect.TypeOf((*checkBusinessHoursState)(nil)).Elem()
 }
 
+// CheckBusinessHoursExists checks whether an existing CheckBusinessHours resource with the given ID exists.
+func CheckBusinessHoursExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CheckBusinessHoursState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/checkBusinessHours:CheckBusinessHours", id, state, "", opts...)
+}
+
 type checkBusinessHoursArgs struct {
 	// The name of the business hours check displayed in the web UI.
 	DisplayName *string `pulumi:"displayName"`

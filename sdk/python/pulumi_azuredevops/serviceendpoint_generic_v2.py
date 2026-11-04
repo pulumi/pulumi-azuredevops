@@ -557,6 +557,30 @@ class ServiceendpointGenericV2(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ServiceendpointGenericV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            authorization_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            server_url: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_project_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorizationParameters"] = authorization_parameters
+        __props__["authorizationScheme"] = authorization_scheme
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["projectId"] = project_id
+        __props__["serverUrl"] = server_url
+        __props__["sharedProjectIds"] = shared_project_ids
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceendpointGenericV2:ServiceendpointGenericV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authorizationParameters")
     def authorization_parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

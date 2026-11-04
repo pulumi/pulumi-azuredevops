@@ -174,6 +174,12 @@ func (WorkitemtrackingprocessListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessListState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessListExists checks whether an existing WorkitemtrackingprocessList resource with the given ID exists.
+func WorkitemtrackingprocessListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessList:WorkitemtrackingprocessList", id, state, "", opts...)
+}
+
 type workitemtrackingprocessListArgs struct {
 	// Indicates whether items outside of the suggested list are allowed. Defaults to `false`.
 	IsSuggested *bool `pulumi:"isSuggested"`

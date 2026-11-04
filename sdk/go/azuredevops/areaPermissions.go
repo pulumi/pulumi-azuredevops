@@ -199,6 +199,12 @@ func (AreaPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*areaPermissionsState)(nil)).Elem()
 }
 
+// AreaPermissionsExists checks whether an existing AreaPermissions resource with the given ID exists.
+func AreaPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AreaPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/areaPermissions:AreaPermissions", id, state, "", opts...)
+}
+
 type areaPermissionsArgs struct {
 	// The name of the branch to assign the permissions.
 	Path *string `pulumi:"path"`

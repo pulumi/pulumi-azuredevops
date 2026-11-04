@@ -167,6 +167,12 @@ func (AreaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*areaState)(nil)).Elem()
 }
 
+// AreaExists checks whether an existing Area resource with the given ID exists.
+func AreaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AreaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/area:Area", id, state, "", opts...)
+}
+
 type areaArgs struct {
 	// The name of the area path node. Must conform to [naming restrictions](https://learn.microsoft.com/en-us/azure/devops/organizations/settings/about-areas-iterations?view=azure-devops#naming-restrictions).
 	Name         *string `pulumi:"name"`

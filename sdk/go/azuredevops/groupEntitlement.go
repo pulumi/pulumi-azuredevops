@@ -174,6 +174,12 @@ func (GroupEntitlementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupEntitlementState)(nil)).Elem()
 }
 
+// GroupEntitlementExists checks whether an existing GroupEntitlement resource with the given ID exists.
+func GroupEntitlementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupEntitlementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/groupEntitlement:GroupEntitlement", id, state, "", opts...)
+}
+
 type groupEntitlementArgs struct {
 	// Type of Account License. Possible values are: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
 	AccountLicenseType *string `pulumi:"accountLicenseType"`

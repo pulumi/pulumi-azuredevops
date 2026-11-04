@@ -407,6 +407,26 @@ class WorkitemtrackingprocessProcess(pulumi.CustomResource):
         __props__.__dict__["reference_name"] = reference_name
         return WorkitemtrackingprocessProcess(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            customization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_process_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+            reference_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customizationType"] = customization_type
+        __props__["description"] = description
+        __props__["isDefault"] = is_default
+        __props__["isEnabled"] = is_enabled
+        __props__["name"] = name
+        __props__["parentProcessTypeId"] = parent_process_type_id
+        __props__["referenceName"] = reference_name
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customizationType")
     def customization_type(self) -> pulumi.Output[_builtins.str]:

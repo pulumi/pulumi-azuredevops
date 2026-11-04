@@ -585,6 +585,30 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         return ServiceEndpointKubernetes(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apiserver_url: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEndpointKubernetesAzureSubscriptionArgs', 'ServiceEndpointKubernetesAzureSubscriptionArgsDict', 'outputs.ServiceEndpointKubernetesAzureSubscription']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            kubeconfig: pulumi.Input[Optional[Union['ServiceEndpointKubernetesKubeconfigArgs', 'ServiceEndpointKubernetesKubeconfigArgsDict', 'outputs.ServiceEndpointKubernetesKubeconfig']]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_account: pulumi.Input[Optional[Union['ServiceEndpointKubernetesServiceAccountArgs', 'ServiceEndpointKubernetesServiceAccountArgsDict', 'outputs.ServiceEndpointKubernetesServiceAccount']]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiserverUrl"] = apiserver_url
+        __props__["authorization"] = authorization
+        __props__["authorizationType"] = authorization_type
+        __props__["azureSubscriptions"] = azure_subscriptions
+        __props__["description"] = description
+        __props__["kubeconfig"] = kubeconfig
+        __props__["projectId"] = project_id
+        __props__["serviceAccount"] = service_account
+        __props__["serviceEndpointName"] = service_endpoint_name
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiserverUrl")
     def apiserver_url(self) -> pulumi.Output[_builtins.str]:

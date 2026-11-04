@@ -571,6 +571,28 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         return ServiceEndpointServiceFabric(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            azure_active_directory: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricAzureActiveDirectoryArgs', 'ServiceEndpointServiceFabricAzureActiveDirectoryArgsDict', 'outputs.ServiceEndpointServiceFabricAzureActiveDirectory']]] = None,
+            certificate: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricCertificateArgs', 'ServiceEndpointServiceFabricCertificateArgsDict', 'outputs.ServiceEndpointServiceFabricCertificate']]] = None,
+            cluster_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            none: pulumi.Input[Optional[Union['ServiceEndpointServiceFabricNoneArgs', 'ServiceEndpointServiceFabricNoneArgsDict', 'outputs.ServiceEndpointServiceFabricNone']]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorization"] = authorization
+        __props__["azureActiveDirectory"] = azure_active_directory
+        __props__["certificate"] = certificate
+        __props__["clusterEndpoint"] = cluster_endpoint
+        __props__["description"] = description
+        __props__["none"] = none
+        __props__["projectId"] = project_id
+        __props__["serviceEndpointName"] = service_endpoint_name
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authorization(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

@@ -161,6 +161,12 @@ func (ServiceendpointAzureServiceBusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointAzureServiceBusState)(nil)).Elem()
 }
 
+// ServiceendpointAzureServiceBusExists checks whether an existing ServiceendpointAzureServiceBus resource with the given ID exists.
+func ServiceendpointAzureServiceBusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointAzureServiceBusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus", id, state, "", opts...)
+}
+
 type serviceendpointAzureServiceBusArgs struct {
 	// The  Azure Service Bus Connection string.
 	ConnectionString string `pulumi:"connectionString"`

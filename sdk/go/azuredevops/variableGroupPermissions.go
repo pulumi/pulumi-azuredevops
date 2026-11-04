@@ -210,6 +210,12 @@ func (VariableGroupPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*variableGroupPermissionsState)(nil)).Elem()
 }
 
+// VariableGroupPermissionsExists checks whether an existing VariableGroupPermissions resource with the given ID exists.
+func VariableGroupPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VariableGroupPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/variableGroupPermissions:VariableGroupPermissions", id, state, "", opts...)
+}
+
 type variableGroupPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available.
 	//

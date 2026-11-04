@@ -186,6 +186,12 @@ func (RepositoryPolicyCheckCredentialsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPolicyCheckCredentialsState)(nil)).Elem()
 }
 
+// RepositoryPolicyCheckCredentialsExists checks whether an existing RepositoryPolicyCheckCredentials resource with the given ID exists.
+func RepositoryPolicyCheckCredentialsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPolicyCheckCredentialsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials", id, state, "", opts...)
+}
+
 type repositoryPolicyCheckCredentialsArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

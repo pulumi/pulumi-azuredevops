@@ -103,7 +103,7 @@ namespace Pulumi.AzureDevOps
         public Output<bool> IsPicklist { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether this field is a suggested picklist. 
+        /// Indicates whether this field is a suggested picklist.
         /// 
         /// &gt; **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `PicklistId`
         /// </summary>
@@ -234,7 +234,7 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? IsLocked { get; set; }
 
         /// <summary>
-        /// Indicates whether this field is a suggested picklist. 
+        /// Indicates whether this field is a suggested picklist.
         /// 
         /// &gt; **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `PicklistId`
         /// </summary>
@@ -333,7 +333,7 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? IsPicklist { get; set; }
 
         /// <summary>
-        /// Indicates whether this field is a suggested picklist. 
+        /// Indicates whether this field is a suggested picklist.
         /// 
         /// &gt; **Note:** This field is kept for backwards compatibility, it should never be set as it is determined by the optional list referenced by `PicklistId`
         /// </summary>

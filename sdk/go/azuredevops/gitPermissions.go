@@ -462,6 +462,12 @@ func (GitPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gitPermissionsState)(nil)).Elem()
 }
 
+// GitPermissionsExists checks whether an existing GitPermissions resource with the given ID exists.
+func GitPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GitPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/gitPermissions:GitPermissions", id, state, "", opts...)
+}
+
 type gitPermissionsArgs struct {
 	// The name of the branch to assign the permissions.
 	//

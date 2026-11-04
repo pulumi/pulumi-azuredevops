@@ -261,6 +261,12 @@ func (GitRepositoryFileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gitRepositoryFileState)(nil)).Elem()
 }
 
+// GitRepositoryFileExists checks whether an existing GitRepositoryFile resource with the given ID exists.
+func GitRepositoryFileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GitRepositoryFileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/gitRepositoryFile:GitRepositoryFile", id, state, "", opts...)
+}
+
 type gitRepositoryFileArgs struct {
 	// The email of the author.
 	AuthorEmail *string `pulumi:"authorEmail"`

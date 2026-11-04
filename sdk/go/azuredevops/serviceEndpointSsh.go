@@ -183,6 +183,12 @@ func (ServiceEndpointSshState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointSshState)(nil)).Elem()
 }
 
+// ServiceEndpointSshExists checks whether an existing ServiceEndpointSsh resource with the given ID exists.
+func ServiceEndpointSshExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointSshState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh", id, state, "", opts...)
+}
+
 type serviceEndpointSshArgs struct {
 	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`

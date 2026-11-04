@@ -175,6 +175,12 @@ func (BranchPolicyStatusCheckState) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchPolicyStatusCheckState)(nil)).Elem()
 }
 
+// BranchPolicyStatusCheckExists checks whether an existing BranchPolicyStatusCheck resource with the given ID exists.
+func BranchPolicyStatusCheckExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BranchPolicyStatusCheckState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck", id, state, "", opts...)
+}
+
 type branchPolicyStatusCheckArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

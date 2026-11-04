@@ -163,6 +163,12 @@ func (ServiceEndpointNpmState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointNpmState)(nil)).Elem()
 }
 
+// ServiceEndpointNpmExists checks whether an existing ServiceEndpointNpm resource with the given ID exists.
+func ServiceEndpointNpmExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointNpmState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm", id, state, "", opts...)
+}
+
 type serviceEndpointNpmArgs struct {
 	// The access token for npm registry.
 	AccessToken string `pulumi:"accessToken"`

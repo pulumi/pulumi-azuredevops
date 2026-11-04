@@ -201,6 +201,12 @@ func (ServiceendpointGenericV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointGenericV2State)(nil)).Elem()
 }
 
+// ServiceendpointGenericV2Exists checks whether an existing ServiceendpointGenericV2 resource with the given ID exists.
+func ServiceendpointGenericV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointGenericV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointGenericV2:ServiceendpointGenericV2", id, state, "", opts...)
+}
+
 type serviceendpointGenericV2Args struct {
 	// Map of key/value pairs for the specific authorization scheme. These often include sensitive data like tokens, usernames, and passwords.
 	AuthorizationParameters map[string]string `pulumi:"authorizationParameters"`

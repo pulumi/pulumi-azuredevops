@@ -176,6 +176,12 @@ func (WikiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*wikiState)(nil)).Elem()
 }
 
+// WikiExists checks whether an existing Wiki resource with the given ID exists.
+func WikiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WikiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/wiki:Wiki", id, state, "", opts...)
+}
+
 type wikiArgs struct {
 	// Folder path inside repository which is shown as Wiki.
 	MappedPath *string `pulumi:"mappedPath"`

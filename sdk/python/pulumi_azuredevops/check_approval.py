@@ -500,6 +500,30 @@ class CheckApproval(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return CheckApproval(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            approvers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            instructions: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_required_approvers: pulumi.Input[Optional[_builtins.int]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            requester_can_approve: pulumi.Input[Optional[_builtins.bool]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["approvers"] = approvers
+        __props__["instructions"] = instructions
+        __props__["minimumRequiredApprovers"] = minimum_required_approvers
+        __props__["projectId"] = project_id
+        __props__["requesterCanApprove"] = requester_can_approve
+        __props__["targetResourceId"] = target_resource_id
+        __props__["targetResourceType"] = target_resource_type
+        __props__["timeout"] = timeout
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/checkApproval:CheckApproval', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def approvers(self) -> pulumi.Output[Sequence[_builtins.str]]:

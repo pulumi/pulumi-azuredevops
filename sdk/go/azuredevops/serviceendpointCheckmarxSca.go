@@ -206,6 +206,12 @@ func (ServiceendpointCheckmarxScaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointCheckmarxScaState)(nil)).Elem()
 }
 
+// ServiceendpointCheckmarxScaExists checks whether an existing ServiceendpointCheckmarxSca resource with the given ID exists.
+func ServiceendpointCheckmarxScaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointCheckmarxScaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointCheckmarxSca:ServiceendpointCheckmarxSca", id, state, "", opts...)
+}
+
 type serviceendpointCheckmarxScaArgs struct {
 	// The Access Control URL of the Checkmarx SCA.
 	AccessControlUrl string `pulumi:"accessControlUrl"`

@@ -281,6 +281,12 @@ func (BuildFolderPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*buildFolderPermissionsState)(nil)).Elem()
 }
 
+// BuildFolderPermissionsExists checks whether an existing BuildFolderPermissions resource with the given ID exists.
+func BuildFolderPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BuildFolderPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/buildFolderPermissions:BuildFolderPermissions", id, state, "", opts...)
+}
+
 type buildFolderPermissionsArgs struct {
 	// The folder path to assign the permissions.
 	Path string `pulumi:"path"`

@@ -37,7 +37,6 @@ namespace Pulumi.AzureDevOps
         /// });
         /// ```
         /// 
-        /// 
         /// ### Discover Available Permissions for a Namespace
         /// 
         /// ```csharp
@@ -135,7 +134,6 @@ namespace Pulumi.AzureDevOps
         /// });
         /// ```
         /// 
-        /// 
         /// ### Discover Available Permissions for a Namespace
         /// 
         /// ```csharp
@@ -232,7 +230,6 @@ namespace Pulumi.AzureDevOps
         ///     };
         /// });
         /// ```
-        /// 
         /// 
         /// ### Discover Available Permissions for a Namespace
         /// 

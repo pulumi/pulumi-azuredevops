@@ -184,6 +184,12 @@ func (CheckApprovalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*checkApprovalState)(nil)).Elem()
 }
 
+// CheckApprovalExists checks whether an existing CheckApproval resource with the given ID exists.
+func CheckApprovalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CheckApprovalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/checkApproval:CheckApproval", id, state, "", opts...)
+}
+
 type checkApprovalArgs struct {
 	// Specifies a list of approver IDs.
 	Approvers []string `pulumi:"approvers"`

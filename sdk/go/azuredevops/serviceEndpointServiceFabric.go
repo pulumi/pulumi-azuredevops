@@ -263,6 +263,12 @@ func (ServiceEndpointServiceFabricState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointServiceFabricState)(nil)).Elem()
 }
 
+// ServiceEndpointServiceFabricExists checks whether an existing ServiceEndpointServiceFabric resource with the given ID exists.
+func ServiceEndpointServiceFabricExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointServiceFabricState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric", id, state, "", opts...)
+}
+
 type serviceEndpointServiceFabricArgs struct {
 	// An `azureActiveDirectory` block as documented below.
 	AzureActiveDirectory *ServiceEndpointServiceFabricAzureActiveDirectory `pulumi:"azureActiveDirectory"`

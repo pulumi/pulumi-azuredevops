@@ -192,6 +192,12 @@ func (EnvironmentResourceKubernetesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*environmentResourceKubernetesState)(nil)).Elem()
 }
 
+// EnvironmentResourceKubernetesExists checks whether an existing EnvironmentResourceKubernetes resource with the given ID exists.
+func EnvironmentResourceKubernetesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnvironmentResourceKubernetesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes", id, state, "", opts...)
+}
+
 type environmentResourceKubernetesArgs struct {
 	// A cluster name for the Kubernetes Resource.
 	ClusterName *string `pulumi:"clusterName"`

@@ -138,14 +138,14 @@ public class Area extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parentAreaId);
     }
     /**
-     * The path of the area, in backslash-separated format including the project name (e.g., `Example Project\Frontend`).
+     * The path of the area, in backslash-separated format including the project name (e.g., `Example Project&#92;Frontend`).
      * 
      */
     @Export(name="path", refs={String.class}, tree="[0]")
     private Output<String> path;
 
     /**
-     * @return The path of the area, in backslash-separated format including the project name (e.g., `Example Project\Frontend`).
+     * @return The path of the area, in backslash-separated format including the project name (e.g., `Example Project&#92;Frontend`).
      * 
      */
     public Output<String> path() {

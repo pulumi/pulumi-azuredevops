@@ -163,6 +163,12 @@ func (ServiceEndpointSonarQubeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointSonarQubeState)(nil)).Elem()
 }
 
+// ServiceEndpointSonarQubeExists checks whether an existing ServiceEndpointSonarQube resource with the given ID exists.
+func ServiceEndpointSonarQubeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointSonarQubeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube", id, state, "", opts...)
+}
+
 type serviceEndpointSonarQubeArgs struct {
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`

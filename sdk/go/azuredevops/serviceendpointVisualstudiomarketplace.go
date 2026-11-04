@@ -209,6 +209,12 @@ func (ServiceendpointVisualstudiomarketplaceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointVisualstudiomarketplaceState)(nil)).Elem()
 }
 
+// ServiceendpointVisualstudiomarketplaceExists checks whether an existing ServiceendpointVisualstudiomarketplace resource with the given ID exists.
+func ServiceendpointVisualstudiomarketplaceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointVisualstudiomarketplaceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointVisualstudiomarketplace:ServiceendpointVisualstudiomarketplace", id, state, "", opts...)
+}
+
 type serviceendpointVisualstudiomarketplaceArgs struct {
 	// An `authenticationBasic` block as documented below.
 	//

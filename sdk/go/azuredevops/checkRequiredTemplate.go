@@ -215,6 +215,12 @@ func (CheckRequiredTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*checkRequiredTemplateState)(nil)).Elem()
 }
 
+// CheckRequiredTemplateExists checks whether an existing CheckRequiredTemplate resource with the given ID exists.
+func CheckRequiredTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CheckRequiredTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/checkRequiredTemplate:CheckRequiredTemplate", id, state, "", opts...)
+}
+
 type checkRequiredTemplateArgs struct {
 	// The project ID. Changing this forces a new Required Template Check to be created.
 	ProjectId string `pulumi:"projectId"`

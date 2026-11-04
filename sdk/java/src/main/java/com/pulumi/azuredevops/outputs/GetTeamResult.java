@@ -42,11 +42,10 @@ public final class GetTeamResult {
     private String name;
     private String projectId;
     /**
-     * @deprecated
-     * This property is deprecated and will be removed in the feature
+     * @deprecated This property is deprecated and will be removed in the feature
      * 
      */
-    @Deprecated /* This property is deprecated and will be removed in the feature */
+    @Deprecated
     private @Nullable Integer top;
 
     private GetTeamResult() {}
@@ -92,11 +91,10 @@ public final class GetTeamResult {
         return this.projectId;
     }
     /**
-     * @deprecated
-     * This property is deprecated and will be removed in the feature
+     * @deprecated This property is deprecated and will be removed in the feature
      * 
      */
-    @Deprecated /* This property is deprecated and will be removed in the feature */
+    @Deprecated
     public Optional<Integer> top() {
         return Optional.ofNullable(this.top);
     }

@@ -481,6 +481,26 @@ class EnvironmentResourceKubernetes(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return EnvironmentResourceKubernetes(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_id: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clusterName"] = cluster_name
+        __props__["environmentId"] = environment_id
+        __props__["name"] = name
+        __props__["namespace"] = namespace
+        __props__["projectId"] = project_id
+        __props__["serviceEndpointId"] = service_endpoint_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/environmentResourceKubernetes:EnvironmentResourceKubernetes', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[Optional[_builtins.str]]:

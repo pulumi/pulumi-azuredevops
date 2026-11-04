@@ -354,6 +354,20 @@ class SecurityroleAssignment(pulumi.CustomResource):
         __props__.__dict__["scope"] = scope
         return SecurityroleAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["identityId"] = identity_id
+        __props__["resourceId"] = resource_id
+        __props__["roleName"] = role_name
+        __props__["scope"] = scope
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/securityroleAssignment:SecurityroleAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Output[_builtins.str]:

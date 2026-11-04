@@ -371,6 +371,20 @@ class FeedRetentionPolicy(pulumi.CustomResource):
         __props__.__dict__["project_id"] = project_id
         return FeedRetentionPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            count_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            days_to_keep_recently_downloaded_packages: pulumi.Input[Optional[_builtins.int]] = None,
+            feed_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["countLimit"] = count_limit
+        __props__["daysToKeepRecentlyDownloadedPackages"] = days_to_keep_recently_downloaded_packages
+        __props__["feedId"] = feed_id
+        __props__["projectId"] = project_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="countLimit")
     def count_limit(self) -> pulumi.Output[_builtins.int]:

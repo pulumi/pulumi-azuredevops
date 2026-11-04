@@ -182,6 +182,12 @@ func (TeamAdministratorsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamAdministratorsState)(nil)).Elem()
 }
 
+// TeamAdministratorsExists checks whether an existing TeamAdministrators resource with the given ID exists.
+func TeamAdministratorsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamAdministratorsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/teamAdministrators:TeamAdministrators", id, state, "", opts...)
+}
+
 type teamAdministratorsArgs struct {
 	// List of subject descriptors to define administrators of the team.
 	//

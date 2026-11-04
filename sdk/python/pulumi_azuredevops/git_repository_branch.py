@@ -392,6 +392,24 @@ class GitRepositoryBranch(pulumi.CustomResource):
         __props__.__dict__["repository_id"] = repository_id
         return GitRepositoryBranch(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            last_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ref_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            ref_commit_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ref_tag: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["lastCommitId"] = last_commit_id
+        __props__["name"] = name
+        __props__["refBranch"] = ref_branch
+        __props__["refCommitId"] = ref_commit_id
+        __props__["refTag"] = ref_tag
+        __props__["repositoryId"] = repository_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/gitRepositoryBranch:GitRepositoryBranch', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="lastCommitId")
     def last_commit_id(self) -> pulumi.Output[_builtins.str]:

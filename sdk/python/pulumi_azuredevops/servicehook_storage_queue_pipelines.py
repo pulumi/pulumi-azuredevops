@@ -548,6 +548,28 @@ class ServicehookStorageQueuePipelines(pulumi.CustomResource):
         __props__.__dict__["visi_timeout"] = visi_timeout
         return ServicehookStorageQueuePipelines(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_key: pulumi.Input[Optional[_builtins.str]] = None,
+            account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+            run_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesRunStateChangedEventArgs', 'ServicehookStorageQueuePipelinesRunStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesRunStateChangedEvent']]] = None,
+            stage_state_changed_event: pulumi.Input[Optional[Union['ServicehookStorageQueuePipelinesStageStateChangedEventArgs', 'ServicehookStorageQueuePipelinesStageStateChangedEventArgsDict', 'outputs.ServicehookStorageQueuePipelinesStageStateChangedEvent']]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            visi_timeout: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountKey"] = account_key
+        __props__["accountName"] = account_name
+        __props__["projectId"] = project_id
+        __props__["queueName"] = queue_name
+        __props__["runStateChangedEvent"] = run_state_changed_event
+        __props__["stageStateChangedEvent"] = stage_state_changed_event
+        __props__["ttl"] = ttl
+        __props__["visiTimeout"] = visi_timeout
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountKey")
     def account_key(self) -> pulumi.Output[_builtins.str]:

@@ -156,6 +156,12 @@ func (ServiceendpointExternaltfsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointExternaltfsState)(nil)).Elem()
 }
 
+// ServiceendpointExternaltfsExists checks whether an existing ServiceendpointExternaltfs resource with the given ID exists.
+func ServiceendpointExternaltfsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointExternaltfsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs", id, state, "", opts...)
+}
+
 type serviceendpointExternaltfsArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal ServiceendpointExternaltfsAuthPersonal `pulumi:"authPersonal"`

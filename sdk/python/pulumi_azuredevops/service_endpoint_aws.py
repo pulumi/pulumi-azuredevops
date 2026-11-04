@@ -581,6 +581,34 @@ class ServiceEndpointAws(pulumi.CustomResource):
         __props__.__dict__["use_oidc"] = use_oidc
         return ServiceEndpointAws(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_session_name: pulumi.Input[Optional[_builtins.str]] = None,
+            role_to_assume: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            session_token: pulumi.Input[Optional[_builtins.str]] = None,
+            use_oidc: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessKeyId"] = access_key_id
+        __props__["authorization"] = authorization
+        __props__["description"] = description
+        __props__["externalId"] = external_id
+        __props__["projectId"] = project_id
+        __props__["roleSessionName"] = role_session_name
+        __props__["roleToAssume"] = role_to_assume
+        __props__["secretAccessKey"] = secret_access_key
+        __props__["serviceEndpointName"] = service_endpoint_name
+        __props__["sessionToken"] = session_token
+        __props__["useOidc"] = use_oidc
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceEndpointAws:ServiceEndpointAws', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -336,6 +336,12 @@ func (WorkitemtrackingprocessRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessRuleState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessRuleExists checks whether an existing WorkitemtrackingprocessRule resource with the given ID exists.
+func WorkitemtrackingprocessRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessRule:WorkitemtrackingprocessRule", id, state, "", opts...)
+}
+
 type workitemtrackingprocessRuleArgs struct {
 	// One or more `action` blocks as defined below.
 	Actions []WorkitemtrackingprocessRuleAction `pulumi:"actions"`

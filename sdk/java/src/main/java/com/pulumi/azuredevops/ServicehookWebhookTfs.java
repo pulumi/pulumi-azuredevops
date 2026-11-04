@@ -190,12 +190,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ServicehookWebhookTfs("example", ServicehookWebhookTfsArgs.builder()
  *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .url("https://example.com/webhook")
@@ -204,13 +204,13 @@ import javax.annotation.Nullable;
  *             .detailedMessagesToSend("markdown")
  *             .workItemUpdated(ServicehookWebhookTfsWorkItemUpdatedArgs.builder()
  *                 .workItemType("Bug")
- *                 .areaPath("MyProject\\Area")
+ *                 .areaPath("MyProject}&#92;&#92;{@code Area")
  *                 .changedFields("System.State")
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

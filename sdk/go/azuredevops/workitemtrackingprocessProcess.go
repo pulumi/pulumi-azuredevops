@@ -141,6 +141,12 @@ func (WorkitemtrackingprocessProcessState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessProcessState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessProcessExists checks whether an existing WorkitemtrackingprocessProcess resource with the given ID exists.
+func WorkitemtrackingprocessProcessExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessProcessState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessProcess:WorkitemtrackingprocessProcess", id, state, "", opts...)
+}
+
 type workitemtrackingprocessProcessArgs struct {
 	// Description of the process. Default: ""
 	Description *string `pulumi:"description"`

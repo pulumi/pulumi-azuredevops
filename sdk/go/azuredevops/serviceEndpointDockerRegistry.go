@@ -188,6 +188,12 @@ func (ServiceEndpointDockerRegistryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointDockerRegistryState)(nil)).Elem()
 }
 
+// ServiceEndpointDockerRegistryExists checks whether an existing ServiceEndpointDockerRegistry resource with the given ID exists.
+func ServiceEndpointDockerRegistryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointDockerRegistryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry", id, state, "", opts...)
+}
+
 type serviceEndpointDockerRegistryArgs struct {
 	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`

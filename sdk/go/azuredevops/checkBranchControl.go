@@ -384,6 +384,12 @@ func (CheckBranchControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*checkBranchControlState)(nil)).Elem()
 }
 
+// CheckBranchControlExists checks whether an existing CheckBranchControl resource with the given ID exists.
+func CheckBranchControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CheckBranchControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/checkBranchControl:CheckBranchControl", id, state, "", opts...)
+}
+
 type checkBranchControlArgs struct {
 	// The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
 	AllowedBranches *string `pulumi:"allowedBranches"`

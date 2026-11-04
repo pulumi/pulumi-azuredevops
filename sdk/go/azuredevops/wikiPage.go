@@ -144,6 +144,12 @@ func (WikiPageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*wikiPageState)(nil)).Elem()
 }
 
+// WikiPageExists checks whether an existing WikiPage resource with the given ID exists.
+func WikiPageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WikiPageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/wikiPage:WikiPage", id, state, "", opts...)
+}
+
 type wikiPageArgs struct {
 	// The content of the wiki page.
 	Content string  `pulumi:"content"`

@@ -320,6 +320,16 @@ class ProjectFeatures(pulumi.CustomResource):
         __props__.__dict__["project_id"] = project_id
         return ProjectFeatures(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            features: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["features"] = features
+        __props__["projectId"] = project_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/projectFeatures:ProjectFeatures', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def features(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

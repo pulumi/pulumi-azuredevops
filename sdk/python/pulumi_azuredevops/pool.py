@@ -310,6 +310,20 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["pool_type"] = pool_type
         return Pool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoProvision"] = auto_provision
+        __props__["autoUpdate"] = auto_update
+        __props__["name"] = name
+        __props__["poolType"] = pool_type
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/pool:Pool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoProvision")
     def auto_provision(self) -> pulumi.Output[Optional[_builtins.bool]]:

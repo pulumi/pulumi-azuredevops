@@ -461,6 +461,28 @@ class Wiki(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Wiki(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            mapped_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_url: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["mappedPath"] = mapped_path
+        __props__["name"] = name
+        __props__["projectId"] = project_id
+        __props__["remoteUrl"] = remote_url
+        __props__["repositoryId"] = repository_id
+        __props__["type"] = type
+        __props__["url"] = url
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/wiki:Wiki', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="mappedPath")
     def mapped_path(self) -> pulumi.Output[_builtins.str]:

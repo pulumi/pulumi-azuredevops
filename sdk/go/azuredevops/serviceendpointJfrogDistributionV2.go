@@ -210,6 +210,12 @@ func (ServiceendpointJfrogDistributionV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointJfrogDistributionV2State)(nil)).Elem()
 }
 
+// ServiceendpointJfrogDistributionV2Exists checks whether an existing ServiceendpointJfrogDistributionV2 resource with the given ID exists.
+func ServiceendpointJfrogDistributionV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointJfrogDistributionV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2", id, state, "", opts...)
+}
+
 type serviceendpointJfrogDistributionV2Args struct {
 	// An `authenticationBasic` block as documented below.
 	AuthenticationBasic *ServiceendpointJfrogDistributionV2AuthenticationBasic `pulumi:"authenticationBasic"`

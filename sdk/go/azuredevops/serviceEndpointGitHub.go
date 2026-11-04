@@ -228,6 +228,12 @@ func (ServiceEndpointGitHubState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointGitHubState)(nil)).Elem()
 }
 
+// ServiceEndpointGitHubExists checks whether an existing ServiceEndpointGitHub resource with the given ID exists.
+func ServiceEndpointGitHubExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointGitHubState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub", id, state, "", opts...)
+}
+
 type serviceEndpointGitHubArgs struct {
 	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth *ServiceEndpointGitHubAuthOauth `pulumi:"authOauth"`

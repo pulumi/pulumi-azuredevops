@@ -298,6 +298,12 @@ func (WorkitemqueryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemqueryState)(nil)).Elem()
 }
 
+// WorkitemqueryExists checks whether an existing Workitemquery resource with the given ID exists.
+func WorkitemqueryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemqueryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemquery:Workitemquery", id, state, "", opts...)
+}
+
 type workitemqueryArgs struct {
 	// Root folder for the query. Must be one of `Shared Queries` or `My Queries`.
 	Area *string `pulumi:"area"`

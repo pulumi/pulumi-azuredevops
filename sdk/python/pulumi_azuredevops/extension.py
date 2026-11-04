@@ -372,6 +372,26 @@ class Extension(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Extension(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            extension_id: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_name: pulumi.Input[Optional[_builtins.str]] = None,
+            publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+            publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["disabled"] = disabled
+        __props__["extensionId"] = extension_id
+        __props__["extensionName"] = extension_name
+        __props__["publisherId"] = publisher_id
+        __props__["publisherName"] = publisher_name
+        __props__["scopes"] = scopes
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/extension:Extension', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> pulumi.Output[_builtins.bool]:

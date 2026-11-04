@@ -132,6 +132,12 @@ func (BuildFolderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*buildFolderState)(nil)).Elem()
 }
 
+// BuildFolderExists checks whether an existing BuildFolder resource with the given ID exists.
+func BuildFolderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BuildFolderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/buildFolder:BuildFolder", id, state, "", opts...)
+}
+
 type buildFolderArgs struct {
 	// Folder Description.
 	Description *string `pulumi:"description"`

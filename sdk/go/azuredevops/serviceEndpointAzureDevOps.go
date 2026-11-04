@@ -166,6 +166,12 @@ func (ServiceEndpointAzureDevOpsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointAzureDevOpsState)(nil)).Elem()
 }
 
+// ServiceEndpointAzureDevOpsExists checks whether an existing ServiceEndpointAzureDevOps resource with the given ID exists.
+func ServiceEndpointAzureDevOpsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointAzureDevOpsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps", id, state, "", opts...)
+}
+
 type serviceEndpointAzureDevOpsArgs struct {
 	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`

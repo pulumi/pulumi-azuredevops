@@ -788,6 +788,42 @@ class WorkitemtrackingprocessControl(pulumi.CustomResource):
         __props__.__dict__["work_item_type_reference_name"] = work_item_type_reference_name
         return WorkitemtrackingprocessControl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            contribution: pulumi.Input[Optional[Union['WorkitemtrackingprocessControlContributionArgs', 'WorkitemtrackingprocessControlContributionArgsDict', 'outputs.WorkitemtrackingprocessControlContribution']]] = None,
+            control_id: pulumi.Input[Optional[_builtins.str]] = None,
+            control_type: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            inherited: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_contribution: pulumi.Input[Optional[_builtins.bool]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            overridden: pulumi.Input[Optional[_builtins.bool]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            visible: pulumi.Input[Optional[_builtins.bool]] = None,
+            watermark: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_type_reference_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["contribution"] = contribution
+        __props__["controlId"] = control_id
+        __props__["controlType"] = control_type
+        __props__["groupId"] = group_id
+        __props__["inherited"] = inherited
+        __props__["isContribution"] = is_contribution
+        __props__["label"] = label
+        __props__["metadata"] = metadata
+        __props__["order"] = order
+        __props__["overridden"] = overridden
+        __props__["processId"] = process_id
+        __props__["readOnly"] = read_only
+        __props__["visible"] = visible
+        __props__["watermark"] = watermark
+        __props__["workItemTypeReferenceName"] = work_item_type_reference_name
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitemtrackingprocessControl:WorkitemtrackingprocessControl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def contribution(self) -> pulumi.Output[Optional['outputs.WorkitemtrackingprocessControlContribution']]:

@@ -178,6 +178,12 @@ func (ServiceEndpointGenericGitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointGenericGitState)(nil)).Elem()
 }
 
+// ServiceEndpointGenericGitExists checks whether an existing ServiceEndpointGenericGit resource with the given ID exists.
+func ServiceEndpointGenericGitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointGenericGitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit", id, state, "", opts...)
+}
+
 type serviceEndpointGenericGitArgs struct {
 	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`

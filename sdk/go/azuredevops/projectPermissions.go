@@ -235,6 +235,12 @@ func (ProjectPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectPermissionsState)(nil)).Elem()
 }
 
+// ProjectPermissionsExists checks whether an existing ProjectPermissions resource with the given ID exists.
+func ProjectPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/projectPermissions:ProjectPermissions", id, state, "", opts...)
+}
+
 type projectPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available
 	//

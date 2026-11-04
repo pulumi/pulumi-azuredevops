@@ -252,6 +252,12 @@ func (VariableGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*variableGroupState)(nil)).Elem()
 }
 
+// VariableGroupExists checks whether an existing VariableGroup resource with the given ID exists.
+func VariableGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VariableGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/variableGroup:VariableGroup", id, state, "", opts...)
+}
+
 type variableGroupArgs struct {
 	// Boolean that indicate if this variable group is shared by all pipelines of this project.
 	AllowAccess *bool `pulumi:"allowAccess"`

@@ -302,6 +302,12 @@ func (WorkItemQueryPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workItemQueryPermissionsState)(nil)).Elem()
 }
 
+// WorkItemQueryPermissionsExists checks whether an existing WorkItemQueryPermissions resource with the given ID exists.
+func WorkItemQueryPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkItemQueryPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions", id, state, "", opts...)
+}
+
 type workItemQueryPermissionsArgs struct {
 	// Path to a query or folder beneath `Shared Queries`
 	Path *string `pulumi:"path"`

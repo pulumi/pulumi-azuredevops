@@ -134,11 +134,10 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
      * 
      * &gt; **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
      * 
-     * @deprecated
-     * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+     * @deprecated Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
      */
-    @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+    @Deprecated
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
@@ -182,11 +181,10 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
     /**
      * Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
-     * @deprecated
-     * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+     * @deprecated Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
      */
-    @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+    @Deprecated
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 

@@ -864,6 +864,44 @@ class CheckRestApi(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return CheckRestApi(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            completion_event: pulumi.Input[Optional[_builtins.str]] = None,
+            connected_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            connected_service_name_selector: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            headers: pulumi.Input[Optional[_builtins.str]] = None,
+            method: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            retry_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            success_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            url_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            variable_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["body"] = body
+        __props__["completionEvent"] = completion_event
+        __props__["connectedServiceName"] = connected_service_name
+        __props__["connectedServiceNameSelector"] = connected_service_name_selector
+        __props__["displayName"] = display_name
+        __props__["headers"] = headers
+        __props__["method"] = method
+        __props__["projectId"] = project_id
+        __props__["retryInterval"] = retry_interval
+        __props__["successCriteria"] = success_criteria
+        __props__["targetResourceId"] = target_resource_id
+        __props__["targetResourceType"] = target_resource_type
+        __props__["timeout"] = timeout
+        __props__["urlSuffix"] = url_suffix
+        __props__["variableGroupName"] = variable_group_name
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/checkRestApi:CheckRestApi', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def body(self) -> pulumi.Output[Optional[_builtins.str]]:

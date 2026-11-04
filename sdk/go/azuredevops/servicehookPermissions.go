@@ -172,6 +172,12 @@ func (ServicehookPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*servicehookPermissionsState)(nil)).Elem()
 }
 
+// ServicehookPermissionsExists checks whether an existing ServicehookPermissions resource with the given ID exists.
+func ServicehookPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServicehookPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/servicehookPermissions:ServicehookPermissions", id, state, "", opts...)
+}
+
 type servicehookPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available.
 	//

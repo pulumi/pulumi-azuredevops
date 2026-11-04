@@ -167,6 +167,12 @@ func (WorkitemtrackingprocessSystemControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessSystemControlState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessSystemControlExists checks whether an existing WorkitemtrackingprocessSystemControl resource with the given ID exists.
+func WorkitemtrackingprocessSystemControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessSystemControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessSystemControl:WorkitemtrackingprocessSystemControl", id, state, "", opts...)
+}
+
 type workitemtrackingprocessSystemControlArgs struct {
 	// The ID of the system control (e.g., `System.AreaPath`, `System.IterationPath`, `System.Reason`). Changing this forces a new resource to be created.
 	ControlId string `pulumi:"controlId"`

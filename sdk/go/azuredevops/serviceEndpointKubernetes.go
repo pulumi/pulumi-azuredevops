@@ -227,6 +227,12 @@ func (ServiceEndpointKubernetesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointKubernetesState)(nil)).Elem()
 }
 
+// ServiceEndpointKubernetesExists checks whether an existing ServiceEndpointKubernetes resource with the given ID exists.
+func ServiceEndpointKubernetesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointKubernetesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes", id, state, "", opts...)
+}
+
 type serviceEndpointKubernetesArgs struct {
 	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl string `pulumi:"apiserverUrl"`

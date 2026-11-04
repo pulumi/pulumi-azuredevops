@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Build Definition")
- *             .path("\\ExampleFolder")
+ *             .path("}&#92;&#92;{@code ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(false)
  *                 .build())
@@ -132,8 +132,8 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -163,12 +163,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
@@ -189,7 +189,7 @@ import javax.annotation.Nullable;
  *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Build Definition")
- *             .path("\\ExampleFolder")
+ *             .path("}&#92;&#92;{@code ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(false)
  *                 .build())
@@ -218,8 +218,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -244,16 +244,16 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new BuildDefinition("example", BuildDefinitionArgs.builder()
  *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .name("Example Build Definition")
- *             .path("\\ExampleFolder")
+ *             .path("}&#92;&#92;{@code ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(false)
  *                 .build())
@@ -274,8 +274,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -304,12 +304,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var example = AzuredevopsFunctions.getServiceEndpointGithub(GetServiceEndpointGithubArgs.builder()
  *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .serviceEndpointId("00000000-0000-0000-0000-000000000000")
@@ -318,7 +318,7 @@ import javax.annotation.Nullable;
  *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
  *             .projectId(exampleAzuredevopsProject2.get("id"))
  *             .name("Example Build Definition")
- *             .path("\\ExampleFolder")
+ *             .path("}&#92;&#92;{@code ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(false)
  *                 .build())
@@ -342,8 +342,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -372,12 +372,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ServiceEndpointGenericGit("example", ServiceEndpointGenericGitArgs.builder()
  *             .projectId(exampleAzuredevopsProject.get("id"))
  *             .repositoryUrl("https://gitlab.com/example/example.git")
@@ -388,7 +388,7 @@ import javax.annotation.Nullable;
  *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
  *             .projectId(exampleAzuredevopsProject2.get("id"))
  *             .name("Example Build Definition")
- *             .path("\\ExampleFolder")
+ *             .path("}&#92;&#92;{@code ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(false)
  *                 .build())
@@ -463,21 +463,21 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
  * ## Remarks
  * 
- * The path attribute can not end in `\` unless the path is the root value of `\`.
+ * The path attribute can not end in `&#92;` unless the path is the root value of `&#92;`.
  * 
  * Valid path values (yaml encoded) include:
- * - `\\`
- * - `\\ExampleFolder`
- * - `\\Nested\\Example Folder`
+ * - `&#92;&#92;`
+ * - `&#92;&#92;ExampleFolder`
+ * - `&#92;&#92;Nested&#92;&#92;Example Folder`
  * 
- * The value of `\\ExampleFolder\\` would be invalid.
+ * The value of `&#92;&#92;ExampleFolder&#92;&#92;` would be invalid.
  * 
  * ## Relevant Links
  * 

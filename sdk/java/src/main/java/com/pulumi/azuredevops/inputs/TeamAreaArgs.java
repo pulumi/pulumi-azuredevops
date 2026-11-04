@@ -48,14 +48,14 @@ public final class TeamAreaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+     * The area path to associate with the team (e.g., `Example Project&#92;Frontend`). Can reference `azuredevops_area.path`.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+     * @return The area path to associate with the team (e.g., `Example Project&#92;Frontend`). Can reference `azuredevops_area.path`.
      * 
      */
     public Output<String> path() {
@@ -131,7 +131,7 @@ public final class TeamAreaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param path The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+         * @param path The area path to associate with the team (e.g., `Example Project&#92;Frontend`). Can reference `azuredevops_area.path`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class TeamAreaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param path The area path to associate with the team (e.g., `Example Project\Frontend`). Can reference `azuredevops_area.path`.
+         * @param path The area path to associate with the team (e.g., `Example Project&#92;Frontend`). Can reference `azuredevops_area.path`.
          * 
          * @return builder
          * 

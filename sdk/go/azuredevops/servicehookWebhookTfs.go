@@ -366,6 +366,12 @@ func (ServicehookWebhookTfsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*servicehookWebhookTfsState)(nil)).Elem()
 }
 
+// ServicehookWebhookTfsExists checks whether an existing ServicehookWebhookTfs resource with the given ID exists.
+func ServicehookWebhookTfsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServicehookWebhookTfsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/servicehookWebhookTfs:ServicehookWebhookTfs", id, state, "", opts...)
+}
+
 type servicehookWebhookTfsArgs struct {
 	// Accept untrusted SSL certificates. Defaults to `false`.
 	AcceptUntrustedCerts *bool `pulumi:"acceptUntrustedCerts"`

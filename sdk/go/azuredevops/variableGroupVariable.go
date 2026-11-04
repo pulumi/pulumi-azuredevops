@@ -182,6 +182,12 @@ func (VariableGroupVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*variableGroupVariableState)(nil)).Elem()
 }
 
+// VariableGroupVariableExists checks whether an existing VariableGroupVariable resource with the given ID exists.
+func VariableGroupVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VariableGroupVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/variableGroupVariable:VariableGroupVariable", id, state, "", opts...)
+}
+
 type variableGroupVariableArgs struct {
 	// The name of the variable. Must be unique within the Variable Group.
 	Name *string `pulumi:"name"`

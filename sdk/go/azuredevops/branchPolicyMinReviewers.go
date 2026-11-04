@@ -166,6 +166,12 @@ func (BranchPolicyMinReviewersState) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchPolicyMinReviewersState)(nil)).Elem()
 }
 
+// BranchPolicyMinReviewersExists checks whether an existing BranchPolicyMinReviewers resource with the given ID exists.
+func BranchPolicyMinReviewersExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BranchPolicyMinReviewersState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers", id, state, "", opts...)
+}
+
 type branchPolicyMinReviewersArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

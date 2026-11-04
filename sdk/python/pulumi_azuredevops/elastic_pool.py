@@ -669,6 +669,36 @@ class ElasticPool(pulumi.CustomResource):
         __props__.__dict__["time_to_live_minutes"] = time_to_live_minutes
         return ElasticPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_interactive_ui: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_provision: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+            azure_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            desired_idle: pulumi.Input[Optional[_builtins.int]] = None,
+            max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recycle_after_each_use: pulumi.Input[Optional[_builtins.bool]] = None,
+            service_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            time_to_live_minutes: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentInteractiveUi"] = agent_interactive_ui
+        __props__["autoProvision"] = auto_provision
+        __props__["autoUpdate"] = auto_update
+        __props__["azureResourceId"] = azure_resource_id
+        __props__["desiredIdle"] = desired_idle
+        __props__["maxCapacity"] = max_capacity
+        __props__["name"] = name
+        __props__["projectId"] = project_id
+        __props__["recycleAfterEachUse"] = recycle_after_each_use
+        __props__["serviceEndpointId"] = service_endpoint_id
+        __props__["serviceEndpointScope"] = service_endpoint_scope
+        __props__["timeToLiveMinutes"] = time_to_live_minutes
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/elasticPool:ElasticPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentInteractiveUi")
     def agent_interactive_ui(self) -> pulumi.Output[Optional[_builtins.bool]]:

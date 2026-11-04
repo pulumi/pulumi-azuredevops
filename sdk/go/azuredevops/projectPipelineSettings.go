@@ -171,6 +171,12 @@ func (ProjectPipelineSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectPipelineSettingsState)(nil)).Elem()
 }
 
+// ProjectPipelineSettingsExists checks whether an existing ProjectPipelineSettings resource with the given ID exists.
+func ProjectPipelineSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectPipelineSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/projectPipelineSettings:ProjectPipelineSettings", id, state, "", opts...)
+}
+
 type projectPipelineSettingsArgs struct {
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope *bool `pulumi:"enforceJobScope"`

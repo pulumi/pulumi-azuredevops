@@ -228,6 +228,12 @@ func (ServiceendpointCheckmarxOneState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointCheckmarxOneState)(nil)).Elem()
 }
 
+// ServiceendpointCheckmarxOneExists checks whether an existing ServiceendpointCheckmarxOne resource with the given ID exists.
+func ServiceendpointCheckmarxOneExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointCheckmarxOneState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne", id, state, "", opts...)
+}
+
 type serviceendpointCheckmarxOneArgs struct {
 	// The account of the Checkmarx One. Conflict with `clientId` and `clientSecret`.
 	ApiKey *string `pulumi:"apiKey"`

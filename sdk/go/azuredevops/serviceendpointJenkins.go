@@ -174,6 +174,12 @@ func (ServiceendpointJenkinsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointJenkinsState)(nil)).Elem()
 }
 
+// ServiceendpointJenkinsExists checks whether an existing ServiceendpointJenkins resource with the given ID exists.
+func ServiceendpointJenkinsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointJenkinsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins", id, state, "", opts...)
+}
+
 type serviceendpointJenkinsArgs struct {
 	// Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
 	AcceptUntrustedCerts *bool `pulumi:"acceptUntrustedCerts"`

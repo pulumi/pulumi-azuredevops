@@ -177,6 +177,12 @@ func (ServiceendpointGcpTerraformState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointGcpTerraformState)(nil)).Elem()
 }
 
+// ServiceendpointGcpTerraformExists checks whether an existing ServiceendpointGcpTerraform resource with the given ID exists.
+func ServiceendpointGcpTerraformExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointGcpTerraformState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform", id, state, "", opts...)
+}
+
 type serviceendpointGcpTerraformArgs struct {
 	// The client email field in the JSON key file for creating the JSON Web Token.
 	ClientEmail *string `pulumi:"clientEmail"`

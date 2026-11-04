@@ -793,6 +793,48 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         __props__.__dict__["workload_identity_federation_subject"] = workload_identity_federation_subject
         return ServiceEndpointAzureEcr(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            az_spn_role_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            az_spn_role_permissions: pulumi.Input[Optional[_builtins.str]] = None,
+            azurecr_name: pulumi.Input[Optional[_builtins.str]] = None,
+            azurecr_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
+            azurecr_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+            azurecr_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureEcrCredentialsArgs', 'ServiceEndpointAzureEcrCredentialsArgsDict', 'outputs.ServiceEndpointAzureEcrCredentials']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_authentication_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            spn_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workload_identity_federation_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            workload_identity_federation_subject: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appObjectId"] = app_object_id
+        __props__["authorization"] = authorization
+        __props__["azSpnRoleAssignmentId"] = az_spn_role_assignment_id
+        __props__["azSpnRolePermissions"] = az_spn_role_permissions
+        __props__["azurecrName"] = azurecr_name
+        __props__["azurecrSpnTenantid"] = azurecr_spn_tenantid
+        __props__["azurecrSubscriptionId"] = azurecr_subscription_id
+        __props__["azurecrSubscriptionName"] = azurecr_subscription_name
+        __props__["credentials"] = credentials
+        __props__["description"] = description
+        __props__["projectId"] = project_id
+        __props__["resourceGroup"] = resource_group
+        __props__["serviceEndpointAuthenticationScheme"] = service_endpoint_authentication_scheme
+        __props__["serviceEndpointName"] = service_endpoint_name
+        __props__["servicePrincipalId"] = service_principal_id
+        __props__["spnObjectId"] = spn_object_id
+        __props__["workloadIdentityFederationIssuer"] = workload_identity_federation_issuer
+        __props__["workloadIdentityFederationSubject"] = workload_identity_federation_subject
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appObjectId")
     def app_object_id(self) -> pulumi.Output[_builtins.str]:

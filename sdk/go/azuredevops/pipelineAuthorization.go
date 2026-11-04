@@ -248,6 +248,12 @@ func (PipelineAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipelineAuthorizationState)(nil)).Elem()
 }
 
+// PipelineAuthorizationExists checks whether an existing PipelineAuthorization resource with the given ID exists.
+func PipelineAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipelineAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/pipelineAuthorization:PipelineAuthorization", id, state, "", opts...)
+}
+
 type pipelineAuthorizationArgs struct {
 	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId *int `pulumi:"pipelineId"`

@@ -566,6 +566,38 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Group(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            descriptor: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            mail: pulumi.Input[Optional[_builtins.str]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            origin: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_kind: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["descriptor"] = descriptor
+        __props__["displayName"] = display_name
+        __props__["domain"] = domain
+        __props__["groupId"] = group_id
+        __props__["mail"] = mail
+        __props__["members"] = members
+        __props__["origin"] = origin
+        __props__["originId"] = origin_id
+        __props__["principalName"] = principal_name
+        __props__["scope"] = scope
+        __props__["subjectKind"] = subject_kind
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/group:Group', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

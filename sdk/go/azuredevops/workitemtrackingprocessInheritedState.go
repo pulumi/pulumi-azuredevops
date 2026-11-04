@@ -148,6 +148,12 @@ func (WorkitemtrackingprocessInheritedStateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessInheritedStateState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessInheritedStateExists checks whether an existing WorkitemtrackingprocessInheritedState resource with the given ID exists.
+func WorkitemtrackingprocessInheritedStateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessInheritedStateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessInheritedState:WorkitemtrackingprocessInheritedState", id, state, "", opts...)
+}
+
 type workitemtrackingprocessInheritedStateArgs struct {
 	// Name of the inherited state to manage. This is used to look up the state and must match an existing inherited state name. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`

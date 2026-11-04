@@ -234,6 +234,12 @@ func (ServicehookStorageQueuePipelinesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*servicehookStorageQueuePipelinesState)(nil)).Elem()
 }
 
+// ServicehookStorageQueuePipelinesExists checks whether an existing ServicehookStorageQueuePipelines resource with the given ID exists.
+func ServicehookStorageQueuePipelinesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServicehookStorageQueuePipelinesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines", id, state, "", opts...)
+}
+
 type servicehookStorageQueuePipelinesArgs struct {
 	// A valid account key from the queue's storage account.
 	AccountKey string `pulumi:"accountKey"`

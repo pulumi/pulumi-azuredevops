@@ -205,6 +205,12 @@ func (ServiceEndpointArtifactoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointArtifactoryState)(nil)).Elem()
 }
 
+// ServiceEndpointArtifactoryExists checks whether an existing ServiceEndpointArtifactory resource with the given ID exists.
+func ServiceEndpointArtifactoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointArtifactoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory", id, state, "", opts...)
+}
+
 type serviceEndpointArtifactoryArgs struct {
 	AuthenticationBasic *ServiceEndpointArtifactoryAuthenticationBasic `pulumi:"authenticationBasic"`
 	// A `authenticationBasic` block as defined below.

@@ -3814,20 +3814,20 @@ public final class AzuredevopsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         // load existing group with specific name
      *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
      *             .projectId(example.get("id"))
-     *             .name("[Project-Name]\\Group-Name")
+     *             .name("[Project-Name]}&#92;&#92;{@code Group-Name")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -3860,20 +3860,20 @@ public final class AzuredevopsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         // load existing group with specific name
      *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
      *             .projectId(example.get("id"))
-     *             .name("[Project-Name]\\Group-Name")
+     *             .name("[Project-Name]}&#92;&#92;{@code Group-Name")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -3906,20 +3906,20 @@ public final class AzuredevopsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         // load existing group with specific name
      *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
      *             .projectId(example.get("id"))
-     *             .name("[Project-Name]\\Group-Name")
+     *             .name("[Project-Name]}&#92;&#92;{@code Group-Name")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -3952,20 +3952,20 @@ public final class AzuredevopsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         // load existing group with specific name
      *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
      *             .projectId(example.get("id"))
-     *             .name("[Project-Name]\\Group-Name")
+     *             .name("[Project-Name]}&#92;&#92;{@code Group-Name")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -3998,20 +3998,20 @@ public final class AzuredevopsFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         // load existing group with specific name
      *         final var example-project-group = AzuredevopsFunctions.getIdentityGroup(GetIdentityGroupArgs.builder()
      *             .projectId(example.get("id"))
-     *             .name("[Project-Name]\\Group-Name")
+     *             .name("[Project-Name]}&#92;&#92;{@code Group-Name")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 

@@ -156,6 +156,12 @@ func (ResourceAuthorizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceAuthorizationState)(nil)).Elem()
 }
 
+// ResourceAuthorizationExists checks whether an existing ResourceAuthorization resource with the given ID exists.
+func ResourceAuthorizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceAuthorizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/resourceAuthorization:ResourceAuthorization", id, state, "", opts...)
+}
+
 type resourceAuthorizationArgs struct {
 	// Set to true to allow public access in the project.
 	Authorized bool `pulumi:"authorized"`
