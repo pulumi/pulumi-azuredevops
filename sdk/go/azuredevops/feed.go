@@ -191,6 +191,12 @@ func (FeedState) ElementType() reflect.Type {
 	return reflect.TypeOf((*feedState)(nil)).Elem()
 }
 
+// FeedExists checks whether an existing Feed resource with the given ID exists.
+func FeedExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeedState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/feed:Feed", id, state, "", opts...)
+}
+
 type feedArgs struct {
 	// A `features` blocks as documented below.
 	//

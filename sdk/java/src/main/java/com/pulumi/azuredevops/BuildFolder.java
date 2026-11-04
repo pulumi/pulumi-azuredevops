@@ -37,12 +37,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .visibility("private")
@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBuildFolder = new BuildFolder("exampleBuildFolder", BuildFolderArgs.builder()
  *             .projectId(example.id())
- *             .path("\\ExampleFolder")
+ *             .path("}&#92;&#92;{@code ExampleFolder")
  *             .description("ExampleFolder description")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -66,13 +66,13 @@ import javax.annotation.Nullable;
  * Build Folders can be imported using the `project name/path` or `project id/path`, e.g.
  * 
  * ```sh
- * terraform import azuredevops_build_folder.example &#34;Example Project/\\ExampleFolder&#34;
+ * terraform import azuredevops_build_folder.example &#34;Example Project/&#92;&#92;ExampleFolder&#34;
  * ```
  * 
  * or
  * 
  * ```sh
- * $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/\\ExampleFolder
+ * $ pulumi import azuredevops:index/buildFolder:BuildFolder example 00000000-0000-0000-0000-000000000000/&#92;&#92;ExampleFolder
  * ```
  * 
  */

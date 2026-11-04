@@ -485,6 +485,26 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return ServiceEndpointGitHubEnterprise(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auth_oauth: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthOauthArgs', 'ServiceEndpointGitHubEnterpriseAuthOauthArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthOauth']]] = None,
+            auth_personal: pulumi.Input[Optional[Union['ServiceEndpointGitHubEnterpriseAuthPersonalArgs', 'ServiceEndpointGitHubEnterpriseAuthPersonalArgsDict', 'outputs.ServiceEndpointGitHubEnterpriseAuthPersonal']]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authOauth"] = auth_oauth
+        __props__["authPersonal"] = auth_personal
+        __props__["authorization"] = authorization
+        __props__["description"] = description
+        __props__["projectId"] = project_id
+        __props__["serviceEndpointName"] = service_endpoint_name
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authOauth")
     def auth_oauth(self) -> pulumi.Output[Optional['outputs.ServiceEndpointGitHubEnterpriseAuthOauth']]:

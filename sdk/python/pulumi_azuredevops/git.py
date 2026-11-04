@@ -884,6 +884,36 @@ class Git(pulumi.CustomResource):
         __props__.__dict__["web_url"] = web_url
         return Git(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            initialization: pulumi.Input[Optional[Union['GitInitializationArgs', 'GitInitializationArgsDict', 'outputs.GitInitialization']]] = None,
+            is_fork: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_repository_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_url: pulumi.Input[Optional[_builtins.str]] = None,
+            size: pulumi.Input[Optional[_builtins.int]] = None,
+            ssh_url: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            web_url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultBranch"] = default_branch
+        __props__["disabled"] = disabled
+        __props__["initialization"] = initialization
+        __props__["isFork"] = is_fork
+        __props__["name"] = name
+        __props__["parentRepositoryId"] = parent_repository_id
+        __props__["projectId"] = project_id
+        __props__["remoteUrl"] = remote_url
+        __props__["size"] = size
+        __props__["sshUrl"] = ssh_url
+        __props__["url"] = url
+        __props__["webUrl"] = web_url
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/git:Git', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> pulumi.Output[_builtins.str]:

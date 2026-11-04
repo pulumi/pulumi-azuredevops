@@ -166,6 +166,12 @@ func (ServiceEndpointGenericState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointGenericState)(nil)).Elem()
 }
 
+// ServiceEndpointGenericExists checks whether an existing ServiceEndpointGeneric resource with the given ID exists.
+func ServiceEndpointGenericExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointGenericState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric", id, state, "", opts...)
+}
+
 type serviceEndpointGenericArgs struct {
 	// The Service Endpoint description. Defaults to `Managed by Terraform`.
 	Description *string `pulumi:"description"`

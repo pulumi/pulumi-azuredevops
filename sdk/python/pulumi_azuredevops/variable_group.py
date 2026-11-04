@@ -562,6 +562,24 @@ class VariableGroup(pulumi.CustomResource):
         __props__.__dict__["variables"] = variables
         return VariableGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_access: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            key_vault: pulumi.Input[Optional[Union['VariableGroupKeyVaultArgs', 'VariableGroupKeyVaultArgsDict', 'outputs.VariableGroupKeyVault']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VariableGroupVariableArgs', 'VariableGroupVariableArgsDict', 'outputs.VariableGroupVariable']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowAccess"] = allow_access
+        __props__["description"] = description
+        __props__["keyVault"] = key_vault
+        __props__["name"] = name
+        __props__["projectId"] = project_id
+        __props__["variables"] = variables
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/variableGroup:VariableGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowAccess")
     def allow_access(self) -> pulumi.Output[Optional[_builtins.bool]]:

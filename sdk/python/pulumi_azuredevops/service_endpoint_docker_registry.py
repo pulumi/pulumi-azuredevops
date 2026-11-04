@@ -523,6 +523,30 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         return ServiceEndpointDockerRegistry(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            docker_email: pulumi.Input[Optional[_builtins.str]] = None,
+            docker_password: pulumi.Input[Optional[_builtins.str]] = None,
+            docker_registry: pulumi.Input[Optional[_builtins.str]] = None,
+            docker_username: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_type: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorization"] = authorization
+        __props__["description"] = description
+        __props__["dockerEmail"] = docker_email
+        __props__["dockerPassword"] = docker_password
+        __props__["dockerRegistry"] = docker_registry
+        __props__["dockerUsername"] = docker_username
+        __props__["projectId"] = project_id
+        __props__["registryType"] = registry_type
+        __props__["serviceEndpointName"] = service_endpoint_name
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authorization(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

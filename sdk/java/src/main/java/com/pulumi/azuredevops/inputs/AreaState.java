@@ -39,14 +39,14 @@ public final class AreaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The path of the area, in backslash-separated format including the project name (e.g., `Example Project\Frontend`).
+     * The path of the area, in backslash-separated format including the project name (e.g., `Example Project&#92;Frontend`).
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The path of the area, in backslash-separated format including the project name (e.g., `Example Project\Frontend`).
+     * @return The path of the area, in backslash-separated format including the project name (e.g., `Example Project&#92;Frontend`).
      * 
      */
     public Optional<Output<String>> path() {
@@ -126,7 +126,7 @@ public final class AreaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param path The path of the area, in backslash-separated format including the project name (e.g., `Example Project\Frontend`).
+         * @param path The path of the area, in backslash-separated format including the project name (e.g., `Example Project&#92;Frontend`).
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class AreaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param path The path of the area, in backslash-separated format including the project name (e.g., `Example Project\Frontend`).
+         * @param path The path of the area, in backslash-separated format including the project name (e.g., `Example Project&#92;Frontend`).
          * 
          * @return builder
          * 

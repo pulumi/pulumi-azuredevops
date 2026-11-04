@@ -161,6 +161,12 @@ func (ServiceendpointBlackDuckState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointBlackDuckState)(nil)).Elem()
 }
 
+// ServiceendpointBlackDuckExists checks whether an existing ServiceendpointBlackDuck resource with the given ID exists.
+func ServiceendpointBlackDuckExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointBlackDuckState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointBlackDuck:ServiceendpointBlackDuck", id, state, "", opts...)
+}
+
 type serviceendpointBlackDuckArgs struct {
 	// The API token of the Black Duck Detect.
 	ApiToken string `pulumi:"apiToken"`

@@ -197,6 +197,12 @@ func (RepositoryPolicyCaseEnforcementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPolicyCaseEnforcementState)(nil)).Elem()
 }
 
+// RepositoryPolicyCaseEnforcementExists checks whether an existing RepositoryPolicyCaseEnforcement resource with the given ID exists.
+func RepositoryPolicyCaseEnforcementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPolicyCaseEnforcementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement", id, state, "", opts...)
+}
+
 type repositoryPolicyCaseEnforcementArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

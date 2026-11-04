@@ -471,6 +471,22 @@ class VariableGroupPermissions(pulumi.CustomResource):
         __props__.__dict__["variable_group_id"] = variable_group_id
         return VariableGroupPermissions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            permissions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replace: pulumi.Input[Optional[_builtins.bool]] = None,
+            variable_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["permissions"] = permissions
+        __props__["principal"] = principal
+        __props__["projectId"] = project_id
+        __props__["replace"] = replace
+        __props__["variableGroupId"] = variable_group_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/variableGroupPermissions:VariableGroupPermissions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

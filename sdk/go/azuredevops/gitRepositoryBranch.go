@@ -159,6 +159,12 @@ func (GitRepositoryBranchState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gitRepositoryBranchState)(nil)).Elem()
 }
 
+// GitRepositoryBranchExists checks whether an existing GitRepositoryBranch resource with the given ID exists.
+func GitRepositoryBranchExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GitRepositoryBranchState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/gitRepositoryBranch:GitRepositoryBranch", id, state, "", opts...)
+}
+
 type gitRepositoryBranchArgs struct {
 	// The name of the branch in short format not prefixed with `refs/heads/`.
 	Name *string `pulumi:"name"`

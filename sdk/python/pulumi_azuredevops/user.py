@@ -397,6 +397,24 @@ class User(pulumi.CustomResource):
         __props__.__dict__["principal_name"] = principal_name
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_license_type: pulumi.Input[Optional[_builtins.str]] = None,
+            descriptor: pulumi.Input[Optional[_builtins.str]] = None,
+            licensing_source: pulumi.Input[Optional[_builtins.str]] = None,
+            origin: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountLicenseType"] = account_license_type
+        __props__["descriptor"] = descriptor
+        __props__["licensingSource"] = licensing_source
+        __props__["origin"] = origin
+        __props__["originId"] = origin_id
+        __props__["principalName"] = principal_name
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountLicenseType")
     def account_license_type(self) -> pulumi.Output[Optional[_builtins.str]]:

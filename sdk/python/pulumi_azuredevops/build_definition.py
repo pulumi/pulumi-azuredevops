@@ -1366,6 +1366,46 @@ class BuildDefinition(pulumi.CustomResource):
         __props__.__dict__["variables"] = variables
         return BuildDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_specification: pulumi.Input[Optional[_builtins.str]] = None,
+            build_completion_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionBuildCompletionTriggerArgs', 'BuildDefinitionBuildCompletionTriggerArgsDict', 'outputs.BuildDefinitionBuildCompletionTrigger']]]]] = None,
+            ci_trigger: pulumi.Input[Optional[Union['BuildDefinitionCiTriggerArgs', 'BuildDefinitionCiTriggerArgsDict', 'outputs.BuildDefinitionCiTrigger']]] = None,
+            features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionFeatureArgs', 'BuildDefinitionFeatureArgsDict', 'outputs.BuildDefinitionFeature']]]]] = None,
+            job_authorization_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            jobs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionJobArgs', 'BuildDefinitionJobArgsDict', 'outputs.BuildDefinitionJob']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            pull_request_trigger: pulumi.Input[Optional[Union['BuildDefinitionPullRequestTriggerArgs', 'BuildDefinitionPullRequestTriggerArgsDict', 'outputs.BuildDefinitionPullRequestTrigger']]] = None,
+            queue_status: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[Union['BuildDefinitionRepositoryArgs', 'BuildDefinitionRepositoryArgsDict', 'outputs.BuildDefinitionRepository']]] = None,
+            revision: pulumi.Input[Optional[_builtins.int]] = None,
+            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionScheduleArgs', 'BuildDefinitionScheduleArgsDict', 'outputs.BuildDefinitionSchedule']]]]] = None,
+            variable_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BuildDefinitionVariableArgs', 'BuildDefinitionVariableArgsDict', 'outputs.BuildDefinitionVariable']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentPoolName"] = agent_pool_name
+        __props__["agentSpecification"] = agent_specification
+        __props__["buildCompletionTriggers"] = build_completion_triggers
+        __props__["ciTrigger"] = ci_trigger
+        __props__["features"] = features
+        __props__["jobAuthorizationScope"] = job_authorization_scope
+        __props__["jobs"] = jobs
+        __props__["name"] = name
+        __props__["path"] = path
+        __props__["projectId"] = project_id
+        __props__["pullRequestTrigger"] = pull_request_trigger
+        __props__["queueStatus"] = queue_status
+        __props__["repository"] = repository
+        __props__["revision"] = revision
+        __props__["schedules"] = schedules
+        __props__["variableGroups"] = variable_groups
+        __props__["variables"] = variables
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/buildDefinition:BuildDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentPoolName")
     def agent_pool_name(self) -> pulumi.Output[Optional[_builtins.str]]:

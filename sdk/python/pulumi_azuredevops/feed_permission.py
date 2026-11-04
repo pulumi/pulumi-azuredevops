@@ -398,6 +398,24 @@ class FeedPermission(pulumi.CustomResource):
         __props__.__dict__["role"] = role
         return FeedPermission(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            feed_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_descriptor: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["displayName"] = display_name
+        __props__["feedId"] = feed_id
+        __props__["identityDescriptor"] = identity_descriptor
+        __props__["identityId"] = identity_id
+        __props__["projectId"] = project_id
+        __props__["role"] = role
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/feedPermission:FeedPermission', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[_builtins.str]]:

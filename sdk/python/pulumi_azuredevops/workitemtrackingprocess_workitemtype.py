@@ -500,6 +500,32 @@ class WorkitemtrackingprocessWorkitemtype(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return WorkitemtrackingprocessWorkitemtype(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            color: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            icon: pulumi.Input[Optional[_builtins.str]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessWorkitemtypePageArgs', 'WorkitemtrackingprocessWorkitemtypePageArgsDict', 'outputs.WorkitemtrackingprocessWorkitemtypePage']]]]] = None,
+            parent_work_item_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["color"] = color
+        __props__["description"] = description
+        __props__["icon"] = icon
+        __props__["isEnabled"] = is_enabled
+        __props__["name"] = name
+        __props__["pages"] = pages
+        __props__["parentWorkItemReferenceName"] = parent_work_item_reference_name
+        __props__["processId"] = process_id
+        __props__["referenceName"] = reference_name
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitemtrackingprocessWorkitemtype:WorkitemtrackingprocessWorkitemtype', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def color(self) -> pulumi.Output[Optional[_builtins.str]]:

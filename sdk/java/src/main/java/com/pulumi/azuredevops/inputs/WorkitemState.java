@@ -52,22 +52,20 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies a list with Custom Fields for the Work Item.
      * 
-     * @deprecated
-     * This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
+     * @deprecated This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
      * 
      */
-    @Deprecated /* This property is deprecated and will be removed in a future release. Please use ""additionalFieldsJson"" argument instead. */
+    @Deprecated
     @Import(name="customFields")
     private @Nullable Output<Map<String,String>> customFields;
 
     /**
      * @return Specifies a list with Custom Fields for the Work Item.
      * 
-     * @deprecated
-     * This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
+     * @deprecated This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
      * 
      */
-    @Deprecated /* This property is deprecated and will be removed in a future release. Please use ""additionalFieldsJson"" argument instead. */
+    @Deprecated
     public Optional<Output<Map<String,String>>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
@@ -305,11 +303,10 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
+         * @deprecated This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
          * 
          */
-        @Deprecated /* This property is deprecated and will be removed in a future release. Please use ""additionalFieldsJson"" argument instead. */
+        @Deprecated
         public Builder customFields(@Nullable Output<Map<String,String>> customFields) {
             $.customFields = customFields;
             return this;
@@ -320,11 +317,10 @@ public final class WorkitemState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
+         * @deprecated This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
          * 
          */
-        @Deprecated /* This property is deprecated and will be removed in a future release. Please use ""additionalFieldsJson"" argument instead. */
+        @Deprecated
         public Builder customFields(Map<String,String> customFields) {
             return customFields(Output.of(customFields));
         }

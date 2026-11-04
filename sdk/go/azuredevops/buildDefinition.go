@@ -616,6 +616,12 @@ func (BuildDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*buildDefinitionState)(nil)).Elem()
 }
 
+// BuildDefinitionExists checks whether an existing BuildDefinition resource with the given ID exists.
+func BuildDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BuildDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/buildDefinition:BuildDefinition", id, state, "", opts...)
+}
+
 type buildDefinitionArgs struct {
 	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName *string `pulumi:"agentPoolName"`

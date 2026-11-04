@@ -441,6 +441,22 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
         __props__.__dict__["repository_ids"] = repository_ids
         return RepositoryPolicyAuthorEmailPattern(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            author_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorEmailPatterns"] = author_email_patterns
+        __props__["blocking"] = blocking
+        __props__["enabled"] = enabled
+        __props__["projectId"] = project_id
+        __props__["repositoryIds"] = repository_ids
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authorEmailPatterns")
     def author_email_patterns(self) -> pulumi.Output[Sequence[_builtins.str]]:

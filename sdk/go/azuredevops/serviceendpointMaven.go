@@ -209,6 +209,12 @@ func (ServiceendpointMavenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointMavenState)(nil)).Elem()
 }
 
+// ServiceendpointMavenExists checks whether an existing ServiceendpointMaven resource with the given ID exists.
+func ServiceendpointMavenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointMavenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointMaven:ServiceendpointMaven", id, state, "", opts...)
+}
+
 type serviceendpointMavenArgs struct {
 	// A `authenticationBasic` block as documented below.
 	AuthenticationBasic *ServiceendpointMavenAuthenticationBasic `pulumi:"authenticationBasic"`

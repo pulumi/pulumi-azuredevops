@@ -701,6 +701,30 @@ class CheckBranchControl(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return CheckBranchControl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_branches: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_unknown_protection_status: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            verify_branch_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedBranches"] = allowed_branches
+        __props__["displayName"] = display_name
+        __props__["ignoreUnknownProtectionStatus"] = ignore_unknown_protection_status
+        __props__["projectId"] = project_id
+        __props__["targetResourceId"] = target_resource_id
+        __props__["targetResourceType"] = target_resource_type
+        __props__["timeout"] = timeout
+        __props__["verifyBranchProtection"] = verify_branch_protection
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/checkBranchControl:CheckBranchControl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedBranches")
     def allowed_branches(self) -> pulumi.Output[Optional[_builtins.str]]:

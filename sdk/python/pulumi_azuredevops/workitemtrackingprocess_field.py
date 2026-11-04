@@ -530,6 +530,32 @@ class WorkitemtrackingprocessField(pulumi.CustomResource):
         __props__.__dict__["work_item_type_id"] = work_item_type_id
         return WorkitemtrackingprocessField(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_groups: pulumi.Input[Optional[_builtins.bool]] = None,
+            customization: pulumi.Input[Optional[_builtins.str]] = None,
+            default_value: pulumi.Input[Optional[_builtins.str]] = None,
+            field_id: pulumi.Input[Optional[_builtins.str]] = None,
+            is_locked: pulumi.Input[Optional[_builtins.bool]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            required: pulumi.Input[Optional[_builtins.bool]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowGroups"] = allow_groups
+        __props__["customization"] = customization
+        __props__["defaultValue"] = default_value
+        __props__["fieldId"] = field_id
+        __props__["isLocked"] = is_locked
+        __props__["processId"] = process_id
+        __props__["readOnly"] = read_only
+        __props__["required"] = required
+        __props__["url"] = url
+        __props__["workItemTypeId"] = work_item_type_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitemtrackingprocessField:WorkitemtrackingprocessField', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowGroups")
     def allow_groups(self) -> pulumi.Output[Optional[_builtins.bool]]:

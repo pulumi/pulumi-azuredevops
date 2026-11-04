@@ -186,6 +186,12 @@ func (LibraryPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*libraryPermissionsState)(nil)).Elem()
 }
 
+// LibraryPermissionsExists checks whether an existing LibraryPermissions resource with the given ID exists.
+func LibraryPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LibraryPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/libraryPermissions:LibraryPermissions", id, state, "", opts...)
+}
+
 type libraryPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available.
 	//

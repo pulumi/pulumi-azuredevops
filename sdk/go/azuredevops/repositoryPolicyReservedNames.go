@@ -186,6 +186,12 @@ func (RepositoryPolicyReservedNamesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPolicyReservedNamesState)(nil)).Elem()
 }
 
+// RepositoryPolicyReservedNamesExists checks whether an existing RepositoryPolicyReservedNames resource with the given ID exists.
+func RepositoryPolicyReservedNamesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPolicyReservedNamesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/repositoryPolicyReservedNames:RepositoryPolicyReservedNames", id, state, "", opts...)
+}
+
 type repositoryPolicyReservedNamesArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

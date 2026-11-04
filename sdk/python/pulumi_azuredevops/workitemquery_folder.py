@@ -365,6 +365,20 @@ class WorkitemqueryFolder(pulumi.CustomResource):
         __props__.__dict__["project_id"] = project_id
         return WorkitemqueryFolder(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            area: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["area"] = area
+        __props__["name"] = name
+        __props__["parentId"] = parent_id
+        __props__["projectId"] = project_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitemqueryFolder:WorkitemqueryFolder', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def area(self) -> pulumi.Output[Optional[_builtins.str]]:

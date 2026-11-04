@@ -428,6 +428,26 @@ class WorkitemtrackingprocessState(pulumi.CustomResource):
         __props__.__dict__["work_item_type_id"] = work_item_type_id
         return WorkitemtrackingprocessState(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            color: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            state_category: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["color"] = color
+        __props__["name"] = name
+        __props__["order"] = order
+        __props__["processId"] = process_id
+        __props__["stateCategory"] = state_category
+        __props__["url"] = url
+        __props__["workItemTypeId"] = work_item_type_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitemtrackingprocessState:WorkitemtrackingprocessState', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def color(self) -> pulumi.Output[_builtins.str]:

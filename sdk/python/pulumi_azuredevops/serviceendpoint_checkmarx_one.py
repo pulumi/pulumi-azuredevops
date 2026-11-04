@@ -558,6 +558,30 @@ class ServiceendpointCheckmarxOne(pulumi.CustomResource):
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         return ServiceendpointCheckmarxOne(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            authorization_url: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            server_url: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["authorization"] = authorization
+        __props__["authorizationUrl"] = authorization_url
+        __props__["clientId"] = client_id
+        __props__["clientSecret"] = client_secret
+        __props__["description"] = description
+        __props__["projectId"] = project_id
+        __props__["serverUrl"] = server_url
+        __props__["serviceEndpointName"] = service_endpoint_name
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceendpointCheckmarxOne:ServiceendpointCheckmarxOne', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:

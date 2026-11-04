@@ -385,6 +385,20 @@ class TeamAdministrators(pulumi.CustomResource):
         __props__.__dict__["team_id"] = team_id
         return TeamAdministrators(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administrators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["administrators"] = administrators
+        __props__["mode"] = mode
+        __props__["projectId"] = project_id
+        __props__["teamId"] = team_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/teamAdministrators:TeamAdministrators', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def administrators(self) -> pulumi.Output[Sequence[_builtins.str]]:

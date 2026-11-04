@@ -191,6 +191,12 @@ func (ServiceendpointDynamicsLifecycleServicesState) ElementType() reflect.Type 
 	return reflect.TypeOf((*serviceendpointDynamicsLifecycleServicesState)(nil)).Elem()
 }
 
+// ServiceendpointDynamicsLifecycleServicesExists checks whether an existing ServiceendpointDynamicsLifecycleServices resource with the given ID exists.
+func ServiceendpointDynamicsLifecycleServicesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointDynamicsLifecycleServicesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointDynamicsLifecycleServices:ServiceendpointDynamicsLifecycleServices", id, state, "", opts...)
+}
+
 type serviceendpointDynamicsLifecycleServicesArgs struct {
 	// The URL of the Authentication Endpoint.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`

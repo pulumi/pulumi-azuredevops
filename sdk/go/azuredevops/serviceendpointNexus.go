@@ -168,6 +168,12 @@ func (ServiceendpointNexusState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointNexusState)(nil)).Elem()
 }
 
+// ServiceendpointNexusExists checks whether an existing ServiceendpointNexus resource with the given ID exists.
+func ServiceendpointNexusExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointNexusState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointNexus:ServiceendpointNexus", id, state, "", opts...)
+}
+
 type serviceendpointNexusArgs struct {
 	// The Service Endpoint description. Defaults to Managed by Terraform.
 	Description *string `pulumi:"description"`

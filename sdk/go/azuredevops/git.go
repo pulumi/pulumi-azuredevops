@@ -505,6 +505,12 @@ func (GitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gitState)(nil)).Elem()
 }
 
+// GitExists checks whether an existing Git resource with the given ID exists.
+func GitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/git:Git", id, state, "", opts...)
+}
+
 type gitArgs struct {
 	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch *string `pulumi:"defaultBranch"`

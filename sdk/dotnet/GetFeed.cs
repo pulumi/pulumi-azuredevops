@@ -56,7 +56,6 @@ namespace Pulumi.AzureDevOps
         /// });
         /// ```
         /// 
-        /// 
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
@@ -109,7 +108,6 @@ namespace Pulumi.AzureDevOps
         /// });
         /// ```
         /// 
-        /// 
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Feed - Get](https://learn.microsoft.com/en-us/rest/api/azure/devops/artifacts/feed-management/get-feed?view=azure-devops-rest-7.0)
@@ -161,7 +159,6 @@ namespace Pulumi.AzureDevOps
         /// 
         /// });
         /// ```
-        /// 
         /// 
         /// ## Relevant Links
         /// 

@@ -189,6 +189,12 @@ func (ServiceendpointNugetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointNugetState)(nil)).Elem()
 }
 
+// ServiceendpointNugetExists checks whether an existing ServiceendpointNuget resource with the given ID exists.
+func ServiceendpointNugetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointNugetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointNuget:ServiceendpointNuget", id, state, "", opts...)
+}
+
 type serviceendpointNugetArgs struct {
 	// The API Key used to connect to the endpoint.
 	ApiKey *string `pulumi:"apiKey"`

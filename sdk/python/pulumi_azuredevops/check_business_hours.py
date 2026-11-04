@@ -1305,6 +1305,44 @@ class CheckBusinessHours(pulumi.CustomResource):
         __props__.__dict__["wednesday"] = wednesday
         return CheckBusinessHours(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            friday: pulumi.Input[Optional[_builtins.bool]] = None,
+            monday: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            saturday: pulumi.Input[Optional[_builtins.bool]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            sunday: pulumi.Input[Optional[_builtins.bool]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            thursday: pulumi.Input[Optional[_builtins.bool]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            tuesday: pulumi.Input[Optional[_builtins.bool]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None,
+            wednesday: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["displayName"] = display_name
+        __props__["endTime"] = end_time
+        __props__["friday"] = friday
+        __props__["monday"] = monday
+        __props__["projectId"] = project_id
+        __props__["saturday"] = saturday
+        __props__["startTime"] = start_time
+        __props__["sunday"] = sunday
+        __props__["targetResourceId"] = target_resource_id
+        __props__["targetResourceType"] = target_resource_type
+        __props__["thursday"] = thursday
+        __props__["timeZone"] = time_zone
+        __props__["timeout"] = timeout
+        __props__["tuesday"] = tuesday
+        __props__["version"] = version
+        __props__["wednesday"] = wednesday
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/checkBusinessHours:CheckBusinessHours', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[_builtins.str]]:

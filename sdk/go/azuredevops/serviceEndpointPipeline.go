@@ -156,6 +156,12 @@ func (ServiceEndpointPipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointPipelineState)(nil)).Elem()
 }
 
+// ServiceEndpointPipelineExists checks whether an existing ServiceEndpointPipeline resource with the given ID exists.
+func ServiceEndpointPipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointPipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline", id, state, "", opts...)
+}
+
 type serviceEndpointPipelineArgs struct {
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal ServiceEndpointPipelineAuthPersonal `pulumi:"authPersonal"`

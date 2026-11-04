@@ -155,6 +155,12 @@ func (WorkitemtrackingprocessInheritedPageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessInheritedPageState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessInheritedPageExists checks whether an existing WorkitemtrackingprocessInheritedPage resource with the given ID exists.
+func WorkitemtrackingprocessInheritedPageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessInheritedPageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessInheritedPage:WorkitemtrackingprocessInheritedPage", id, state, "", opts...)
+}
+
 type workitemtrackingprocessInheritedPageArgs struct {
 	// Label for the page.
 	Label string `pulumi:"label"`

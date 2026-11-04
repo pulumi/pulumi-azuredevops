@@ -18,7 +18,7 @@ public final class WorkitemtrackingprocessFieldState extends com.pulumi.resource
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Allow setting field value to a group identity. Only applies to identity fields.\
+     * Allow setting field value to a group identity. Only applies to identity fields.&#92;
      * **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
      * 
      */
@@ -27,7 +27,7 @@ public final class WorkitemtrackingprocessFieldState extends com.pulumi.resource
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Allow setting field value to a group identity. Only applies to identity fields.\
+     * Allow setting field value to a group identity. Only applies to identity fields.&#92;
      * **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
      * 
      */
@@ -205,7 +205,7 @@ public final class WorkitemtrackingprocessFieldState extends com.pulumi.resource
 
         /**
          * @param allowGroups **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Allow setting field value to a group identity. Only applies to identity fields.\
+         * Allow setting field value to a group identity. Only applies to identity fields.&#92;
          * **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
          * 
          * @return builder
@@ -218,7 +218,7 @@ public final class WorkitemtrackingprocessFieldState extends com.pulumi.resource
 
         /**
          * @param allowGroups **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Allow setting field value to a group identity. Only applies to identity fields.\
+         * Allow setting field value to a group identity. Only applies to identity fields.&#92;
          * **Note**: Due to limitations in the downstream API this field is WriteOnly, meaning this field will not trigger a plan difference. Change another field alongside this field in order to trigger a plan difference.
          * 
          * @return builder

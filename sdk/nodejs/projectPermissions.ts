@@ -64,6 +64,17 @@ export class ProjectPermissions extends pulumi.CustomResource {
         return new ProjectPermissions(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing ProjectPermissions resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: ProjectPermissionsState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("azuredevops:index/projectPermissions:ProjectPermissions", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'azuredevops:index/projectPermissions:ProjectPermissions';
 

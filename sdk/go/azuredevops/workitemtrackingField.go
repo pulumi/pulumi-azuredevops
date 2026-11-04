@@ -248,6 +248,12 @@ func (WorkitemtrackingFieldState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingFieldState)(nil)).Elem()
 }
 
+// WorkitemtrackingFieldExists checks whether an existing WorkitemtrackingField resource with the given ID exists.
+func WorkitemtrackingFieldExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingFieldState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingField:WorkitemtrackingField", id, state, "", opts...)
+}
+
 type workitemtrackingFieldArgs struct {
 	// The description of the field. Changing this forces a new field to be created.
 	Description *string `pulumi:"description"`

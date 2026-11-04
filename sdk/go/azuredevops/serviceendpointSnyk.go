@@ -161,6 +161,12 @@ func (ServiceendpointSnykState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointSnykState)(nil)).Elem()
 }
 
+// ServiceendpointSnykExists checks whether an existing ServiceendpointSnyk resource with the given ID exists.
+func ServiceendpointSnykExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointSnykState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointSnyk:ServiceendpointSnyk", id, state, "", opts...)
+}
+
 type serviceendpointSnykArgs struct {
 	// The API token of the Snyk Security Scan.
 	ApiToken string `pulumi:"apiToken"`

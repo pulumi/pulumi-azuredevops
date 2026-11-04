@@ -362,6 +362,20 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         __props__.__dict__["settings"] = settings
         return BranchPolicyWorkItemLinking(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['BranchPolicyWorkItemLinkingSettingsArgs', 'BranchPolicyWorkItemLinkingSettingsArgsDict', 'outputs.BranchPolicyWorkItemLinkingSettings']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blocking"] = blocking
+        __props__["enabled"] = enabled
+        __props__["projectId"] = project_id
+        __props__["settings"] = settings
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def blocking(self) -> pulumi.Output[Optional[_builtins.bool]]:

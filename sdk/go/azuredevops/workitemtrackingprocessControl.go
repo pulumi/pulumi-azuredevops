@@ -297,6 +297,12 @@ func (WorkitemtrackingprocessControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessControlState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessControlExists checks whether an existing WorkitemtrackingprocessControl resource with the given ID exists.
+func WorkitemtrackingprocessControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessControl:WorkitemtrackingprocessControl", id, state, "", opts...)
+}
+
 type workitemtrackingprocessControlArgs struct {
 	// Contribution configuration for extension controls. A `contribution` block as defined below.
 	Contribution *WorkitemtrackingprocessControlContribution `pulumi:"contribution"`

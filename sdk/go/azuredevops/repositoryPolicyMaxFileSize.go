@@ -197,6 +197,12 @@ func (RepositoryPolicyMaxFileSizeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPolicyMaxFileSizeState)(nil)).Elem()
 }
 
+// RepositoryPolicyMaxFileSizeExists checks whether an existing RepositoryPolicyMaxFileSize resource with the given ID exists.
+func RepositoryPolicyMaxFileSizeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPolicyMaxFileSizeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/repositoryPolicyMaxFileSize:RepositoryPolicyMaxFileSize", id, state, "", opts...)
+}
+
 type repositoryPolicyMaxFileSizeArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

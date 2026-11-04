@@ -520,6 +520,26 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["work_item_template"] = work_item_template
         return Project(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            features: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            process_template_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version_control: pulumi.Input[Optional[_builtins.str]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_template: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["features"] = features
+        __props__["name"] = name
+        __props__["processTemplateId"] = process_template_id
+        __props__["versionControl"] = version_control
+        __props__["visibility"] = visibility
+        __props__["workItemTemplate"] = work_item_template
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/project:Project', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

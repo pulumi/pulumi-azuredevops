@@ -201,6 +201,12 @@ func (RepositoryPolicyFilePathPatternState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPolicyFilePathPatternState)(nil)).Elem()
 }
 
+// RepositoryPolicyFilePathPatternExists checks whether an existing RepositoryPolicyFilePathPattern resource with the given ID exists.
+func RepositoryPolicyFilePathPatternExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPolicyFilePathPatternState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern", id, state, "", opts...)
+}
+
 type repositoryPolicyFilePathPatternArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

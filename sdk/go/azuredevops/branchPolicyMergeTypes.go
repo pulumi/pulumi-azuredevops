@@ -164,6 +164,12 @@ func (BranchPolicyMergeTypesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchPolicyMergeTypesState)(nil)).Elem()
 }
 
+// BranchPolicyMergeTypesExists checks whether an existing BranchPolicyMergeTypes resource with the given ID exists.
+func BranchPolicyMergeTypesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BranchPolicyMergeTypesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes", id, state, "", opts...)
+}
+
 type branchPolicyMergeTypesArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

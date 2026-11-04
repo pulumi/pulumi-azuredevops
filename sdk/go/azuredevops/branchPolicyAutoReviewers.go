@@ -167,6 +167,12 @@ func (BranchPolicyAutoReviewersState) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchPolicyAutoReviewersState)(nil)).Elem()
 }
 
+// BranchPolicyAutoReviewersExists checks whether an existing BranchPolicyAutoReviewers resource with the given ID exists.
+func BranchPolicyAutoReviewersExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BranchPolicyAutoReviewersState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers", id, state, "", opts...)
+}
+
 type branchPolicyAutoReviewersArgs struct {
 	// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

@@ -438,6 +438,26 @@ class WorkitemtrackingprocessInheritedControl(pulumi.CustomResource):
         __props__.__dict__["work_item_type_id"] = work_item_type_id
         return WorkitemtrackingprocessInheritedControl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            control_id: pulumi.Input[Optional[_builtins.str]] = None,
+            control_type: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            visible: pulumi.Input[Optional[_builtins.bool]] = None,
+            work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["controlId"] = control_id
+        __props__["controlType"] = control_type
+        __props__["groupId"] = group_id
+        __props__["label"] = label
+        __props__["processId"] = process_id
+        __props__["visible"] = visible
+        __props__["workItemTypeId"] = work_item_type_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitemtrackingprocessInheritedControl:WorkitemtrackingprocessInheritedControl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="controlId")
     def control_id(self) -> pulumi.Output[_builtins.str]:

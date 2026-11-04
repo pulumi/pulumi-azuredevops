@@ -171,6 +171,12 @@ func (ServiceEndpointGitLabState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointGitLabState)(nil)).Elem()
 }
 
+// ServiceEndpointGitLabExists checks whether an existing ServiceEndpointGitLab resource with the given ID exists.
+func ServiceEndpointGitLabExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointGitLabState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointGitLab:ServiceEndpointGitLab", id, state, "", opts...)
+}
+
 type serviceEndpointGitLabArgs struct {
 	// The API token of the GitLab.
 	ApiToken string `pulumi:"apiToken"`

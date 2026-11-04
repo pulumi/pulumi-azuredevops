@@ -491,6 +491,12 @@ func (ServiceEndpointAzureRMState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointAzureRMState)(nil)).Elem()
 }
 
+// ServiceEndpointAzureRMExists checks whether an existing ServiceEndpointAzureRM resource with the given ID exists.
+func ServiceEndpointAzureRMExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointAzureRMState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM", id, state, "", opts...)
+}
+
 type serviceEndpointAzureRMArgs struct {
 	// The Management group ID of the Azure targets.
 	AzurermManagementGroupId *string `pulumi:"azurermManagementGroupId"`

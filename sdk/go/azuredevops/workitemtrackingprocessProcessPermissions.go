@@ -228,6 +228,12 @@ func (WorkitemtrackingprocessProcessPermissionsState) ElementType() reflect.Type
 	return reflect.TypeOf((*workitemtrackingprocessProcessPermissionsState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessProcessPermissionsExists checks whether an existing WorkitemtrackingprocessProcessPermissions resource with the given ID exists.
+func WorkitemtrackingprocessProcessPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessProcessPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessProcessPermissions:WorkitemtrackingprocessProcessPermissions", id, state, "", opts...)
+}
+
 type workitemtrackingprocessProcessPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available
 	//

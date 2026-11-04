@@ -478,6 +478,26 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         __props__.__dict__["status_badges_are_private"] = status_badges_are_private
         return ProjectPipelineSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enforce_job_scope: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforce_job_scope_for_release: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforce_referenced_repo_scoped_token: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforce_settable_var: pulumi.Input[Optional[_builtins.bool]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            publish_pipeline_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+            status_badges_are_private: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enforceJobScope"] = enforce_job_scope
+        __props__["enforceJobScopeForRelease"] = enforce_job_scope_for_release
+        __props__["enforceReferencedRepoScopedToken"] = enforce_referenced_repo_scoped_token
+        __props__["enforceSettableVar"] = enforce_settable_var
+        __props__["projectId"] = project_id
+        __props__["publishPipelineMetadata"] = publish_pipeline_metadata
+        __props__["statusBadgesArePrivate"] = status_badges_are_private
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/projectPipelineSettings:ProjectPipelineSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="enforceJobScope")
     def enforce_job_scope(self) -> pulumi.Output[_builtins.bool]:

@@ -147,7 +147,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The time between evaluations (minutes). 
+        /// The time between evaluations (minutes).
         /// 
         /// ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `Timeout` is `4000` then `RetryInterval` should be `0` or no less then `400`.
         /// &lt;br&gt;2. `RetryInterval` is not required when `completion_event=Callback`.
@@ -294,7 +294,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// The time between evaluations (minutes). 
+        /// The time between evaluations (minutes).
         /// 
         /// ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `Timeout` is `4000` then `RetryInterval` should be `0` or no less then `400`.
         /// &lt;br&gt;2. `RetryInterval` is not required when `completion_event=Callback`.
@@ -397,7 +397,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// The time between evaluations (minutes). 
+        /// The time between evaluations (minutes).
         /// 
         /// ~&gt;**NOTE** 1. The retry times should less them 10 based on the timeout. For example: `Timeout` is `4000` then `RetryInterval` should be `0` or no less then `400`.
         /// &lt;br&gt;2. `RetryInterval` is not required when `completion_event=Callback`.

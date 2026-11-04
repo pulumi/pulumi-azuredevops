@@ -213,6 +213,12 @@ func (ElasticPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*elasticPoolState)(nil)).Elem()
 }
 
+// ElasticPoolExists checks whether an existing ElasticPool resource with the given ID exists.
+func ElasticPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ElasticPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/elasticPool:ElasticPool", id, state, "", opts...)
+}
+
 type elasticPoolArgs struct {
 	// Set whether agents should be configured to run with interactive UI. Defaults to `false`.
 	AgentInteractiveUi *bool `pulumi:"agentInteractiveUi"`

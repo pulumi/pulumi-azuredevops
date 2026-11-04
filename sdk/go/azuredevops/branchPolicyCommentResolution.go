@@ -160,6 +160,12 @@ func (BranchPolicyCommentResolutionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchPolicyCommentResolutionState)(nil)).Elem()
 }
 
+// BranchPolicyCommentResolutionExists checks whether an existing BranchPolicyCommentResolution resource with the given ID exists.
+func BranchPolicyCommentResolutionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BranchPolicyCommentResolutionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution", id, state, "", opts...)
+}
+
 type branchPolicyCommentResolutionArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

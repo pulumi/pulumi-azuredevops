@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
@@ -68,13 +68,13 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBuildFolder = new BuildFolder("exampleBuildFolder", BuildFolderArgs.builder()
  *             .projectId(example.id())
- *             .path("\\ExampleFolder")
+ *             .path("}&#92;&#92;{@code ExampleFolder")
  *             .description("ExampleFolder description")
  *             .build());
  * 
  *         var exampleBuildFolderPermissions = new BuildFolderPermissions("exampleBuildFolderPermissions", BuildFolderPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .path("\\ExampleFolder")
+ *             .path("}&#92;&#92;{@code ExampleFolder")
  *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.ofEntries(
  *                 Map.entry("ViewBuilds", "Allow"),
@@ -94,8 +94,8 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * ### Set root folder permissions
@@ -119,12 +119,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
@@ -140,13 +140,13 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBuildFolderPermissions = new BuildFolderPermissions("exampleBuildFolderPermissions", BuildFolderPermissionsArgs.builder()
  *             .projectId(example.id())
- *             .path("\\")
+ *             .path("}&#92;&#92;{@code ")
  *             .principal(example_readers.applyValue(_example_readers -> _example_readers.id()))
  *             .permissions(Map.of("RetainIndefinitely", "Allow"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

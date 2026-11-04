@@ -172,6 +172,12 @@ func (TaggingPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*taggingPermissionsState)(nil)).Elem()
 }
 
+// TaggingPermissionsExists checks whether an existing TaggingPermissions resource with the given ID exists.
+func TaggingPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TaggingPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/taggingPermissions:TaggingPermissions", id, state, "", opts...)
+}
+
 type taggingPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available.
 	//

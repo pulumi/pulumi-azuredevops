@@ -169,6 +169,12 @@ func (FeedPermissionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*feedPermissionState)(nil)).Elem()
 }
 
+// FeedPermissionExists checks whether an existing FeedPermission resource with the given ID exists.
+func FeedPermissionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeedPermissionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/feedPermission:FeedPermission", id, state, "", opts...)
+}
+
 type feedPermissionArgs struct {
 	// The display name of the assignment
 	DisplayName *string `pulumi:"displayName"`

@@ -416,6 +416,22 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return CheckRequiredTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            required_templates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CheckRequiredTemplateRequiredTemplateArgs', 'CheckRequiredTemplateRequiredTemplateArgsDict', 'outputs.CheckRequiredTemplateRequiredTemplate']]]]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["projectId"] = project_id
+        __props__["requiredTemplates"] = required_templates
+        __props__["targetResourceId"] = target_resource_id
+        __props__["targetResourceType"] = target_resource_type
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/checkRequiredTemplate:CheckRequiredTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[_builtins.str]:

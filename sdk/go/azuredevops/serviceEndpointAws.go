@@ -192,6 +192,12 @@ func (ServiceEndpointAwsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointAwsState)(nil)).Elem()
 }
 
+// ServiceEndpointAwsExists checks whether an existing ServiceEndpointAws resource with the given ID exists.
+func ServiceEndpointAwsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointAwsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointAws:ServiceEndpointAws", id, state, "", opts...)
+}
+
 type serviceEndpointAwsArgs struct {
 	// The AWS access key ID for signing programmatic requests.
 	AccessKeyId *string `pulumi:"accessKeyId"`

@@ -31,14 +31,14 @@ public final class GetBuildDefinitionPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The path of the build definition. Default to `\`.
+     * The path of the build definition. Default to `&#92;`.
      * 
      */
     @Import(name="path")
     private @Nullable String path;
 
     /**
-     * @return The path of the build definition. Default to `\`.
+     * @return The path of the build definition. Default to `&#92;`.
      * 
      */
     public Optional<String> path() {
@@ -98,7 +98,7 @@ public final class GetBuildDefinitionPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param path The path of the build definition. Default to `\`.
+         * @param path The path of the build definition. Default to `&#92;`.
          * 
          * @return builder
          * 

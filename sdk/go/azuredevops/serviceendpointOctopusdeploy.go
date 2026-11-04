@@ -160,6 +160,12 @@ func (ServiceendpointOctopusdeployState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointOctopusdeployState)(nil)).Elem()
 }
 
+// ServiceendpointOctopusdeployExists checks whether an existing ServiceendpointOctopusdeploy resource with the given ID exists.
+func ServiceendpointOctopusdeployExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointOctopusdeployState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy", id, state, "", opts...)
+}
+
 type serviceendpointOctopusdeployArgs struct {
 	// API key to connect to Octopus Deploy.
 	ApiKey string `pulumi:"apiKey"`

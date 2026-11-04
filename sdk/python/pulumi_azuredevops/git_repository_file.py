@@ -655,6 +655,32 @@ class GitRepositoryFile(pulumi.CustomResource):
         __props__.__dict__["repository_id"] = repository_id
         return GitRepositoryFile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            author_email: pulumi.Input[Optional[_builtins.str]] = None,
+            author_name: pulumi.Input[Optional[_builtins.str]] = None,
+            branch: pulumi.Input[Optional[_builtins.str]] = None,
+            commit_message: pulumi.Input[Optional[_builtins.str]] = None,
+            committer_email: pulumi.Input[Optional[_builtins.str]] = None,
+            committer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            file: pulumi.Input[Optional[_builtins.str]] = None,
+            overwrite_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            repository_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorEmail"] = author_email
+        __props__["authorName"] = author_name
+        __props__["branch"] = branch
+        __props__["commitMessage"] = commit_message
+        __props__["committerEmail"] = committer_email
+        __props__["committerName"] = committer_name
+        __props__["content"] = content
+        __props__["file"] = file
+        __props__["overwriteOnCreate"] = overwrite_on_create
+        __props__["repositoryId"] = repository_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/gitRepositoryFile:GitRepositoryFile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authorEmail")
     def author_email(self) -> pulumi.Output[_builtins.str]:

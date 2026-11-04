@@ -160,6 +160,12 @@ func (BranchPolicyWorkItemLinkingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchPolicyWorkItemLinkingState)(nil)).Elem()
 }
 
+// BranchPolicyWorkItemLinkingExists checks whether an existing BranchPolicyWorkItemLinking resource with the given ID exists.
+func BranchPolicyWorkItemLinkingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BranchPolicyWorkItemLinkingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking", id, state, "", opts...)
+}
+
 type branchPolicyWorkItemLinkingArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

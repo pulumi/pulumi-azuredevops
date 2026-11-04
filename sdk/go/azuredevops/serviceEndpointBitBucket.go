@@ -189,6 +189,12 @@ func (ServiceEndpointBitBucketState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointBitBucketState)(nil)).Elem()
 }
 
+// ServiceEndpointBitBucketExists checks whether an existing ServiceEndpointBitBucket resource with the given ID exists.
+func ServiceEndpointBitBucketExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointBitBucketState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket", id, state, "", opts...)
+}
+
 type serviceEndpointBitBucketArgs struct {
 	// Bitbucket account API token. Used together with `email` to authenticate using an Atlassian API token.
 	ApiToken *string `pulumi:"apiToken"`

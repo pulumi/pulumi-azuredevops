@@ -147,6 +147,12 @@ func (UserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userState)(nil)).Elem()
 }
 
+// UserExists checks whether an existing User resource with the given ID exists.
+func UserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/user:User", id, state, "", opts...)
+}
+
 type userArgs struct {
 	// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
 	AccountLicenseType *string `pulumi:"accountLicenseType"`

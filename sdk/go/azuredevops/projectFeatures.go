@@ -164,6 +164,12 @@ func (ProjectFeaturesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectFeaturesState)(nil)).Elem()
 }
 
+// ProjectFeaturesExists checks whether an existing ProjectFeatures resource with the given ID exists.
+func ProjectFeaturesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectFeaturesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/projectFeatures:ProjectFeatures", id, state, "", opts...)
+}
+
 type projectFeaturesArgs struct {
 	// Defines the status (`enabled`, `disabled`) of the project features.  Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	//

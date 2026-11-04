@@ -197,6 +197,12 @@ func (RepositoryPolicyMaxPathLengthState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPolicyMaxPathLengthState)(nil)).Elem()
 }
 
+// RepositoryPolicyMaxPathLengthExists checks whether an existing RepositoryPolicyMaxPathLength resource with the given ID exists.
+func RepositoryPolicyMaxPathLengthExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPolicyMaxPathLengthState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength", id, state, "", opts...)
+}
+
 type repositoryPolicyMaxPathLengthArgs struct {
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`

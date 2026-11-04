@@ -1241,6 +1241,70 @@ class ServicehookWebhookTfs(pulumi.CustomResource):
         __props__.__dict__["work_item_updated"] = work_item_updated
         return ServicehookWebhookTfs(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
+            basic_auth_password: pulumi.Input[Optional[_builtins.str]] = None,
+            basic_auth_username: pulumi.Input[Optional[_builtins.str]] = None,
+            build_completed: pulumi.Input[Optional[Union['ServicehookWebhookTfsBuildCompletedArgs', 'ServicehookWebhookTfsBuildCompletedArgsDict', 'outputs.ServicehookWebhookTfsBuildCompleted']]] = None,
+            detailed_messages_to_send: pulumi.Input[Optional[_builtins.str]] = None,
+            git_pull_request_commented: pulumi.Input[Optional[Union['ServicehookWebhookTfsGitPullRequestCommentedArgs', 'ServicehookWebhookTfsGitPullRequestCommentedArgsDict', 'outputs.ServicehookWebhookTfsGitPullRequestCommented']]] = None,
+            git_pull_request_created: pulumi.Input[Optional[Union['ServicehookWebhookTfsGitPullRequestCreatedArgs', 'ServicehookWebhookTfsGitPullRequestCreatedArgsDict', 'outputs.ServicehookWebhookTfsGitPullRequestCreated']]] = None,
+            git_pull_request_merge_attempted: pulumi.Input[Optional[Union['ServicehookWebhookTfsGitPullRequestMergeAttemptedArgs', 'ServicehookWebhookTfsGitPullRequestMergeAttemptedArgsDict', 'outputs.ServicehookWebhookTfsGitPullRequestMergeAttempted']]] = None,
+            git_pull_request_updated: pulumi.Input[Optional[Union['ServicehookWebhookTfsGitPullRequestUpdatedArgs', 'ServicehookWebhookTfsGitPullRequestUpdatedArgsDict', 'outputs.ServicehookWebhookTfsGitPullRequestUpdated']]] = None,
+            git_push: pulumi.Input[Optional[Union['ServicehookWebhookTfsGitPushArgs', 'ServicehookWebhookTfsGitPushArgsDict', 'outputs.ServicehookWebhookTfsGitPush']]] = None,
+            http_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            messages_to_send: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_created: pulumi.Input[Optional[Union['ServicehookWebhookTfsRepositoryCreatedArgs', 'ServicehookWebhookTfsRepositoryCreatedArgsDict', 'outputs.ServicehookWebhookTfsRepositoryCreated']]] = None,
+            repository_deleted: pulumi.Input[Optional[Union['ServicehookWebhookTfsRepositoryDeletedArgs', 'ServicehookWebhookTfsRepositoryDeletedArgsDict', 'outputs.ServicehookWebhookTfsRepositoryDeleted']]] = None,
+            repository_forked: pulumi.Input[Optional[Union['ServicehookWebhookTfsRepositoryForkedArgs', 'ServicehookWebhookTfsRepositoryForkedArgsDict', 'outputs.ServicehookWebhookTfsRepositoryForked']]] = None,
+            repository_renamed: pulumi.Input[Optional[Union['ServicehookWebhookTfsRepositoryRenamedArgs', 'ServicehookWebhookTfsRepositoryRenamedArgsDict', 'outputs.ServicehookWebhookTfsRepositoryRenamed']]] = None,
+            repository_status_changed: pulumi.Input[Optional[Union['ServicehookWebhookTfsRepositoryStatusChangedArgs', 'ServicehookWebhookTfsRepositoryStatusChangedArgsDict', 'outputs.ServicehookWebhookTfsRepositoryStatusChanged']]] = None,
+            resource_details_to_send: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_version: pulumi.Input[Optional[_builtins.str]] = None,
+            service_connection_created: pulumi.Input[Optional[Union['ServicehookWebhookTfsServiceConnectionCreatedArgs', 'ServicehookWebhookTfsServiceConnectionCreatedArgsDict', 'outputs.ServicehookWebhookTfsServiceConnectionCreated']]] = None,
+            service_connection_updated: pulumi.Input[Optional[Union['ServicehookWebhookTfsServiceConnectionUpdatedArgs', 'ServicehookWebhookTfsServiceConnectionUpdatedArgsDict', 'outputs.ServicehookWebhookTfsServiceConnectionUpdated']]] = None,
+            tfvc_checkin: pulumi.Input[Optional[Union['ServicehookWebhookTfsTfvcCheckinArgs', 'ServicehookWebhookTfsTfvcCheckinArgsDict', 'outputs.ServicehookWebhookTfsTfvcCheckin']]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_commented: pulumi.Input[Optional[Union['ServicehookWebhookTfsWorkItemCommentedArgs', 'ServicehookWebhookTfsWorkItemCommentedArgsDict', 'outputs.ServicehookWebhookTfsWorkItemCommented']]] = None,
+            work_item_created: pulumi.Input[Optional[Union['ServicehookWebhookTfsWorkItemCreatedArgs', 'ServicehookWebhookTfsWorkItemCreatedArgsDict', 'outputs.ServicehookWebhookTfsWorkItemCreated']]] = None,
+            work_item_deleted: pulumi.Input[Optional[Union['ServicehookWebhookTfsWorkItemDeletedArgs', 'ServicehookWebhookTfsWorkItemDeletedArgsDict', 'outputs.ServicehookWebhookTfsWorkItemDeleted']]] = None,
+            work_item_restored: pulumi.Input[Optional[Union['ServicehookWebhookTfsWorkItemRestoredArgs', 'ServicehookWebhookTfsWorkItemRestoredArgsDict', 'outputs.ServicehookWebhookTfsWorkItemRestored']]] = None,
+            work_item_updated: pulumi.Input[Optional[Union['ServicehookWebhookTfsWorkItemUpdatedArgs', 'ServicehookWebhookTfsWorkItemUpdatedArgsDict', 'outputs.ServicehookWebhookTfsWorkItemUpdated']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptUntrustedCerts"] = accept_untrusted_certs
+        __props__["basicAuthPassword"] = basic_auth_password
+        __props__["basicAuthUsername"] = basic_auth_username
+        __props__["buildCompleted"] = build_completed
+        __props__["detailedMessagesToSend"] = detailed_messages_to_send
+        __props__["gitPullRequestCommented"] = git_pull_request_commented
+        __props__["gitPullRequestCreated"] = git_pull_request_created
+        __props__["gitPullRequestMergeAttempted"] = git_pull_request_merge_attempted
+        __props__["gitPullRequestUpdated"] = git_pull_request_updated
+        __props__["gitPush"] = git_push
+        __props__["httpHeaders"] = http_headers
+        __props__["messagesToSend"] = messages_to_send
+        __props__["projectId"] = project_id
+        __props__["repositoryCreated"] = repository_created
+        __props__["repositoryDeleted"] = repository_deleted
+        __props__["repositoryForked"] = repository_forked
+        __props__["repositoryRenamed"] = repository_renamed
+        __props__["repositoryStatusChanged"] = repository_status_changed
+        __props__["resourceDetailsToSend"] = resource_details_to_send
+        __props__["resourceVersion"] = resource_version
+        __props__["serviceConnectionCreated"] = service_connection_created
+        __props__["serviceConnectionUpdated"] = service_connection_updated
+        __props__["tfvcCheckin"] = tfvc_checkin
+        __props__["url"] = url
+        __props__["workItemCommented"] = work_item_commented
+        __props__["workItemCreated"] = work_item_created
+        __props__["workItemDeleted"] = work_item_deleted
+        __props__["workItemRestored"] = work_item_restored
+        __props__["workItemUpdated"] = work_item_updated
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/servicehookWebhookTfs:ServicehookWebhookTfs', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptUntrustedCerts")
     def accept_untrusted_certs(self) -> pulumi.Output[Optional[_builtins.bool]]:

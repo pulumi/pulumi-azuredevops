@@ -176,6 +176,12 @@ func (WorkitemtrackingprocessInheritedControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessInheritedControlState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessInheritedControlExists checks whether an existing WorkitemtrackingprocessInheritedControl resource with the given ID exists.
+func WorkitemtrackingprocessInheritedControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessInheritedControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessInheritedControl:WorkitemtrackingprocessInheritedControl", id, state, "", opts...)
+}
+
 type workitemtrackingprocessInheritedControlArgs struct {
 	// The ID of the inherited control to customize. Changing this forces a new resource to be created.
 	ControlId string `pulumi:"controlId"`

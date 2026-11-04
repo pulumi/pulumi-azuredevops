@@ -120,6 +120,12 @@ func (PoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*poolState)(nil)).Elem()
 }
 
+// PoolExists checks whether an existing Pool resource with the given ID exists.
+func PoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/pool:Pool", id, state, "", opts...)
+}
+
 type poolArgs struct {
 	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision *bool `pulumi:"autoProvision"`

@@ -204,6 +204,12 @@ func (WorkitemtrackingprocessFieldState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessFieldState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessFieldExists checks whether an existing WorkitemtrackingprocessField resource with the given ID exists.
+func WorkitemtrackingprocessFieldExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessFieldState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessField:WorkitemtrackingprocessField", id, state, "", opts...)
+}
+
 type workitemtrackingprocessFieldArgs struct {
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// Allow setting field value to a group identity. Only applies to identity fields.\

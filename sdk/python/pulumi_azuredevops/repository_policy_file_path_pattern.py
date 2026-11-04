@@ -427,6 +427,22 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
         __props__.__dict__["repository_ids"] = repository_ids
         return RepositoryPolicyFilePathPattern(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            filepath_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            repository_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["blocking"] = blocking
+        __props__["enabled"] = enabled
+        __props__["filepathPatterns"] = filepath_patterns
+        __props__["projectId"] = project_id
+        __props__["repositoryIds"] = repository_ids
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def blocking(self) -> pulumi.Output[Optional[_builtins.bool]]:

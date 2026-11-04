@@ -195,6 +195,12 @@ func (IterativePermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*iterativePermissionsState)(nil)).Elem()
 }
 
+// IterativePermissionsExists checks whether an existing IterativePermissions resource with the given ID exists.
+func IterativePermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IterativePermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/iterativePermissions:IterativePermissions", id, state, "", opts...)
+}
+
 type iterativePermissionsArgs struct {
 	// The name of the branch to assign the permissions.
 	Path *string `pulumi:"path"`

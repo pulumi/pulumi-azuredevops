@@ -140,6 +140,12 @@ func (DeploymentGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentGroupState)(nil)).Elem()
 }
 
+// DeploymentGroupExists checks whether an existing DeploymentGroup resource with the given ID exists.
+func DeploymentGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeploymentGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/deploymentGroup:DeploymentGroup", id, state, "", opts...)
+}
+
 type deploymentGroupArgs struct {
 	// A description for the Deployment Group. Defaults to `""`.
 	Description *string `pulumi:"description"`

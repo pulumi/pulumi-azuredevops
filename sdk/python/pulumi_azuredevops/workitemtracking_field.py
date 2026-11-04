@@ -722,6 +722,44 @@ class WorkitemtrackingField(pulumi.CustomResource):
         __props__.__dict__["usage"] = usage
         return WorkitemtrackingField(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            can_sort_by: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_identity: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_locked: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_picklist: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_picklist_suggested: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_queryable: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            picklist_id: pulumi.Input[Optional[_builtins.str]] = None,
+            read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+            restore: pulumi.Input[Optional[_builtins.bool]] = None,
+            supported_operations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingFieldSupportedOperationArgs', 'WorkitemtrackingFieldSupportedOperationArgsDict', 'outputs.WorkitemtrackingFieldSupportedOperation']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            usage: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["canSortBy"] = can_sort_by
+        __props__["description"] = description
+        __props__["isIdentity"] = is_identity
+        __props__["isLocked"] = is_locked
+        __props__["isPicklist"] = is_picklist
+        __props__["isPicklistSuggested"] = is_picklist_suggested
+        __props__["isQueryable"] = is_queryable
+        __props__["name"] = name
+        __props__["picklistId"] = picklist_id
+        __props__["readOnly"] = read_only
+        __props__["referenceName"] = reference_name
+        __props__["restore"] = restore
+        __props__["supportedOperations"] = supported_operations
+        __props__["type"] = type
+        __props__["url"] = url
+        __props__["usage"] = usage
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitemtrackingField:WorkitemtrackingField', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="canSortBy")
     def can_sort_by(self) -> pulumi.Output[_builtins.bool]:

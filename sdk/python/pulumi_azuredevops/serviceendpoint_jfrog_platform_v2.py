@@ -490,6 +490,26 @@ class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return ServiceendpointJfrogPlatformV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_basic: pulumi.Input[Optional[Union['ServiceendpointJfrogPlatformV2AuthenticationBasicArgs', 'ServiceendpointJfrogPlatformV2AuthenticationBasicArgsDict', 'outputs.ServiceendpointJfrogPlatformV2AuthenticationBasic']]] = None,
+            authentication_token: pulumi.Input[Optional[Union['ServiceendpointJfrogPlatformV2AuthenticationTokenArgs', 'ServiceendpointJfrogPlatformV2AuthenticationTokenArgsDict', 'outputs.ServiceendpointJfrogPlatformV2AuthenticationToken']]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationBasic"] = authentication_basic
+        __props__["authenticationToken"] = authentication_token
+        __props__["authorization"] = authorization
+        __props__["description"] = description
+        __props__["projectId"] = project_id
+        __props__["serviceEndpointName"] = service_endpoint_name
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationBasic")
     def authentication_basic(self) -> pulumi.Output[Optional['outputs.ServiceendpointJfrogPlatformV2AuthenticationBasic']]:

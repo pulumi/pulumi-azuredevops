@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .build());
@@ -88,8 +88,8 @@ import javax.annotation.Nullable;
  *             .connectedServiceNameSelector("connectedServiceName")
  *             .connectedServiceName(exampleAzure.serviceEndpointName())
  *             .method("POST")
- *             .headers("{\"contentType\":\"application/json\"}")
- *             .body("{\"params\":\"value\"}")
+ *             .headers("}{&#92;{@code "contentType}&#92;{@code ":}&#92;{@code "application/json}&#92;{@code "}}{@code ")
+ *             .body("}{&#92;{@code "params}&#92;{@code ":}&#92;{@code "value}&#92;{@code "}}{@code ")
  *             .completionEvent("ApiResponse")
  *             .successCriteria("eq(root['status'], '200')")
  *             .urlSuffix("user/1")
@@ -98,8 +98,8 @@ import javax.annotation.Nullable;
  *             .timeout(40000)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

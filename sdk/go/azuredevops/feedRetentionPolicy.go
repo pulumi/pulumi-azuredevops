@@ -188,6 +188,12 @@ func (FeedRetentionPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*feedRetentionPolicyState)(nil)).Elem()
 }
 
+// FeedRetentionPolicyExists checks whether an existing FeedRetentionPolicy resource with the given ID exists.
+func FeedRetentionPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeedRetentionPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/feedRetentionPolicy:FeedRetentionPolicy", id, state, "", opts...)
+}
+
 type feedRetentionPolicyArgs struct {
 	// The maximum number of versions per package.
 	CountLimit int `pulumi:"countLimit"`

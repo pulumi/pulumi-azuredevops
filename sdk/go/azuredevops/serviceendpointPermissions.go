@@ -213,6 +213,12 @@ func (ServiceendpointPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointPermissionsState)(nil)).Elem()
 }
 
+// ServiceendpointPermissionsExists checks whether an existing ServiceendpointPermissions resource with the given ID exists.
+func ServiceendpointPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions", id, state, "", opts...)
+}
+
 type serviceendpointPermissionsArgs struct {
 	// the permissions to assign. The following permissions are available.
 	//

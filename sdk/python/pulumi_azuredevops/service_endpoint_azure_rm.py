@@ -1109,6 +1109,48 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         __props__.__dict__["workload_identity_federation_subject"] = workload_identity_federation_subject
         return ServiceEndpointAzureRM(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            azurerm_management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            azurerm_management_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            azurerm_spn_tenantid: pulumi.Input[Optional[_builtins.str]] = None,
+            azurerm_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+            azurerm_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['ServiceEndpointAzureRMCredentialsArgs', 'ServiceEndpointAzureRMCredentialsArgsDict', 'outputs.ServiceEndpointAzureRMCredentials']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            environment: pulumi.Input[Optional[_builtins.str]] = None,
+            features: pulumi.Input[Optional[Union['ServiceEndpointAzureRMFeaturesArgs', 'ServiceEndpointAzureRMFeaturesArgsDict', 'outputs.ServiceEndpointAzureRMFeatures']]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+            server_url: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_authentication_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            workload_identity_federation_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            workload_identity_federation_subject: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorization"] = authorization
+        __props__["azurermManagementGroupId"] = azurerm_management_group_id
+        __props__["azurermManagementGroupName"] = azurerm_management_group_name
+        __props__["azurermSpnTenantid"] = azurerm_spn_tenantid
+        __props__["azurermSubscriptionId"] = azurerm_subscription_id
+        __props__["azurermSubscriptionName"] = azurerm_subscription_name
+        __props__["credentials"] = credentials
+        __props__["description"] = description
+        __props__["environment"] = environment
+        __props__["features"] = features
+        __props__["projectId"] = project_id
+        __props__["resourceGroup"] = resource_group
+        __props__["serverUrl"] = server_url
+        __props__["serviceEndpointAuthenticationScheme"] = service_endpoint_authentication_scheme
+        __props__["serviceEndpointName"] = service_endpoint_name
+        __props__["servicePrincipalId"] = service_principal_id
+        __props__["workloadIdentityFederationIssuer"] = workload_identity_federation_issuer
+        __props__["workloadIdentityFederationSubject"] = workload_identity_federation_subject
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authorization(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

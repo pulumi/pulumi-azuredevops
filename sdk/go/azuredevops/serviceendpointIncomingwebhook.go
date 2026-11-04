@@ -158,6 +158,12 @@ func (ServiceendpointIncomingwebhookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointIncomingwebhookState)(nil)).Elem()
 }
 
+// ServiceendpointIncomingwebhookExists checks whether an existing ServiceendpointIncomingwebhook resource with the given ID exists.
+func ServiceendpointIncomingwebhookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointIncomingwebhookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook", id, state, "", opts...)
+}
+
 type serviceendpointIncomingwebhookArgs struct {
 	// The Service Endpoint description. Defaults to Managed by Terraform.
 	Description *string `pulumi:"description"`

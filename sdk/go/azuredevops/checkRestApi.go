@@ -282,6 +282,12 @@ func (CheckRestApiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*checkRestApiState)(nil)).Elem()
 }
 
+// CheckRestApiExists checks whether an existing CheckRestApi resource with the given ID exists.
+func CheckRestApiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CheckRestApiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/checkRestApi:CheckRestApi", id, state, "", opts...)
+}
+
 type checkRestApiArgs struct {
 	// The Rest API request body.
 	Body *string `pulumi:"body"`

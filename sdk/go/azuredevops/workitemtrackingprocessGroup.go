@@ -280,6 +280,12 @@ func (WorkitemtrackingprocessGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessGroupState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessGroupExists checks whether an existing WorkitemtrackingprocessGroup resource with the given ID exists.
+func WorkitemtrackingprocessGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessGroup:WorkitemtrackingprocessGroup", id, state, "", opts...)
+}
+
 type workitemtrackingprocessGroupArgs struct {
 	// Controls to be created with the group. Required for HTML controls which cannot be added to existing groups. This is mutally exclusive with 'azuredevops_workitemtrackingprocess_control' resources. A `control` block as defined below.
 	Controls []WorkitemtrackingprocessGroupControl `pulumi:"controls"`

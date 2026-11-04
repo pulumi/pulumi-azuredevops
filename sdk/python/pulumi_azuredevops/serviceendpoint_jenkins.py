@@ -461,6 +461,28 @@ class ServiceendpointJenkins(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return ServiceendpointJenkins(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptUntrustedCerts"] = accept_untrusted_certs
+        __props__["authorization"] = authorization
+        __props__["description"] = description
+        __props__["password"] = password
+        __props__["projectId"] = project_id
+        __props__["serviceEndpointName"] = service_endpoint_name
+        __props__["url"] = url
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptUntrustedCerts")
     def accept_untrusted_certs(self) -> pulumi.Output[Optional[_builtins.bool]]:

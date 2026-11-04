@@ -604,6 +604,26 @@ class WorkitemtrackingprocessRule(pulumi.CustomResource):
         __props__.__dict__["work_item_type_id"] = work_item_type_id
         return WorkitemtrackingprocessRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleActionArgs', 'WorkitemtrackingprocessRuleActionArgsDict', 'outputs.WorkitemtrackingprocessRuleAction']]]]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemtrackingprocessRuleConditionArgs', 'WorkitemtrackingprocessRuleConditionArgsDict', 'outputs.WorkitemtrackingprocessRuleCondition']]]]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            process_id: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            work_item_type_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["conditions"] = conditions
+        __props__["isEnabled"] = is_enabled
+        __props__["name"] = name
+        __props__["processId"] = process_id
+        __props__["url"] = url
+        __props__["workItemTypeId"] = work_item_type_id
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitemtrackingprocessRule:WorkitemtrackingprocessRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.WorkitemtrackingprocessRuleAction']]:

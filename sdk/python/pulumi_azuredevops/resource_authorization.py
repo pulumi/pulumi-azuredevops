@@ -366,6 +366,22 @@ class ResourceAuthorization(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ResourceAuthorization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorized: pulumi.Input[Optional[_builtins.bool]] = None,
+            definition_id: pulumi.Input[Optional[_builtins.int]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorized"] = authorized
+        __props__["definitionId"] = definition_id
+        __props__["projectId"] = project_id
+        __props__["resourceId"] = resource_id
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/resourceAuthorization:ResourceAuthorization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authorized(self) -> pulumi.Output[_builtins.bool]:

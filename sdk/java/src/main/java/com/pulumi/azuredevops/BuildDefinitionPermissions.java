@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Project("example", ProjectArgs.builder()
  *             .name("Example Project")
  *             .workItemTemplate("Agile")
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *         var exampleBuildDefinition = new BuildDefinition("exampleBuildDefinition", BuildDefinitionArgs.builder()
  *             .projectId(example.id())
  *             .name("Example Build Definition")
- *             .path("\\ExampleFolder")
+ *             .path("}&#92;&#92;{@code ExampleFolder")
  *             .ciTrigger(BuildDefinitionCiTriggerArgs.builder()
  *                 .useYaml(true)
  *                 .build())
@@ -104,8 +104,8 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

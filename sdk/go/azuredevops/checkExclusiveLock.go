@@ -247,6 +247,12 @@ func (CheckExclusiveLockState) ElementType() reflect.Type {
 	return reflect.TypeOf((*checkExclusiveLockState)(nil)).Elem()
 }
 
+// CheckExclusiveLockExists checks whether an existing CheckExclusiveLock resource with the given ID exists.
+func CheckExclusiveLockExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CheckExclusiveLockState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/checkExclusiveLock:CheckExclusiveLock", id, state, "", opts...)
+}
+
 type checkExclusiveLockArgs struct {
 	// The project ID. Changing this forces a new Exclusive Lock Check to be created.
 	ProjectId string `pulumi:"projectId"`

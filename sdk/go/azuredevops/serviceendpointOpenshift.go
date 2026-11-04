@@ -255,6 +255,12 @@ func (ServiceendpointOpenshiftState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointOpenshiftState)(nil)).Elem()
 }
 
+// ServiceendpointOpenshiftExists checks whether an existing ServiceendpointOpenshift resource with the given ID exists.
+func ServiceendpointOpenshiftExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointOpenshiftState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointOpenshift:ServiceendpointOpenshift", id, state, "", opts...)
+}
+
 type serviceendpointOpenshiftArgs struct {
 	// Set this option to allow clients to accept a self-signed certificate. Available when using `authBasic` or `authToken` authorization.
 	AcceptUntrustedCerts *bool `pulumi:"acceptUntrustedCerts"`

@@ -207,6 +207,12 @@ func (ServiceendpointArgocdState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceendpointArgocdState)(nil)).Elem()
 }
 
+// ServiceendpointArgocdExists checks whether an existing ServiceendpointArgocd resource with the given ID exists.
+func ServiceendpointArgocdExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceendpointArgocdState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd", id, state, "", opts...)
+}
+
 type serviceendpointArgocdArgs struct {
 	// An `authenticationBasic` block for the ArgoCD as documented below.
 	//

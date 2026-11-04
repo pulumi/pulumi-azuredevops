@@ -171,6 +171,12 @@ func (SecurityroleAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityroleAssignmentState)(nil)).Elem()
 }
 
+// SecurityroleAssignmentExists checks whether an existing SecurityroleAssignment resource with the given ID exists.
+func SecurityroleAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityroleAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/securityroleAssignment:SecurityroleAssignment", id, state, "", opts...)
+}
+
 type securityroleAssignmentArgs struct {
 	// The internal identity ID (storage key) of the identity to authorize.
 	IdentityId string `pulumi:"identityId"`

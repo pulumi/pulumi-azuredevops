@@ -798,6 +798,38 @@ class Workitem(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Workitem(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_fields_json: pulumi.Input[Optional[_builtins.str]] = None,
+            area_path: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            iteration_path: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_id: pulumi.Input[Optional[_builtins.int]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            relations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkitemRelationArgs', 'WorkitemRelationArgsDict', 'outputs.WorkitemRelation']]]]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["additionalFieldsJson"] = additional_fields_json
+        __props__["areaPath"] = area_path
+        __props__["customFields"] = custom_fields
+        __props__["description"] = description
+        __props__["iterationPath"] = iteration_path
+        __props__["parentId"] = parent_id
+        __props__["projectId"] = project_id
+        __props__["relations"] = relations
+        __props__["state"] = state
+        __props__["tags"] = tags
+        __props__["title"] = title
+        __props__["type"] = type
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/workitem:Workitem', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="additionalFieldsJson")
     def additional_fields_json(self) -> pulumi.Output[Optional[_builtins.str]]:

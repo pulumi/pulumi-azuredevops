@@ -289,6 +289,12 @@ func (ServiceEndpointAzureEcrState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointAzureEcrState)(nil)).Elem()
 }
 
+// ServiceEndpointAzureEcrExists checks whether an existing ServiceEndpointAzureEcr resource with the given ID exists.
+func ServiceEndpointAzureEcrExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEndpointAzureEcrState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr", id, state, "", opts...)
+}
+
 type serviceEndpointAzureEcrArgs struct {
 	// The Azure container registry name.
 	AzurecrName *string `pulumi:"azurecrName"`

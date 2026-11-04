@@ -269,11 +269,10 @@ public class Workitem extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list with Custom Fields for the Work Item.
      * 
-     * @deprecated
-     * This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
+     * @deprecated This property is deprecated and will be removed in a future release. Please use &#34;additionalFieldsJson&#34; argument instead.
      * 
      */
-    @Deprecated /* This property is deprecated and will be removed in a future release. Please use ""additionalFieldsJson"" argument instead. */
+    @Deprecated
     @Export(name="customFields", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> customFields;
 

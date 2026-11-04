@@ -386,6 +386,24 @@ class ServiceendpointAzureServiceBus(pulumi.CustomResource):
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         return ServiceendpointAzureServiceBus(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authorization"] = authorization
+        __props__["connectionString"] = connection_string
+        __props__["description"] = description
+        __props__["projectId"] = project_id
+        __props__["queueName"] = queue_name
+        __props__["serviceEndpointName"] = service_endpoint_name
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceendpointAzureServiceBus:ServiceendpointAzureServiceBus', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authorization(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

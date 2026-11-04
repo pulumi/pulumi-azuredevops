@@ -355,6 +355,12 @@ func (WorkitemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemState)(nil)).Elem()
 }
 
+// WorkitemExists checks whether an existing Workitem resource with the given ID exists.
+func WorkitemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitem:Workitem", id, state, "", opts...)
+}
+
 type workitemArgs struct {
 	// A JSON-formatted string of extra fields. **Note**: Removing this attribute from your configuration will not clear existing fields in the API. To remove all fields, set this value to an empty JSON string (`"{}"`).
 	AdditionalFieldsJson *string `pulumi:"additionalFieldsJson"`

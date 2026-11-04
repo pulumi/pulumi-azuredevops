@@ -248,6 +248,12 @@ func (BuildDefinitionPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*buildDefinitionPermissionsState)(nil)).Elem()
 }
 
+// BuildDefinitionPermissionsExists checks whether an existing BuildDefinitionPermissions resource with the given ID exists.
+func BuildDefinitionPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BuildDefinitionPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions", id, state, "", opts...)
+}
+
 type buildDefinitionPermissionsArgs struct {
 	// The id of the build definition to assign the permissions.
 	BuildDefinitionId string `pulumi:"buildDefinitionId"`

@@ -208,6 +208,12 @@ func (RepositoryPolicyAuthorEmailPatternState) ElementType() reflect.Type {
 	return reflect.TypeOf((*repositoryPolicyAuthorEmailPatternState)(nil)).Elem()
 }
 
+// RepositoryPolicyAuthorEmailPatternExists checks whether an existing RepositoryPolicyAuthorEmailPattern resource with the given ID exists.
+func RepositoryPolicyAuthorEmailPatternExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RepositoryPolicyAuthorEmailPatternState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern", id, state, "", opts...)
+}
+
 type repositoryPolicyAuthorEmailPatternArgs struct {
 	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
 	//

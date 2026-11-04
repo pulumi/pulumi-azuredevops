@@ -626,6 +626,32 @@ class ServiceendpointOpenshift(pulumi.CustomResource):
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         return ServiceendpointOpenshift(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_untrusted_certs: pulumi.Input[Optional[_builtins.bool]] = None,
+            auth_basic: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthBasicArgs', 'ServiceendpointOpenshiftAuthBasicArgsDict', 'outputs.ServiceendpointOpenshiftAuthBasic']]] = None,
+            auth_none: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthNoneArgs', 'ServiceendpointOpenshiftAuthNoneArgsDict', 'outputs.ServiceendpointOpenshiftAuthNone']]] = None,
+            auth_token: pulumi.Input[Optional[Union['ServiceendpointOpenshiftAuthTokenArgs', 'ServiceendpointOpenshiftAuthTokenArgsDict', 'outputs.ServiceendpointOpenshiftAuthToken']]] = None,
+            authorization: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            certificate_authority_file: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            server_url: pulumi.Input[Optional[_builtins.str]] = None,
+            service_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptUntrustedCerts"] = accept_untrusted_certs
+        __props__["authBasic"] = auth_basic
+        __props__["authNone"] = auth_none
+        __props__["authToken"] = auth_token
+        __props__["authorization"] = authorization
+        __props__["certificateAuthorityFile"] = certificate_authority_file
+        __props__["description"] = description
+        __props__["projectId"] = project_id
+        __props__["serverUrl"] = server_url
+        __props__["serviceEndpointName"] = service_endpoint_name
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/serviceendpointOpenshift:ServiceendpointOpenshift', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptUntrustedCerts")
     def accept_untrusted_certs(self) -> pulumi.Output[Optional[_builtins.bool]]:

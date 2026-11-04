@@ -156,6 +156,12 @@ func (WorkitemtrackingprocessPageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workitemtrackingprocessPageState)(nil)).Elem()
 }
 
+// WorkitemtrackingprocessPageExists checks whether an existing WorkitemtrackingprocessPage resource with the given ID exists.
+func WorkitemtrackingprocessPageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkitemtrackingprocessPageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/workitemtrackingprocessPage:WorkitemtrackingprocessPage", id, state, "", opts...)
+}
+
 type workitemtrackingprocessPageArgs struct {
 	// The label for the page.
 	Label string `pulumi:"label"`

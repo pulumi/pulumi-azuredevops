@@ -66,11 +66,10 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
      * 
      * &gt; **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
      * 
-     * @deprecated
-     * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+     * @deprecated Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
      */
-    @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+    @Deprecated
     @Import(name="password")
     private @Nullable Output<String> password;
 
@@ -79,11 +78,10 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
      * 
      * &gt; **NOTE:** Exactly one authentication method must be configured. Provide either `email` + `apiToken` (recommended) or `username` + `password` (deprecated).
      * 
-     * @deprecated
-     * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+     * @deprecated Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
      */
-    @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+    @Deprecated
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
@@ -121,22 +119,20 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
     /**
      * Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
-     * @deprecated
-     * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+     * @deprecated Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
      */
-    @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+    @Deprecated
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
      * @return Bitbucket account username. Used together with `password` to authenticate using an app password. **Deprecated**: Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
-     * @deprecated
-     * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+     * @deprecated Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
      * 
      */
-    @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+    @Deprecated
     public Optional<Output<String>> username() {
         return Optional.ofNullable(this.username);
     }
@@ -241,11 +237,10 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+         * @deprecated Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
          * 
          */
-        @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+        @Deprecated
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
@@ -258,11 +253,10 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+         * @deprecated Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
          * 
          */
-        @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+        @Deprecated
         public Builder password(String password) {
             return password(Output.of(password));
         }
@@ -314,11 +308,10 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+         * @deprecated Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
          * 
          */
-        @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+        @Deprecated
         public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
@@ -329,11 +322,10 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
+         * @deprecated Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead.
          * 
          */
-        @Deprecated /* Bitbucket Cloud has deprecated app password (username and password) authentication. Use `email` and `apiToken` instead. */
+        @Deprecated
         public Builder username(String username) {
             return username(Output.of(username));
         }

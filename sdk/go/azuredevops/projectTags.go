@@ -127,6 +127,12 @@ func (ProjectTagsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectTagsState)(nil)).Elem()
 }
 
+// ProjectTagsExists checks whether an existing ProjectTags resource with the given ID exists.
+func ProjectTagsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProjectTagsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/projectTags:ProjectTags", id, state, "", opts...)
+}
+
 type projectTagsArgs struct {
 	// The ID of the Project. Changing this forces a new resource to be created.
 	ProjectId string `pulumi:"projectId"`

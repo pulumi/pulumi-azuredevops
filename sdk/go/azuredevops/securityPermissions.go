@@ -328,6 +328,12 @@ func (SecurityPermissionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityPermissionsState)(nil)).Elem()
 }
 
+// SecurityPermissionsExists checks whether an existing SecurityPermissions resource with the given ID exists.
+func SecurityPermissionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityPermissionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("azuredevops:index/securityPermissions:SecurityPermissions", id, state, "", opts...)
+}
+
 type securityPermissionsArgs struct {
 	// The ID of the security namespace. Use the `getSecurityNamespaces` data source to discover available namespaces. Changing this forces a new resource to be created.
 	NamespaceId string `pulumi:"namespaceId"`

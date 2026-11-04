@@ -433,6 +433,22 @@ class CheckExclusiveLock(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return CheckExclusiveLock(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["projectId"] = project_id
+        __props__["targetResourceId"] = target_resource_id
+        __props__["targetResourceType"] = target_resource_type
+        __props__["timeout"] = timeout
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'azuredevops:index/checkExclusiveLock:CheckExclusiveLock', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[_builtins.str]:
